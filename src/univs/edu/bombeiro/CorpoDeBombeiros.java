@@ -13,7 +13,7 @@ public class CorpoDeBombeiros {
     @GeneratedValue
     private int idBombeiro;
     
-    @Column(length = 10, nullable = false)
+    @Column(length = 10, nullable = false, unique = true)
     private String companhiaBatalhao;
     
     @Column(length = 100, nullable = false)

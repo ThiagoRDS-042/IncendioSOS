@@ -13,7 +13,7 @@ public class Ibama {
     @GeneratedValue
     private int idIbama;
     
-    @Column(length = 18, nullable = false)
+    @Column(length = 18, nullable = false, unique = true)
     private String cnpj;
     
     @Column(length = 100, nullable = false)

@@ -5,8 +5,11 @@
  */
 package univs.edu.telas.usuario;
 
+import java.awt.event.ItemListener;
 import java.sql.Date;
+import java.util.List;
 import javax.swing.JOptionPane;
+import univs.edu.bombeiro.CorpoDeBombeiros;
 import univs.edu.dao.GenericDAO;
 import univs.edu.notificacao.Notificacao;
 import univs.edu.usuario.Usuario;
@@ -16,7 +19,8 @@ import univs.edu.usuario.Usuario;
  * @author GGrio
  */
 public class Notificar extends javax.swing.JFrame {
-    
+
+    CorpoDeBombeiros bombeiro = new CorpoDeBombeiros();
     Notificacao not = new Notificacao();
     GenericDAO dao = new GenericDAO();
     Date data = new Date(System.currentTimeMillis());
@@ -26,16 +30,24 @@ public class Notificar extends javax.swing.JFrame {
      */
     public Notificar() {
         initComponents();
+        addItem();
+    }
+
+    public void addItem() {
         jTipos.removeAllItems();
         jTipos.addItem("Florestal");
         jTipos.addItem("Residencial");
         jTipos.addItem("Automoveis");
         jTipos.addItem("Usinas");
-        
-        //.getSelectedItem().toString();
+        jCorposDeBombeiros.removeAllItems();
+        List<CorpoDeBombeiros> bombeiros = dao.listarObjetos("Bombeiro");
+        for (CorpoDeBombeiros bombeiro : bombeiros) {
+            jCorposDeBombeiros.addItem(bombeiro.getCompanhiaBatalhao());
+        }
+
     }
-    
-    public void limparCampos(){
+
+    public void limparCampos() {
         tfAbrangencia.setText("");
         tfCidade.setText("");
         tfComplemento.setText("");
@@ -70,6 +82,8 @@ public class Notificar extends javax.swing.JFrame {
         tfDescricao = new javax.swing.JTextPane();
         btnEvnviar = new javax.swing.JButton();
         jTipos = new javax.swing.JComboBox<>();
+        jCorposDeBombeiros = new javax.swing.JComboBox<>();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -108,6 +122,11 @@ public class Notificar extends javax.swing.JFrame {
 
         jTipos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        jCorposDeBombeiros.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel10.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jLabel10.setText("Corpo de Bombeiros:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -120,44 +139,46 @@ public class Notificar extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jScrollPane1)
                             .addComponent(tfDuracao, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(jTipos, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(119, 119, 119))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jCorposDeBombeiros, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addContainerGap())
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(87, 87, 87)
+                                .addGap(78, 78, 78)
                                 .addComponent(btnEvnviar)
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(tfCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel4))
-                                .addGap(28, 28, 28)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tfRua, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel7))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(tfComplemento, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(tfAbrangencia, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 9, Short.MAX_VALUE))))
+                                .addGap(18, 18, 18)
+                                .addComponent(tfAbrangencia))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel2)
+                                        .addComponent(tfCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel4))
+                                    .addGap(18, 18, 18)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel7)
+                                        .addComponent(tfRua, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel3)))
+                                .addComponent(jLabel8)
+                                .addComponent(jLabel9)))
+                        .addContainerGap(19, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,19 +204,21 @@ public class Notificar extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jLabel6))
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel10))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tfDuracao, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTipos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel9)
+                    .addComponent(jTipos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCorposDeBombeiros, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
+                        .addGap(52, 52, 52)
                         .addComponent(btnEvnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
@@ -205,14 +228,16 @@ public class Notificar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEvnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEvnviarActionPerformed
-        if(tfCidade.getText().isEmpty() || tfRua.getText().isEmpty() || tfComplemento.getText().isEmpty() || tfDuracao.getText().isEmpty() || tfAbrangencia.getText().isEmpty() || tfDescricao.getText().isEmpty()){
+        if (tfCidade.getText().isEmpty() || tfRua.getText().isEmpty() || tfComplemento.getText().isEmpty() || tfDuracao.getText().isEmpty() || tfAbrangencia.getText().isEmpty() || tfDescricao.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Preencha todos os Campos !");
-        }else{
+        } else {
+            bombeiro = (CorpoDeBombeiros) dao.pesquisarIdentificacao(jCorposDeBombeiros.getSelectedItem().toString());
+            
             not.setCidade(tfCidade.getText());
             not.setRua(tfRua.getText());
             not.setAbrangencia(tfAbrangencia.getText());
             not.setDescricao(tfDescricao.getText());
-            not.setIdCorpoDeBombeiros(2);
+            not.setIdCorpoDeBombeiros(bombeiro.getIdBombeiro());
             not.setIdUsuario(Usuario.usuario.getIdUsuario());
             not.setTipo(jTipos.getSelectedItem().toString());
             not.setDuracao(tfDuracao.getText());
@@ -263,7 +288,9 @@ public class Notificar extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEvnviar;
+    private javax.swing.JComboBox<String> jCorposDeBombeiros;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

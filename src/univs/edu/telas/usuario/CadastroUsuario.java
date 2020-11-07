@@ -8,6 +8,7 @@ package univs.edu.telas.usuario;
 import javax.swing.JOptionPane;
 import univs.edu.criptografia.Criptografia;
 import univs.edu.dao.GenericDAO;
+import univs.edu.ibama.Ibama;
 import univs.edu.usuario.Usuario;
 
 /**
@@ -111,6 +112,12 @@ public class CadastroUsuario extends javax.swing.JFrame {
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jLabel9.setText("Telefone:");
+
+        tfCpf.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                tfCpfFocusLost(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -234,6 +241,14 @@ public class CadastroUsuario extends javax.swing.JFrame {
             tfEmail.grabFocus();
         }
     }//GEN-LAST:event_tfEmailFocusLost
+
+    private void tfCpfFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfCpfFocusLost
+        if (dao.pesquisarIdentificacao(tfCpf.getText()) instanceof Usuario) {
+            JOptionPane.showMessageDialog(null, "CPF já Cadastrado!");
+            tfCpf.setText("");
+            tfCpf.grabFocus();
+        }
+    }//GEN-LAST:event_tfCpfFocusLost
 
     /**
      * @param args the command line arguments

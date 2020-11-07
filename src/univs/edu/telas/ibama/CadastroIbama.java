@@ -6,6 +6,7 @@
 package univs.edu.telas.ibama;
 
 import javax.swing.JOptionPane;
+import univs.edu.bombeiro.CorpoDeBombeiros;
 import univs.edu.criptografia.Criptografia;
 import univs.edu.dao.GenericDAO;
 import univs.edu.ibama.Ibama;
@@ -269,7 +270,11 @@ public class CadastroIbama extends javax.swing.JFrame {
     }//GEN-LAST:event_tfResponsavelFocusLost
 
     private void tfCnpjFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfCnpjFocusLost
-        // TODO add your handling code here:
+        if (dao.pesquisarIdentificacao(tfCnpj.getText()) instanceof Ibama) {
+            JOptionPane.showMessageDialog(null, "CNPJ já Cadastrado!");
+            tfCnpj.setText("");
+            tfCnpj.grabFocus();
+        }
     }//GEN-LAST:event_tfCnpjFocusLost
 
     private void tfEstadoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfEstadoFocusLost

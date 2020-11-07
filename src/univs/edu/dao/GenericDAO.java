@@ -86,6 +86,24 @@ public class GenericDAO<T> {
         sessao.close();
         return generica;
     }
+    
+    public <T> T pesquisarIdentificacao(String identidicacao) {
+        criarSessao();
+
+        T generica = null;
+        if (sessao.createCriteria(Usuario.class).add(Restrictions.eq("cpfUsuario", identidicacao)).uniqueResult() != null) {
+            Usuario usuario = (Usuario) sessao.createCriteria(Usuario.class).add(Restrictions.eq("cpfUsuario", identidicacao)).uniqueResult();
+            generica = (T) usuario;
+        } else if (sessao.createCriteria(CorpoDeBombeiros.class).add(Restrictions.eq("companhiaBatalhao", identidicacao)).uniqueResult() != null) {
+            CorpoDeBombeiros bombeiro = (CorpoDeBombeiros) sessao.createCriteria(CorpoDeBombeiros.class).add(Restrictions.eq("companhiaBatalhao", identidicacao)).uniqueResult();
+            generica = (T) bombeiro;
+        } else if (sessao.createCriteria(Ibama.class).add(Restrictions.eq("cnpj", identidicacao)).uniqueResult() != null) {
+            Ibama ibama = (Ibama) sessao.createCriteria(Ibama.class).add(Restrictions.eq("cnpj", identidicacao)).uniqueResult();
+            generica = (T) ibama;
+        }
+        sessao.close();
+        return generica;
+    }
 
     public <T> T pesquisarId(String id) {
         criarSessao();

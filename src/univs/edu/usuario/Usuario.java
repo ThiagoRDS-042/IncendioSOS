@@ -16,7 +16,7 @@ public class Usuario {
     @Column(length = 100, nullable = false)
     private String nomeUsuario;
     
-    @Column(length = 14, nullable = false)
+    @Column(length = 14, nullable = false, unique = true)
     private String cpfUsuario;
     
     @Column(length = 20, nullable = false)
