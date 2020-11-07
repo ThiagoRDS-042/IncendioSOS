@@ -6,7 +6,9 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 import univs.edu.bombeiro.CorpoDeBombeiros;
+import univs.edu.denuncia.Denuncia;
 import univs.edu.ibama.Ibama;
+import univs.edu.notificacao.Notificacao;
 import univs.edu.usuario.Usuario;
 import univs.edu.util.HibernateUtil;
 
@@ -49,6 +51,11 @@ public class GenericDAO<T> {
                 sessao.update(ibama);
                 JOptionPane.showMessageDialog(null, "Editado com Sucesso!");
             }
+        } else if (generico instanceof Notificacao) {
+            Notificacao notificacao = (Notificacao) generico;
+            sessao.save(notificacao);
+            JOptionPane.showMessageDialog(null, "Notificação Enviada Com Sucesso!");
+
         }
         transacao.commit();
         sessao.close();

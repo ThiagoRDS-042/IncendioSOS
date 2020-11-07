@@ -22,7 +22,7 @@ public class Notificacao {
     private String cidade;
     
     @Column(length = 100, nullable = false)
-    private String estado;
+    private String Complemento;
     
     @Column(length = 100, nullable = false)
     private String rua;
@@ -66,13 +66,13 @@ public class Notificacao {
     public void setCidade(String cidade) {
         this.cidade = cidade;
     }
-
-    public String getEstado() {
-        return estado;
+    
+    public String getComplemento() {
+        return Complemento;
     }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
+    public void setComplemento(String complemento) {
+        this.Complemento = complemento;
     }
 
     public String getRua() {
