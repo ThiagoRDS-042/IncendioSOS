@@ -1,5 +1,6 @@
 package univs.edu.dao;
 
+import java.sql.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
 import org.hibernate.Session;
@@ -117,6 +118,21 @@ public class GenericDAO<T> {
         } else if (sessao.createCriteria(Ibama.class).add(Restrictions.eq("emailIbama", email)).add(Restrictions.eq("senhaIbama", senha)).uniqueResult() != null) {
             Ibama ibama = (Ibama) sessao.createCriteria(Ibama.class).add(Restrictions.eq("emailIbama", email)).add(Restrictions.eq("senhaIbama", senha)).uniqueResult();
             generica = (T) ibama;
+        }
+        sessao.close();
+        return generica;
+    }
+    
+    public List<T> PesquisarNotDen(int idUsuario, Date dataHoje) {
+        criarSessao();
+
+        List<T> generica = null;
+        if (sessao.createCriteria(Notificacao.class).add(Restrictions.eq("idUsuario", idUsuario)).add(Restrictions.eq("dataHoje", dataHoje)).list() != null) {
+            List<Notificacao> notificacoes = (List<Notificacao>) sessao.createCriteria(Notificacao.class).add(Restrictions.eq("idUsuario", idUsuario)).add(Restrictions.eq("dataHoje", dataHoje)).list();
+            generica = (List<T>) notificacoes;
+        } else if (sessao.createCriteria(Denuncia.class).add(Restrictions.eq("idUsuario", idUsuario)).add(Restrictions.eq("dataHoje", dataHoje)).list() != null) {
+            List<Denuncia> denuncias = (List<Denuncia>) sessao.createCriteria(CorpoDeBombeiros.class).add(Restrictions.eq("idUsuario", idUsuario)).add(Restrictions.eq("dataHoje", dataHoje)).list();
+            generica = (List<T>) denuncias;
         }
         sessao.close();
         return generica;

@@ -5,6 +5,7 @@
  */
 package univs.edu.telas.usuario;
 
+import java.sql.Date;
 import javax.swing.JOptionPane;
 import univs.edu.dao.GenericDAO;
 import univs.edu.notificacao.Notificacao;
@@ -18,6 +19,7 @@ public class Notificar extends javax.swing.JFrame {
     
     Notificacao not = new Notificacao();
     GenericDAO dao = new GenericDAO();
+    Date data = new Date(System.currentTimeMillis());
 
     /**
      * Creates new form Notificar
@@ -214,9 +216,13 @@ public class Notificar extends javax.swing.JFrame {
             not.setIdUsuario(Usuario.usuario.getIdUsuario());
             not.setTipo(jTipos.getSelectedItem().toString());
             not.setDuracao(tfDuracao.getText());
+            not.setDataHoje(data);
             not.setComplemento(tfComplemento.getText());
             dao.salvar(not);
             limparCampos();
+            HomePageUsuario home = new HomePageUsuario();
+            home.setVisible(true);
+            dispose();
         }
     }//GEN-LAST:event_btnEvnviarActionPerformed
 

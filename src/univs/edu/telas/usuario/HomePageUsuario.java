@@ -5,6 +5,10 @@
  */
 package univs.edu.telas.usuario;
 
+import java.sql.Date;
+import javax.swing.JOptionPane;
+import univs.edu.bombeiro.CorpoDeBombeiros;
+import univs.edu.dao.GenericDAO;
 import univs.edu.telas.login.GenericLogin;
 import univs.edu.usuario.Usuario;
 
@@ -13,6 +17,11 @@ import univs.edu.usuario.Usuario;
  * @author GGrio
  */
 public class HomePageUsuario extends javax.swing.JFrame {
+
+    GenericDAO dao = new GenericDAO();
+    Usuario usuario = new Usuario();
+    CorpoDeBombeiros bombeiro = new CorpoDeBombeiros();
+    Date data = new Date(System.currentTimeMillis());
 
     /**
      * Creates new form HomePageUsuario
@@ -107,9 +116,14 @@ public class HomePageUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSairActionPerformed
 
     private void bntNotificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntNotificarActionPerformed
-        Notificar not = new Notificar();
-        not.setVisible(true);
-        dispose();
+        if (dao.PesquisarNotDen(Usuario.usuario.getIdUsuario(), data).size() == 3) {
+            JOptionPane.showMessageDialog(null, "Limite de Notificações Diarias Atingido!");
+            System.out.println(dao.PesquisarNotDen(Usuario.usuario.getIdUsuario(), data).size());
+        } else {
+            Notificar not = new Notificar();
+            not.setVisible(true);
+            dispose();
+        }
     }//GEN-LAST:event_bntNotificarActionPerformed
 
     private void btnDenunciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDenunciarActionPerformed

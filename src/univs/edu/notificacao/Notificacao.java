@@ -1,5 +1,6 @@
 package univs.edu.notificacao;
 
+import java.sql.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,6 +18,9 @@ public class Notificacao {
     
     @Column(nullable = false)
     private int idCorpoDeBombeiros;
+    
+    @Column(length = 10, nullable = false)
+    private Date dataHoje;
 
     @Column(length = 100, nullable = false)
     private String cidade;
@@ -57,6 +61,14 @@ public class Notificacao {
 
     public void setIdCorpoDeBombeiros(int idCorpoDeBombeiros) {
         this.idCorpoDeBombeiros = idCorpoDeBombeiros;
+    }
+    
+    public Date getDataHoje() {
+        return dataHoje;
+    }
+
+    public void setDataHoje(Date dataHoje) {
+        this.dataHoje = dataHoje;
     }
 
     public String getCidade() {
