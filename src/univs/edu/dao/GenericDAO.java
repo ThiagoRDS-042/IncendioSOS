@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
-import univs.edu.bombeiro.Bombeiro;
+import univs.edu.bombeiro.CorpoDeBombeiros;
 import univs.edu.ibama.Ibama;
 import univs.edu.usuario.Usuario;
 import univs.edu.util.HibernateUtil;
@@ -31,8 +31,8 @@ public class GenericDAO<T> {
                 sessao.update(usuario);
                 JOptionPane.showMessageDialog(null, "Editado com Sucesso!");
             }
-        } else if (generico instanceof Bombeiro) {
-            Bombeiro bombeiro = (Bombeiro) generico;
+        } else if (generico instanceof CorpoDeBombeiros) {
+            CorpoDeBombeiros bombeiro = (CorpoDeBombeiros) generico;
             if (bombeiro.getIdBombeiro() == 0) {
                 sessao.save(bombeiro);
                 JOptionPane.showMessageDialog(null, "Cadastrado Concluído!");
@@ -63,13 +63,13 @@ public class GenericDAO<T> {
 
     public <T> T pesquisarEmail(String email) {
         criarSessao();
-        Usuario usuario = (Usuario) sessao.createCriteria(Usuario.class).add(Restrictions.eq("emailUsuario", email)).uniqueResult();
 
         T generica = null;
-        if (usuario != null) {
+        if (sessao.createCriteria(Usuario.class).add(Restrictions.eq("emailUsuario", email)).uniqueResult() != null) {
+            Usuario usuario = (Usuario) sessao.createCriteria(Usuario.class).add(Restrictions.eq("emailUsuario", email)).uniqueResult();
             generica = (T) usuario;
-        } else if (sessao.createCriteria(Bombeiro.class).add(Restrictions.eq("emailBombeiro", email)).uniqueResult() != null) {
-            Bombeiro bombeiro = (Bombeiro) sessao.createCriteria(Bombeiro.class).add(Restrictions.eq("emailBombeiro", email)).uniqueResult();
+        } else if (sessao.createCriteria(CorpoDeBombeiros.class).add(Restrictions.eq("emailBombeiro", email)).uniqueResult() != null) {
+            CorpoDeBombeiros bombeiro = (CorpoDeBombeiros) sessao.createCriteria(CorpoDeBombeiros.class).add(Restrictions.eq("emailBombeiro", email)).uniqueResult();
             generica = (T) bombeiro;
         } else if (sessao.createCriteria(Ibama.class).add(Restrictions.eq("emailIbama", email)).uniqueResult() != null) {
             Ibama ibama = (Ibama) sessao.createCriteria(Ibama.class).add(Restrictions.eq("emailIbama", email)).uniqueResult();
@@ -81,13 +81,13 @@ public class GenericDAO<T> {
 
     public <T> T pesquisarId(String id) {
         criarSessao();
-        Usuario usuario = (Usuario) sessao.createCriteria(Usuario.class).add(Restrictions.eq("idUsuario", id)).uniqueResult();
 
         T generica = null;
-        if (usuario != null) {
+        if (sessao.createCriteria(Usuario.class).add(Restrictions.eq("idUsuario", id)).uniqueResult() != null) {
+            Usuario usuario = (Usuario) sessao.createCriteria(Usuario.class).add(Restrictions.eq("idUsuario", id)).uniqueResult();
             generica = (T) usuario;
-        } else if (sessao.createCriteria(Bombeiro.class).add(Restrictions.eq("idBombeiro", id)).uniqueResult() != null) {
-            Bombeiro bombeiro = (Bombeiro) sessao.createCriteria(Bombeiro.class).add(Restrictions.eq("idBombeiro", id)).uniqueResult();
+        } else if (sessao.createCriteria(CorpoDeBombeiros.class).add(Restrictions.eq("idBombeiro", id)).uniqueResult() != null) {
+            CorpoDeBombeiros bombeiro = (CorpoDeBombeiros) sessao.createCriteria(CorpoDeBombeiros.class).add(Restrictions.eq("idBombeiro", id)).uniqueResult();
             generica = (T) bombeiro;
         } else if (sessao.createCriteria(Ibama.class).add(Restrictions.eq("idIbama", id)).uniqueResult() != null) {
             Ibama ibama = (Ibama) sessao.createCriteria(Ibama.class).add(Restrictions.eq("idIbama", id)).uniqueResult();
@@ -104,8 +104,8 @@ public class GenericDAO<T> {
         if (sessao.createCriteria(Usuario.class).add(Restrictions.eq("emailUsuario", email)).add(Restrictions.eq("senhaUsuario", senha)).uniqueResult() != null) {
             Usuario usuario = (Usuario) sessao.createCriteria(Usuario.class).add(Restrictions.eq("emailUsuario", email)).add(Restrictions.eq("senhaUsuario", senha)).uniqueResult();
             generica = (T) usuario;
-        } else if (sessao.createCriteria(Bombeiro.class).add(Restrictions.eq("emailBombeiro", email)).add(Restrictions.eq("senhaBombeiro", senha)).uniqueResult() != null) {
-            Bombeiro bombeiro = (Bombeiro) sessao.createCriteria(Bombeiro.class).add(Restrictions.eq("emailBombeiro", email)).add(Restrictions.eq("senhaBombeiro", senha)).uniqueResult();
+        } else if (sessao.createCriteria(CorpoDeBombeiros.class).add(Restrictions.eq("emailBombeiro", email)).add(Restrictions.eq("senhaBombeiro", senha)).uniqueResult() != null) {
+            CorpoDeBombeiros bombeiro = (CorpoDeBombeiros) sessao.createCriteria(CorpoDeBombeiros.class).add(Restrictions.eq("emailBombeiro", email)).add(Restrictions.eq("senhaBombeiro", senha)).uniqueResult();
             generica = (T) bombeiro;
         } else if (sessao.createCriteria(Ibama.class).add(Restrictions.eq("emailIbama", email)).add(Restrictions.eq("senhaIbama", senha)).uniqueResult() != null) {
             Ibama ibama = (Ibama) sessao.createCriteria(Ibama.class).add(Restrictions.eq("emailIbama", email)).add(Restrictions.eq("senhaIbama", senha)).uniqueResult();
@@ -116,16 +116,16 @@ public class GenericDAO<T> {
     }
 
     public List<T> listarObjetos(String tipo) {
-        criarSessao();       
+        criarSessao();
 
         List<T> generica = null;
         if (tipo.equalsIgnoreCase("Usuario")) {
             List<Usuario> usuarios = sessao.createCriteria(Usuario.class).list();
             generica = (List<T>) usuarios;
         } else if (tipo.equalsIgnoreCase("Bombeiro")) {
-            List<Bombeiro> bombeiros = sessao.createCriteria(Bombeiro.class).list();
+            List<CorpoDeBombeiros> bombeiros = sessao.createCriteria(CorpoDeBombeiros.class).list();
             generica = (List<T>) bombeiros;
-        }else if (tipo.equalsIgnoreCase("Ibama")) {
+        } else if (tipo.equalsIgnoreCase("Ibama")) {
             List<Ibama> ibama = sessao.createCriteria(Ibama.class).list();
             generica = (List<T>) ibama;
         }

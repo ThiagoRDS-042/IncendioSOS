@@ -16,7 +16,10 @@
         <property name="hibernate.hbm2ddl.auto">update</property>
         <mapping class="univs.edu.usuario.Usuario"/>
         <mapping class="univs.edu.ibama.Ibama"/>
-        <mapping class="univs.edu.bombeiro.Bombeiro"/>
+        <mapping class="univs.edu.bombeiro.CorpoDeBombeiros"/>
+        <mapping class="univs.edu.notificacao.Notificacao"/>
+        <mapping class="univs.edu.denuncia.Denuncia"/>
+
         
     </session-factory>
 </hibernate-configuration>
