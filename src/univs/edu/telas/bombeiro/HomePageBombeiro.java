@@ -5,17 +5,36 @@
  */
 package univs.edu.telas.bombeiro;
 
+import univs.edu.bombeiro.CorpoDeBombeiros;
+import univs.edu.dao.GenericDAO;
+import univs.edu.notificacao.NotificacaoTableModel;
+
 /**
  *
  * @author GGrio
  */
 public class HomePageBombeiro extends javax.swing.JFrame {
 
+    GenericDAO dao = new GenericDAO();
+
     /**
      * Creates new form HomePageBombeiro
      */
     public HomePageBombeiro() {
         initComponents();
+        jTeste.setText("Bem Vindo " + CorpoDeBombeiros.bombeiro.getCompanhiaBatalhao() + "!");
+
+        if (dao.listarObjetos("Notificação") != null) {
+            atualizarTabela();
+        } else {
+            TabelaNotificacao.setVisible(false);
+            jErro.setText("Sem Notificação :(");
+        }
+    }
+
+    public void atualizarTabela() {
+        NotificacaoTableModel tabela = new NotificacaoTableModel(dao.listarObjetos("Notificação"));
+        TabelaNotificacao.setModel(tabela);
     }
 
     /**
@@ -27,27 +46,56 @@ public class HomePageBombeiro extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jTeste = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TabelaNotificacao = new javax.swing.JTable();
+        jErro = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Bombeiro");
+        TabelaNotificacao.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(TabelaNotificacao);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(152, 152, 152)
-                .addComponent(jLabel1)
-                .addContainerGap(204, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(58, 58, 58)
+                                .addComponent(jTeste))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(184, 184, 184)
+                                .addComponent(jErro)))
+                        .addGap(0, 259, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(121, 121, 121)
-                .addComponent(jLabel1)
-                .addContainerGap(165, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jTeste)
+                .addGap(55, 55, 55)
+                .addComponent(jErro)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(106, Short.MAX_VALUE))
         );
 
         pack();
@@ -90,6 +138,9 @@ public class HomePageBombeiro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JTable TabelaNotificacao;
+    private javax.swing.JLabel jErro;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel jTeste;
     // End of variables declaration//GEN-END:variables
 }
