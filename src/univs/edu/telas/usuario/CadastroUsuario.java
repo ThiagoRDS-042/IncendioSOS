@@ -9,6 +9,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import univs.edu.criptografia.Criptografia;
 import univs.edu.dao.GenericDAO;
+import univs.edu.telas.login.GenericLogin;
 import univs.edu.usuario.Usuario;
 
 /**
@@ -80,6 +81,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
         tfTelefone = new javax.swing.JTextField();
         tfCidade = new javax.swing.JTextField();
         tfTeste = new javax.swing.JTextField();
+        btnVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -140,6 +142,18 @@ public class CadastroUsuario extends javax.swing.JFrame {
             }
         });
 
+        btnVoltar.setText("Voltar");
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarActionPerformed(evt);
+            }
+        });
+        btnVoltar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnVoltarKeyPressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -186,13 +200,15 @@ public class CadastroUsuario extends javax.swing.JFrame {
                                 .addComponent(jLabel5))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(tfTeste, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 275, Short.MAX_VALUE)
                                 .addComponent(lTitulo)))
                         .addGap(320, 320, 320))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(336, Short.MAX_VALUE)
+                .addGap(64, 64, 64)
+                .addComponent(btnVoltar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnCadastrar)
-                .addGap(333, 333, 333))
+                .addGap(77, 77, 77))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -233,9 +249,11 @@ public class CadastroUsuario extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tfRua, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tfTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         pack();
@@ -266,8 +284,8 @@ public class CadastroUsuario extends javax.swing.JFrame {
                 dispose();
             } else {
                 dao.salvar(usuario);
-                limparCampos();
             }
+            limparCampos();
         }
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
@@ -300,12 +318,36 @@ public class CadastroUsuario extends javax.swing.JFrame {
                 usuario.setCidadeUsuario(tfCidade.getText());
                 usuario.setRuaUsuario(tfRua.getText());
                 usuario.setTelefoneUsuario(tfTelefone.getText());
-                dao.salvar(usuario);
+
+                if (ConfigsUsuario.editar == true) {
+                    dao.salvar(Usuario.usuario);
+                    HomePageUsuario home = new HomePageUsuario();
+                    home.setVisible(true);
+                    dispose();
+                } else {
+                    dao.salvar(usuario);
+                }
                 limparCampos();
             }
 
         }
     }//GEN-LAST:event_btnCadastrarKeyPressed
+
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        if (ConfigsUsuario.editar == true) {
+            ConfigsUsuario configs = new ConfigsUsuario();
+            configs.setVisible(true);
+            dispose();
+        } else {
+            GenericLogin login = new GenericLogin();
+            login.setVisible(true);
+            dispose();
+        }
+    }//GEN-LAST:event_btnVoltarActionPerformed
+
+    private void btnVoltarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnVoltarKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVoltarKeyPressed
 
     /**
      * @param args the command line arguments
@@ -344,6 +386,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;
+    private javax.swing.JButton btnVoltar;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

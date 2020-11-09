@@ -5,16 +5,20 @@
  */
 package univs.edu.telas.usuario;
 
+import javax.swing.JOptionPane;
+import univs.edu.dao.GenericDAO;
 import univs.edu.telas.login.GenericLogin;
+import univs.edu.usuario.Usuario;
 
 /**
  *
  * @author GGrio
  */
 public class ConfigsUsuario extends javax.swing.JFrame {
-    
+
     GenericLogin logineditar = new GenericLogin();
-    
+    GenericDAO dao = new GenericDAO();
+
     public static boolean editar;
 
     /**
@@ -53,6 +57,11 @@ public class ConfigsUsuario extends javax.swing.JFrame {
         });
 
         btnExcluir.setText("Excluir");
+        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirActionPerformed(evt);
+            }
+        });
 
         btnVoltar.setText("Voltar");
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -123,11 +132,21 @@ public class ConfigsUsuario extends javax.swing.JFrame {
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         editar = true;
-        
+
         CadastroUsuario cadastro = new CadastroUsuario();
         cadastro.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnEditarActionPerformed
+
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+        if (JOptionPane.showConfirmDialog(null, "Deseja realmente excluir sua conta?", "Excluir", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+            dao.excluir(Usuario.usuario);
+            JOptionPane.showMessageDialog(null, "Exclusão Concluída!");
+            GenericLogin tela = new GenericLogin();
+            tela.setVisible(true);
+            dispose();
+        }
+    }//GEN-LAST:event_btnExcluirActionPerformed
 
     /**
      * @param args the command line arguments
