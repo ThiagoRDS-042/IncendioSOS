@@ -260,14 +260,12 @@ public class CadastroUsuario extends javax.swing.JFrame {
             usuario.setTelefoneUsuario(tfTelefone.getText());
 
             if (ConfigsUsuario.editar == true) {
-                usuario.setIdUsuario(Usuario.usuario.getIdUsuario());
-            }
-            dao.salvar(usuario);
-            if (ConfigsUsuario.editar == true) {
+                dao.salvar(Usuario.usuario);
                 HomePageUsuario home = new HomePageUsuario();
                 home.setVisible(true);
                 dispose();
             } else {
+                dao.salvar(usuario);
                 limparCampos();
             }
         }

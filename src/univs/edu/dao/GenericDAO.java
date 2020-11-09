@@ -27,7 +27,6 @@ public class GenericDAO<T> {
         criarSessao();
         if (generico instanceof Usuario) {
             Usuario usuario = (Usuario) generico;
-            System.out.println(usuario.getIdUsuario());
             if (usuario.getIdUsuario() == 0) {
                 sessao.save(usuario);
                 JOptionPane.showMessageDialog(null, "Cadastrado Concluído!");
