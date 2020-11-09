@@ -5,6 +5,7 @@
  */
 package univs.edu.telas.usuario;
 
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.List;
@@ -23,7 +24,7 @@ import static univs.edu.util.ManipularImagem.getImgBytes;
  * @author GGrio
  */
 public class Denunciar extends javax.swing.JFrame {
-    
+
     Ibama ibama = new Ibama();
     GenericDAO dao = new GenericDAO();
     Denuncia denuncia = new Denuncia();
@@ -41,7 +42,7 @@ public class Denunciar extends javax.swing.JFrame {
         jIbamas.removeAllItems();
         List<Ibama> ibamas = dao.listarObjetos("Ibama");
         for (Ibama ibama : ibamas) {
-            jIbamas.addItem("IBAMA-" + ibama.getCidadeIbama() + "/" + ibama.getEstadoIbama() + "-" + ibama.getCnpj());
+            jIbamas.addItem(ibama.getNomeIbama() + "-" + ibama.getCidadeIbama() + "/" + ibama.getEstadoIbama() + "-" + ibama.getCnpj());
         }
 
     }
@@ -67,9 +68,10 @@ public class Denunciar extends javax.swing.JFrame {
         tfDetalhesIncendio = new javax.swing.JTextField();
         btnSelecionar = new javax.swing.JButton();
         lblImagem = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnEnviar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jIbamas = new javax.swing.JComboBox<>();
+        btnVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -98,10 +100,15 @@ public class Denunciar extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Enviar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnEnviar.setText("Enviar");
+        btnEnviar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnEnviarActionPerformed(evt);
+            }
+        });
+        btnEnviar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnEnviarKeyPressed(evt);
             }
         });
 
@@ -109,6 +116,18 @@ public class Denunciar extends javax.swing.JFrame {
         jLabel7.setText("IBAMA:");
 
         jIbamas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        btnVoltar.setText("Voltar");
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarActionPerformed(evt);
+            }
+        });
+        btnVoltar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnVoltarKeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -146,9 +165,11 @@ public class Denunciar extends javax.swing.JFrame {
                             .addComponent(jLabel4))))
                 .addContainerGap(14, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(189, 189, 189))
+                .addGap(65, 65, 65)
+                .addComponent(btnVoltar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnEnviar)
+                .addGap(68, 68, 68))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -179,9 +200,11 @@ public class Denunciar extends javax.swing.JFrame {
                     .addComponent(jIbamas, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblImagem)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 237, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 233, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24))
         );
 
         pack();
@@ -209,32 +232,63 @@ public class Denunciar extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnSelecionarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
         if (tfDescricaoSuspeito.getText().isEmpty() || tfDetalhesIncendio.getText().isEmpty() || tfLocalizacaoIncendio.getText().isEmpty() || tfNomeSuspeito.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Preencha todos os Campos !");
         } else {
             String[] identificacao = jIbamas.getSelectedItem().toString().split("-");
             ibama = (Ibama) dao.pesquisarIdentificacao(identificacao[2]);
-            
-            denuncia.setCidadeUsuario(Usuario.usuario.getCidadeUsuario());
+
             denuncia.setDescricaoSuspeito(tfDescricaoSuspeito.getText());
             denuncia.setDetalhesIncendio(tfDetalhesIncendio.getText());
-            denuncia.setEstadoUsuario(Usuario.usuario.getEstadoUsuario());
             denuncia.setEvidencias(getImgBytes(imagem));
             denuncia.setIdIbama(ibama.getIdIbama());
             denuncia.setIdUsuario(Usuario.usuario.getIdUsuario());
             denuncia.setLocalizacao(tfLocalizacaoIncendio.getText());
             denuncia.setNomeSuspeito(tfNomeSuspeito.getText());
-            denuncia.setNomeUsuario(Usuario.usuario.getNomeUsuario());
-            denuncia.setRuaUsuario(Usuario.usuario.getRuaUsuario());
-            
+
             dao.salvar(denuncia);
             HomePageUsuario home = new HomePageUsuario();
             home.setVisible(true);
             dispose();
         }
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnEnviarActionPerformed
+
+    private void btnEnviarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnEnviarKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            if (tfDescricaoSuspeito.getText().isEmpty() || tfDetalhesIncendio.getText().isEmpty() || tfLocalizacaoIncendio.getText().isEmpty() || tfNomeSuspeito.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Preencha todos os Campos !");
+            } else {
+                String[] identificacao = jIbamas.getSelectedItem().toString().split("-");
+                ibama = (Ibama) dao.pesquisarIdentificacao(identificacao[2]);
+
+                denuncia.setDescricaoSuspeito(tfDescricaoSuspeito.getText());
+                denuncia.setDetalhesIncendio(tfDetalhesIncendio.getText());
+                denuncia.setEvidencias(getImgBytes(imagem));
+                denuncia.setIdIbama(ibama.getIdIbama());
+                denuncia.setIdUsuario(Usuario.usuario.getIdUsuario());
+                denuncia.setLocalizacao(tfLocalizacaoIncendio.getText());
+                denuncia.setNomeSuspeito(tfNomeSuspeito.getText());
+
+                dao.salvar(denuncia);
+                HomePageUsuario home = new HomePageUsuario();
+                home.setVisible(true);
+                dispose();
+            }
+
+        }
+    }//GEN-LAST:event_btnEnviarKeyPressed
+
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        HomePageUsuario usuario = new HomePageUsuario();
+        usuario.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnVoltarActionPerformed
+
+    private void btnVoltarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnVoltarKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVoltarKeyPressed
 
     /**
      * @param args the command line arguments
@@ -272,8 +326,9 @@ public class Denunciar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEnviar;
     private javax.swing.JButton btnSelecionar;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnVoltar;
     private javax.swing.JComboBox<String> jIbamas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

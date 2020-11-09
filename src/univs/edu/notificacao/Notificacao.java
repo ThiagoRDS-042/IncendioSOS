@@ -30,19 +30,7 @@ public class Notificacao {
     
     @Column(length = 100, nullable = false)
     private String ruaOcorrencia;
-    
-    @Column(length = 100, nullable = false)
-    private String nomeUsuario;
-    
-    @Column(length = 100, nullable = false)
-    private String ruaUsuario;
-    
-    @Column(length = 100, nullable = false)
-    private String cidadeUsuario;
-    
-    @Column(length = 100, nullable = false)
-    private String estadoUsuario;
-    
+ 
     @Column(length = 20, nullable = false)
     private String tipo;
     
@@ -137,39 +125,5 @@ public class Notificacao {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
-    }
-
-    public String getRuaUsuario() {
-        return ruaUsuario;
-    }
-
-    public void setRuaUsuario(String ruaUsuario) {
-        this.ruaUsuario = ruaUsuario;
-    }
-
-    public String getCidadeUsuario() {
-        return cidadeUsuario;
-    }
-
-    public void setCidadeUsuario(String cidadeUsuario) {
-        this.cidadeUsuario = cidadeUsuario;
-    }
-
-    public String getEstadoUsuario() {
-        return estadoUsuario;
-    }
-
-    public void setEstadoUsuario(String estadoUsuario) {
-        this.estadoUsuario = estadoUsuario;
-    }
-
-    public String getNomeUsuario() {
-        return nomeUsuario;
-    }
-
-    public void setNomeUsuario(String nomeUsuario) {
-        this.nomeUsuario = nomeUsuario;
-    }
-    
-    
+    }  
 }

@@ -5,6 +5,7 @@
  */
 package univs.edu.telas.bombeiro;
 
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import univs.edu.bombeiro.CorpoDeBombeiros;
 import univs.edu.criptografia.Criptografia;
@@ -81,6 +82,11 @@ public class CadastroBombeiro extends javax.swing.JFrame {
         btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCadastrarActionPerformed(evt);
+            }
+        });
+        btnCadastrar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnCadastrarKeyPressed(evt);
             }
         });
 
@@ -307,6 +313,26 @@ public class CadastroBombeiro extends javax.swing.JFrame {
     private void tfEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfEmailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfEmailActionPerformed
+
+    private void btnCadastrarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnCadastrarKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            if (tfIdentificacao.getText().isEmpty() || tfNomeDeComandante.getText().isEmpty() || tfEstado.getText().isEmpty() || tfCidade.getText().isEmpty() || tfRua.getText().isEmpty() || tfTelefone.getText().isEmpty() || tfEmail.getText().isEmpty() || tfSenha.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Preencha todos os Campos !");
+            } else {
+                bombeiro.setCompanhiaBatalhao(tfIdentificacao.getText());
+                bombeiro.setNomeDoComandante(tfNomeDeComandante.getText());
+                bombeiro.setEstadoBombeiro(tfEstado.getText());
+                bombeiro.setCidadeBombeiro(tfCidade.getText());
+                bombeiro.setRuaBombeiro(tfRua.getText());
+                bombeiro.setTelefoneBombeiro(tfTelefone.getText());
+                bombeiro.setEmailBombeiro(tfEmail.getText());
+                bombeiro.setSenhaBombeiro(Criptografia.criptografar(tfSenha.getText()));
+                dao.salvar(bombeiro);
+                limparCampos();
+            }
+
+        }
+    }//GEN-LAST:event_btnCadastrarKeyPressed
 
     /**
      * @param args the command line arguments

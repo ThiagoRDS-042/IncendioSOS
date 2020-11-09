@@ -5,6 +5,7 @@
  */
 package univs.edu.telas.usuario;
 
+import java.awt.event.KeyEvent;
 import java.sql.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -74,6 +75,7 @@ public class Notificar extends javax.swing.JFrame {
         jTipos = new javax.swing.JComboBox<>();
         jCorposDeBombeiros = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
+        btnVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -109,6 +111,11 @@ public class Notificar extends javax.swing.JFrame {
                 btnEvnviarActionPerformed(evt);
             }
         });
+        btnEvnviar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnEvnviarKeyPressed(evt);
+            }
+        });
 
         jTipos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -116,6 +123,18 @@ public class Notificar extends javax.swing.JFrame {
 
         jLabel10.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel10.setText("Corpo de Bombeiros:");
+
+        btnVoltar.setText("Voltar");
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarActionPerformed(evt);
+            }
+        });
+        btnVoltar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnVoltarKeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -140,13 +159,14 @@ public class Notificar extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel6)
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addGroup(layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
-                                .addComponent(jTipos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnEvnviar)
-                                .addGap(68, 68, 68))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(btnVoltar)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(btnEvnviar))
+                                    .addComponent(jTipos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -207,7 +227,9 @@ public class Notificar extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jTipos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnEvnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnEvnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(28, Short.MAX_VALUE))
         );
@@ -222,7 +244,7 @@ public class Notificar extends javax.swing.JFrame {
         } else {
             String[] identificacao = jCorposDeBombeiros.getSelectedItem().toString().split("-");
             bombeiro = (CorpoDeBombeiros) dao.pesquisarIdentificacao(identificacao[0]);
-            
+
             not.setCidadeOcorrencia(tfCidade.getText());
             not.setRuaOcorrencia(tfRua.getText());
             not.setAbrangencia(tfAbrangencia.getText());
@@ -233,17 +255,51 @@ public class Notificar extends javax.swing.JFrame {
             not.setDuracao(tfDuracao.getText());
             not.setDataHoje(data);
             not.setComplementoOcorrencia(tfComplemento.getText());
-            not.setCidadeUsuario(Usuario.usuario.getCidadeUsuario());
-            not.setEstadoUsuario(Usuario.usuario.getEstadoUsuario());
-            not.setRuaUsuario(Usuario.usuario.getRuaUsuario());
-            not.setNomeUsuario(Usuario.usuario.getNomeUsuario());
-            
+
             dao.salvar(not);
             HomePageUsuario home = new HomePageUsuario();
             home.setVisible(true);
             dispose();
         }
     }//GEN-LAST:event_btnEvnviarActionPerformed
+
+    private void btnEvnviarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnEvnviarKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            if (tfCidade.getText().isEmpty() || tfRua.getText().isEmpty() || tfComplemento.getText().isEmpty() || tfDuracao.getText().isEmpty() || tfAbrangencia.getText().isEmpty() || tfDescricao.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Preencha todos os Campos !");
+            } else {
+                String[] identificacao = jCorposDeBombeiros.getSelectedItem().toString().split("-");
+                bombeiro = (CorpoDeBombeiros) dao.pesquisarIdentificacao(identificacao[0]);
+
+                not.setCidadeOcorrencia(tfCidade.getText());
+                not.setRuaOcorrencia(tfRua.getText());
+                not.setAbrangencia(tfAbrangencia.getText());
+                not.setDescricao(tfDescricao.getText());
+                not.setIdCorpoDeBombeiros(bombeiro.getIdBombeiro());
+                not.setIdUsuario(Usuario.usuario.getIdUsuario());
+                not.setTipo(jTipos.getSelectedItem().toString());
+                not.setDuracao(tfDuracao.getText());
+                not.setDataHoje(data);
+                not.setComplementoOcorrencia(tfComplemento.getText());
+
+                dao.salvar(not);
+                HomePageUsuario home = new HomePageUsuario();
+                home.setVisible(true);
+                dispose();
+            }
+
+        }
+    }//GEN-LAST:event_btnEvnviarKeyPressed
+
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        HomePageUsuario usuario = new HomePageUsuario();
+        usuario.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnVoltarActionPerformed
+
+    private void btnVoltarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnVoltarKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVoltarKeyPressed
 
     /**
      * @param args the command line arguments
@@ -282,6 +338,7 @@ public class Notificar extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEvnviar;
+    private javax.swing.JButton btnVoltar;
     private javax.swing.JComboBox<String> jCorposDeBombeiros;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

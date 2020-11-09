@@ -5,10 +5,19 @@
         <group>
             <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/IncendioSOS/src/univs/edu/util/ManipularImagem.java</file>
             <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/IncendioSOS/src/univs/edu/telas/usuario/Notificar.java</file>
+            <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/IncendioSOS/src/univs/edu/telas/usuario/ConfigsUsuario.java</file>
             <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/IncendioSOS/src/univs/edu/telas/usuario/Denunciar.java</file>
-            <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/IncendioSOS/src/univs/edu/denuncia/Denuncia.java</file>
+            <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/IncendioSOS/src/univs/edu/usuario/Usuario.java</file>
             <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/IncendioSOS/src/univs/edu/telas/usuario/HomePageUsuario.java</file>
             <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/IncendioSOS/src/univs/edu/dao/GenericDAO.java</file>
+            <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/IncendioSOS/src/univs/edu/telas/usuario/CadastroUsuario.java</file>
+            <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/IncendioSOS/src/univs/edu/notificacao/Notificacao.java</file>
+            <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/IncendioSOS/src/univs/edu/bombeiro/CorpoDeBombeiros.java</file>
+            <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/IncendioSOS/src/univs/edu/ibama/Ibama.java</file>
+            <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/IncendioSOS/src/univs/edu/telas/login/GenericLogin.java</file>
+            <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/IncendioSOS/src/univs/edu/denuncia/Denuncia.java</file>
+            <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/IncendioSOS/src/univs/edu/telas/ibama/CadastroIbama.java</file>
+            <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/IncendioSOS/src/univs/edu/telas/bombeiro/CadastroBombeiro.java</file>
         </group>
     </open-files>
 </project-private>

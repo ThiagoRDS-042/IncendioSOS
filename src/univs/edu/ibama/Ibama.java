@@ -17,6 +17,9 @@ public class Ibama {
     private String cnpj;
     
     @Column(length = 100, nullable = false)
+    private String nomeIbama;
+    
+    @Column(length = 100, nullable = false)
     private String cidadeIbama;
     
     @Column(length = 100, nullable = false)
@@ -106,6 +109,14 @@ public class Ibama {
 
     public void setSenhaIbama(String senhaIbama) {
         this.senhaIbama = senhaIbama;
+    }
+
+    public String getNomeIbama() {
+        return nomeIbama;
+    }
+
+    public void setNomeIbama(String nomeIbama) {
+        this.nomeIbama = nomeIbama;
     }
 
     
