@@ -23,13 +23,25 @@ public class Notificacao {
     private Date dataHoje;
 
     @Column(length = 100, nullable = false)
-    private String cidade;
+    private String cidadeOcorrencia;
     
     @Column(length = 100, nullable = false)
-    private String Complemento;
+    private String ComplementoOcorrencia;
     
     @Column(length = 100, nullable = false)
-    private String rua;
+    private String ruaOcorrencia;
+    
+    @Column(length = 100, nullable = false)
+    private String nomeUsuario;
+    
+    @Column(length = 100, nullable = false)
+    private String ruaUsuario;
+    
+    @Column(length = 100, nullable = false)
+    private String cidadeUsuario;
+    
+    @Column(length = 100, nullable = false)
+    private String estadoUsuario;
     
     @Column(length = 20, nullable = false)
     private String tipo;
@@ -71,28 +83,28 @@ public class Notificacao {
         this.dataHoje = dataHoje;
     }
 
-    public String getCidade() {
-        return cidade;
+    public String getCidadeOcorrencia() {
+        return cidadeOcorrencia;
     }
 
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
+    public void setCidadeOcorrencia(String cidadeOcorrencia) {
+        this.cidadeOcorrencia = cidadeOcorrencia;
     }
     
-    public String getComplemento() {
-        return Complemento;
+    public String getComplementoOcorrencia() {
+        return ComplementoOcorrencia;
     }
 
-    public void setComplemento(String complemento) {
-        this.Complemento = complemento;
+    public void setComplementoOcorrencia(String complementoOcorrencia) {
+        this.ComplementoOcorrencia = complementoOcorrencia;
     }
 
-    public String getRua() {
-        return rua;
+    public String getRuaOcorrencia() {
+        return ruaOcorrencia;
     }
 
-    public void setRua(String rua) {
-        this.rua = rua;
+    public void setRuaOcorrencia(String ruaOcorrencia) {
+        this.ruaOcorrencia = ruaOcorrencia;
     }
 
     public String getTipo() {
@@ -125,6 +137,38 @@ public class Notificacao {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public String getRuaUsuario() {
+        return ruaUsuario;
+    }
+
+    public void setRuaUsuario(String ruaUsuario) {
+        this.ruaUsuario = ruaUsuario;
+    }
+
+    public String getCidadeUsuario() {
+        return cidadeUsuario;
+    }
+
+    public void setCidadeUsuario(String cidadeUsuario) {
+        this.cidadeUsuario = cidadeUsuario;
+    }
+
+    public String getEstadoUsuario() {
+        return estadoUsuario;
+    }
+
+    public void setEstadoUsuario(String estadoUsuario) {
+        this.estadoUsuario = estadoUsuario;
+    }
+
+    public String getNomeUsuario() {
+        return nomeUsuario;
+    }
+
+    public void setNomeUsuario(String nomeUsuario) {
+        this.nomeUsuario = nomeUsuario;
     }
     
     

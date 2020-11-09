@@ -22,19 +22,28 @@ public class Denuncia {
     private String nomeSuspeito;
     
     @Column(length = 100, nullable = false)
-    private String detalhes;
+    private String nomeUsuario;
     
     @Column(length = 100, nullable = false)
-    private String evidencias;
+    private String estadoUsuario;
+    
+    @Column(length = 100, nullable = false)
+    private String cidadeUsuario;
+    
+    @Column(length = 100, nullable = false)
+    private String ruaUsuario;
+    
+    @Column(length = 100, nullable = false)
+    private String detalhesIncendio;
+    
+    @Column(length = 100, nullable = false)
+    private String descricaoSuspeito;
+    
+    @Column(length = 300, nullable = false)
+    private byte[] evidencias;
 
     @Column(length = 100, nullable = false)
-    private String estado;
-    
-    @Column(length = 100, nullable = false)
-    private String cidade;
-    
-    @Column(length = 100, nullable = false)
-    private String complemento;
+    private String localizacao;
 
     public int getIdDenuncia() {
         return idDenuncia;
@@ -64,45 +73,71 @@ public class Denuncia {
         this.nomeSuspeito = nomeSuspeito;
     }
 
-    public String getDetalhes() {
-        return detalhes;
+    public String getDetalhesIncendio() {
+        return detalhesIncendio;
     }
 
-    public void setDetalhes(String detalhes) {
-        this.detalhes = detalhes;
+    public void setDetalhesIncendio(String detalhesIncendio) {
+        this.detalhesIncendio = detalhesIncendio;
     }
 
-    public String getEvidencias() {
+    public byte[] getEvidencias() {
         return evidencias;
     }
 
-    public void setEvidencias(String evidencias) {
+    public void setEvidencias(byte[] evidencias) {
         this.evidencias = evidencias;
     }
 
-    public String getEstado() {
-        return estado;
+    public String getLocalizacao() {
+        return localizacao;
     }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
+    public void setLocalizacao(String localizacao) {
+        this.localizacao = localizacao;
     }
 
-    public String getCidade() {
-        return cidade;
+    public String getNomeUsuario() {
+        return nomeUsuario;
     }
 
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
+    public void setNomeUsuario(String nomeUsuario) {
+        this.nomeUsuario = nomeUsuario;
     }
 
-    public String getComplemento() {
-        return complemento;
+    public String getEstadoUsuario() {
+        return estadoUsuario;
     }
 
-    public void setComplemento(String complemento) {
-        this.complemento = complemento;
+    public void setEstadoUsuario(String estadoUsuario) {
+        this.estadoUsuario = estadoUsuario;
     }
+
+    public String getCidadeUsuario() {
+        return cidadeUsuario;
+    }
+
+    public void setCidadeUsuario(String cidadeUsuario) {
+        this.cidadeUsuario = cidadeUsuario;
+    }
+
+    public String getRuaUsuario() {
+        return ruaUsuario;
+    }
+
+    public void setRuaUsuario(String ruaUsuario) {
+        this.ruaUsuario = ruaUsuario;
+    }
+
+    public String getDescricaoSuspeito() {
+        return descricaoSuspeito;
+    }
+
+    public void setDescricaoSuspeito(String descricaoSuspeito) {
+        this.descricaoSuspeito = descricaoSuspeito;
+    }
+
+   
     
     
 }

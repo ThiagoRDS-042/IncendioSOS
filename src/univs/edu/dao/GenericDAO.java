@@ -57,6 +57,11 @@ public class GenericDAO<T> {
             sessao.save(notificacao);
             JOptionPane.showMessageDialog(null, "Notificação Enviada Com Sucesso!");
 
+        } else if (generico instanceof Denuncia) {
+            Denuncia denuncia = (Denuncia) generico;
+            sessao.save(denuncia);
+            JOptionPane.showMessageDialog(null, "Denuncia Enviada Com Sucesso!");
+
         }
         transacao.commit();
         sessao.close();
@@ -169,6 +174,12 @@ public class GenericDAO<T> {
         } else if (tipo.equalsIgnoreCase("Ibama")) {
             List<Ibama> ibama = sessao.createCriteria(Ibama.class).list();
             generica = (List<T>) ibama;
+        } else if (tipo.equalsIgnoreCase("Notificação")) {
+            List<Notificacao> notificacao = sessao.createCriteria(Notificacao.class).list();
+            generica = (List<T>) notificacao;
+        } else if (tipo.equalsIgnoreCase("Denuncia")) {
+            List<Denuncia> denuncia = sessao.createCriteria(Denuncia.class).list();
+            generica = (List<T>) denuncia;
         }
         sessao.close();
         return generica;
