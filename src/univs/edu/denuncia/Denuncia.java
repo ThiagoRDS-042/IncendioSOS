@@ -17,17 +17,20 @@ public class Denuncia {
 
     @Column(nullable = false)
     private int idIbama;
-    
-    @Column(length = 100, nullable = false)
+
+    @Column(length = 19, nullable = false)
+    private String dataEnvio;
+
+    @Column(length = 100)
     private String nomeSuspeito;
-    
+
     @Column(length = 100, nullable = false)
     private String detalhesIncendio;
-    
+
     @Column(length = 100, nullable = false)
     private String descricaoSuspeito;
-    
-    @Column(length = 300, nullable = false)
+
+    @Column(length = 300)
     private byte[] evidencias;
 
     @Column(length = 100, nullable = false)
@@ -51,6 +54,14 @@ public class Denuncia {
 
     public void setIdIbama(int idIbama) {
         this.idIbama = idIbama;
+    }
+
+    public String getDataEnvio() {
+        return dataEnvio;
+    }
+
+    public void setDataEnvio(String dataEnvio) {
+        this.dataEnvio = dataEnvio;
     }
 
     public String getNomeSuspeito() {
@@ -93,7 +104,4 @@ public class Denuncia {
         this.descricaoSuspeito = descricaoSuspeito;
     }
 
-   
-    
-    
 }

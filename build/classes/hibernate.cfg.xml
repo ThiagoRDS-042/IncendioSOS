@@ -19,6 +19,7 @@
         <mapping class="univs.edu.bombeiro.CorpoDeBombeiros"/>
         <mapping class="univs.edu.notificacao.Notificacao"/>
         <mapping class="univs.edu.denuncia.Denuncia"/>
+        <mapping class="univs.edu.adm.Adm"/>
 
         
     </session-factory>

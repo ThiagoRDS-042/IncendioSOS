@@ -107,7 +107,6 @@ public class HomePageUsuario extends javax.swing.JFrame {
     private void bntNotificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntNotificarActionPerformed
         if (dao.PesquisarNotDen(Usuario.usuario.getIdUsuario(), data).size() == 3) {
             JOptionPane.showMessageDialog(null, "Limite de Notificações Diarias Atingido!");
-            System.out.println(dao.PesquisarNotDen(Usuario.usuario.getIdUsuario(), data).size());
         } else {
             Notificar not = new Notificar();
             not.setVisible(true);

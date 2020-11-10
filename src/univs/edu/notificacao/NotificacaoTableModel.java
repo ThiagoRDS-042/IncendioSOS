@@ -36,7 +36,7 @@ public class NotificacaoTableModel extends AbstractTableModel {
                 Usuario usuario = (Usuario) dao.pesquisarId(notificacao.getIdUsuario());
                 return usuario.getNomeUsuario();
             case 2:
-                return notificacao.getDataHoje();
+                return notificacao.getDataEnvio();
             case 3:
                 return notificacao.getCidadeOcorrencia();
         }

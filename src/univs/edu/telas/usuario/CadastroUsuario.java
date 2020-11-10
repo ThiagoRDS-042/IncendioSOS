@@ -6,6 +6,8 @@
 package univs.edu.telas.usuario;
 
 import java.awt.event.KeyEvent;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 import univs.edu.criptografia.Criptografia;
 import univs.edu.dao.GenericDAO;
@@ -20,6 +22,8 @@ public class CadastroUsuario extends javax.swing.JFrame {
 
     Usuario usuario = new Usuario();
     GenericDAO dao = new GenericDAO();
+    DateTimeFormatter formatoData = DateTimeFormatter.ofPattern("dd/MM/yyyy-HH:mm:ss");
+    LocalDateTime data = LocalDateTime.now();
 
     /**
      * Creates new form CadastroUsuario

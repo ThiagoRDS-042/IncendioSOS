@@ -37,6 +37,9 @@ public class Usuario {
     @Column(length = 100, nullable = false)
     private String senhaUsuario;
     
+    @Column(length = 19)
+    private String utimoLogin;
+    
     @Transient
     public static Usuario usuario;
 
@@ -106,6 +109,14 @@ public class Usuario {
 
     public void setSenhaUsuario(String senhaUsuario) {
         this.senhaUsuario = senhaUsuario;
+    }
+
+    public String getUtimoLogin() {
+        return utimoLogin;
+    }
+
+    public void setUtimoLogin(String utimoLogin) {
+        this.utimoLogin = utimoLogin;
     }
 
     

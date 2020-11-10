@@ -6,10 +6,12 @@ import javax.swing.JOptionPane;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
+import univs.edu.adm.Adm;
 import univs.edu.bombeiro.CorpoDeBombeiros;
 import univs.edu.denuncia.Denuncia;
 import univs.edu.ibama.Ibama;
 import univs.edu.notificacao.Notificacao;
+import univs.edu.telas.login.GenericLogin;
 import univs.edu.usuario.Usuario;
 import univs.edu.util.HibernateUtil;
 
@@ -32,7 +34,9 @@ public class GenericDAO<T> {
                 JOptionPane.showMessageDialog(null, "Cadastrado Concluído!");
             } else {
                 sessao.update(usuario);
-                JOptionPane.showMessageDialog(null, "Editado com Sucesso!");
+                if (GenericLogin.login == false) {
+                    JOptionPane.showMessageDialog(null, "Editado com Sucesso!");
+                }
             }
         } else if (generico instanceof CorpoDeBombeiros) {
             CorpoDeBombeiros bombeiro = (CorpoDeBombeiros) generico;
@@ -91,7 +95,7 @@ public class GenericDAO<T> {
         sessao.close();
         return generica;
     }
-    
+
     public <T> T pesquisarIdentificacao(String identidicacao) {
         criarSessao();
 
@@ -141,20 +145,23 @@ public class GenericDAO<T> {
         } else if (sessao.createCriteria(Ibama.class).add(Restrictions.eq("emailIbama", email)).add(Restrictions.eq("senhaIbama", senha)).uniqueResult() != null) {
             Ibama ibama = (Ibama) sessao.createCriteria(Ibama.class).add(Restrictions.eq("emailIbama", email)).add(Restrictions.eq("senhaIbama", senha)).uniqueResult();
             generica = (T) ibama;
+        } else if (sessao.createCriteria(Adm.class).add(Restrictions.eq("emailAdm", email)).add(Restrictions.eq("senhaAdm", senha)).uniqueResult() != null) {
+            Adm adm = (Adm) sessao.createCriteria(Adm.class).add(Restrictions.eq("emailAdm", email)).add(Restrictions.eq("senhaAdm", senha)).uniqueResult();
+            generica = (T) adm;
         }
         sessao.close();
         return generica;
     }
-    
-    public List<T> PesquisarNotDen(int idUsuario, Date dataHoje) {
+
+    public List<T> PesquisarNotDen(int idUsuario, Date dataEnvio) {
         criarSessao();
 
         List<T> generica = null;
-        if (sessao.createCriteria(Notificacao.class).add(Restrictions.eq("idUsuario", idUsuario)).add(Restrictions.eq("dataHoje", dataHoje)).list() != null) {
-            List<Notificacao> notificacoes = (List<Notificacao>) sessao.createCriteria(Notificacao.class).add(Restrictions.eq("idUsuario", idUsuario)).add(Restrictions.eq("dataHoje", dataHoje)).list();
+        if (sessao.createCriteria(Notificacao.class).add(Restrictions.eq("idUsuario", idUsuario)).add(Restrictions.ilike("dataEnvio", dataEnvio)).list() != null) {
+            List<Notificacao> notificacoes = (List<Notificacao>) sessao.createCriteria(Notificacao.class).add(Restrictions.eq("idUsuario", idUsuario)).add(Restrictions.ilike("dataEnvio", dataEnvio)).list();
             generica = (List<T>) notificacoes;
-        } else if (sessao.createCriteria(Denuncia.class).add(Restrictions.eq("idUsuario", idUsuario)).add(Restrictions.eq("dataHoje", dataHoje)).list() != null) {
-            List<Denuncia> denuncias = (List<Denuncia>) sessao.createCriteria(CorpoDeBombeiros.class).add(Restrictions.eq("idUsuario", idUsuario)).add(Restrictions.eq("dataHoje", dataHoje)).list();
+        } else if (sessao.createCriteria(Denuncia.class).add(Restrictions.eq("idUsuario", idUsuario)).add(Restrictions.ilike("dataEnvio", dataEnvio)).list() != null) {
+            List<Denuncia> denuncias = (List<Denuncia>) sessao.createCriteria(CorpoDeBombeiros.class).add(Restrictions.eq("idUsuario", idUsuario)).add(Restrictions.ilike("dataEnvio", dataEnvio)).list();
             generica = (List<T>) denuncias;
         }
         sessao.close();

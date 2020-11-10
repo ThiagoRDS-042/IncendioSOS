@@ -1,6 +1,5 @@
 package univs.edu.notificacao;
 
-import java.sql.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,31 +11,31 @@ public class Notificacao {
     @Id
     @GeneratedValue
     private int idNotificacao;
-    
+
     @Column(nullable = false)
     private int idUsuario;
-    
+
     @Column(nullable = false)
     private int idCorpoDeBombeiros;
-    
-    @Column(length = 10, nullable = false)
-    private Date dataHoje;
+
+    @Column(length = 19, nullable = false)
+    private String dataEnvio;
 
     @Column(length = 100, nullable = false)
     private String cidadeOcorrencia;
-    
+
     @Column(length = 100, nullable = false)
     private String ComplementoOcorrencia;
-    
+
     @Column(length = 100, nullable = false)
     private String ruaOcorrencia;
- 
+
     @Column(length = 20, nullable = false)
     private String tipo;
-    
+
     @Column(length = 50, nullable = false)
     private String abrangencia;
-    
+
     @Column(length = 20, nullable = false)
     private String duracao;
 
@@ -62,13 +61,13 @@ public class Notificacao {
     public void setIdCorpoDeBombeiros(int idCorpoDeBombeiros) {
         this.idCorpoDeBombeiros = idCorpoDeBombeiros;
     }
-    
-    public Date getDataHoje() {
-        return dataHoje;
+
+    public String getDataEnvio() {
+        return dataEnvio;
     }
 
-    public void setDataHoje(Date dataHoje) {
-        this.dataHoje = dataHoje;
+    public void setDataEnvio(String dataEnvio) {
+        this.dataEnvio = dataEnvio;
     }
 
     public String getCidadeOcorrencia() {
@@ -78,7 +77,7 @@ public class Notificacao {
     public void setCidadeOcorrencia(String cidadeOcorrencia) {
         this.cidadeOcorrencia = cidadeOcorrencia;
     }
-    
+
     public String getComplementoOcorrencia() {
         return ComplementoOcorrencia;
     }
@@ -125,5 +124,5 @@ public class Notificacao {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
-    }  
+    }
 }

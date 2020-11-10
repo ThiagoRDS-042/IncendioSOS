@@ -6,11 +6,15 @@
 package univs.edu.telas.login;
 
 import java.awt.event.KeyEvent;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
+import univs.edu.adm.Adm;
 import univs.edu.bombeiro.CorpoDeBombeiros;
 import univs.edu.criptografia.Criptografia;
 import univs.edu.dao.GenericDAO;
 import univs.edu.ibama.Ibama;
+import univs.edu.telas.adm.HomePageAdm;
 import univs.edu.telas.bombeiro.HomePageBombeiro;
 import univs.edu.telas.ibama.HomePageIbama;
 import univs.edu.telas.usuario.CadastroUsuario;
@@ -27,7 +31,12 @@ public class GenericLogin extends javax.swing.JFrame {
     Usuario usuario = new Usuario();
     CorpoDeBombeiros bombeiro = new CorpoDeBombeiros();
     Ibama ibama = new Ibama();
+    Adm adm = new Adm();
     GenericDAO dao = new GenericDAO();
+    DateTimeFormatter formatoData = DateTimeFormatter.ofPattern("dd/MM/yyyy-HH:mm:ss");
+    LocalDateTime data = LocalDateTime.now();
+
+    public static boolean login;
 
     /**
      * Creates new form GenericLogin
@@ -137,9 +146,11 @@ public class GenericLogin extends javax.swing.JFrame {
         if (tfEmailLogin.getText().isEmpty() || tfSenhaLogin.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Preencha Campos ", "Campos", 2);
         } else {
-
+            login = true;
             if (dao.login(tfEmailLogin.getText(), Criptografia.criptografar(tfSenhaLogin.getText())) instanceof Usuario) {
                 usuario = (Usuario) dao.login(tfEmailLogin.getText(), Criptografia.criptografar(tfSenhaLogin.getText()));
+                usuario.setUtimoLogin(formatoData.format(data));
+                dao.salvar(usuario);
                 Usuario.usuario = usuario;
                 HomePageUsuario tela = new HomePageUsuario();
                 tela.setVisible(true);
@@ -159,6 +170,13 @@ public class GenericLogin extends javax.swing.JFrame {
                 tela.setVisible(true);
                 dispose();
 
+            } else if (dao.login(tfEmailLogin.getText(), tfSenhaLogin.getText()) instanceof Adm) {
+                adm = (Adm) dao.login(tfEmailLogin.getText(), tfSenhaLogin.getText());
+                Adm.adm = adm;
+                HomePageAdm tela = new HomePageAdm();
+                tela.setVisible(true);
+                dispose();
+
             } else {
                 JOptionPane.showMessageDialog(null, "Dados Invalidos!", "Dados", 2);
                 limparCampos();
@@ -172,9 +190,11 @@ public class GenericLogin extends javax.swing.JFrame {
             if (tfEmailLogin.getText().isEmpty() || tfSenhaLogin.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Preencha Campos ", "Campos", 2);
             } else {
-
+                login = true;
                 if (dao.login(tfEmailLogin.getText(), Criptografia.criptografar(tfSenhaLogin.getText())) instanceof Usuario) {
                     usuario = (Usuario) dao.login(tfEmailLogin.getText(), Criptografia.criptografar(tfSenhaLogin.getText()));
+                    usuario.setUtimoLogin(formatoData.format(data));
+                    dao.salvar(usuario);
                     Usuario.usuario = usuario;
                     HomePageUsuario tela = new HomePageUsuario();
                     tela.setVisible(true);
@@ -194,6 +214,13 @@ public class GenericLogin extends javax.swing.JFrame {
                     tela.setVisible(true);
                     dispose();
 
+                } else if (dao.login(tfEmailLogin.getText(), tfSenhaLogin.getText()) instanceof Adm) {
+                    adm = (Adm) dao.login(tfEmailLogin.getText(), tfSenhaLogin.getText());
+                    Adm.adm = adm;
+                    HomePageAdm tela = new HomePageAdm();
+                    tela.setVisible(true);
+                    dispose();
+
                 } else {
                     JOptionPane.showMessageDialog(null, "Dados Invalidos!", "Dados", 2);
                     limparCampos();
@@ -206,7 +233,7 @@ public class GenericLogin extends javax.swing.JFrame {
 
     private void btnCadastreseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastreseActionPerformed
         ConfigsUsuario.editar = false;
-        
+
         CadastroUsuario cadastro = new CadastroUsuario();
         cadastro.setVisible(true);
         dispose();

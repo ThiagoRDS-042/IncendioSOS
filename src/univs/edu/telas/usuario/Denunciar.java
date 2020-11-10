@@ -8,6 +8,8 @@ package univs.edu.telas.usuario;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -29,6 +31,8 @@ public class Denunciar extends javax.swing.JFrame {
     GenericDAO dao = new GenericDAO();
     Denuncia denuncia = new Denuncia();
     BufferedImage imagem;
+    DateTimeFormatter formatoData = DateTimeFormatter.ofPattern("dd/MM/yyyy-HH:mm:ss");
+    LocalDateTime data = LocalDateTime.now();
 
     /**
      * Creates new form Denunciar
@@ -233,19 +237,23 @@ public class Denunciar extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSelecionarActionPerformed
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
-        if (tfDescricaoSuspeito.getText().isEmpty() || tfDetalhesIncendio.getText().isEmpty() || tfLocalizacaoIncendio.getText().isEmpty() || tfNomeSuspeito.getText().isEmpty()) {
+        if (tfDescricaoSuspeito.getText().isEmpty() || tfDetalhesIncendio.getText().isEmpty() || tfLocalizacaoIncendio.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Preencha todos os Campos !");
         } else {
             String[] identificacao = jIbamas.getSelectedItem().toString().split("-");
             ibama = (Ibama) dao.pesquisarIdentificacao(identificacao[2]);
 
+            if (imagem != null) {
+                denuncia.setEvidencias(getImgBytes(imagem));
+            }
+
             denuncia.setDescricaoSuspeito(tfDescricaoSuspeito.getText());
             denuncia.setDetalhesIncendio(tfDetalhesIncendio.getText());
-            denuncia.setEvidencias(getImgBytes(imagem));
             denuncia.setIdIbama(ibama.getIdIbama());
             denuncia.setIdUsuario(Usuario.usuario.getIdUsuario());
             denuncia.setLocalizacao(tfLocalizacaoIncendio.getText());
             denuncia.setNomeSuspeito(tfNomeSuspeito.getText());
+            denuncia.setDataEnvio(formatoData.format(data));
 
             dao.salvar(denuncia);
             HomePageUsuario home = new HomePageUsuario();
@@ -263,13 +271,17 @@ public class Denunciar extends javax.swing.JFrame {
                 String[] identificacao = jIbamas.getSelectedItem().toString().split("-");
                 ibama = (Ibama) dao.pesquisarIdentificacao(identificacao[2]);
 
+                if (imagem != null) {
+                    denuncia.setEvidencias(getImgBytes(imagem));
+                }
+
                 denuncia.setDescricaoSuspeito(tfDescricaoSuspeito.getText());
                 denuncia.setDetalhesIncendio(tfDetalhesIncendio.getText());
-                denuncia.setEvidencias(getImgBytes(imagem));
                 denuncia.setIdIbama(ibama.getIdIbama());
                 denuncia.setIdUsuario(Usuario.usuario.getIdUsuario());
                 denuncia.setLocalizacao(tfLocalizacaoIncendio.getText());
                 denuncia.setNomeSuspeito(tfNomeSuspeito.getText());
+                denuncia.setDataEnvio(formatoData.format(data));
 
                 dao.salvar(denuncia);
                 HomePageUsuario home = new HomePageUsuario();

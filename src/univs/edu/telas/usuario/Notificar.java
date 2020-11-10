@@ -6,7 +6,8 @@
 package univs.edu.telas.usuario;
 
 import java.awt.event.KeyEvent;
-import java.sql.Date;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import javax.swing.JOptionPane;
 import univs.edu.bombeiro.CorpoDeBombeiros;
@@ -23,7 +24,8 @@ public class Notificar extends javax.swing.JFrame {
     CorpoDeBombeiros bombeiro = new CorpoDeBombeiros();
     Notificacao not = new Notificacao();
     GenericDAO dao = new GenericDAO();
-    Date data = new Date(System.currentTimeMillis());
+    DateTimeFormatter formatoData = DateTimeFormatter.ofPattern("dd/MM/yyyy-HH:mm:ss");
+    LocalDateTime data = LocalDateTime.now();
 
     /**
      * Creates new form Notificar
@@ -253,7 +255,7 @@ public class Notificar extends javax.swing.JFrame {
             not.setIdUsuario(Usuario.usuario.getIdUsuario());
             not.setTipo(jTipos.getSelectedItem().toString());
             not.setDuracao(tfDuracao.getText());
-            not.setDataHoje(data);
+            not.setDataEnvio(formatoData.format(data));
             not.setComplementoOcorrencia(tfComplemento.getText());
 
             dao.salvar(not);
@@ -279,7 +281,7 @@ public class Notificar extends javax.swing.JFrame {
                 not.setIdUsuario(Usuario.usuario.getIdUsuario());
                 not.setTipo(jTipos.getSelectedItem().toString());
                 not.setDuracao(tfDuracao.getText());
-                not.setDataHoje(data);
+                not.setDataEnvio(formatoData.format(data));
                 not.setComplementoOcorrencia(tfComplemento.getText());
 
                 dao.salvar(not);
