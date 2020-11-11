@@ -39,10 +39,25 @@ public class HomePageAdm extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btnUsuarios.setText("Usuarios");
+        btnUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUsuariosActionPerformed(evt);
+            }
+        });
 
         btnCorposDeBombeiros.setText("Corpos de Bombeiros");
+        btnCorposDeBombeiros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCorposDeBombeirosActionPerformed(evt);
+            }
+        });
 
         btnIbamas.setText("Ibamas");
+        btnIbamas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIbamasActionPerformed(evt);
+            }
+        });
 
         btnCadastroAdm.setText("Cadastro de ADM");
         btnCadastroAdm.addActionListener(new java.awt.event.ActionListener() {
@@ -105,6 +120,24 @@ public class HomePageAdm extends javax.swing.JFrame {
         cadastro.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnCadastroAdmActionPerformed
+
+    private void btnCorposDeBombeirosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCorposDeBombeirosActionPerformed
+        ListaCorpoDeBombeiros lista = new ListaCorpoDeBombeiros();
+        lista.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnCorposDeBombeirosActionPerformed
+
+    private void btnIbamasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIbamasActionPerformed
+        ListaIbamas lista = new ListaIbamas();
+        lista.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnIbamasActionPerformed
+
+    private void btnUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuariosActionPerformed
+        ListaUsuarios lista = new ListaUsuarios();
+        lista.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnUsuariosActionPerformed
 
     /**
      * @param args the command line arguments
