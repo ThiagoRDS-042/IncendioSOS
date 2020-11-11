@@ -10,6 +10,8 @@ import javax.swing.JOptionPane;
 import univs.edu.util.Criptografia;
 import univs.edu.dao.GenericDAO;
 import univs.edu.ibama.Ibama;
+import univs.edu.telas.ibama.ConfigsIbama;
+import univs.edu.telas.ibama.HomePageIbama;
 
 /**
  *
@@ -25,11 +27,25 @@ public class CadastroIbama extends javax.swing.JFrame {
      */
     public CadastroIbama() {
         initComponents();
-        tfCidade.setToolTipText("Mensagem que você quer exibir");
-
-
+        verificar();
     }
-    
+
+    public void verificar() {
+        if (ConfigsIbama.editar == true) {
+            jLabel1.setText("Editar Corpo de Bombeiros");
+            btnCadastrar.setText("Editar");
+
+            ibama = Ibama.ibama;
+            tfCidade.setText(ibama.getCidadeIbama());
+            tfEstado.setText(ibama.getEstadoIbama());
+            tfRua.setText(ibama.getRuaIbama());
+            tfTelefone.setText(ibama.getTelefoneIbama());
+            tfEmail.setText(ibama.getEmailIbama());
+            tfCnpj.setText(ibama.getCnpj());
+            tfNome.setText(ibama.getNomeIbama());
+            tfResponsavel.setText(ibama.getResponsavelIbama());
+        }
+    }
 
     public void limparCampos() {
         ibama = new Ibama();
@@ -314,7 +330,17 @@ public class CadastroIbama extends javax.swing.JFrame {
             ibama.setTelefoneIbama(tfTelefone.getText());
             ibama.setEmailIbama(tfEmail.getText());
             ibama.setSenhaIbama(Criptografia.criptografar(tfSenha.getText()));
-            dao.salvar(ibama);
+
+            if (ConfigsIbama.editar == true) {
+                ibama.setVerificaConta(true);
+                dao.salvar(ibama);
+                HomePageIbama home = new HomePageIbama();
+                home.setVisible(true);
+                dispose();
+            } else {
+                ibama.setVerificaConta(false);
+                dao.salvar(ibama);
+            }
             limparCampos();
         }
     }//GEN-LAST:event_btnCadastrarActionPerformed
@@ -336,8 +362,18 @@ public class CadastroIbama extends javax.swing.JFrame {
     }//GEN-LAST:event_tfRuaFocusLost
 
     private void tfEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfEmailFocusLost
-        if (dao.pesquisarEmail(tfEmail.getText()) != null) {
-            JOptionPane.showMessageDialog(null, "Email ja cadastrado!");
+        Ibama ibama1;
+        if (dao.pesquisarEmail(tfEmail.getText()) instanceof Ibama) {
+            ibama1 = (Ibama) dao.pesquisarEmail(tfEmail.getText());
+            if (ConfigsIbama.editar == true && (Ibama.ibama.getIdIbama() == ibama1.getIdIbama())) {
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Email já cadastrado!");
+                tfEmail.setText("");
+                tfEmail.grabFocus();
+            }
+        } else if (dao.pesquisarEmail(tfEmail.getText()) != null) {
+            JOptionPane.showMessageDialog(null, "Email já cadastrado!");
             tfEmail.setText("");
             tfEmail.grabFocus();
         }
@@ -365,7 +401,17 @@ public class CadastroIbama extends javax.swing.JFrame {
                 ibama.setTelefoneIbama(tfTelefone.getText());
                 ibama.setEmailIbama(tfEmail.getText());
                 ibama.setSenhaIbama(Criptografia.criptografar(tfSenha.getText()));
-                dao.salvar(ibama);
+
+                if (ConfigsIbama.editar == true) {
+                    ibama.setVerificaConta(true);
+                    dao.salvar(ibama);
+                    HomePageIbama home = new HomePageIbama();
+                    home.setVisible(true);
+                    dispose();
+                } else {
+                    ibama.setVerificaConta(false);
+                    dao.salvar(ibama);
+                }
                 limparCampos();
             }
 
@@ -381,17 +427,33 @@ public class CadastroIbama extends javax.swing.JFrame {
     }//GEN-LAST:event_tfNomeActionPerformed
 
     private void tfCnpjFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfCnpjFocusLost
-        if (dao.pesquisarIdentificacao(tfCnpj.getText()) != null) {
-            JOptionPane.showMessageDialog(null, "Email ja cadastrado!");
-            tfEmail.setText("");
-            tfEmail.grabFocus();
+        Ibama ibama1;
+        if (dao.pesquisarIdentificacao(tfCnpj.getText()) instanceof Ibama) {
+            ibama1 = (Ibama) dao.pesquisarIdentificacao(tfCnpj.getText());
+            if (ConfigsIbama.editar == true && (Ibama.ibama.getIdIbama() == ibama1.getIdIbama())) {
+
+            } else {
+                JOptionPane.showMessageDialog(null, "CNPJ já cadastrado!");
+                tfCnpj.setText("");
+                tfCnpj.grabFocus();
+            }
+        } else if (dao.pesquisarEmail(tfCnpj.getText()) != null) {
+            JOptionPane.showMessageDialog(null, "CNPJ já cadastrado!");
+            tfCnpj.setText("");
+            tfCnpj.grabFocus();
         }
     }//GEN-LAST:event_tfCnpjFocusLost
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        HomePageAdm home = new HomePageAdm();
-        home.setVisible(true);
-        dispose();
+        if (ConfigsIbama.editar == true) {
+            HomePageIbama home = new HomePageIbama();
+            home.setVisible(true);
+            dispose();
+        } else {
+            ListaIbamas lista = new ListaIbamas();
+            lista.setVisible(true);
+            dispose();
+        }
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnVoltarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnVoltarKeyPressed

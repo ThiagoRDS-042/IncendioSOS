@@ -15,6 +15,8 @@
             <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/IncendioSOS/src/hibernate.cfg.xml</file>
             <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/IncendioSOS/src/univs/edu/bombeiro/CorpoDeBombeirosTableModel.java</file>
             <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/IncendioSOS/src/univs/edu/notificacao/Notificacao.java</file>
+            <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/IncendioSOS/src/univs/edu/telas/ibama/ConfigsIbama.java</file>
+            <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/IncendioSOS/src/univs/edu/telas/ibama/DetalhesDenuncia.java</file>
             <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/IncendioSOS/src/univs/edu/telas/bombeiro/DetalhesNotificacao.java</file>
             <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/IncendioSOS/src/univs/edu/telas/adm/CadastroBombeiro.java</file>
             <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/IncendioSOS/src/univs/edu/telas/adm/ListaCorpoDeBombeiros.java</file>
@@ -22,6 +24,7 @@
             <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/IncendioSOS/src/univs/edu/telas/adm/CadastroAdm.java</file>
             <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/IncendioSOS/src/univs/edu/ibama/IbamaTableModel.java</file>
             <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/IncendioSOS/src/univs/edu/usuario/UsuarioTableModel.java</file>
+            <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/IncendioSOS/src/univs/edu/denuncia/DenunciaTableModel.java</file>
             <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/IncendioSOS/src/univs/edu/telas/usuario/HomePageUsuario.java</file>
             <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/IncendioSOS/src/univs/edu/dao/GenericDAO.java</file>
             <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/IncendioSOS/src/univs/edu/adm/Adm.java</file>

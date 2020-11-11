@@ -8,29 +8,29 @@ import javax.persistence.Transient;
 
 @Entity
 public class Ibama {
-    
+
     @Id
     @GeneratedValue
     private int idIbama;
-    
+
     @Column(length = 20, nullable = false, unique = true)
     private String cnpj;
-    
+
     @Column(length = 100, nullable = false)
     private String nomeIbama;
-    
+
     @Column(length = 100, nullable = false)
     private String cidadeIbama;
-    
+
     @Column(length = 100, nullable = false)
     private String estadoIbama;
-    
+
     @Column(length = 100, nullable = false)
     private String ruaIbama;
-    
+
     @Column(length = 100, nullable = false)
     private String responsavelIbama;
-    
+
     @Column(length = 20, nullable = false)
     private String telefoneIbama;
 
@@ -39,7 +39,10 @@ public class Ibama {
 
     @Column(length = 100, nullable = false)
     private String senhaIbama;
-    
+
+    @Column(nullable = false)
+    private boolean verificaConta;
+
     @Transient
     public static Ibama ibama;
 
@@ -119,8 +122,12 @@ public class Ibama {
         this.nomeIbama = nomeIbama;
     }
 
-    
+    public boolean isVerificaConta() {
+        return verificaConta;
+    }
 
-    
-    
+    public void setVerificaConta(boolean verificaConta) {
+        this.verificaConta = verificaConta;
+    }
+
 }

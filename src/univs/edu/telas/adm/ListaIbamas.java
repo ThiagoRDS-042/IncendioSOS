@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 import univs.edu.dao.GenericDAO;
 import univs.edu.ibama.Ibama;
 import univs.edu.ibama.IbamaTableModel;
+import univs.edu.telas.ibama.ConfigsIbama;
 
 /**
  *
@@ -142,6 +143,8 @@ public class ListaIbamas extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
+        ConfigsIbama.editar = false;
+        
         CadastroIbama cadastro = new CadastroIbama();
         cadastro.setVisible(true);
         dispose();

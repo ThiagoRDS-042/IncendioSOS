@@ -37,6 +37,9 @@ public class Denuncia {
     @Column(length = 100, nullable = false)
     private String localizacao;
     
+    @Column(length = 100, nullable = false)
+    private String cidadeOcorrencia;
+    
     @Transient
     public static Denuncia denuncia;
 
@@ -106,6 +109,14 @@ public class Denuncia {
 
     public void setDescricaoSuspeito(String descricaoSuspeito) {
         this.descricaoSuspeito = descricaoSuspeito;
+    }
+
+    public String getCidadeOcorrencia() {
+        return cidadeOcorrencia;
+    }
+
+    public void setCidadeOcorrencia(String cidadeOcorrencia) {
+        this.cidadeOcorrencia = cidadeOcorrencia;
     }
 
 }

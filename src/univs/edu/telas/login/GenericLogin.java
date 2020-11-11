@@ -15,9 +15,11 @@ import univs.edu.util.Criptografia;
 import univs.edu.dao.GenericDAO;
 import univs.edu.ibama.Ibama;
 import univs.edu.telas.adm.CadastroBombeiro;
+import univs.edu.telas.adm.CadastroIbama;
 import univs.edu.telas.adm.HomePageAdm;
-import static univs.edu.telas.bombeiro.ConfigsBombeiro.editar;
+import univs.edu.telas.bombeiro.ConfigsBombeiro;
 import univs.edu.telas.bombeiro.HomePageBombeiro;
+import univs.edu.telas.ibama.ConfigsIbama;
 import univs.edu.telas.ibama.HomePageIbama;
 import univs.edu.telas.usuario.CadastroUsuario;
 import univs.edu.telas.usuario.ConfigsUsuario;
@@ -163,7 +165,7 @@ public class GenericLogin extends javax.swing.JFrame {
                 CorpoDeBombeiros.bombeiro = bombeiro;
 
                 if (!CorpoDeBombeiros.bombeiro.isVerificaConta() && JOptionPane.showConfirmDialog(null, "Edite sua conta agora, caso não queira voçê pode ter acesso a edição pelo painel configurações", "Excluir", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
-                    editar = true;
+                    ConfigsBombeiro.editar = true;
 
                     CadastroBombeiro cadastro = new CadastroBombeiro();
                     cadastro.setVisible(true);
@@ -176,10 +178,19 @@ public class GenericLogin extends javax.swing.JFrame {
 
             } else if (dao.login(tfEmailLogin.getText(), Criptografia.criptografar(tfSenhaLogin.getText())) instanceof Ibama) {
                 ibama = (Ibama) dao.login(tfEmailLogin.getText(), Criptografia.criptografar(tfSenhaLogin.getText()));
-                Ibama.ibama = ibama;
-                HomePageIbama tela = new HomePageIbama();
-                tela.setVisible(true);
-                dispose();
+                    Ibama.ibama = ibama;
+
+                    if (!Ibama.ibama.isVerificaConta() && JOptionPane.showConfirmDialog(null, "Edite sua conta agora, caso não queira voçê pode ter acesso a edição pelo painel configurações", "Excluir", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                        ConfigsIbama.editar = true;
+
+                        CadastroIbama cadastro = new CadastroIbama();
+                        cadastro.setVisible(true);
+                        dispose();
+                    } else {
+                        HomePageIbama tela = new HomePageIbama();
+                        tela.setVisible(true);
+                        dispose();
+                    }
 
             } else if (dao.login(tfEmailLogin.getText(), Criptografia.criptografar(tfSenhaLogin.getText())) instanceof Adm) {
                 adm = (Adm) dao.login(tfEmailLogin.getText(), Criptografia.criptografar(tfSenhaLogin.getText()));
@@ -216,7 +227,7 @@ public class GenericLogin extends javax.swing.JFrame {
                     CorpoDeBombeiros.bombeiro = bombeiro;
 
                     if (!CorpoDeBombeiros.bombeiro.isVerificaConta() && JOptionPane.showConfirmDialog(null, "Edite sua conta agora, caso não queira voçê pode ter acesso a edição pelo painel configurações", "Excluir", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
-                        editar = true;
+                        ConfigsBombeiro.editar = true;
 
                         CadastroBombeiro cadastro = new CadastroBombeiro();
                         cadastro.setVisible(true);
@@ -230,9 +241,18 @@ public class GenericLogin extends javax.swing.JFrame {
                 } else if (dao.login(tfEmailLogin.getText(), Criptografia.criptografar(tfSenhaLogin.getText())) instanceof Ibama) {
                     ibama = (Ibama) dao.login(tfEmailLogin.getText(), Criptografia.criptografar(tfSenhaLogin.getText()));
                     Ibama.ibama = ibama;
-                    HomePageIbama tela = new HomePageIbama();
-                    tela.setVisible(true);
-                    dispose();
+
+                    if (!Ibama.ibama.isVerificaConta() && JOptionPane.showConfirmDialog(null, "Edite sua conta agora, caso não queira voçê pode ter acesso a edição pelo painel configurações", "Excluir", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                        ConfigsIbama.editar = true;
+
+                        CadastroIbama cadastro = new CadastroIbama();
+                        cadastro.setVisible(true);
+                        dispose();
+                    } else {
+                        HomePageIbama tela = new HomePageIbama();
+                        tela.setVisible(true);
+                        dispose();
+                    }
 
                 } else if (dao.login(tfEmailLogin.getText(), Criptografia.criptografar(tfSenhaLogin.getText())) instanceof Adm) {
                     adm = (Adm) dao.login(tfEmailLogin.getText(), Criptografia.criptografar(tfSenhaLogin.getText()));

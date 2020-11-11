@@ -350,12 +350,12 @@ public class CadastroBombeiro extends javax.swing.JFrame {
             if (ConfigsBombeiro.editar == true && (CorpoDeBombeiros.bombeiro.getIdBombeiro() == bombeiro1.getIdBombeiro())) {
 
             } else {
-                JOptionPane.showMessageDialog(null, "Email ja cadastrado!");
+                JOptionPane.showMessageDialog(null, "Email já cadastrado!");
                 tfEmail.setText("");
                 tfEmail.grabFocus();
             }
         } else if(dao.pesquisarEmail(tfEmail.getText()) != null){
-            JOptionPane.showMessageDialog(null, "Email ja cadastrado!");
+            JOptionPane.showMessageDialog(null, "Email já cadastrado!");
             tfEmail.setText("");
             tfEmail.grabFocus();
         }

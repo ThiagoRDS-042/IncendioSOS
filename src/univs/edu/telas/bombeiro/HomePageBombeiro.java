@@ -10,8 +10,6 @@ import univs.edu.bombeiro.CorpoDeBombeiros;
 import univs.edu.dao.GenericDAO;
 import univs.edu.notificacao.Notificacao;
 import univs.edu.notificacao.NotificacaoTableModel;
-import univs.edu.telas.adm.CadastroBombeiro;
-import static univs.edu.telas.bombeiro.ConfigsBombeiro.editar;
 
 /**
  *
@@ -26,17 +24,7 @@ public class HomePageBombeiro extends javax.swing.JFrame {
      */
     public HomePageBombeiro() {
         initComponents();
-        verificar();
-
-    }
-
-    public void verificar() {
-        if (dao.listarObjetos("Notificação") != null) {
-            atualizarTabela();
-        } else {
-            TabelaNotificacao.setVisible(false);
-            jErro.setText("Sem Notificação :(");
-        }
+        atualizarTabela();
 
     }
 
@@ -58,7 +46,7 @@ public class HomePageBombeiro extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         TabelaNotificacao = new javax.swing.JTable();
         jErro = new javax.swing.JLabel();
-        btnTrote = new javax.swing.JButton();
+        btnAbrir = new javax.swing.JButton();
         btnConfigs = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -77,10 +65,10 @@ public class HomePageBombeiro extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(TabelaNotificacao);
 
-        btnTrote.setText("Abrir");
-        btnTrote.addActionListener(new java.awt.event.ActionListener() {
+        btnAbrir.setText("Abrir");
+        btnAbrir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTroteActionPerformed(evt);
+                btnAbrirActionPerformed(evt);
             }
         });
 
@@ -113,9 +101,9 @@ public class HomePageBombeiro extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnConfigs)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnTrote))))
+                                .addComponent(btnAbrir))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(216, 216, 216)
+                        .addGap(197, 197, 197)
                         .addComponent(jLabel1)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -124,16 +112,16 @@ public class HomePageBombeiro extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jTeste)
-                .addGap(17, 17, 17)
-                .addComponent(jLabel1)
                 .addGap(16, 16, 16)
+                .addComponent(jLabel1)
+                .addGap(17, 17, 17)
                 .addComponent(jErro)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnConfigs, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnTrote, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnAbrir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22))
         );
 
@@ -147,7 +135,7 @@ public class HomePageBombeiro extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnConfigsActionPerformed
 
-    private void btnTroteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTroteActionPerformed
+    private void btnAbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirActionPerformed
         int linha = TabelaNotificacao.getSelectedRow();
         if (linha == -1) {
             JOptionPane.showMessageDialog(null, "Selecione uma Notificação!");
@@ -158,7 +146,7 @@ public class HomePageBombeiro extends javax.swing.JFrame {
             dispose();
         }
 
-    }//GEN-LAST:event_btnTroteActionPerformed
+    }//GEN-LAST:event_btnAbrirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -197,8 +185,8 @@ public class HomePageBombeiro extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TabelaNotificacao;
+    private javax.swing.JButton btnAbrir;
     private javax.swing.JButton btnConfigs;
-    private javax.swing.JButton btnTrote;
     private javax.swing.JLabel jErro;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
