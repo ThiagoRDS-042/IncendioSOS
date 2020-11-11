@@ -313,12 +313,14 @@ public class CadastroBombeiro extends javax.swing.JFrame {
             bombeiro.setEmailBombeiro(tfEmail.getText());
             bombeiro.setSenhaBombeiro(Criptografia.criptografar(tfSenha.getText()));
 
-            if (ConfigsAdm.editar == true) {
+            if (ConfigsBombeiro.editar == true) {
+                bombeiro.setVerificaConta(true);
                 dao.salvar(bombeiro);
                 HomePageBombeiro home = new HomePageBombeiro();
                 home.setVisible(true);
                 dispose();
             } else {
+                bombeiro.setVerificaConta(false);
                 dao.salvar(bombeiro);
             }
             limparCampos();
@@ -378,7 +380,7 @@ public class CadastroBombeiro extends javax.swing.JFrame {
                 bombeiro.setEmailBombeiro(tfEmail.getText());
                 bombeiro.setSenhaBombeiro(Criptografia.criptografar(tfSenha.getText()));
 
-                if (ConfigsAdm.editar == true) {
+                if (ConfigsBombeiro.editar == true) {
                     dao.salvar(bombeiro);
                     HomePageBombeiro home = new HomePageBombeiro();
                     home.setVisible(true);
@@ -411,7 +413,7 @@ public class CadastroBombeiro extends javax.swing.JFrame {
     }//GEN-LAST:event_tfIdentificacaoFocusLost
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        if (ConfigsAdm.editar == true) {
+        if (ConfigsBombeiro.editar == true) {
             HomePageBombeiro home = new HomePageBombeiro();
             home.setVisible(true);
             dispose();

@@ -10,6 +10,8 @@ import univs.edu.bombeiro.CorpoDeBombeiros;
 import univs.edu.dao.GenericDAO;
 import univs.edu.notificacao.Notificacao;
 import univs.edu.notificacao.NotificacaoTableModel;
+import univs.edu.telas.adm.CadastroBombeiro;
+import static univs.edu.telas.bombeiro.ConfigsBombeiro.editar;
 
 /**
  *

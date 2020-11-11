@@ -14,7 +14,9 @@ import univs.edu.bombeiro.CorpoDeBombeiros;
 import univs.edu.util.Criptografia;
 import univs.edu.dao.GenericDAO;
 import univs.edu.ibama.Ibama;
+import univs.edu.telas.adm.CadastroBombeiro;
 import univs.edu.telas.adm.HomePageAdm;
+import static univs.edu.telas.bombeiro.ConfigsBombeiro.editar;
 import univs.edu.telas.bombeiro.HomePageBombeiro;
 import univs.edu.telas.ibama.HomePageIbama;
 import univs.edu.telas.usuario.CadastroUsuario;
@@ -159,9 +161,18 @@ public class GenericLogin extends javax.swing.JFrame {
             } else if (dao.login(tfEmailLogin.getText(), Criptografia.criptografar(tfSenhaLogin.getText())) instanceof CorpoDeBombeiros) {
                 bombeiro = (CorpoDeBombeiros) dao.login(tfEmailLogin.getText(), Criptografia.criptografar(tfSenhaLogin.getText()));
                 CorpoDeBombeiros.bombeiro = bombeiro;
-                HomePageBombeiro tela = new HomePageBombeiro();
-                tela.setVisible(true);
-                dispose();
+
+                if (!CorpoDeBombeiros.bombeiro.isVerificaConta() && JOptionPane.showConfirmDialog(null, "Edite sua conta agora, caso não queira voçê pode ter acesso a edição pelo painel configurações", "Excluir", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                    editar = true;
+
+                    CadastroBombeiro cadastro = new CadastroBombeiro();
+                    cadastro.setVisible(true);
+                    dispose();
+                } else {
+                    HomePageBombeiro tela = new HomePageBombeiro();
+                    tela.setVisible(true);
+                    dispose();
+                }
 
             } else if (dao.login(tfEmailLogin.getText(), Criptografia.criptografar(tfSenhaLogin.getText())) instanceof Ibama) {
                 ibama = (Ibama) dao.login(tfEmailLogin.getText(), Criptografia.criptografar(tfSenhaLogin.getText()));
@@ -203,9 +214,18 @@ public class GenericLogin extends javax.swing.JFrame {
                 } else if (dao.login(tfEmailLogin.getText(), Criptografia.criptografar(tfSenhaLogin.getText())) instanceof CorpoDeBombeiros) {
                     bombeiro = (CorpoDeBombeiros) dao.login(tfEmailLogin.getText(), Criptografia.criptografar(tfSenhaLogin.getText()));
                     CorpoDeBombeiros.bombeiro = bombeiro;
-                    HomePageBombeiro tela = new HomePageBombeiro();
-                    tela.setVisible(true);
-                    dispose();
+
+                    if (!CorpoDeBombeiros.bombeiro.isVerificaConta() && JOptionPane.showConfirmDialog(null, "Edite sua conta agora, caso não queira voçê pode ter acesso a edição pelo painel configurações", "Excluir", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                        editar = true;
+
+                        CadastroBombeiro cadastro = new CadastroBombeiro();
+                        cadastro.setVisible(true);
+                        dispose();
+                    } else {
+                        HomePageBombeiro tela = new HomePageBombeiro();
+                        tela.setVisible(true);
+                        dispose();
+                    }
 
                 } else if (dao.login(tfEmailLogin.getText(), Criptografia.criptografar(tfSenhaLogin.getText())) instanceof Ibama) {
                     ibama = (Ibama) dao.login(tfEmailLogin.getText(), Criptografia.criptografar(tfSenhaLogin.getText()));

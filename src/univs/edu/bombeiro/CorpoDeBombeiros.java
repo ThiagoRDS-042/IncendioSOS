@@ -37,6 +37,9 @@ public class CorpoDeBombeiros {
     @Column(length = 100, nullable = false)
     private String senhaBombeiro;
     
+    @Column(nullable = false)
+    private boolean verificaConta;
+    
     @Transient
     public static CorpoDeBombeiros bombeiro;
 
@@ -106,6 +109,14 @@ public class CorpoDeBombeiros {
 
     public void setSenhaBombeiro(String senhaBombeiro) {
         this.senhaBombeiro = senhaBombeiro;
+    }
+
+    public boolean isVerificaConta() {
+        return verificaConta;
+    }
+
+    public void setVerificaConta(boolean verificaConta) {
+        this.verificaConta = verificaConta;
     }
 
     
