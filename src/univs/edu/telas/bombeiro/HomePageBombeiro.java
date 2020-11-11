@@ -5,8 +5,10 @@
  */
 package univs.edu.telas.bombeiro;
 
+import javax.swing.JOptionPane;
 import univs.edu.bombeiro.CorpoDeBombeiros;
 import univs.edu.dao.GenericDAO;
+import univs.edu.notificacao.Notificacao;
 import univs.edu.notificacao.NotificacaoTableModel;
 
 /**
@@ -22,18 +24,22 @@ public class HomePageBombeiro extends javax.swing.JFrame {
      */
     public HomePageBombeiro() {
         initComponents();
-        jTeste.setText("Bem Vindo " + CorpoDeBombeiros.bombeiro.getCompanhiaBatalhao() + "!");
+        verificar();
 
+    }
+
+    public void verificar() {
         if (dao.listarObjetos("Notificação") != null) {
             atualizarTabela();
         } else {
             TabelaNotificacao.setVisible(false);
             jErro.setText("Sem Notificação :(");
         }
+
     }
 
     public void atualizarTabela() {
-        NotificacaoTableModel tabela = new NotificacaoTableModel(dao.listarObjetos("Notificação"));
+        NotificacaoTableModel tabela = new NotificacaoTableModel(dao.listarNotDen(CorpoDeBombeiros.bombeiro.getIdBombeiro(), "Notificação"));
         TabelaNotificacao.setModel(tabela);
     }
 
@@ -50,6 +56,9 @@ public class HomePageBombeiro extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         TabelaNotificacao = new javax.swing.JTable();
         jErro = new javax.swing.JLabel();
+        btnTrote = new javax.swing.JButton();
+        btnConfigs = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,6 +75,23 @@ public class HomePageBombeiro extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(TabelaNotificacao);
 
+        btnTrote.setText("Abrir");
+        btnTrote.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTroteActionPerformed(evt);
+            }
+        });
+
+        btnConfigs.setText("Configurações");
+        btnConfigs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfigsActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel1.setText("Notificações");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -73,34 +99,64 @@ public class HomePageBombeiro extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addGap(58, 58, 58)
+                        .addComponent(jTeste))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(184, 184, 184)
+                        .addComponent(jErro))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(58, 58, 58)
-                                .addComponent(jTeste))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(184, 184, 184)
-                                .addComponent(jErro)))
-                        .addGap(0, 259, Short.MAX_VALUE)))
-                .addContainerGap())
+                                .addComponent(btnConfigs)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnTrote))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(216, 216, 216)
+                        .addComponent(jLabel1)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jTeste)
-                .addGap(55, 55, 55)
+                .addGap(17, 17, 17)
+                .addComponent(jLabel1)
+                .addGap(16, 16, 16)
                 .addComponent(jErro)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(106, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnConfigs, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnTrote, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnConfigsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfigsActionPerformed
+        ConfigsBombeiro configs = new ConfigsBombeiro();
+        configs.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnConfigsActionPerformed
+
+    private void btnTroteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTroteActionPerformed
+        int linha = TabelaNotificacao.getSelectedRow();
+        if (linha == -1) {
+            JOptionPane.showMessageDialog(null, "Selecione uma Notificação!");
+        } else {
+            Notificacao.notificacao = (Notificacao) dao.pesquisarId((int) TabelaNotificacao.getValueAt(linha, 0), "Notificação");
+            DetalhesNotificacao detalhes = new DetalhesNotificacao();
+            detalhes.setVisible(true);
+            dispose();
+        }
+
+    }//GEN-LAST:event_btnTroteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -139,7 +195,10 @@ public class HomePageBombeiro extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TabelaNotificacao;
+    private javax.swing.JButton btnConfigs;
+    private javax.swing.JButton btnTrote;
     private javax.swing.JLabel jErro;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel jTeste;
     // End of variables declaration//GEN-END:variables

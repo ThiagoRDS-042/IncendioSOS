@@ -16,7 +16,7 @@ import univs.edu.util.Criptografia;
  * @author GGrio
  */
 public class CadastroAdm extends javax.swing.JFrame {
-    
+
     Adm adm = new Adm();
     GenericDAO dao = new GenericDAO();
 
@@ -25,17 +25,21 @@ public class CadastroAdm extends javax.swing.JFrame {
      */
     public CadastroAdm() {
         initComponents();
-        
-        if(ConfigsAdm.editar == true){
+
+        verificar();
+    }
+
+    public void verificar() {
+        if (ConfigsAdm.editar == true) {
             lTitulo1.setText("Editar Administrador");
             btnCadastrar.setText("Editar");
-            
+
             adm = Adm.adm;
             tfEmail.setText(adm.getEmailAdm());
         }
     }
-    
-    public void limparCampos(){
+
+    public void limparCampos() {
         tfEmail.setText("");
         tfSenha.setText("");
     }
@@ -79,6 +83,11 @@ public class CadastroAdm extends javax.swing.JFrame {
         tfEmail.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 tfEmailFocusLost(evt);
+            }
+        });
+        tfEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfEmailActionPerformed(evt);
             }
         });
 
@@ -143,15 +152,15 @@ public class CadastroAdm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-       HomePageAdm home = new HomePageAdm();
-       home.setVisible(true);
-       dispose();
+        HomePageAdm home = new HomePageAdm();
+        home.setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-        if(tfEmail.getText().isEmpty() || tfSenha.getText().isEmpty()){
+        if (tfEmail.getText().isEmpty() || tfSenha.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Preencha todos os Campos !");
-        }else{
+        } else {
             adm.setEmailAdm(tfEmail.getText());
             adm.setSenhaAdm(Criptografia.criptografar(tfSenha.getText()));
 
@@ -168,12 +177,26 @@ public class CadastroAdm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void tfEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfEmailFocusLost
-        if (dao.pesquisarEmail(tfEmail.getText()) != null && ConfigsAdm.editar == false) {
-            JOptionPane.showMessageDialog(null, "Email já cadastrado!");
+        Adm adm1;
+        if (dao.pesquisarEmail(tfEmail.getText()) instanceof Adm) {
+            adm1 = (Adm) dao.pesquisarEmail(tfEmail.getText());
+            if (ConfigsAdm.editar == true && (Adm.adm.getIdAdm() == adm1.getIdAdm())) {
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Email ja cadastrado!");
+                tfEmail.setText("");
+                tfEmail.grabFocus();
+            }
+        } else if(dao.pesquisarEmail(tfEmail.getText()) != null){
+            JOptionPane.showMessageDialog(null, "Email ja cadastrado!");
             tfEmail.setText("");
             tfEmail.grabFocus();
         }
     }//GEN-LAST:event_tfEmailFocusLost
+
+    private void tfEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfEmailActionPerformed
 
     /**
      * @param args the command line arguments

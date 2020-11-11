@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 import univs.edu.bombeiro.CorpoDeBombeiros;
 import univs.edu.bombeiro.CorpoDeBombeirosTableModel;
 import univs.edu.dao.GenericDAO;
+import univs.edu.telas.bombeiro.ConfigsBombeiro;
 
 /**
  *
@@ -135,6 +136,8 @@ public class ListaCorpoDeBombeiros extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
+        ConfigsBombeiro.editar = false;
+        
         CadastroBombeiro cadastro = new CadastroBombeiro();
         cadastro.setVisible(true);
         dispose();

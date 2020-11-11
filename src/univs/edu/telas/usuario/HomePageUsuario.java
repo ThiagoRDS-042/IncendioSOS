@@ -5,7 +5,8 @@
  */
 package univs.edu.telas.usuario;
 
-import java.sql.Date;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 import univs.edu.bombeiro.CorpoDeBombeiros;
 import univs.edu.dao.GenericDAO;
@@ -20,7 +21,8 @@ public class HomePageUsuario extends javax.swing.JFrame {
     GenericDAO dao = new GenericDAO();
     Usuario usuario = new Usuario();
     CorpoDeBombeiros bombeiro = new CorpoDeBombeiros();
-    Date data = new Date(System.currentTimeMillis());
+    DateTimeFormatter formatoData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    LocalDateTime data = LocalDateTime.now();
 
     /**
      * Creates new form HomePageUsuario
@@ -105,7 +107,7 @@ public class HomePageUsuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bntNotificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntNotificarActionPerformed
-        if (dao.PesquisarNotDen(Usuario.usuario.getIdUsuario(), data).size() == 3) {
+        if (dao.pesquisarNotDen(Usuario.usuario.getIdUsuario(), formatoData.format(data), "Notificação").size() == 3) {
             JOptionPane.showMessageDialog(null, "Limite de Notificações Diarias Atingido!");
         } else {
             Notificar not = new Notificar();
@@ -115,15 +117,19 @@ public class HomePageUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_bntNotificarActionPerformed
 
     private void btnDenunciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDenunciarActionPerformed
-        Denunciar den = new Denunciar();
-        den.setVisible(true);
-        dispose();
+        if (dao.pesquisarNotDen(Usuario.usuario.getIdUsuario(), formatoData.format(data), "Denuncia").size() == 3) {
+            JOptionPane.showMessageDialog(null, "Limite de Denuncias Diarias Atingido!");
+        } else {
+            Denunciar den = new Denunciar();
+            den.setVisible(true);
+            dispose();
+        }
     }//GEN-LAST:event_btnDenunciarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       ConfigsUsuario configs = new ConfigsUsuario();
-       configs.setVisible(true);
-       dispose();
+        ConfigsUsuario configs = new ConfigsUsuario();
+        configs.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

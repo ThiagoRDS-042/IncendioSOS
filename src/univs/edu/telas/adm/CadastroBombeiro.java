@@ -10,6 +10,8 @@ import javax.swing.JOptionPane;
 import univs.edu.bombeiro.CorpoDeBombeiros;
 import univs.edu.util.Criptografia;
 import univs.edu.dao.GenericDAO;
+import univs.edu.telas.bombeiro.ConfigsBombeiro;
+import univs.edu.telas.bombeiro.HomePageBombeiro;
 
 /**
  *
@@ -25,6 +27,23 @@ public class CadastroBombeiro extends javax.swing.JFrame {
      */
     public CadastroBombeiro() {
         initComponents();
+        verificar();
+    }
+
+    public void verificar() {
+        if (ConfigsBombeiro.editar == true) {
+            jLabel1.setText("Editar Corpo de Bombeiros");
+            btnCadastrar.setText("Editar");
+
+            bombeiro = CorpoDeBombeiros.bombeiro;
+            tfCidade.setText(bombeiro.getCidadeBombeiro());
+            tfEstado.setText(bombeiro.getEstadoBombeiro());
+            tfIdentificacao.setText(bombeiro.getCompanhiaBatalhao());
+            tfNomeDeComandante.setText(bombeiro.getNomeDoComandante());
+            tfRua.setText(bombeiro.getRuaBombeiro());
+            tfTelefone.setText(bombeiro.getTelefoneBombeiro());
+            tfEmail.setText(bombeiro.getEmailBombeiro());
+        }
     }
 
     public void limparCampos() {
@@ -293,7 +312,15 @@ public class CadastroBombeiro extends javax.swing.JFrame {
             bombeiro.setTelefoneBombeiro(tfTelefone.getText());
             bombeiro.setEmailBombeiro(tfEmail.getText());
             bombeiro.setSenhaBombeiro(Criptografia.criptografar(tfSenha.getText()));
-            dao.salvar(bombeiro);
+
+            if (ConfigsAdm.editar == true) {
+                dao.salvar(bombeiro);
+                HomePageBombeiro home = new HomePageBombeiro();
+                home.setVisible(true);
+                dispose();
+            } else {
+                dao.salvar(bombeiro);
+            }
             limparCampos();
         }
     }//GEN-LAST:event_btnCadastrarActionPerformed
@@ -315,11 +342,22 @@ public class CadastroBombeiro extends javax.swing.JFrame {
     }//GEN-LAST:event_tfNomeDeComandanteFocusLost
 
     private void tfEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfEmailFocusLost
-        if (dao.pesquisarEmail(tfEmail.getText()) != null) {
+        CorpoDeBombeiros bombeiro1;
+        if (dao.pesquisarEmail(tfEmail.getText()) instanceof CorpoDeBombeiros) {
+            bombeiro1 = (CorpoDeBombeiros) dao.pesquisarEmail(tfEmail.getText());
+            if (ConfigsBombeiro.editar == true && (CorpoDeBombeiros.bombeiro.getIdBombeiro() == bombeiro1.getIdBombeiro())) {
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Email ja cadastrado!");
+                tfEmail.setText("");
+                tfEmail.grabFocus();
+            }
+        } else if(dao.pesquisarEmail(tfEmail.getText()) != null){
             JOptionPane.showMessageDialog(null, "Email ja cadastrado!");
             tfEmail.setText("");
             tfEmail.grabFocus();
         }
+
     }//GEN-LAST:event_tfEmailFocusLost
 
     private void tfEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfEmailActionPerformed
@@ -339,7 +377,15 @@ public class CadastroBombeiro extends javax.swing.JFrame {
                 bombeiro.setTelefoneBombeiro(tfTelefone.getText());
                 bombeiro.setEmailBombeiro(tfEmail.getText());
                 bombeiro.setSenhaBombeiro(Criptografia.criptografar(tfSenha.getText()));
-                dao.salvar(bombeiro);
+
+                if (ConfigsAdm.editar == true) {
+                    dao.salvar(bombeiro);
+                    HomePageBombeiro home = new HomePageBombeiro();
+                    home.setVisible(true);
+                    dispose();
+                } else {
+                    dao.salvar(bombeiro);
+                }
                 limparCampos();
             }
 
@@ -347,17 +393,33 @@ public class CadastroBombeiro extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCadastrarKeyPressed
 
     private void tfIdentificacaoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfIdentificacaoFocusLost
-        if (dao.pesquisarIdentificacao(tfIdentificacao.getText()) != null) {
-            JOptionPane.showMessageDialog(null, "Email ja cadastrado!");
-            tfEmail.setText("");
-            tfEmail.grabFocus();
+        CorpoDeBombeiros bombeiro1;
+        if (dao.pesquisarIdentificacao(tfIdentificacao.getText()) instanceof CorpoDeBombeiros) {
+            bombeiro1 = (CorpoDeBombeiros) dao.pesquisarIdentificacao(tfIdentificacao.getText());
+            if (ConfigsBombeiro.editar == true && (CorpoDeBombeiros.bombeiro.getIdBombeiro() == bombeiro1.getIdBombeiro())) {
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Identificação já cadastrada!");
+                tfIdentificacao.setText("");
+                tfIdentificacao.grabFocus();
+            }
+        } else if(dao.pesquisarIdentificacao(tfIdentificacao.getText()) != null){
+            JOptionPane.showMessageDialog(null, "Identificação já cadastrada!");
+            tfIdentificacao.setText("");
+            tfIdentificacao.grabFocus();
         }
     }//GEN-LAST:event_tfIdentificacaoFocusLost
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        ListaCorpoDeBombeiros lista = new ListaCorpoDeBombeiros();
-        lista.setVisible(true);
-        dispose();
+        if (ConfigsAdm.editar == true) {
+            HomePageBombeiro home = new HomePageBombeiro();
+            home.setVisible(true);
+            dispose();
+        } else {
+            ListaCorpoDeBombeiros lista = new ListaCorpoDeBombeiros();
+            lista.setVisible(true);
+            dispose();
+        }
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnVoltarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnVoltarKeyPressed
@@ -378,16 +440,24 @@ public class CadastroBombeiro extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CadastroBombeiro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroBombeiro.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CadastroBombeiro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroBombeiro.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CadastroBombeiro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroBombeiro.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CadastroBombeiro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastroBombeiro.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>

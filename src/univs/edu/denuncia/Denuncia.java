@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 @Entity
 public class Denuncia {
@@ -35,6 +36,9 @@ public class Denuncia {
 
     @Column(length = 100, nullable = false)
     private String localizacao;
+    
+    @Transient
+    public static Denuncia denuncia;
 
     public int getIdDenuncia() {
         return idDenuncia;

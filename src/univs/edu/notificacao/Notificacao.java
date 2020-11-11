@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 @Entity
 public class Notificacao {
@@ -41,6 +42,9 @@ public class Notificacao {
 
     @Column(length = 150, nullable = false)
     private String descricao;
+    
+    @Transient
+    public static Notificacao notificacao;
 
     public int getIdNotificacao() {
         return idNotificacao;

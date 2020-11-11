@@ -10,8 +10,8 @@ public class NotificacaoTableModel extends AbstractTableModel {
 
     GenericDAO dao = new GenericDAO();
     private List<Notificacao> notificacoes = new ArrayList<>();
-    private String[] colunas = {"ID", "Remetente", "Data de Envio", "Cidade da Ocorrência"};
-    
+    private String[] colunas = {"Número", "Remetente", "Data de Envio", "Cidade", "Rua"};
+
     public NotificacaoTableModel(List<Notificacao> notificacoes) {
         this.notificacoes = notificacoes;
     }
@@ -33,12 +33,15 @@ public class NotificacaoTableModel extends AbstractTableModel {
             case 0:
                 return notificacao.getIdNotificacao();
             case 1:
-                Usuario usuario = (Usuario) dao.pesquisarId(notificacao.getIdUsuario());
+                Usuario usuario = (Usuario) dao.pesquisarId(notificacao.getIdUsuario(), "Usuário");
                 return usuario.getNomeUsuario();
             case 2:
-                return notificacao.getDataEnvio();
+                String[] nova = notificacao.getDataEnvio().split("-");
+                return nova[0];
             case 3:
                 return notificacao.getCidadeOcorrencia();
+            case 4:
+                return notificacao.getRuaOcorrencia();
         }
         return null;
     }
@@ -54,6 +57,8 @@ public class NotificacaoTableModel extends AbstractTableModel {
                 return colunas[2];
             case 3:
                 return colunas[3];
+            case 4:
+                return colunas[4];
         }
         return null;
     }
