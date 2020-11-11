@@ -5,6 +5,8 @@
  */
 package univs.edu.telas.adm;
 
+import static univs.edu.telas.adm.ConfigsAdm.editar;
+
 
 /**
  *
@@ -28,21 +30,81 @@ public class HomePageAdm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnUsuarios = new javax.swing.JButton();
+        btnCorposDeBombeiros = new javax.swing.JButton();
+        btnIbamas = new javax.swing.JButton();
+        btnCadastroAdm = new javax.swing.JButton();
+        btnCadastroAdm1 = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        btnUsuarios.setText("Usuarios");
+
+        btnCorposDeBombeiros.setText("Corpos de Bombeiros");
+
+        btnIbamas.setText("Ibamas");
+
+        btnCadastroAdm.setText("Cadastro de ADM");
+        btnCadastroAdm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastroAdmActionPerformed(evt);
+            }
+        });
+
+        btnCadastroAdm1.setText("Configurações");
+        btnCadastroAdm1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastroAdm1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnCadastroAdm1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCorposDeBombeiros, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnIbamas, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCadastroAdm, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(btnUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnCorposDeBombeiros, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnIbamas, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnCadastroAdm, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnCadastroAdm1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCadastroAdm1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroAdm1ActionPerformed
+        ConfigsAdm configs = new ConfigsAdm();
+        configs.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnCadastroAdm1ActionPerformed
+
+    private void btnCadastroAdmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroAdmActionPerformed
+        editar = false;
+        
+        CadastroAdm cadastro = new CadastroAdm();
+        cadastro.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnCadastroAdmActionPerformed
 
     /**
      * @param args the command line arguments
@@ -80,5 +142,10 @@ public class HomePageAdm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCadastroAdm;
+    private javax.swing.JButton btnCadastroAdm1;
+    private javax.swing.JButton btnCorposDeBombeiros;
+    private javax.swing.JButton btnIbamas;
+    private javax.swing.JButton btnUsuarios;
     // End of variables declaration//GEN-END:variables
 }

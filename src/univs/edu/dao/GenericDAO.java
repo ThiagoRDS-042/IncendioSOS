@@ -56,6 +56,15 @@ public class GenericDAO<T> {
                 sessao.update(ibama);
                 JOptionPane.showMessageDialog(null, "Editado com Sucesso!");
             }
+        } else if (generico instanceof Adm) {
+            Adm adm = (Adm) generico;
+            if (adm.getIdAdm() == 0) {
+                sessao.save(adm);
+                JOptionPane.showMessageDialog(null, "Cadastrado Concluído!");
+            } else {
+                sessao.update(adm);
+                JOptionPane.showMessageDialog(null, "Editado com Sucesso!");
+            }
         } else if (generico instanceof Notificacao) {
             Notificacao notificacao = (Notificacao) generico;
             sessao.save(notificacao);
@@ -91,6 +100,9 @@ public class GenericDAO<T> {
         } else if (sessao.createCriteria(Ibama.class).add(Restrictions.eq("emailIbama", email)).uniqueResult() != null) {
             Ibama ibama = (Ibama) sessao.createCriteria(Ibama.class).add(Restrictions.eq("emailIbama", email)).uniqueResult();
             generica = (T) ibama;
+        } else if (sessao.createCriteria(Adm.class).add(Restrictions.eq("emailAdm", email)).uniqueResult() != null) {
+            Adm adm = (Adm) sessao.createCriteria(Adm.class).add(Restrictions.eq("emailAdm", email)).uniqueResult();
+            generica = (T) adm;
         }
         sessao.close();
         return generica;

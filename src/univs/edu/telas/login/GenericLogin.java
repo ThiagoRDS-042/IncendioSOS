@@ -11,7 +11,7 @@ import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 import univs.edu.adm.Adm;
 import univs.edu.bombeiro.CorpoDeBombeiros;
-import univs.edu.criptografia.Criptografia;
+import univs.edu.util.Criptografia;
 import univs.edu.dao.GenericDAO;
 import univs.edu.ibama.Ibama;
 import univs.edu.telas.adm.HomePageAdm;
@@ -170,8 +170,8 @@ public class GenericLogin extends javax.swing.JFrame {
                 tela.setVisible(true);
                 dispose();
 
-            } else if (dao.login(tfEmailLogin.getText(), tfSenhaLogin.getText()) instanceof Adm) {
-                adm = (Adm) dao.login(tfEmailLogin.getText(), tfSenhaLogin.getText());
+            } else if (dao.login(tfEmailLogin.getText(), Criptografia.criptografar(tfSenhaLogin.getText())) instanceof Adm) {
+                adm = (Adm) dao.login(tfEmailLogin.getText(), Criptografia.criptografar(tfSenhaLogin.getText()));
                 Adm.adm = adm;
                 HomePageAdm tela = new HomePageAdm();
                 tela.setVisible(true);
@@ -214,8 +214,8 @@ public class GenericLogin extends javax.swing.JFrame {
                     tela.setVisible(true);
                     dispose();
 
-                } else if (dao.login(tfEmailLogin.getText(), tfSenhaLogin.getText()) instanceof Adm) {
-                    adm = (Adm) dao.login(tfEmailLogin.getText(), tfSenhaLogin.getText());
+                } else if (dao.login(tfEmailLogin.getText(), Criptografia.criptografar(tfSenhaLogin.getText())) instanceof Adm) {
+                    adm = (Adm) dao.login(tfEmailLogin.getText(), Criptografia.criptografar(tfSenhaLogin.getText()));
                     Adm.adm = adm;
                     HomePageAdm tela = new HomePageAdm();
                     tela.setVisible(true);

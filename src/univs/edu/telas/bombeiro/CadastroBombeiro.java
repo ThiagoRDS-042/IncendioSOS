@@ -8,7 +8,7 @@ package univs.edu.telas.bombeiro;
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import univs.edu.bombeiro.CorpoDeBombeiros;
-import univs.edu.criptografia.Criptografia;
+import univs.edu.util.Criptografia;
 import univs.edu.dao.GenericDAO;
 
 /**
@@ -59,13 +59,13 @@ public class CadastroBombeiro extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        tfIdentificacao = new javax.swing.JTextField();
         tfEstado = new javax.swing.JTextField();
         tfCidade = new javax.swing.JTextField();
         tfRua = new javax.swing.JTextField();
         tfNomeDeComandante = new javax.swing.JTextField();
-        tfTelefone = new javax.swing.JTextField();
         tfEmail = new javax.swing.JTextField();
+        tfIdentificacao = new javax.swing.JFormattedTextField();
+        tfTelefone = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -114,12 +114,6 @@ public class CadastroBombeiro extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jLabel9.setText("Nome do Comandante:");
 
-        tfIdentificacao.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                tfIdentificacaoFocusLost(evt);
-            }
-        });
-
         tfEstado.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 tfEstadoFocusLost(evt);
@@ -144,12 +138,6 @@ public class CadastroBombeiro extends javax.swing.JFrame {
             }
         });
 
-        tfTelefone.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                tfTelefoneFocusLost(evt);
-            }
-        });
-
         tfEmail.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 tfEmailFocusLost(evt);
@@ -160,6 +148,24 @@ public class CadastroBombeiro extends javax.swing.JFrame {
                 tfEmailActionPerformed(evt);
             }
         });
+
+        try {
+            tfIdentificacao.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#ªCia/#BMM")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        tfIdentificacao.setToolTipText("Exemplo: 1ªCia/3BMM.");
+        tfIdentificacao.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                tfIdentificacaoFocusLost(evt);
+            }
+        });
+
+        try {
+            tfTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) ####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -177,11 +183,11 @@ public class CadastroBombeiro extends javax.swing.JFrame {
                                     .addComponent(jLabel7)
                                     .addComponent(tfRua, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE))
                                 .addGap(34, 34, 34)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tfTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel8)
                                     .addComponent(jLabel3)
-                                    .addComponent(tfSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(tfSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
+                                    .addComponent(tfTelefone)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel5)
@@ -193,7 +199,7 @@ public class CadastroBombeiro extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(354, 354, 354)
                                 .addComponent(tfCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(tfIdentificacao, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(34, 34, 34)
                                 .addComponent(tfNomeDeComandante, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -217,36 +223,39 @@ public class CadastroBombeiro extends javax.swing.JFrame {
                     .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(tfIdentificacao, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfNomeDeComandante, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(6, 6, 6)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel8))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfRua, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(tfNomeDeComandante, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tfEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel8))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tfRua, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(28, 28, 28)
+                        .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(tfIdentificacao, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         pack();
@@ -274,14 +283,6 @@ public class CadastroBombeiro extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
-    private void tfIdentificacaoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfIdentificacaoFocusLost
-        if (dao.pesquisarIdentificacao(tfIdentificacao.getText()) instanceof CorpoDeBombeiros) {
-            JOptionPane.showMessageDialog(null, "Identificação já Existente!");
-            tfIdentificacao.setText("");
-            tfIdentificacao.grabFocus();
-        }
-    }//GEN-LAST:event_tfIdentificacaoFocusLost
-
     private void tfEstadoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfEstadoFocusLost
         // TODO add your handling code here:
     }//GEN-LAST:event_tfEstadoFocusLost
@@ -297,10 +298,6 @@ public class CadastroBombeiro extends javax.swing.JFrame {
     private void tfNomeDeComandanteFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfNomeDeComandanteFocusLost
         // TODO add your handling code here:
     }//GEN-LAST:event_tfNomeDeComandanteFocusLost
-
-    private void tfTelefoneFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfTelefoneFocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfTelefoneFocusLost
 
     private void tfEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfEmailFocusLost
         if (dao.pesquisarEmail(tfEmail.getText()) != null) {
@@ -333,6 +330,14 @@ public class CadastroBombeiro extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_btnCadastrarKeyPressed
+
+    private void tfIdentificacaoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfIdentificacaoFocusLost
+        if (dao.pesquisarIdentificacao(tfIdentificacao.getText()) != null) {
+            JOptionPane.showMessageDialog(null, "Email ja cadastrado!");
+            tfEmail.setText("");
+            tfEmail.grabFocus();
+        }
+    }//GEN-LAST:event_tfIdentificacaoFocusLost
 
     /**
      * @param args the command line arguments
@@ -384,10 +389,10 @@ public class CadastroBombeiro extends javax.swing.JFrame {
     private javax.swing.JTextField tfCidade;
     private javax.swing.JTextField tfEmail;
     private javax.swing.JTextField tfEstado;
-    private javax.swing.JTextField tfIdentificacao;
+    private javax.swing.JFormattedTextField tfIdentificacao;
     private javax.swing.JTextField tfNomeDeComandante;
     private javax.swing.JTextField tfRua;
     private javax.swing.JPasswordField tfSenha;
-    private javax.swing.JTextField tfTelefone;
+    private javax.swing.JFormattedTextField tfTelefone;
     // End of variables declaration//GEN-END:variables
 }

@@ -7,8 +7,7 @@ package univs.edu.telas.ibama;
 
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
-import univs.edu.bombeiro.CorpoDeBombeiros;
-import univs.edu.criptografia.Criptografia;
+import univs.edu.util.Criptografia;
 import univs.edu.dao.GenericDAO;
 import univs.edu.ibama.Ibama;
 
@@ -26,7 +25,11 @@ public class CadastroIbama extends javax.swing.JFrame {
      */
     public CadastroIbama() {
         initComponents();
+        tfCidade.setToolTipText("Mensagem que você quer exibir");
+
+
     }
+    
 
     public void limparCampos() {
         ibama = new Ibama();
@@ -62,14 +65,14 @@ public class CadastroIbama extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        tfCnpj = new javax.swing.JTextField();
         tfEstado = new javax.swing.JTextField();
         tfCidade = new javax.swing.JTextField();
         tfRua = new javax.swing.JTextField();
-        tfTelefone = new javax.swing.JTextField();
         tfEmail = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         tfNome = new javax.swing.JTextField();
+        tfTelefone = new javax.swing.JFormattedTextField();
+        tfCnpj = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(25, 100));
@@ -130,12 +133,6 @@ public class CadastroIbama extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jLabel9.setText("Telefone:");
 
-        tfCnpj.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                tfCnpjFocusLost(evt);
-            }
-        });
-
         tfEstado.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 tfEstadoFocusLost(evt);
@@ -151,12 +148,6 @@ public class CadastroIbama extends javax.swing.JFrame {
         tfRua.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 tfRuaFocusLost(evt);
-            }
-        });
-
-        tfTelefone.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                tfTelefoneFocusLost(evt);
             }
         });
 
@@ -185,12 +176,29 @@ public class CadastroIbama extends javax.swing.JFrame {
             }
         });
 
+        try {
+            tfTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) ####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        try {
+            tfCnpj.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###/####-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        tfCnpj.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                tfCnpjFocusLost(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
+                .addContainerGap(29, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(tfResponsavel, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
@@ -205,18 +213,18 @@ public class CadastroIbama extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel3)
-                    .addComponent(tfTelefone, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
                     .addComponent(jLabel9)
                     .addComponent(tfCidade, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
                     .addComponent(jLabel7)
                     .addComponent(jLabel5)
-                    .addComponent(tfCnpj, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
-                    .addComponent(tfSenha))
-                .addContainerGap(20, Short.MAX_VALUE))
+                    .addComponent(tfSenha)
+                    .addComponent(tfTelefone)
+                    .addComponent(tfCnpj))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(287, 287, 287)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(297, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnCadastrar)
@@ -232,9 +240,9 @@ public class CadastroIbama extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(jLabel10))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
@@ -265,7 +273,7 @@ public class CadastroIbama extends javax.swing.JFrame {
                 .addComponent(tfResponsavel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -298,14 +306,6 @@ public class CadastroIbama extends javax.swing.JFrame {
 
     }//GEN-LAST:event_tfResponsavelFocusLost
 
-    private void tfCnpjFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfCnpjFocusLost
-        if (dao.pesquisarIdentificacao(tfCnpj.getText()) instanceof Ibama) {
-            JOptionPane.showMessageDialog(null, "CNPJ já Cadastrado!");
-            tfCnpj.setText("");
-            tfCnpj.grabFocus();
-        }
-    }//GEN-LAST:event_tfCnpjFocusLost
-
     private void tfEstadoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfEstadoFocusLost
         // TODO add your handling code here:
     }//GEN-LAST:event_tfEstadoFocusLost
@@ -317,10 +317,6 @@ public class CadastroIbama extends javax.swing.JFrame {
     private void tfRuaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfRuaFocusLost
         // TODO add your handling code here:
     }//GEN-LAST:event_tfRuaFocusLost
-
-    private void tfTelefoneFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfTelefoneFocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfTelefoneFocusLost
 
     private void tfEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfEmailFocusLost
         if (dao.pesquisarEmail(tfEmail.getText()) != null) {
@@ -366,6 +362,14 @@ public class CadastroIbama extends javax.swing.JFrame {
     private void tfNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfNomeActionPerformed
+
+    private void tfCnpjFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfCnpjFocusLost
+        if (dao.pesquisarIdentificacao(tfCnpj.getText()) != null) {
+            JOptionPane.showMessageDialog(null, "Email ja cadastrado!");
+            tfEmail.setText("");
+            tfEmail.grabFocus();
+        }
+    }//GEN-LAST:event_tfCnpjFocusLost
 
     /**
      * @param args the command line arguments
@@ -415,13 +419,13 @@ public class CadastroIbama extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField tfCidade;
-    private javax.swing.JTextField tfCnpj;
+    private javax.swing.JFormattedTextField tfCnpj;
     private javax.swing.JTextField tfEmail;
     private javax.swing.JTextField tfEstado;
     private javax.swing.JTextField tfNome;
     private javax.swing.JTextField tfResponsavel;
     private javax.swing.JTextField tfRua;
     private javax.swing.JPasswordField tfSenha;
-    private javax.swing.JTextField tfTelefone;
+    private javax.swing.JFormattedTextField tfTelefone;
     // End of variables declaration//GEN-END:variables
 }

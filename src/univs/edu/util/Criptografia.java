@@ -1,4 +1,4 @@
-package univs.edu.criptografia;
+package univs.edu.util;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
