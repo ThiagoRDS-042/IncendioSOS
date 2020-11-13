@@ -33,7 +33,7 @@ public class NotificacaoTableModel extends AbstractTableModel {
             case 0:
                 return notificacao.getIdNotificacao();
             case 1:
-                Usuario usuario = (Usuario) dao.pesquisarId(notificacao.getIdUsuario(), "Usuário");
+                Usuario usuario = notificacao.getUsuario();
                 return usuario.getNomeUsuario();
             case 2:
                 String[] nova = notificacao.getDataEnvio().split("-");

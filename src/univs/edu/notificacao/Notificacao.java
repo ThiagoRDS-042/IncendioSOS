@@ -4,7 +4,13 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+import univs.edu.bombeiro.CorpoDeBombeiros;
+import univs.edu.usuario.Usuario;
 
 @Entity
 public class Notificacao {
@@ -13,11 +19,15 @@ public class Notificacao {
     @GeneratedValue
     private int idNotificacao;
 
-    @Column(nullable = false)
-    private int idUsuario;
+    @ManyToOne
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JoinColumn(name = "idUsuario")
+    private Usuario usuario;
 
-    @Column(nullable = false)
-    private int idCorpoDeBombeiros;
+    @ManyToOne
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JoinColumn(name = "idCorpoDeBombeiros")
+    private CorpoDeBombeiros corpoDeBombeiros;
 
     @Column(length = 19, nullable = false)
     private String dataEnvio;
@@ -48,22 +58,6 @@ public class Notificacao {
 
     public int getIdNotificacao() {
         return idNotificacao;
-    }
-
-    public int getIdUsuario() {
-        return idUsuario;
-    }
-
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
-    }
-
-    public int getIdCorpoDeBombeiros() {
-        return idCorpoDeBombeiros;
-    }
-
-    public void setIdCorpoDeBombeiros(int idCorpoDeBombeiros) {
-        this.idCorpoDeBombeiros = idCorpoDeBombeiros;
     }
 
     public String getDataEnvio() {
@@ -128,5 +122,21 @@ public class Notificacao {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public CorpoDeBombeiros getCorpoDeBombeiros() {
+        return corpoDeBombeiros;
+    }
+
+    public void setCorpoDeBombeiros(CorpoDeBombeiros corpoDeBombeiros) {
+        this.corpoDeBombeiros = corpoDeBombeiros;
     }
 }

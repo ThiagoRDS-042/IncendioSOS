@@ -27,7 +27,8 @@ public class DetalhesDenuncia extends javax.swing.JFrame {
     }
     
     public void detalhesDen(){
-        usuario = (Usuario) dao.pesquisarId(Denuncia.denuncia.getIdUsuario(), "Usuário");
+        usuario = Denuncia.denuncia.getUsuario();
+        usuario = (Usuario) dao.pesquisarId(usuario.getIdUsuario(), "Usuário");
         
         lbRemetente.setText(usuario.getNomeUsuario());
         

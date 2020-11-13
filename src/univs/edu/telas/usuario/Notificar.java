@@ -251,8 +251,8 @@ public class Notificar extends javax.swing.JFrame {
             not.setRuaOcorrencia(tfRua.getText());
             not.setAbrangencia(tfAbrangencia.getText());
             not.setDescricao(tfDescricao.getText());
-            not.setIdCorpoDeBombeiros(bombeiro.getIdBombeiro());
-            not.setIdUsuario(Usuario.usuario.getIdUsuario());
+            not.setCorpoDeBombeiros(bombeiro);
+            not.setUsuario(Usuario.usuario);
             not.setTipo(jTipos.getSelectedItem().toString());
             not.setDuracao(tfDuracao.getText());
             not.setDataEnvio(formatoData.format(data));
@@ -277,8 +277,8 @@ public class Notificar extends javax.swing.JFrame {
                 not.setRuaOcorrencia(tfRua.getText());
                 not.setAbrangencia(tfAbrangencia.getText());
                 not.setDescricao(tfDescricao.getText());
-                not.setIdCorpoDeBombeiros(bombeiro.getIdBombeiro());
-                not.setIdUsuario(Usuario.usuario.getIdUsuario());
+                not.setCorpoDeBombeiros(bombeiro);
+                not.setUsuario(Usuario.usuario);
                 not.setTipo(jTipos.getSelectedItem().toString());
                 not.setDuracao(tfDuracao.getText());
                 not.setDataEnvio(formatoData.format(data));

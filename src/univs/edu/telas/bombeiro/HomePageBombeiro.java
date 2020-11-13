@@ -29,7 +29,7 @@ public class HomePageBombeiro extends javax.swing.JFrame {
     }
 
     public void atualizarTabela() {
-        NotificacaoTableModel tabela = new NotificacaoTableModel(dao.listarNotDen(CorpoDeBombeiros.bombeiro.getIdBombeiro(), "Notificação"));
+        NotificacaoTableModel tabela = new NotificacaoTableModel(dao.listarNotDen(CorpoDeBombeiros.bombeiro, "Notificação"));
         TabelaNotificacao.setModel(tabela);
     }
 

@@ -14,7 +14,7 @@ import univs.edu.usuario.Usuario;
  * @author GGrio
  */
 public class DetalhesNotificacao extends javax.swing.JFrame {
-    
+
     GenericDAO dao = new GenericDAO();
     Usuario usuario = new Usuario();
 
@@ -25,12 +25,13 @@ public class DetalhesNotificacao extends javax.swing.JFrame {
         initComponents();
         detalhesNot();
     }
-    
-    public void detalhesNot(){
-        usuario = (Usuario) dao.pesquisarId(Notificacao.notificacao.getIdUsuario(), "Usuário");
-        
+
+    public void detalhesNot() {
+        usuario = Notificacao.notificacao.getUsuario();
+        usuario = (Usuario) dao.pesquisarId(usuario.getIdUsuario(), "Usuário");
+
         lbRemetente.setText(usuario.getNomeUsuario());
-        
+
     }
 
     /**

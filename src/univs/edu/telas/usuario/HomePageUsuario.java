@@ -107,7 +107,7 @@ public class HomePageUsuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bntNotificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntNotificarActionPerformed
-        if (dao.pesquisarNotDen(Usuario.usuario.getIdUsuario(), formatoData.format(data), "Notificação").size() == 3) {
+        if (dao.pesquisarNotDen(Usuario.usuario, formatoData.format(data), "Notificação").size() == 3) {
             JOptionPane.showMessageDialog(null, "Limite de Notificações Diarias Atingido!");
         } else {
             Notificar not = new Notificar();
@@ -117,7 +117,7 @@ public class HomePageUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_bntNotificarActionPerformed
 
     private void btnDenunciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDenunciarActionPerformed
-        if (dao.pesquisarNotDen(Usuario.usuario.getIdUsuario(), formatoData.format(data), "Denuncia").size() == 3) {
+        if (dao.pesquisarNotDen(Usuario.usuario, formatoData.format(data), "Denuncia").size() == 3) {
             JOptionPane.showMessageDialog(null, "Limite de Denuncias Diarias Atingido!");
         } else {
             Denunciar den = new Denunciar();

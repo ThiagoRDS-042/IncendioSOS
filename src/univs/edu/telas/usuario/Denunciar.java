@@ -272,8 +272,8 @@ public class Denunciar extends javax.swing.JFrame {
 
             denuncia.setDescricaoSuspeito(tfDescricaoSuspeito.getText());
             denuncia.setDetalhesIncendio(tfDetalhesIncendio.getText());
-            denuncia.setIdIbama(ibama.getIdIbama());
-            denuncia.setIdUsuario(Usuario.usuario.getIdUsuario());
+            denuncia.setIbama(ibama);
+            denuncia.setUsuario(Usuario.usuario);
             denuncia.setLocalizacao(tfCidade.getText());
             denuncia.setNomeSuspeito(tfNomeSuspeito.getText());
             denuncia.setDataEnvio(formatoData.format(data));
@@ -301,8 +301,8 @@ public class Denunciar extends javax.swing.JFrame {
 
                 denuncia.setDescricaoSuspeito(tfDescricaoSuspeito.getText());
                 denuncia.setDetalhesIncendio(tfDetalhesIncendio.getText());
-                denuncia.setIdIbama(ibama.getIdIbama());
-                denuncia.setIdUsuario(Usuario.usuario.getIdUsuario());
+                denuncia.setIbama(ibama);
+                denuncia.setUsuario(Usuario.usuario);
                 denuncia.setLocalizacao(tfCidade.getText());
                 denuncia.setNomeSuspeito(tfNomeSuspeito.getText());
                 denuncia.setDataEnvio(formatoData.format(data));

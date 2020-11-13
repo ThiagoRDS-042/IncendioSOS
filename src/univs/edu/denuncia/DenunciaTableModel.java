@@ -33,7 +33,7 @@ public class DenunciaTableModel extends AbstractTableModel {
             case 0:
                 return denuncia.getIdDenuncia();
             case 1:
-                Usuario usuario = (Usuario) dao.pesquisarId(denuncia.getIdUsuario(), "Usuário");
+                Usuario usuario = denuncia.getUsuario();
                 return usuario.getNomeUsuario();
             case 2:
                 String[] nova = denuncia.getDataEnvio().split("-");

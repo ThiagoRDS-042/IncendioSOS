@@ -4,7 +4,13 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+import univs.edu.ibama.Ibama;
+import univs.edu.usuario.Usuario;
 
 @Entity
 public class Denuncia {
@@ -13,11 +19,15 @@ public class Denuncia {
     @GeneratedValue
     private int idDenuncia;
 
-    @Column(nullable = false)
-    private int idUsuario;
+    @ManyToOne
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JoinColumn(name = "idUsuario")
+    private Usuario usuario;
 
-    @Column(nullable = false)
-    private int idIbama;
+    @ManyToOne
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JoinColumn(name = "idIbama")
+    private Ibama ibama;
 
     @Column(length = 19, nullable = false)
     private String dataEnvio;
@@ -45,22 +55,6 @@ public class Denuncia {
 
     public int getIdDenuncia() {
         return idDenuncia;
-    }
-
-    public int getIdUsuario() {
-        return idUsuario;
-    }
-
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
-    }
-
-    public int getIdIbama() {
-        return idIbama;
-    }
-
-    public void setIdIbama(int idIbama) {
-        this.idIbama = idIbama;
     }
 
     public String getDataEnvio() {
@@ -117,6 +111,22 @@ public class Denuncia {
 
     public void setCidadeOcorrencia(String cidadeOcorrencia) {
         this.cidadeOcorrencia = cidadeOcorrencia;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public Ibama getIbama() {
+        return ibama;
+    }
+
+    public void setIbama(Ibama ibama) {
+        this.ibama = ibama;
     }
 
 }

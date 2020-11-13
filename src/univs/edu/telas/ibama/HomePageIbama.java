@@ -28,7 +28,7 @@ public class HomePageIbama extends javax.swing.JFrame {
     }
 
     public void atualizarTabela() {
-        DenunciaTableModel tabela = new DenunciaTableModel(dao.listarNotDen(Ibama.ibama.getIdIbama(), "Denuncia"));
+        DenunciaTableModel tabela = new DenunciaTableModel(dao.listarNotDen(Ibama.ibama, "Denuncia"));
         TabelaDenuncia.setModel(tabela);
     }
 

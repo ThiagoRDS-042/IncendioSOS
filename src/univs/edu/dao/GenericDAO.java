@@ -171,30 +171,30 @@ public class GenericDAO<T> {
         return generica;
     }
 
-    public List<T> pesquisarNotDen(int idUsuario, String dataEnvio, String tipo) {
+    public List<T> pesquisarNotDen(Usuario usuario, String dataEnvio, String tipo) {
         criarSessao();
 
         List<T> generica;
         if (tipo.equalsIgnoreCase("Notificação")) {
-            List<Notificacao> notificacoes = (List<Notificacao>) sessao.createCriteria(Notificacao.class).add(Restrictions.eq("idUsuario", idUsuario)).add(Restrictions.like("dataEnvio", (dataEnvio + "%"))).list();
+            List<Notificacao> notificacoes = (List<Notificacao>) sessao.createCriteria(Notificacao.class).add(Restrictions.eq("usuario", usuario)).add(Restrictions.like("dataEnvio", (dataEnvio + "%"))).list();
             generica = (List<T>) notificacoes;
         } else {
-            List<Denuncia> denuncias = (List<Denuncia>) sessao.createCriteria(Denuncia.class).add(Restrictions.eq("idUsuario", idUsuario)).add(Restrictions.like("dataEnvio", (dataEnvio + "%"))).list();
+            List<Denuncia> denuncias = (List<Denuncia>) sessao.createCriteria(Denuncia.class).add(Restrictions.eq("usuario",  usuario)).add(Restrictions.like("dataEnvio", (dataEnvio + "%"))).list();
             generica = (List<T>) denuncias;
         }
         sessao.close();
         return generica;
     }
 
-    public List<T> listarNotDen(int id, String tipo) {
+    public List<T> listarNotDen(T generico, String tipo) {
         criarSessao();
 
         List<T> generica;
         if (tipo.equalsIgnoreCase("Notificação")) {
-            List<Notificacao> notificacoes = (List<Notificacao>) sessao.createCriteria(Notificacao.class).add(Restrictions.eq("idCorpoDeBombeiros", id)).list();
+            List<Notificacao> notificacoes = (List<Notificacao>) sessao.createCriteria(Notificacao.class).add(Restrictions.eq("corpoDeBombeiros", generico)).list();
             generica = (List<T>) notificacoes;
         } else {
-            List<Denuncia> denuncias = (List<Denuncia>) sessao.createCriteria(Denuncia.class).add(Restrictions.eq("idIbama", id)).list();
+            List<Denuncia> denuncias = (List<Denuncia>) sessao.createCriteria(Denuncia.class).add(Restrictions.eq("ibama", generico)).list();
             generica = (List<T>) denuncias;
         }
         sessao.close();
