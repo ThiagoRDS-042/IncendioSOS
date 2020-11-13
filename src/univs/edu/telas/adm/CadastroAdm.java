@@ -8,7 +8,6 @@ package univs.edu.telas.adm;
 import javax.swing.JOptionPane;
 import univs.edu.adm.Adm;
 import univs.edu.dao.GenericDAO;
-import univs.edu.telas.usuario.ConfigsUsuario;
 import univs.edu.util.Criptografia;
 
 /**
