@@ -18,6 +18,7 @@ import univs.edu.telas.adm.CadastroBombeiro;
 import univs.edu.telas.adm.CadastroIbama;
 import univs.edu.telas.adm.HomePageAdm;
 import univs.edu.telas.bombeiro.ConfigsBombeiro;
+import univs.edu.telas.bombeiro.DetalhesNotificacao;
 import univs.edu.telas.bombeiro.HomePageBombeiro;
 import univs.edu.telas.ibama.ConfigsIbama;
 import univs.edu.telas.ibama.HomePageIbama;
@@ -148,7 +149,7 @@ public class GenericLogin extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if (tfEmailLogin.getText().isEmpty() || tfSenhaLogin.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Preencha Campos ", "Campos", 2);
+            JOptionPane.showMessageDialog(null, "Preencha todos os Campos", "Campos", 2);
         } else {
             login = true;
             if (dao.login(tfEmailLogin.getText(), Criptografia.criptografar(tfSenhaLogin.getText())) instanceof Usuario) {
@@ -156,9 +157,30 @@ public class GenericLogin extends javax.swing.JFrame {
                 usuario.setUtimoLogin(formatoData.format(data));
                 dao.salvar(usuario);
                 Usuario.usuario = usuario;
-                HomePageUsuario tela = new HomePageUsuario();
-                tela.setVisible(true);
-                dispose();
+
+                if (dao.listarNotDen(usuario, "Notificação").size() > 1 || dao.listarNotDen(usuario, "Denuncia").size() > 1 || (dao.listarNotDen(usuario, "Notificação").size() == 1 && dao.listarNotDen(usuario, "Denuncia").size() == 1)) {
+                    JOptionPane.showMessageDialog(null, "Trotes excessivos detectados, sua conta será excluída!");
+                    limparCampos();
+                } else if (dao.listarNotDen(usuario, "Notificação").size() == 1 && usuario.isVerificaCondutaTrote() || (dao.listarNotDen(usuario, "Denuncia").size() == 1 && usuario.isVerificaCondutaTrote())) {
+                    if (JOptionPane.showConfirmDialog(null, "Trote detectado, caso isto ocorra novamente sua conta será excluída, você se compromete a não passar trotes navamente?", "Aviso", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                        DetalhesNotificacao.trote = true;
+                        usuario.setVerificaCondutaTrote(false);
+                        dao.salvar(usuario);
+                        HomePageUsuario tela = new HomePageUsuario();
+                        tela.setVisible(true);
+                        dispose();
+                    } else {
+                        limparCampos();
+                    }
+                } else if (dao.listarNotDen(usuario, "Notificação").isEmpty() && dao.listarNotDen(usuario, "Denuncia").isEmpty()) {
+                    HomePageUsuario tela = new HomePageUsuario();
+                    tela.setVisible(true);
+                    dispose();
+                } else if ((dao.listarNotDen(usuario, "Notificação").size() == 1 || dao.listarNotDen(usuario, "Denuncia").size() == 1) && !usuario.isVerificaCondutaTrote()) {
+                    HomePageUsuario tela = new HomePageUsuario();
+                    tela.setVisible(true);
+                    dispose();
+                }
 
             } else if (dao.login(tfEmailLogin.getText(), Criptografia.criptografar(tfSenhaLogin.getText())) instanceof CorpoDeBombeiros) {
                 bombeiro = (CorpoDeBombeiros) dao.login(tfEmailLogin.getText(), Criptografia.criptografar(tfSenhaLogin.getText()));
@@ -178,19 +200,19 @@ public class GenericLogin extends javax.swing.JFrame {
 
             } else if (dao.login(tfEmailLogin.getText(), Criptografia.criptografar(tfSenhaLogin.getText())) instanceof Ibama) {
                 ibama = (Ibama) dao.login(tfEmailLogin.getText(), Criptografia.criptografar(tfSenhaLogin.getText()));
-                    Ibama.ibama = ibama;
+                Ibama.ibama = ibama;
 
-                    if (!Ibama.ibama.isVerificaConta() && JOptionPane.showConfirmDialog(null, "Edite sua conta agora, caso não queira voçê pode ter acesso a edição pelo painel configurações", "Excluir", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
-                        ConfigsIbama.editar = true;
+                if (!Ibama.ibama.isVerificaConta() && JOptionPane.showConfirmDialog(null, "Edite sua conta agora, caso não queira voçê pode ter acesso a edição pelo painel configurações", "Excluir", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                    ConfigsIbama.editar = true;
 
-                        CadastroIbama cadastro = new CadastroIbama();
-                        cadastro.setVisible(true);
-                        dispose();
-                    } else {
-                        HomePageIbama tela = new HomePageIbama();
-                        tela.setVisible(true);
-                        dispose();
-                    }
+                    CadastroIbama cadastro = new CadastroIbama();
+                    cadastro.setVisible(true);
+                    dispose();
+                } else {
+                    HomePageIbama tela = new HomePageIbama();
+                    tela.setVisible(true);
+                    dispose();
+                }
 
             } else if (dao.login(tfEmailLogin.getText(), Criptografia.criptografar(tfSenhaLogin.getText())) instanceof Adm) {
                 adm = (Adm) dao.login(tfEmailLogin.getText(), Criptografia.criptografar(tfSenhaLogin.getText()));
@@ -210,7 +232,7 @@ public class GenericLogin extends javax.swing.JFrame {
     private void jButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton1KeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             if (tfEmailLogin.getText().isEmpty() || tfSenhaLogin.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Preencha Campos ", "Campos", 2);
+                JOptionPane.showMessageDialog(null, "Preencha todos os Campos", "Campos", 2);
             } else {
                 login = true;
                 if (dao.login(tfEmailLogin.getText(), Criptografia.criptografar(tfSenhaLogin.getText())) instanceof Usuario) {
@@ -218,9 +240,30 @@ public class GenericLogin extends javax.swing.JFrame {
                     usuario.setUtimoLogin(formatoData.format(data));
                     dao.salvar(usuario);
                     Usuario.usuario = usuario;
-                    HomePageUsuario tela = new HomePageUsuario();
-                    tela.setVisible(true);
-                    dispose();
+
+                    if (dao.listarNotDen(usuario, "Notificação").size() > 1 || dao.listarNotDen(usuario, "Denuncia").size() > 1 || (dao.listarNotDen(usuario, "Notificação").size() == 1 && dao.listarNotDen(usuario, "Denuncia").size() == 1)) {
+                        JOptionPane.showMessageDialog(null, "Trotes excessivos detectados, sua conta será excluída!");
+                        limparCampos();
+                    } else if (dao.listarNotDen(usuario, "Notificação").size() == 1 && usuario.isVerificaCondutaTrote() || (dao.listarNotDen(usuario, "Denuncia").size() == 1 && usuario.isVerificaCondutaTrote())) {
+                        if (JOptionPane.showConfirmDialog(null, "Trote detectado, caso isto ocorra novamente sua conta será excluída, você se compromete a não passar trotes navamente?", "Aviso", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                            DetalhesNotificacao.trote = true;
+                            usuario.setVerificaCondutaTrote(false);
+                            dao.salvar(usuario);
+                            HomePageUsuario tela = new HomePageUsuario();
+                            tela.setVisible(true);
+                            dispose();
+                        } else {
+                            limparCampos();
+                        }
+                    } else if (dao.listarNotDen(usuario, "Notificação").isEmpty() && dao.listarNotDen(usuario, "Denuncia").isEmpty()) {
+                        HomePageUsuario tela = new HomePageUsuario();
+                        tela.setVisible(true);
+                        dispose();
+                    } else if ((dao.listarNotDen(usuario, "Notificação").size() == 1 || dao.listarNotDen(usuario, "Denuncia").size() == 1) && !usuario.isVerificaCondutaTrote()) {
+                        HomePageUsuario tela = new HomePageUsuario();
+                        tela.setVisible(true);
+                        dispose();
+                    }
 
                 } else if (dao.login(tfEmailLogin.getText(), Criptografia.criptografar(tfSenhaLogin.getText())) instanceof CorpoDeBombeiros) {
                     bombeiro = (CorpoDeBombeiros) dao.login(tfEmailLogin.getText(), Criptografia.criptografar(tfSenhaLogin.getText()));

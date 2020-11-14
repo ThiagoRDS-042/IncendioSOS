@@ -5,6 +5,7 @@
  */
 package univs.edu.telas.bombeiro;
 
+import javax.swing.JOptionPane;
 import univs.edu.dao.GenericDAO;
 import univs.edu.notificacao.Notificacao;
 import univs.edu.usuario.Usuario;
@@ -17,6 +18,8 @@ public class DetalhesNotificacao extends javax.swing.JFrame {
 
     GenericDAO dao = new GenericDAO();
     Usuario usuario = new Usuario();
+    
+    public static boolean trote;
 
     /**
      * Creates new form Notificacao
@@ -36,7 +39,7 @@ public class DetalhesNotificacao extends javax.swing.JFrame {
         lbEstadoUsuario.setText(usuario.getEstadoUsuario());
         lbRuaUsuario.setText(usuario.getRuaUsuario());
         lbTelefone.setText(usuario.getTelefoneUsuario());
-        
+
         lbCidadeOcorrencia.setText(Notificacao.notificacao.getCidadeOcorrencia());
         lbComplemeto.setText(Notificacao.notificacao.getComplementoOcorrencia());
         lbEnderecoOcorrencia.setText(Notificacao.notificacao.getRuaOcorrencia());
@@ -44,10 +47,9 @@ public class DetalhesNotificacao extends javax.swing.JFrame {
         lbAbrangencia.setText(Notificacao.notificacao.getAbrangencia());
         lbDuracao.setText(Notificacao.notificacao.getDuracao());
         lbDescricao.setText(Notificacao.notificacao.getDescricao());
-        
+
         String[] data = Notificacao.notificacao.getDataEnvio().split("-");
         lbData.setText(data[0]);
-        System.out.println(data[0]);
 
     }
 
@@ -110,7 +112,12 @@ public class DetalhesNotificacao extends javax.swing.JFrame {
             }
         });
 
-        btnTrote.setText("Trote");
+        btnTrote.setText("Marcar como Trote");
+        btnTrote.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTroteActionPerformed(evt);
+            }
+        });
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -188,7 +195,7 @@ public class DetalhesNotificacao extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel18))
@@ -215,8 +222,7 @@ public class DetalhesNotificacao extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
                 .addGap(3, 3, 3)
-                .addComponent(lbTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(lbTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -359,9 +365,6 @@ public class DetalhesNotificacao extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel10)
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(94, 94, 94))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -371,22 +374,26 @@ public class DetalhesNotificacao extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(lbData, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addContainerGap(40, Short.MAX_VALUE))))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(421, 421, 421)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(6, 6, 6)
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(jLabel10))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lbData, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel16))
@@ -406,6 +413,20 @@ public class DetalhesNotificacao extends javax.swing.JFrame {
         home.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
+
+    private void btnTroteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTroteActionPerformed
+        if (JOptionPane.showConfirmDialog(null, "Deseja Marcar esta Notificação como Trote?", "Marca como Trote", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+            trote = true;
+            Notificacao.notificacao.setTrote(true);
+            dao.salvar(Notificacao.notificacao);
+            Usuario usuario2 = Notificacao.notificacao.getUsuario();
+            usuario2.setVerificaCondutaTrote(true);
+            dao.salvar(usuario2);
+            HomePageBombeiro home = new HomePageBombeiro();
+            home.setVisible(true);
+            dispose();
+        }
+    }//GEN-LAST:event_btnTroteActionPerformed
 
     /**
      * @param args the command line arguments

@@ -53,6 +53,9 @@ public class Notificacao {
     @Column(length = 150, nullable = false)
     private String descricao;
     
+    @Column(length = 1, nullable = false)
+    private boolean trote;
+    
     @Transient
     public static Notificacao notificacao;
 
@@ -138,5 +141,13 @@ public class Notificacao {
 
     public void setCorpoDeBombeiros(CorpoDeBombeiros corpoDeBombeiros) {
         this.corpoDeBombeiros = corpoDeBombeiros;
+    }
+
+    public boolean isTrote() {
+        return trote;
+    }
+
+    public void setTrote(boolean trote) {
+        this.trote = trote;
     }
 }

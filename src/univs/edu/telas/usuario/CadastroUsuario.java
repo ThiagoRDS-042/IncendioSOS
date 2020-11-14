@@ -11,6 +11,7 @@ import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 import univs.edu.util.Criptografia;
 import univs.edu.dao.GenericDAO;
+import univs.edu.telas.bombeiro.DetalhesNotificacao;
 import univs.edu.telas.login.GenericLogin;
 import univs.edu.usuario.Usuario;
 
@@ -287,6 +288,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Preencha todos os Campos !");
         } else {
             GenericLogin.login = false;
+            DetalhesNotificacao.trote = false;
 
             usuario.setNomeUsuario(tfNome.getText());
             usuario.setCpfUsuario(tfCpf.getText());
@@ -296,6 +298,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
             usuario.setCidadeUsuario(tfCidade.getText());
             usuario.setRuaUsuario(tfRua.getText());
             usuario.setTelefoneUsuario(tfTelefone.getText());
+            usuario.setVerificaCondutaTrote(false);
 
             if (ConfigsUsuario.editar == true) {
                 dao.salvar(usuario);
@@ -333,6 +336,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Preencha todos os Campos !");
             } else {
                 GenericLogin.login = false;
+                DetalhesNotificacao.trote = false;
 
                 usuario.setNomeUsuario(tfNome.getText());
                 usuario.setCpfUsuario(tfCpf.getText());
@@ -342,6 +346,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
                 usuario.setCidadeUsuario(tfCidade.getText());
                 usuario.setRuaUsuario(tfRua.getText());
                 usuario.setTelefoneUsuario(tfTelefone.getText());
+                usuario.setVerificaCondutaTrote(false);
 
                 if (ConfigsUsuario.editar == true) {
                     dao.salvar(usuario);

@@ -257,6 +257,7 @@ public class Notificar extends javax.swing.JFrame {
             not.setDuracao(tfDuracao.getText());
             not.setDataEnvio(formatoData.format(data));
             not.setComplementoOcorrencia(tfComplemento.getText());
+            not.setTrote(false);
 
             dao.salvar(not);
             HomePageUsuario home = new HomePageUsuario();
@@ -283,6 +284,7 @@ public class Notificar extends javax.swing.JFrame {
                 not.setDuracao(tfDuracao.getText());
                 not.setDataEnvio(formatoData.format(data));
                 not.setComplementoOcorrencia(tfComplemento.getText());
+                not.setTrote(false);
 
                 dao.salvar(not);
                 HomePageUsuario home = new HomePageUsuario();

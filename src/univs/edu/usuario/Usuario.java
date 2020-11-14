@@ -15,19 +15,19 @@ public class Usuario {
 
     @Column(length = 100, nullable = false)
     private String nomeUsuario;
-    
+
     @Column(length = 14, nullable = false, unique = true)
     private String cpfUsuario;
-    
+
     @Column(length = 20, nullable = false)
     private String telefoneUsuario;
-    
+
     @Column(length = 100, nullable = false)
     private String cidadeUsuario;
-    
+
     @Column(length = 100, nullable = false)
     private String estadoUsuario;
-    
+
     @Column(length = 100, nullable = false)
     private String ruaUsuario;
 
@@ -36,10 +36,13 @@ public class Usuario {
 
     @Column(length = 100, nullable = false)
     private String senhaUsuario;
-    
+
     @Column(length = 19)
     private String utimoLogin;
-    
+
+    @Column(length = 1, nullable = false)
+    private boolean verificaCondutaTrote;
+
     @Transient
     public static Usuario usuario;
 
@@ -119,6 +122,12 @@ public class Usuario {
         this.utimoLogin = utimoLogin;
     }
 
-    
-    
+    public boolean isVerificaCondutaTrote() {
+        return verificaCondutaTrote;
+    }
+
+    public void setVerificaCondutaTrote(boolean verificaCondutaTrote) {
+        this.verificaCondutaTrote = verificaCondutaTrote;
+    }
+
 }

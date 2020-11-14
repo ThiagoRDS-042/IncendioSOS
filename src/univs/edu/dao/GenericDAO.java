@@ -1,6 +1,5 @@
 package univs.edu.dao;
 
-import java.sql.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
 import org.hibernate.Session;
@@ -11,6 +10,7 @@ import univs.edu.bombeiro.CorpoDeBombeiros;
 import univs.edu.denuncia.Denuncia;
 import univs.edu.ibama.Ibama;
 import univs.edu.notificacao.Notificacao;
+import univs.edu.telas.bombeiro.DetalhesNotificacao;
 import univs.edu.telas.login.GenericLogin;
 import univs.edu.usuario.Usuario;
 import univs.edu.util.HibernateUtil;
@@ -34,7 +34,7 @@ public class GenericDAO<T> {
                 JOptionPane.showMessageDialog(null, "Cadastrado Concluído!");
             } else {
                 sessao.update(usuario);
-                if (GenericLogin.login == false) {
+                if (GenericLogin.login == false && DetalhesNotificacao.trote == false) {
                     JOptionPane.showMessageDialog(null, "Editado com Sucesso!");
                 }
             }
@@ -67,14 +67,22 @@ public class GenericDAO<T> {
             }
         } else if (generico instanceof Notificacao) {
             Notificacao notificacao = (Notificacao) generico;
-            sessao.save(notificacao);
-            JOptionPane.showMessageDialog(null, "Notificação Enviada Com Sucesso!");
-
+            if (notificacao.getIdNotificacao() == 0) {
+                sessao.save(notificacao);
+                JOptionPane.showMessageDialog(null, "Notificação Enviada Com Sucesso!");
+            } else {
+                sessao.update(notificacao);
+                JOptionPane.showMessageDialog(null, "Notificação Marcada como Trote!");
+            }
         } else {
             Denuncia denuncia = (Denuncia) generico;
-            sessao.save(denuncia);
-            JOptionPane.showMessageDialog(null, "Denuncia Enviada Com Sucesso!");
-
+            if (denuncia.getIdDenuncia() == 0) {
+                sessao.save(denuncia);
+                JOptionPane.showMessageDialog(null, "Denuncia Enviada Com Sucesso!");
+            } else {
+                sessao.update(denuncia);
+                JOptionPane.showMessageDialog(null, "Denúncia Marcada como Trote!");
+            }
         }
         transacao.commit();
         sessao.close();
@@ -179,7 +187,7 @@ public class GenericDAO<T> {
             List<Notificacao> notificacoes = (List<Notificacao>) sessao.createCriteria(Notificacao.class).add(Restrictions.eq("usuario", usuario)).add(Restrictions.like("dataEnvio", (dataEnvio + "%"))).list();
             generica = (List<T>) notificacoes;
         } else {
-            List<Denuncia> denuncias = (List<Denuncia>) sessao.createCriteria(Denuncia.class).add(Restrictions.eq("usuario",  usuario)).add(Restrictions.like("dataEnvio", (dataEnvio + "%"))).list();
+            List<Denuncia> denuncias = (List<Denuncia>) sessao.createCriteria(Denuncia.class).add(Restrictions.eq("usuario", usuario)).add(Restrictions.like("dataEnvio", (dataEnvio + "%"))).list();
             generica = (List<T>) denuncias;
         }
         sessao.close();
@@ -190,12 +198,18 @@ public class GenericDAO<T> {
         criarSessao();
 
         List<T> generica;
-        if (tipo.equalsIgnoreCase("Notificação")) {
-            List<Notificacao> notificacoes = (List<Notificacao>) sessao.createCriteria(Notificacao.class).add(Restrictions.eq("corpoDeBombeiros", generico)).list();
+        if (generico instanceof CorpoDeBombeiros) {
+            List<Notificacao> notificacoes = (List<Notificacao>) sessao.createCriteria(Notificacao.class).add(Restrictions.eq("corpoDeBombeiros", generico)).add(Restrictions.eq("trote", false)).list();
             generica = (List<T>) notificacoes;
-        } else {
-            List<Denuncia> denuncias = (List<Denuncia>) sessao.createCriteria(Denuncia.class).add(Restrictions.eq("ibama", generico)).list();
+        } else if (generico instanceof Ibama) {
+            List<Denuncia> denuncias = (List<Denuncia>) sessao.createCriteria(Denuncia.class).add(Restrictions.eq("ibama", generico)).add(Restrictions.eq("trote", false)).list();
             generica = (List<T>) denuncias;
+        } else if (generico instanceof Usuario && tipo.equalsIgnoreCase("Notificação")) {
+            List<Notificacao> notsUsuario = (List<Notificacao>) sessao.createCriteria(Notificacao.class).add(Restrictions.eq("usuario", generico)).add(Restrictions.eq("trote", true)).list();
+            generica = (List<T>) notsUsuario;
+        } else {
+            List<Denuncia> densUsuario = (List<Denuncia>) sessao.createCriteria(Denuncia.class).add(Restrictions.eq("usuario", generico)).add(Restrictions.eq("trote", true)).list();
+            generica = (List<T>) densUsuario;
         }
         sessao.close();
         return generica;

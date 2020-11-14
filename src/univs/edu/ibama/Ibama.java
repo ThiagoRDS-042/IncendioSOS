@@ -40,7 +40,7 @@ public class Ibama {
     @Column(length = 100, nullable = false)
     private String senhaIbama;
 
-    @Column(nullable = false)
+    @Column(length = 1,nullable = false)
     private boolean verificaConta;
 
     @Transient

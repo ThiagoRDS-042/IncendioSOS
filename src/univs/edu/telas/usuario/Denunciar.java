@@ -70,7 +70,7 @@ public class Denunciar extends javax.swing.JFrame {
         tfDescricaoSuspeito = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         btnSelecionar = new javax.swing.JButton();
-        tfDetalhesIncendio = new javax.swing.JLabel();
+        lbEvidencia = new javax.swing.JLabel();
         btnEnviar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jIbamas = new javax.swing.JComboBox<>();
@@ -78,7 +78,7 @@ public class Denunciar extends javax.swing.JFrame {
         tfComplemento = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tfDescricao = new javax.swing.JTextPane();
+        tfDetalhes = new javax.swing.JTextPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -95,7 +95,7 @@ public class Denunciar extends javax.swing.JFrame {
         jLabel4.setText("Detalhes do Incêndio:");
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jLabel5.setText("Evidências:");
+        jLabel5.setText("Evidência:");
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel6.setText("Descrição do susepeito:");
@@ -136,21 +136,27 @@ public class Denunciar extends javax.swing.JFrame {
             }
         });
 
+        tfComplemento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfComplementoActionPerformed(evt);
+            }
+        });
+
         jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel8.setText("localização do incêndio(Complemento):");
 
-        jScrollPane1.setViewportView(tfDescricao);
+        jScrollPane1.setViewportView(tfDetalhes);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addGap(71, 71, 71)
                 .addComponent(btnVoltar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnEnviar)
-                .addGap(62, 62, 62))
+                .addGap(66, 66, 66))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -161,11 +167,12 @@ public class Denunciar extends javax.swing.JFrame {
                             .addComponent(tfNomeSuspeito, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(tfCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel8)
-                            .addComponent(tfComplemento, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnSelecionar)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(jLabel5)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(btnSelecionar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(tfComplemento, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -181,8 +188,8 @@ public class Denunciar extends javax.swing.JFrame {
                         .addGap(129, 129, 129)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(tfDetalhesIncendio, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(20, 20, 20)
+                        .addComponent(lbEvidencia, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -198,41 +205,32 @@ public class Denunciar extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tfNomeSuspeito, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tfDescricaoSuspeito, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4))
+                .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(tfCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(tfCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tfComplemento, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel5)
-                                    .addComponent(btnSelecionar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jIbamas, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(14, 14, 14)))
-                        .addComponent(tfDetalhesIncendio, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 5, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tfComplemento, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(btnSelecionar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7)
+                    .addComponent(jIbamas, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lbEvidencia, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24))
         );
 
         pack();
@@ -249,7 +247,7 @@ public class Denunciar extends javax.swing.JFrame {
             try {
                 imagem = ManipularImagem.setImagemDimensao(arquivo.getAbsolutePath(), 400, 300);
 
-                tfDetalhesIncendio.setIcon(new ImageIcon(imagem));
+                lbEvidencia.setIcon(new ImageIcon(imagem));
 
             } catch (Exception ex) {
                 // System.out.println(ex.printStackTrace().toString());
@@ -261,7 +259,7 @@ public class Denunciar extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSelecionarActionPerformed
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
-        if (tfDescricaoSuspeito.getText().isEmpty() || tfDetalhesIncendio.getText().isEmpty() || tfCidade.getText().isEmpty()) {
+        if (tfDescricaoSuspeito.getText().isEmpty() || tfDetalhes.getText().isEmpty() || tfCidade.getText().isEmpty() || tfComplemento.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Preencha todos os Campos !");
         } else {
             String[] identificacao = jIbamas.getSelectedItem().toString().split("_");
@@ -272,13 +270,14 @@ public class Denunciar extends javax.swing.JFrame {
             }
 
             denuncia.setDescricaoSuspeito(tfDescricaoSuspeito.getText());
-            denuncia.setDetalhesIncendio(tfDetalhesIncendio.getText());
+            denuncia.setDetalhesIncendio(tfDetalhes.getText());
             denuncia.setIbama(ibama);
             denuncia.setUsuario(Usuario.usuario);
             denuncia.setLocalizacao(tfCidade.getText());
             denuncia.setNomeSuspeito(tfNomeSuspeito.getText());
             denuncia.setDataEnvio(formatoData.format(data));
             denuncia.setCidadeOcorrencia(tfCidade.getText());
+            denuncia.setTrote(false);
 
             dao.salvar(denuncia);
             HomePageUsuario home = new HomePageUsuario();
@@ -290,7 +289,7 @@ public class Denunciar extends javax.swing.JFrame {
 
     private void btnEnviarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnEnviarKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            if (tfDescricaoSuspeito.getText().isEmpty() || tfDetalhesIncendio.getText().isEmpty() || tfCidade.getText().isEmpty() || tfNomeSuspeito.getText().isEmpty()) {
+            if (tfDescricaoSuspeito.getText().isEmpty() || tfDetalhes.getText().isEmpty() || tfCidade.getText().isEmpty() || tfComplemento.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Preencha todos os Campos !");
             } else {
                 String[] identificacao = jIbamas.getSelectedItem().toString().split("_");
@@ -301,13 +300,14 @@ public class Denunciar extends javax.swing.JFrame {
                 }
 
                 denuncia.setDescricaoSuspeito(tfDescricaoSuspeito.getText());
-                denuncia.setDetalhesIncendio(tfDetalhesIncendio.getText());
+                denuncia.setDetalhesIncendio(tfDetalhes.getText());
                 denuncia.setIbama(ibama);
                 denuncia.setUsuario(Usuario.usuario);
                 denuncia.setLocalizacao(tfCidade.getText());
                 denuncia.setNomeSuspeito(tfNomeSuspeito.getText());
                 denuncia.setDataEnvio(formatoData.format(data));
                 denuncia.setCidadeOcorrencia(tfCidade.getText());
+                denuncia.setTrote(false);
 
                 dao.salvar(denuncia);
                 HomePageUsuario home = new HomePageUsuario();
@@ -327,6 +327,10 @@ public class Denunciar extends javax.swing.JFrame {
     private void btnVoltarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnVoltarKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnVoltarKeyPressed
+
+    private void tfComplementoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfComplementoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfComplementoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -377,11 +381,11 @@ public class Denunciar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lbEvidencia;
     private javax.swing.JTextField tfCidade;
     private javax.swing.JTextField tfComplemento;
-    private javax.swing.JTextPane tfDescricao;
     private javax.swing.JTextField tfDescricaoSuspeito;
-    private javax.swing.JLabel tfDetalhesIncendio;
+    private javax.swing.JTextPane tfDetalhes;
     private javax.swing.JTextField tfNomeSuspeito;
     // End of variables declaration//GEN-END:variables
 }

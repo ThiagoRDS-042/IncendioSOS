@@ -37,7 +37,7 @@ public class CorpoDeBombeiros {
     @Column(length = 100, nullable = false)
     private String senhaBombeiro;
     
-    @Column(nullable = false)
+    @Column(length = 1,nullable = false)
     private boolean verificaConta;
     
     @Transient

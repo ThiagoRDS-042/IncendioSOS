@@ -50,6 +50,9 @@ public class Denuncia {
     @Column(length = 100, nullable = false)
     private String cidadeOcorrencia;
     
+    @Column(length = 1, nullable = false)
+    private boolean trote;
+    
     @Transient
     public static Denuncia denuncia;
 
@@ -127,6 +130,14 @@ public class Denuncia {
 
     public void setIbama(Ibama ibama) {
         this.ibama = ibama;
+    }
+
+    public boolean isTrote() {
+        return trote;
+    }
+
+    public void setTrote(boolean trote) {
+        this.trote = trote;
     }
 
 }

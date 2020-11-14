@@ -95,7 +95,7 @@ public class ManipularImagem {
 
     //Novo método para exibir imagem na tela
     //Recebe o label que queremos exibir E a imagem como array de bytes do banco
-    public static void exibiImagemLabel(byte[] minhaimagem, javax.swing.JLabel label) {
+    public static void exibirImagemLabel(byte[] minhaimagem, javax.swing.JLabel label) {
         //primeiro verifica se tem a imagem
         //se tem convert para inputstream que é o formato reconhecido pelo ImageIO
 
@@ -112,6 +112,55 @@ public class ManipularImagem {
 
         }
 
+    }
+
+    public static BufferedImage dimensionarImagem(BufferedImage image, Integer imgLargura, Integer imgAltura) {
+        Double novaImgLargura = null;
+        Double novaImgAltura = null;
+        Double imgProporcao = null;
+        Graphics2D g2d = null;
+        BufferedImage imagem = null, novaImagem = null;
+
+        imagem = image;
+
+        //--- Obtém a largura da imagem ---  
+        novaImgLargura = (double) imagem.getWidth();
+
+        //--- Obtám a altura da imagem ---  
+        novaImgAltura = (double) imagem.getHeight();
+
+        //--- Verifica se a altura ou largura da imagem recebida é maior do que os ---  
+        //--- parâmetros de altura e largura recebidos para o redimensionamento   ---  
+        if (novaImgLargura >= imgLargura) {
+            imgProporcao = (novaImgAltura / novaImgLargura);//calcula a proporção  
+            novaImgLargura = (double) imgLargura;
+
+            //--- altura deve <= ao parâmetro imgAltura e proporcional a largura ---  
+            novaImgAltura = (novaImgLargura * imgProporcao);
+
+            //--- se altura for maior do que o parâmetro imgAltura, diminui-se a largura de ---  
+            //--- forma que a altura seja igual ao parâmetro imgAltura e proporcional a largura ---  
+            while (novaImgAltura > imgAltura) {
+                novaImgLargura = (double) (--imgLargura);
+                novaImgAltura = (novaImgLargura * imgProporcao);
+            }
+        } else if (novaImgAltura >= imgAltura) {
+            imgProporcao = (novaImgLargura / novaImgAltura);//calcula a proporção  
+            novaImgAltura = (double) imgAltura;
+
+            //--- se largura for maior do que o parâmetro imgLargura, diminui-se a altura de ---  
+            //--- forma que a largura seja igual ao parâmetro imglargura e proporcional a altura ---  
+            while (novaImgLargura > imgLargura) {
+                novaImgAltura = (double) (--imgAltura);
+                novaImgLargura = (novaImgAltura * imgProporcao);
+            }
+        }
+
+        novaImagem = new BufferedImage(novaImgLargura.intValue(), novaImgAltura.intValue(), BufferedImage.TYPE_INT_RGB);
+        g2d = novaImagem.createGraphics();
+        g2d.drawImage(imagem, 0, 0, novaImgLargura.intValue(), novaImgAltura.intValue(), null);
+
+        return novaImagem;
     }
 
 }
