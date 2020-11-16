@@ -5,6 +5,7 @@
  */
 package univs.edu.telas.ibama;
 
+import javax.swing.JOptionPane;
 import univs.edu.dao.GenericDAO;
 import univs.edu.denuncia.Denuncia;
 import univs.edu.usuario.Usuario;
@@ -17,6 +18,7 @@ public class DetalhesDenuncia extends javax.swing.JFrame {
     
     Usuario usuario = new Usuario();
     GenericDAO dao = new GenericDAO();
+    
 
     /**
      * Creates new form DetalhesDenuncia
@@ -210,6 +212,11 @@ public class DetalhesDenuncia extends javax.swing.JFrame {
         );
 
         btnTrote.setText("Marca como Trote");
+        btnTrote.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTroteActionPerformed(evt);
+            }
+        });
 
         btnVoltar1.setText("Voltar");
         btnVoltar1.addActionListener(new java.awt.event.ActionListener() {
@@ -390,6 +397,19 @@ public class DetalhesDenuncia extends javax.swing.JFrame {
         evidencia.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnEvidenciaActionPerformed
+
+    private void btnTroteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTroteActionPerformed
+        if (JOptionPane.showConfirmDialog(null, "Deseja Marcar esta Notificação como Trote?", "Marca como Trote", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+            Denuncia.denuncia.setTrote(true);
+            dao.salvar(Denuncia.denuncia);
+            Usuario usuario2 = Denuncia.denuncia.getUsuario();
+            usuario2.setVerificaCondutaTrote(true);
+            dao.salvar(usuario2);
+            HomePageIbama home = new HomePageIbama();
+            home.setVisible(true);
+            dispose();
+        }
+    }//GEN-LAST:event_btnTroteActionPerformed
 
     /**
      * @param args the command line arguments
