@@ -145,14 +145,12 @@ public class ListaIbamas extends javax.swing.JFrame {
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
         ConfigsIbama.editar = false;
         
-        CadastroIbama cadastro = new CadastroIbama();
-        cadastro.setVisible(true);
+        new CadastroIbama().setVisible(true);
         dispose();
     }//GEN-LAST:event_btnNovoActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        HomePageAdm home = new HomePageAdm();
-        home.setVisible(true);
+        new HomePageAdm().setVisible(true);
         dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
 

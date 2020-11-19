@@ -316,8 +316,7 @@ public class CadastroBombeiro extends javax.swing.JFrame {
             if (ConfigsBombeiro.editar == true) {
                 bombeiro.setVerificaConta(true);
                 dao.salvar(bombeiro);
-                HomePageBombeiro home = new HomePageBombeiro();
-                home.setVisible(true);
+                new HomePageBombeiro().setVisible(true);
                 dispose();
             } else {
                 bombeiro.setVerificaConta(false);
@@ -344,17 +343,16 @@ public class CadastroBombeiro extends javax.swing.JFrame {
     }//GEN-LAST:event_tfNomeDeComandanteFocusLost
 
     private void tfEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfEmailFocusLost
-        CorpoDeBombeiros bombeiro1;
         if (dao.pesquisarEmail(tfEmail.getText()) instanceof CorpoDeBombeiros) {
-            bombeiro1 = (CorpoDeBombeiros) dao.pesquisarEmail(tfEmail.getText());
-            if (ConfigsBombeiro.editar == true && (CorpoDeBombeiros.bombeiro.getIdBombeiro() == bombeiro1.getIdBombeiro())) {
+            bombeiro = (CorpoDeBombeiros) dao.pesquisarEmail(tfEmail.getText());
+            if (ConfigsBombeiro.editar == true && (CorpoDeBombeiros.bombeiro.getIdBombeiro() == bombeiro.getIdBombeiro())) {
 
             } else {
                 JOptionPane.showMessageDialog(null, "Email já cadastrado!");
                 tfEmail.setText("");
                 tfEmail.grabFocus();
             }
-        } else if(dao.pesquisarEmail(tfEmail.getText()) != null){
+        } else if (dao.pesquisarEmail(tfEmail.getText()) != null) {
             JOptionPane.showMessageDialog(null, "Email já cadastrado!");
             tfEmail.setText("");
             tfEmail.grabFocus();
@@ -382,8 +380,7 @@ public class CadastroBombeiro extends javax.swing.JFrame {
 
                 if (ConfigsBombeiro.editar == true) {
                     dao.salvar(bombeiro);
-                    HomePageBombeiro home = new HomePageBombeiro();
-                    home.setVisible(true);
+                    new HomePageBombeiro().setVisible(true);
                     dispose();
                 } else {
                     dao.salvar(bombeiro);
@@ -395,17 +392,16 @@ public class CadastroBombeiro extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCadastrarKeyPressed
 
     private void tfIdentificacaoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfIdentificacaoFocusLost
-        CorpoDeBombeiros bombeiro1;
         if (dao.pesquisarIdentificacao(tfIdentificacao.getText()) instanceof CorpoDeBombeiros) {
-            bombeiro1 = (CorpoDeBombeiros) dao.pesquisarIdentificacao(tfIdentificacao.getText());
-            if (ConfigsBombeiro.editar == true && (CorpoDeBombeiros.bombeiro.getIdBombeiro() == bombeiro1.getIdBombeiro())) {
+            bombeiro = (CorpoDeBombeiros) dao.pesquisarIdentificacao(tfIdentificacao.getText());
+            if (ConfigsBombeiro.editar == true && (CorpoDeBombeiros.bombeiro.getIdBombeiro() == bombeiro.getIdBombeiro())) {
 
             } else {
                 JOptionPane.showMessageDialog(null, "Identificação já cadastrada!");
                 tfIdentificacao.setText("");
                 tfIdentificacao.grabFocus();
             }
-        } else if(dao.pesquisarIdentificacao(tfIdentificacao.getText()) != null){
+        } else if (dao.pesquisarIdentificacao(tfIdentificacao.getText()) != null) {
             JOptionPane.showMessageDialog(null, "Identificação já cadastrada!");
             tfIdentificacao.setText("");
             tfIdentificacao.grabFocus();
@@ -414,12 +410,10 @@ public class CadastroBombeiro extends javax.swing.JFrame {
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         if (ConfigsBombeiro.editar == true) {
-            HomePageBombeiro home = new HomePageBombeiro();
-            home.setVisible(true);
+            new HomePageBombeiro().setVisible(true);
             dispose();
         } else {
-            ListaCorpoDeBombeiros lista = new ListaCorpoDeBombeiros();
-            lista.setVisible(true);
+            new ListaCorpoDeBombeiros().setVisible(true);
             dispose();
         }
     }//GEN-LAST:event_btnVoltarActionPerformed

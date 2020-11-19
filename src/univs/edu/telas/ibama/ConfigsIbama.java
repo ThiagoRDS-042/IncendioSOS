@@ -115,22 +115,19 @@ public class ConfigsIbama extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        HomePageIbama home = new HomePageIbama();
-        home.setVisible(true);
+        new HomePageIbama().setVisible(true);
         dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
-        GenericLogin login = new GenericLogin();
-        login.setVisible(true);
+        new GenericLogin().setVisible(true);
         dispose();
     }//GEN-LAST:event_btnSairActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         editar = true;
 
-        CadastroIbama cadastro = new CadastroIbama();
-        cadastro.setVisible(true);
+        new CadastroIbama().setVisible(true);
         dispose();
     }//GEN-LAST:event_btnEditarActionPerformed
 
@@ -138,8 +135,7 @@ public class ConfigsIbama extends javax.swing.JFrame {
         if (JOptionPane.showConfirmDialog(null, "Deseja realmente excluir sua conta?", "Excluir", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
             dao.excluir(Ibama.ibama);
             JOptionPane.showMessageDialog(null, "Exclusão Concluída!");
-            GenericLogin tela = new GenericLogin();
-            tela.setVisible(true);
+            new GenericLogin().setVisible(true);
             dispose();
         }
     }//GEN-LAST:event_btnExcluirActionPerformed

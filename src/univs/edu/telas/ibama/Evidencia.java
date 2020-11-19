@@ -116,8 +116,7 @@ public class Evidencia extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        DetalhesDenuncia detalhes = new DetalhesDenuncia();
-        detalhes.setVisible(true);
+        new DetalhesDenuncia().setVisible(true);
         dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
 

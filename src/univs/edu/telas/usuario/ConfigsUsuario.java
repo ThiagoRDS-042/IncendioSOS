@@ -113,22 +113,19 @@ public class ConfigsUsuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        HomePageUsuario usuario = new HomePageUsuario();
-        usuario.setVisible(true);
+        new HomePageUsuario().setVisible(true);
         dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
-        GenericLogin login = new GenericLogin();
-        login.setVisible(true);
+        new GenericLogin().setVisible(true);
         dispose();
     }//GEN-LAST:event_btnSairActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         editar = true;
 
-        CadastroUsuario cadastro = new CadastroUsuario();
-        cadastro.setVisible(true);
+        new CadastroUsuario().setVisible(true);
         dispose();
     }//GEN-LAST:event_btnEditarActionPerformed
 
@@ -136,8 +133,7 @@ public class ConfigsUsuario extends javax.swing.JFrame {
         if (JOptionPane.showConfirmDialog(null, "Deseja realmente excluir sua conta?", "Excluir", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
             dao.excluir(Usuario.usuario);
             JOptionPane.showMessageDialog(null, "Exclusão Concluída!");
-            GenericLogin tela = new GenericLogin();
-            tela.setVisible(true);
+            new GenericLogin().setVisible(true);
             dispose();
         }
     }//GEN-LAST:event_btnExcluirActionPerformed

@@ -108,34 +108,29 @@ public class HomePageAdm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCadastroAdm1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroAdm1ActionPerformed
-        ConfigsAdm configs = new ConfigsAdm();
-        configs.setVisible(true);
+        new ConfigsAdm().setVisible(true);
         dispose();
     }//GEN-LAST:event_btnCadastroAdm1ActionPerformed
 
     private void btnCadastroAdmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroAdmActionPerformed
         editar = false;
         
-        CadastroAdm cadastro = new CadastroAdm();
-        cadastro.setVisible(true);
+        new CadastroAdm().setVisible(true);
         dispose();
     }//GEN-LAST:event_btnCadastroAdmActionPerformed
 
     private void btnCorposDeBombeirosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCorposDeBombeirosActionPerformed
-        ListaCorpoDeBombeiros lista = new ListaCorpoDeBombeiros();
-        lista.setVisible(true);
+        new ListaCorpoDeBombeiros().setVisible(true);
         dispose();
     }//GEN-LAST:event_btnCorposDeBombeirosActionPerformed
 
     private void btnIbamasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIbamasActionPerformed
-        ListaIbamas lista = new ListaIbamas();
-        lista.setVisible(true);
+        new ListaIbamas().setVisible(true);
         dispose();
     }//GEN-LAST:event_btnIbamasActionPerformed
 
     private void btnUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuariosActionPerformed
-        ListaUsuarios lista = new ListaUsuarios();
-        lista.setVisible(true);
+        new ListaUsuarios().setVisible(true);
         dispose();
     }//GEN-LAST:event_btnUsuariosActionPerformed
 

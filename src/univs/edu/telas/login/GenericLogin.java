@@ -166,19 +166,16 @@ public class GenericLogin extends javax.swing.JFrame {
                         DetalhesNotificacao.trote = true;
                         usuario.setVerificaCondutaTrote(false);
                         dao.salvar(usuario);
-                        HomePageUsuario tela = new HomePageUsuario();
-                        tela.setVisible(true);
+                        new HomePageUsuario().setVisible(true);
                         dispose();
                     } else {
                         limparCampos();
                     }
                 } else if (dao.listarNotDen(usuario, "Notificação").isEmpty() && dao.listarNotDen(usuario, "Denuncia").isEmpty()) {
-                    HomePageUsuario tela = new HomePageUsuario();
-                    tela.setVisible(true);
+                    new HomePageUsuario().setVisible(true);
                     dispose();
                 } else if ((dao.listarNotDen(usuario, "Notificação").size() == 1 || dao.listarNotDen(usuario, "Denuncia").size() == 1) && !usuario.isVerificaCondutaTrote()) {
-                    HomePageUsuario tela = new HomePageUsuario();
-                    tela.setVisible(true);
+                    new HomePageUsuario().setVisible(true);
                     dispose();
                 }
 
@@ -189,12 +186,10 @@ public class GenericLogin extends javax.swing.JFrame {
                 if (!CorpoDeBombeiros.bombeiro.isVerificaConta() && JOptionPane.showConfirmDialog(null, "Edite sua conta agora, caso não queira voçê pode ter acesso a edição pelo painel configurações", "Excluir", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                     ConfigsBombeiro.editar = true;
 
-                    CadastroBombeiro cadastro = new CadastroBombeiro();
-                    cadastro.setVisible(true);
+                    new CadastroBombeiro().setVisible(true);
                     dispose();
                 } else {
-                    HomePageBombeiro tela = new HomePageBombeiro();
-                    tela.setVisible(true);
+                    new HomePageBombeiro().setVisible(true);
                     dispose();
                 }
 
@@ -205,20 +200,17 @@ public class GenericLogin extends javax.swing.JFrame {
                 if (!Ibama.ibama.isVerificaConta() && JOptionPane.showConfirmDialog(null, "Edite sua conta agora, caso não queira voçê pode ter acesso a edição pelo painel configurações", "Excluir", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                     ConfigsIbama.editar = true;
 
-                    CadastroIbama cadastro = new CadastroIbama();
-                    cadastro.setVisible(true);
+                    new CadastroIbama().setVisible(true);
                     dispose();
                 } else {
-                    HomePageIbama tela = new HomePageIbama();
-                    tela.setVisible(true);
+                    new HomePageIbama().setVisible(true);
                     dispose();
                 }
 
             } else if (dao.login(tfEmailLogin.getText(), Criptografia.criptografar(tfSenhaLogin.getText())) instanceof Adm) {
                 adm = (Adm) dao.login(tfEmailLogin.getText(), Criptografia.criptografar(tfSenhaLogin.getText()));
                 Adm.adm = adm;
-                HomePageAdm tela = new HomePageAdm();
-                tela.setVisible(true);
+                new HomePageAdm().setVisible(true);
                 dispose();
 
             } else {
@@ -249,19 +241,16 @@ public class GenericLogin extends javax.swing.JFrame {
                             DetalhesNotificacao.trote = true;
                             usuario.setVerificaCondutaTrote(false);
                             dao.salvar(usuario);
-                            HomePageUsuario tela = new HomePageUsuario();
-                            tela.setVisible(true);
+                            new HomePageUsuario().setVisible(true);
                             dispose();
                         } else {
                             limparCampos();
                         }
                     } else if (dao.listarNotDen(usuario, "Notificação").isEmpty() && dao.listarNotDen(usuario, "Denuncia").isEmpty()) {
-                        HomePageUsuario tela = new HomePageUsuario();
-                        tela.setVisible(true);
+                        new HomePageUsuario().setVisible(true);
                         dispose();
                     } else if ((dao.listarNotDen(usuario, "Notificação").size() == 1 || dao.listarNotDen(usuario, "Denuncia").size() == 1) && !usuario.isVerificaCondutaTrote()) {
-                        HomePageUsuario tela = new HomePageUsuario();
-                        tela.setVisible(true);
+                        new HomePageUsuario().setVisible(true);
                         dispose();
                     }
 
@@ -272,12 +261,10 @@ public class GenericLogin extends javax.swing.JFrame {
                     if (!CorpoDeBombeiros.bombeiro.isVerificaConta() && JOptionPane.showConfirmDialog(null, "Edite sua conta agora, caso não queira voçê pode ter acesso a edição pelo painel configurações", "Excluir", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                         ConfigsBombeiro.editar = true;
 
-                        CadastroBombeiro cadastro = new CadastroBombeiro();
-                        cadastro.setVisible(true);
+                        new CadastroBombeiro().setVisible(true);
                         dispose();
                     } else {
-                        HomePageBombeiro tela = new HomePageBombeiro();
-                        tela.setVisible(true);
+                        new HomePageBombeiro().setVisible(true);
                         dispose();
                     }
 
@@ -288,20 +275,17 @@ public class GenericLogin extends javax.swing.JFrame {
                     if (!Ibama.ibama.isVerificaConta() && JOptionPane.showConfirmDialog(null, "Edite sua conta agora, caso não queira voçê pode ter acesso a edição pelo painel configurações", "Excluir", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                         ConfigsIbama.editar = true;
 
-                        CadastroIbama cadastro = new CadastroIbama();
-                        cadastro.setVisible(true);
+                        new CadastroIbama().setVisible(true);
                         dispose();
                     } else {
-                        HomePageIbama tela = new HomePageIbama();
-                        tela.setVisible(true);
+                        new HomePageIbama().setVisible(true);
                         dispose();
                     }
 
                 } else if (dao.login(tfEmailLogin.getText(), Criptografia.criptografar(tfSenhaLogin.getText())) instanceof Adm) {
                     adm = (Adm) dao.login(tfEmailLogin.getText(), Criptografia.criptografar(tfSenhaLogin.getText()));
                     Adm.adm = adm;
-                    HomePageAdm tela = new HomePageAdm();
-                    tela.setVisible(true);
+                    new HomePageAdm().setVisible(true);
                     dispose();
 
                 } else {
@@ -317,8 +301,7 @@ public class GenericLogin extends javax.swing.JFrame {
     private void btnCadastreseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastreseActionPerformed
         ConfigsUsuario.editar = false;
 
-        CadastroUsuario cadastro = new CadastroUsuario();
-        cadastro.setVisible(true);
+        new CadastroUsuario().setVisible(true);
         dispose();
     }//GEN-LAST:event_btnCadastreseActionPerformed
 

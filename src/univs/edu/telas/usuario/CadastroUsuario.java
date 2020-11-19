@@ -302,8 +302,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
 
             if (ConfigsUsuario.editar == true) {
                 dao.salvar(usuario);
-                HomePageUsuario home = new HomePageUsuario();
-                home.setVisible(true);
+                new HomePageUsuario().setVisible(true);
                 dispose();
             } else {
                 dao.salvar(usuario);
@@ -313,17 +312,16 @@ public class CadastroUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void tfEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfEmailFocusLost
-        Usuario usuario1;
         if (dao.pesquisarEmail(tfEmail.getText()) instanceof Usuario) {
-            usuario1 = (Usuario) dao.pesquisarEmail(tfEmail.getText());
-            if (ConfigsUsuario.editar == true && (Usuario.usuario.getIdUsuario() == usuario1.getIdUsuario())) {
+            usuario = (Usuario) dao.pesquisarEmail(tfEmail.getText());
+            if (ConfigsUsuario.editar == true && (Usuario.usuario.getIdUsuario() == usuario.getIdUsuario())) {
 
             } else {
                 JOptionPane.showMessageDialog(null, "Email já cadastrado!");
                 tfEmail.setText("");
                 tfEmail.grabFocus();
             }
-        } else if(dao.pesquisarEmail(tfEmail.getText()) != null){
+        } else if (dao.pesquisarEmail(tfEmail.getText()) != null) {
             JOptionPane.showMessageDialog(null, "Email já cadastrado!");
             tfEmail.setText("");
             tfEmail.grabFocus();
@@ -350,8 +348,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
 
                 if (ConfigsUsuario.editar == true) {
                     dao.salvar(usuario);
-                    HomePageUsuario home = new HomePageUsuario();
-                    home.setVisible(true);
+                    new HomePageUsuario().setVisible(true);
                     dispose();
                 } else {
                     dao.salvar(usuario);
@@ -364,12 +361,10 @@ public class CadastroUsuario extends javax.swing.JFrame {
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         if (ConfigsUsuario.editar == true) {
-            ConfigsUsuario configs = new ConfigsUsuario();
-            configs.setVisible(true);
+            new ConfigsUsuario().setVisible(true);
             dispose();
         } else {
-            GenericLogin login = new GenericLogin();
-            login.setVisible(true);
+            new GenericLogin().setVisible(true);
             dispose();
         }
     }//GEN-LAST:event_btnVoltarActionPerformed
@@ -377,29 +372,26 @@ public class CadastroUsuario extends javax.swing.JFrame {
     private void btnVoltarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnVoltarKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             if (ConfigsUsuario.editar == true) {
-                ConfigsUsuario configs = new ConfigsUsuario();
-                configs.setVisible(true);
+                new ConfigsUsuario().setVisible(true);
                 dispose();
             } else {
-                GenericLogin login = new GenericLogin();
-                login.setVisible(true);
+                new GenericLogin().setVisible(true);
                 dispose();
             }
         }
     }//GEN-LAST:event_btnVoltarKeyPressed
 
     private void tfCpfFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfCpfFocusLost
-        Usuario usuario1;
         if (dao.pesquisarIdentificacao(tfCpf.getText()) instanceof Usuario) {
-            usuario1 = (Usuario) dao.pesquisarIdentificacao(tfCpf.getText());
-            if (ConfigsUsuario.editar == true && (Usuario.usuario.getIdUsuario() == usuario1.getIdUsuario())) {
+            usuario = (Usuario) dao.pesquisarIdentificacao(tfCpf.getText());
+            if (ConfigsUsuario.editar == true && (Usuario.usuario.getIdUsuario() == usuario.getIdUsuario())) {
 
             } else {
                 JOptionPane.showMessageDialog(null, "CPF já cadastrado!");
                 tfCpf.setText("");
                 tfCpf.grabFocus();
             }
-        } else if(dao.pesquisarEmail(tfCpf.getText()) != null){
+        } else if (dao.pesquisarEmail(tfCpf.getText()) != null) {
             JOptionPane.showMessageDialog(null, "CPF já cadastrado!");
             tfCpf.setText("");
             tfCpf.grabFocus();

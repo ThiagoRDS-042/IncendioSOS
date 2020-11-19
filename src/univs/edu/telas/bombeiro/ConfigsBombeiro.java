@@ -115,14 +115,12 @@ public class ConfigsBombeiro extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
-        GenericLogin login = new GenericLogin();
-        login.setVisible(true);
+        new GenericLogin().setVisible(true);
         dispose();
     }//GEN-LAST:event_btnSairActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        HomePageBombeiro home = new HomePageBombeiro();
-        home.setVisible(true);
+        new HomePageBombeiro().setVisible(true);
         dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
 
@@ -130,8 +128,7 @@ public class ConfigsBombeiro extends javax.swing.JFrame {
         if (JOptionPane.showConfirmDialog(null, "Deseja realmente excluir sua conta?", "Excluir", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
             dao.excluir(CorpoDeBombeiros.bombeiro);
             JOptionPane.showMessageDialog(null, "Exclusão Concluída!");
-            GenericLogin tela = new GenericLogin();
-            tela.setVisible(true);
+            new GenericLogin().setVisible(true);
             dispose();
         }
     }//GEN-LAST:event_btnExcluirActionPerformed
@@ -139,8 +136,7 @@ public class ConfigsBombeiro extends javax.swing.JFrame {
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         editar = true;
         
-        CadastroBombeiro cadastro = new CadastroBombeiro();
-        cadastro.setVisible(true);
+        new CadastroBombeiro().setVisible(true);
         dispose();
     }//GEN-LAST:event_btnEditarActionPerformed
 

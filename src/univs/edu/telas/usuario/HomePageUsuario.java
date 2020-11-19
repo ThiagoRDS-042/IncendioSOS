@@ -110,8 +110,7 @@ public class HomePageUsuario extends javax.swing.JFrame {
         if (dao.pesquisarNotDen(Usuario.usuario, formatoData.format(data), "Notificação").size() == 3) {
             JOptionPane.showMessageDialog(null, "Limite de Notificações Diarias Atingido!");
         } else {
-            Notificar not = new Notificar();
-            not.setVisible(true);
+            new Notificar().setVisible(true);
             dispose();
         }
     }//GEN-LAST:event_bntNotificarActionPerformed
@@ -120,15 +119,13 @@ public class HomePageUsuario extends javax.swing.JFrame {
         if (dao.pesquisarNotDen(Usuario.usuario, formatoData.format(data), "Denuncia").size() == 3) {
             JOptionPane.showMessageDialog(null, "Limite de Denuncias Diarias Atingido!");
         } else {
-            Denunciar den = new Denunciar();
-            den.setVisible(true);
+            new Denunciar().setVisible(true);
             dispose();
         }
     }//GEN-LAST:event_btnDenunciarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        ConfigsUsuario configs = new ConfigsUsuario();
-        configs.setVisible(true);
+        new ConfigsUsuario().setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 

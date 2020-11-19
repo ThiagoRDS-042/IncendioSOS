@@ -151,8 +151,7 @@ public class CadastroAdm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        HomePageAdm home = new HomePageAdm();
-        home.setVisible(true);
+        new HomePageAdm().setVisible(true);
         dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
 
@@ -165,8 +164,7 @@ public class CadastroAdm extends javax.swing.JFrame {
 
             if (ConfigsAdm.editar == true) {
                 dao.salvar(adm);
-                HomePageAdm home = new HomePageAdm();
-                home.setVisible(true);
+                new HomePageAdm().setVisible(true);
                 dispose();
             } else {
                 dao.salvar(adm);
@@ -176,17 +174,16 @@ public class CadastroAdm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void tfEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfEmailFocusLost
-        Adm adm1;
         if (dao.pesquisarEmail(tfEmail.getText()) instanceof Adm) {
-            adm1 = (Adm) dao.pesquisarEmail(tfEmail.getText());
-            if (ConfigsAdm.editar == true && (Adm.adm.getIdAdm() == adm1.getIdAdm())) {
+            adm = (Adm) dao.pesquisarEmail(tfEmail.getText());
+            if (ConfigsAdm.editar == true && (Adm.adm.getIdAdm() == adm.getIdAdm())) {
 
             } else {
                 JOptionPane.showMessageDialog(null, "Email ja cadastrado!");
                 tfEmail.setText("");
                 tfEmail.grabFocus();
             }
-        } else if(dao.pesquisarEmail(tfEmail.getText()) != null){
+        } else if (dao.pesquisarEmail(tfEmail.getText()) != null) {
             JOptionPane.showMessageDialog(null, "Email ja cadastrado!");
             tfEmail.setText("");
             tfEmail.grabFocus();

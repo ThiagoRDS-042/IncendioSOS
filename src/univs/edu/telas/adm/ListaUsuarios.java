@@ -129,8 +129,7 @@ public class ListaUsuarios extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        HomePageAdm home = new HomePageAdm();
-        home.setVisible(true);
+        new HomePageAdm().setVisible(true);
         dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
 

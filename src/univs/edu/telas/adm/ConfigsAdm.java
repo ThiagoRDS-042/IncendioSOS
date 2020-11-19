@@ -114,8 +114,7 @@ public class ConfigsAdm extends javax.swing.JFrame {
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         editar = true;
 
-        CadastroAdm cadastro = new CadastroAdm();
-        cadastro.setVisible(true);
+        new CadastroAdm().setVisible(true);
         dispose();
     }//GEN-LAST:event_btnEditarActionPerformed
 
@@ -123,21 +122,18 @@ public class ConfigsAdm extends javax.swing.JFrame {
         if (JOptionPane.showConfirmDialog(null, "Deseja realmente excluir sua conta?", "Excluir", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
             dao.excluir(Adm.adm);
             JOptionPane.showMessageDialog(null, "Exclusão Concluída!");
-            GenericLogin tela = new GenericLogin();
-            tela.setVisible(true);
+            new GenericLogin().setVisible(true);
             dispose();
         }
     }//GEN-LAST:event_btnExcluirActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        HomePageAdm usuario = new HomePageAdm();
-        usuario.setVisible(true);
+        new HomePageAdm().setVisible(true);
         dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
-        GenericLogin login = new GenericLogin();
-        login.setVisible(true);
+        new GenericLogin().setVisible(true);
         dispose();
     }//GEN-LAST:event_btnSairActionPerformed
 

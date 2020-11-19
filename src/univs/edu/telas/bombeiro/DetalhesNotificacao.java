@@ -409,8 +409,7 @@ public class DetalhesNotificacao extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        HomePageBombeiro home = new HomePageBombeiro();
-        home.setVisible(true);
+        new HomePageBombeiro().setVisible(true);
         dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
 
@@ -422,8 +421,7 @@ public class DetalhesNotificacao extends javax.swing.JFrame {
             Usuario usuario2 = Notificacao.notificacao.getUsuario();
             usuario2.setVerificaCondutaTrote(true);
             dao.salvar(usuario2);
-            HomePageBombeiro home = new HomePageBombeiro();
-            home.setVisible(true);
+            new HomePageBombeiro().setVisible(true);
             dispose();
         }
     }//GEN-LAST:event_btnTroteActionPerformed

@@ -82,6 +82,11 @@ public class HomePageIbama extends javax.swing.JFrame {
         });
 
         btnRelatorio.setText("Relatório");
+        btnRelatorio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRelatorioActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -133,8 +138,7 @@ public class HomePageIbama extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnConfigsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfigsActionPerformed
-        ConfigsIbama configs = new ConfigsIbama();
-        configs.setVisible(true);
+        new ConfigsIbama().setVisible(true);
         dispose();
     }//GEN-LAST:event_btnConfigsActionPerformed
 
@@ -144,11 +148,15 @@ public class HomePageIbama extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Selecione uma Denuncia!");
         } else {
             Denuncia.denuncia = (Denuncia) dao.pesquisarId((int) TabelaDenuncia.getValueAt(linha, 0), "Denuncia");
-            DetalhesDenuncia detalhes = new DetalhesDenuncia();
-            detalhes.setVisible(true);
+            new DetalhesDenuncia().setVisible(true);
             dispose();
         }
     }//GEN-LAST:event_btnAbrirActionPerformed
+
+    private void btnRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRelatorioActionPerformed
+        new Relatorio().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnRelatorioActionPerformed
 
     /**
      * @param args the command line arguments

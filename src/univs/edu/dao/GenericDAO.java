@@ -193,6 +193,21 @@ public class GenericDAO<T> {
         sessao.close();
         return generica;
     }
+    
+    public List<T> relatorio(String mes, String tipo) {
+        criarSessao();
+
+        List<T> generica;
+        if (tipo.equalsIgnoreCase("Notificação")) {
+            List<Notificacao> notificacoes = (List<Notificacao>) sessao.createCriteria(Notificacao.class).add(Restrictions.like("dataEnvio", ("%" + mes + "%"))).add(Restrictions.eq("trote", false)).list();
+            generica = (List<T>) notificacoes;
+        } else {
+            List<Denuncia> denuncias = (List<Denuncia>) sessao.createCriteria(Denuncia.class).add(Restrictions.like("dataEnvio", ("%" + mes + "%"))).add(Restrictions.eq("trote", false)).list();
+            generica = (List<T>) denuncias;
+        }
+        sessao.close();
+        return generica;
+    }
 
     public List<T> listarNotDen(T generico, String tipo) {
         criarSessao();

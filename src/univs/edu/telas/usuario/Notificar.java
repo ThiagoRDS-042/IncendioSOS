@@ -260,8 +260,7 @@ public class Notificar extends javax.swing.JFrame {
             not.setTrote(false);
 
             dao.salvar(not);
-            HomePageUsuario home = new HomePageUsuario();
-            home.setVisible(true);
+            new HomePageUsuario().setVisible(true);
             dispose();
         }
     }//GEN-LAST:event_btnEvnviarActionPerformed
@@ -287,8 +286,7 @@ public class Notificar extends javax.swing.JFrame {
                 not.setTrote(false);
 
                 dao.salvar(not);
-                HomePageUsuario home = new HomePageUsuario();
-                home.setVisible(true);
+                new HomePageUsuario().setVisible(true);
                 dispose();
             }
 
@@ -296,8 +294,7 @@ public class Notificar extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEvnviarKeyPressed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        HomePageUsuario usuario = new HomePageUsuario();
-        usuario.setVisible(true);
+        new HomePageUsuario().setVisible(true);
         dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
 

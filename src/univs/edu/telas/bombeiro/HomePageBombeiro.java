@@ -130,8 +130,7 @@ public class HomePageBombeiro extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnConfigsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfigsActionPerformed
-        ConfigsBombeiro configs = new ConfigsBombeiro();
-        configs.setVisible(true);
+        new ConfigsBombeiro().setVisible(true);
         dispose();
     }//GEN-LAST:event_btnConfigsActionPerformed
 
@@ -141,8 +140,7 @@ public class HomePageBombeiro extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Selecione uma Notificação!");
         } else {
             Notificacao.notificacao = (Notificacao) dao.pesquisarId((int) TabelaNotificacao.getValueAt(linha, 0), "Notificação");
-            DetalhesNotificacao detalhes = new DetalhesNotificacao();
-            detalhes.setVisible(true);
+            new DetalhesNotificacao().setVisible(true);
             dispose();
         }
 

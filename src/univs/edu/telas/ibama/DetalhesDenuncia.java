@@ -387,14 +387,12 @@ public class DetalhesDenuncia extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVoltar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltar1ActionPerformed
-        HomePageIbama home = new HomePageIbama();
-        home.setVisible(true);
+        new HomePageIbama().setVisible(true);
         dispose();
     }//GEN-LAST:event_btnVoltar1ActionPerformed
 
     private void btnEvidenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEvidenciaActionPerformed
-        Evidencia evidencia = new Evidencia();
-        evidencia.setVisible(true);
+        new Evidencia().setVisible(true);
         dispose();
     }//GEN-LAST:event_btnEvidenciaActionPerformed
 
@@ -405,8 +403,7 @@ public class DetalhesDenuncia extends javax.swing.JFrame {
             Usuario usuario2 = Denuncia.denuncia.getUsuario();
             usuario2.setVerificaCondutaTrote(true);
             dao.salvar(usuario2);
-            HomePageIbama home = new HomePageIbama();
-            home.setVisible(true);
+            new HomePageIbama().setVisible(true);
             dispose();
         }
     }//GEN-LAST:event_btnTroteActionPerformed

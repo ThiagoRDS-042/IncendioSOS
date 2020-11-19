@@ -334,8 +334,7 @@ public class CadastroIbama extends javax.swing.JFrame {
             if (ConfigsIbama.editar == true) {
                 ibama.setVerificaConta(true);
                 dao.salvar(ibama);
-                HomePageIbama home = new HomePageIbama();
-                home.setVisible(true);
+                new HomePageIbama().setVisible(true);
                 dispose();
             } else {
                 ibama.setVerificaConta(false);
@@ -362,10 +361,9 @@ public class CadastroIbama extends javax.swing.JFrame {
     }//GEN-LAST:event_tfRuaFocusLost
 
     private void tfEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfEmailFocusLost
-        Ibama ibama1;
         if (dao.pesquisarEmail(tfEmail.getText()) instanceof Ibama) {
-            ibama1 = (Ibama) dao.pesquisarEmail(tfEmail.getText());
-            if (ConfigsIbama.editar == true && (Ibama.ibama.getIdIbama() == ibama1.getIdIbama())) {
+            ibama = (Ibama) dao.pesquisarEmail(tfEmail.getText());
+            if (ConfigsIbama.editar == true && (Ibama.ibama.getIdIbama() == ibama.getIdIbama())) {
 
             } else {
                 JOptionPane.showMessageDialog(null, "Email já cadastrado!");
@@ -405,8 +403,7 @@ public class CadastroIbama extends javax.swing.JFrame {
                 if (ConfigsIbama.editar == true) {
                     ibama.setVerificaConta(true);
                     dao.salvar(ibama);
-                    HomePageIbama home = new HomePageIbama();
-                    home.setVisible(true);
+                    new HomePageIbama().setVisible(true);
                     dispose();
                 } else {
                     ibama.setVerificaConta(false);
@@ -427,10 +424,9 @@ public class CadastroIbama extends javax.swing.JFrame {
     }//GEN-LAST:event_tfNomeActionPerformed
 
     private void tfCnpjFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfCnpjFocusLost
-        Ibama ibama1;
         if (dao.pesquisarIdentificacao(tfCnpj.getText()) instanceof Ibama) {
-            ibama1 = (Ibama) dao.pesquisarIdentificacao(tfCnpj.getText());
-            if (ConfigsIbama.editar == true && (Ibama.ibama.getIdIbama() == ibama1.getIdIbama())) {
+            ibama = (Ibama) dao.pesquisarIdentificacao(tfCnpj.getText());
+            if (ConfigsIbama.editar == true && (Ibama.ibama.getIdIbama() == ibama.getIdIbama())) {
 
             } else {
                 JOptionPane.showMessageDialog(null, "CNPJ já cadastrado!");
@@ -446,12 +442,10 @@ public class CadastroIbama extends javax.swing.JFrame {
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
         if (ConfigsIbama.editar == true) {
-            HomePageIbama home = new HomePageIbama();
-            home.setVisible(true);
+            new HomePageIbama().setVisible(true);
             dispose();
         } else {
-            ListaIbamas lista = new ListaIbamas();
-            lista.setVisible(true);
+            new ListaIbamas().setVisible(true);
             dispose();
         }
     }//GEN-LAST:event_btnVoltarActionPerformed

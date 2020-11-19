@@ -130,16 +130,14 @@ public class ListaCorpoDeBombeiros extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        HomePageAdm home = new HomePageAdm();
-        home.setVisible(true);
+        new HomePageAdm().setVisible(true);
         dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
         ConfigsBombeiro.editar = false;
         
-        CadastroBombeiro cadastro = new CadastroBombeiro();
-        cadastro.setVisible(true);
+        new CadastroBombeiro().setVisible(true);
         dispose();
     }//GEN-LAST:event_btnNovoActionPerformed
 

@@ -280,8 +280,7 @@ public class Denunciar extends javax.swing.JFrame {
             denuncia.setTrote(false);
 
             dao.salvar(denuncia);
-            HomePageUsuario home = new HomePageUsuario();
-            home.setVisible(true);
+            new HomePageUsuario().setVisible(true);
             dispose();
         }
 
@@ -310,8 +309,7 @@ public class Denunciar extends javax.swing.JFrame {
                 denuncia.setTrote(false);
 
                 dao.salvar(denuncia);
-                HomePageUsuario home = new HomePageUsuario();
-                home.setVisible(true);
+                new HomePageUsuario().setVisible(true);
                 dispose();
             }
 
@@ -319,8 +317,7 @@ public class Denunciar extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEnviarKeyPressed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        HomePageUsuario usuario = new HomePageUsuario();
-        usuario.setVisible(true);
+        new HomePageUsuario().setVisible(true);
         dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
 
