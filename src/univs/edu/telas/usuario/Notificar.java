@@ -122,6 +122,11 @@ public class Notificar extends javax.swing.JFrame {
         jTipos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jCorposDeBombeiros.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jCorposDeBombeiros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCorposDeBombeirosActionPerformed(evt);
+            }
+        });
 
         jLabel10.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel10.setText("Corpo de Bombeiros:");
@@ -301,6 +306,10 @@ public class Notificar extends javax.swing.JFrame {
     private void btnVoltarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnVoltarKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnVoltarKeyPressed
+
+    private void jCorposDeBombeirosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCorposDeBombeirosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCorposDeBombeirosActionPerformed
 
     /**
      * @param args the command line arguments

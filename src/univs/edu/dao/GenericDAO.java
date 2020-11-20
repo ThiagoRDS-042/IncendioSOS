@@ -194,15 +194,21 @@ public class GenericDAO<T> {
         return generica;
     }
     
-    public List<T> relatorio(String mes, String tipo) {
+    public List<T> relatorio(String mes, String tipo, boolean porCidade, String cidade) {
         criarSessao();
 
         List<T> generica;
-        if (tipo.equalsIgnoreCase("Notificação")) {
-            List<Notificacao> notificacoes = (List<Notificacao>) sessao.createCriteria(Notificacao.class).add(Restrictions.like("dataEnvio", ("%" + mes + "%"))).add(Restrictions.eq("trote", false)).list();
+        if (tipo.equalsIgnoreCase("Notificação") && porCidade == true) {
+            List<Notificacao> notificacoes = (List<Notificacao>) sessao.createCriteria(Notificacao.class).add(Restrictions.like("dataEnvio", ("%" + mes + "%"))).add(Restrictions.eq("cidadeOcorrencia", cidade)).list();
             generica = (List<T>) notificacoes;
-        } else {
-            List<Denuncia> denuncias = (List<Denuncia>) sessao.createCriteria(Denuncia.class).add(Restrictions.like("dataEnvio", ("%" + mes + "%"))).add(Restrictions.eq("trote", false)).list();
+        } else  if (tipo.equalsIgnoreCase("Denuncia") && porCidade == true) {
+            List<Denuncia> denuncias = (List<Denuncia>) sessao.createCriteria(Denuncia.class).add(Restrictions.like("dataEnvio", ("%" + mes + "%"))).add(Restrictions.eq("cidadeOcorrencia", cidade)).list();
+            generica = (List<T>) denuncias;
+        } else if(tipo.equalsIgnoreCase("Notificação")){
+            List<Notificacao> notificacoes = (List<Notificacao>) sessao.createCriteria(Notificacao.class).add(Restrictions.like("dataEnvio", ("%" + mes + "%"))).list();
+            generica = (List<T>) notificacoes;
+        } else{
+            List<Denuncia> denuncias = (List<Denuncia>) sessao.createCriteria(Denuncia.class).add(Restrictions.like("dataEnvio", ("%" + mes + "%"))).list();
             generica = (List<T>) denuncias;
         }
         sessao.close();
