@@ -5,6 +5,7 @@
  */
 package univs.edu.telas.ibama;
 
+import univs.edu.telas.adm.Relatorio;
 import javax.swing.JOptionPane;
 import univs.edu.dao.GenericDAO;
 import univs.edu.denuncia.Denuncia;
@@ -47,7 +48,6 @@ public class HomePageIbama extends javax.swing.JFrame {
         TabelaDenuncia = new javax.swing.JTable();
         btnAbrir = new javax.swing.JButton();
         jErro = new javax.swing.JLabel();
-        btnRelatorio = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -81,13 +81,6 @@ public class HomePageIbama extends javax.swing.JFrame {
             }
         });
 
-        btnRelatorio.setText("Relatório");
-        btnRelatorio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRelatorioActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -102,8 +95,7 @@ public class HomePageIbama extends javax.swing.JFrame {
                 .addGap(116, 116, 116)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnRelatorio)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(0, 244, Short.MAX_VALUE)
                         .addComponent(btnAbrir))
                     .addComponent(jLabel2))
                 .addContainerGap())
@@ -123,7 +115,6 @@ public class HomePageIbama extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 155, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnConfigs, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAbrir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -152,11 +143,6 @@ public class HomePageIbama extends javax.swing.JFrame {
             dispose();
         }
     }//GEN-LAST:event_btnAbrirActionPerformed
-
-    private void btnRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRelatorioActionPerformed
-        new Relatorio().setVisible(true);
-        dispose();
-    }//GEN-LAST:event_btnRelatorioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -197,7 +183,6 @@ public class HomePageIbama extends javax.swing.JFrame {
     private javax.swing.JTable TabelaDenuncia;
     private javax.swing.JButton btnAbrir;
     private javax.swing.JButton btnConfigs;
-    private javax.swing.JButton btnRelatorio;
     private javax.swing.JLabel jErro;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;

@@ -3,12 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package univs.edu.telas.ibama;
+package univs.edu.telas.adm;
 
 import java.awt.event.KeyEvent;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import univs.edu.dao.GenericDAO;
@@ -61,7 +60,7 @@ public class Relatorio extends javax.swing.JFrame {
         }
 
         if (nots.isEmpty() && dens.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Sem registros de ocorrêcia para a cidade :" + tfPesquisa.getText());
+            JOptionPane.showMessageDialog(null, "Sem registros de ocorrêcia para a cidade : " + tfPesquisa.getText());
             limparTexto();
         } else {
 
@@ -296,7 +295,7 @@ public class Relatorio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        new HomePageIbama().setVisible(true);
+        new HomePageAdm().setVisible(true);
         dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
 

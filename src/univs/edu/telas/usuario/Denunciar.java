@@ -66,7 +66,7 @@ public class Denunciar extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         tfNomeSuspeito = new javax.swing.JTextField();
-        tfCidade = new javax.swing.JTextField();
+        tfEndereco = new javax.swing.JTextField();
         tfDescricaoSuspeito = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         btnSelecionar = new javax.swing.JButton();
@@ -89,7 +89,7 @@ public class Denunciar extends javax.swing.JFrame {
         jLabel2.setText("Nome do Suspeito:");
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jLabel3.setText("Cidade:");
+        jLabel3.setText("Endereço(rua):");
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel4.setText("Detalhes do Incêndio:");
@@ -143,7 +143,7 @@ public class Denunciar extends javax.swing.JFrame {
         });
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jLabel8.setText("localização do incêndio(Complemento):");
+        jLabel8.setText("Complemento:");
 
         jScrollPane1.setViewportView(tfDetalhes);
 
@@ -165,7 +165,7 @@ public class Denunciar extends javax.swing.JFrame {
                             .addComponent(jLabel2)
                             .addComponent(jLabel3)
                             .addComponent(tfNomeSuspeito, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tfCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel8)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
@@ -212,7 +212,7 @@ public class Denunciar extends javax.swing.JFrame {
                 .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(tfCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tfEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -259,7 +259,7 @@ public class Denunciar extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSelecionarActionPerformed
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
-        if (tfDescricaoSuspeito.getText().isEmpty() || tfDetalhes.getText().isEmpty() || tfCidade.getText().isEmpty() || tfComplemento.getText().isEmpty()) {
+        if (tfDescricaoSuspeito.getText().isEmpty() || tfDetalhes.getText().isEmpty() || tfEndereco.getText().isEmpty() || tfComplemento.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Preencha todos os Campos !");
         } else {
             String[] identificacao = jIbamas.getSelectedItem().toString().split("_");
@@ -273,10 +273,11 @@ public class Denunciar extends javax.swing.JFrame {
             denuncia.setDetalhesIncendio(tfDetalhes.getText());
             denuncia.setIbama(ibama);
             denuncia.setUsuario(Usuario.usuario);
-            denuncia.setLocalizacao(tfCidade.getText());
+            denuncia.setEndereco(tfEndereco.getText());
             denuncia.setNomeSuspeito(tfNomeSuspeito.getText());
             denuncia.setDataEnvio(formatoData.format(data));
-            denuncia.setCidadeOcorrencia(tfCidade.getText());
+            denuncia.setCidade(Usuario.usuario.getCidadeUsuario());
+            denuncia.setComplemento(tfComplemento.getText());
             denuncia.setTrote(false);
 
             dao.salvar(denuncia);
@@ -288,7 +289,7 @@ public class Denunciar extends javax.swing.JFrame {
 
     private void btnEnviarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnEnviarKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            if (tfDescricaoSuspeito.getText().isEmpty() || tfDetalhes.getText().isEmpty() || tfCidade.getText().isEmpty() || tfComplemento.getText().isEmpty()) {
+            if (tfDescricaoSuspeito.getText().isEmpty() || tfDetalhes.getText().isEmpty() || tfEndereco.getText().isEmpty() || tfComplemento.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Preencha todos os Campos !");
             } else {
                 String[] identificacao = jIbamas.getSelectedItem().toString().split("_");
@@ -302,10 +303,11 @@ public class Denunciar extends javax.swing.JFrame {
                 denuncia.setDetalhesIncendio(tfDetalhes.getText());
                 denuncia.setIbama(ibama);
                 denuncia.setUsuario(Usuario.usuario);
-                denuncia.setLocalizacao(tfCidade.getText());
+                denuncia.setEndereco(tfEndereco.getText());
                 denuncia.setNomeSuspeito(tfNomeSuspeito.getText());
                 denuncia.setDataEnvio(formatoData.format(data));
-                denuncia.setCidadeOcorrencia(tfCidade.getText());
+                denuncia.setCidade(Usuario.usuario.getCidadeUsuario());
+                denuncia.setComplemento(tfComplemento.getText());
                 denuncia.setTrote(false);
 
                 dao.salvar(denuncia);
@@ -379,10 +381,10 @@ public class Denunciar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbEvidencia;
-    private javax.swing.JTextField tfCidade;
     private javax.swing.JTextField tfComplemento;
     private javax.swing.JTextField tfDescricaoSuspeito;
     private javax.swing.JTextPane tfDetalhes;
+    private javax.swing.JTextField tfEndereco;
     private javax.swing.JTextField tfNomeSuspeito;
     // End of variables declaration//GEN-END:variables
 }

@@ -39,9 +39,9 @@ public class DenunciaTableModel extends AbstractTableModel {
                 String[] nova = denuncia.getDataEnvio().split("-");
                 return nova[0];
             case 3:
-                return denuncia.getCidadeOcorrencia();
+                return denuncia.getCidade();
             case 4:
-                return denuncia.getLocalizacao();
+                return denuncia.getComplemento();
         }
         return null;
     }

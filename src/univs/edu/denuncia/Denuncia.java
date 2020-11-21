@@ -45,10 +45,13 @@ public class Denuncia {
     private byte[] evidencias;
 
     @Column(length = 100, nullable = false)
-    private String localizacao;
+    private String endereco;
     
     @Column(length = 100, nullable = false)
-    private String cidadeOcorrencia;
+    private String complemento;
+    
+    @Column(length = 100, nullable = false)
+    private String cidade;
     
     @Column(length = 1, nullable = false)
     private boolean trote;
@@ -92,12 +95,12 @@ public class Denuncia {
         this.evidencias = evidencias;
     }
 
-    public String getLocalizacao() {
-        return localizacao;
+    public String getEndereco() {
+        return endereco;
     }
 
-    public void setLocalizacao(String localizacao) {
-        this.localizacao = localizacao;
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
     }
 
     public String getDescricaoSuspeito() {
@@ -108,12 +111,12 @@ public class Denuncia {
         this.descricaoSuspeito = descricaoSuspeito;
     }
 
-    public String getCidadeOcorrencia() {
-        return cidadeOcorrencia;
+    public String getComplemento() {
+        return complemento;
     }
 
-    public void setCidadeOcorrencia(String cidadeOcorrencia) {
-        this.cidadeOcorrencia = cidadeOcorrencia;
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
     }
 
     public Usuario getUsuario() {
@@ -138,6 +141,14 @@ public class Denuncia {
 
     public void setTrote(boolean trote) {
         this.trote = trote;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
     }
 
 }
