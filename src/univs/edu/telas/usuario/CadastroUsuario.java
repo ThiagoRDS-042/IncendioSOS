@@ -116,6 +116,11 @@ public class CadastroUsuario extends javax.swing.JFrame {
                 tfEmailFocusLost(evt);
             }
         });
+        tfEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfEmailActionPerformed(evt);
+            }
+        });
 
         tfSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -314,6 +319,13 @@ public class CadastroUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void tfEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfEmailFocusLost
+        
+        if(!tfEmail.getText().matches("(.*)@gmail.com(.*)")){
+            JOptionPane.showMessageDialog(null, "Necessaria a inclusão do dominio '@gmail.com'!");
+            tfEmail.setText("");
+            tfEmail.grabFocus();
+        }
+        
         if (dao.pesquisarEmail(tfEmail.getText()) instanceof Usuario) {
             usuario = (Usuario) dao.pesquisarEmail(tfEmail.getText());
             if (ConfigsUsuario.editar == true && (Usuario.usuario.getIdUsuario() == usuario.getIdUsuario())) {
@@ -399,6 +411,10 @@ public class CadastroUsuario extends javax.swing.JFrame {
             tfCpf.grabFocus();
         }
     }//GEN-LAST:event_tfCpfFocusLost
+
+    private void tfEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfEmailActionPerformed
 
     /**
      * @param args the command line arguments

@@ -46,7 +46,7 @@ public class Denunciar extends javax.swing.JFrame {
         jIbamas.removeAllItems();
         List<Ibama> ibamas = dao.listarObjetos("Ibama");
         for (Ibama ibama : ibamas) {
-            jIbamas.addItem(ibama.getNomeIbama() + "_" + ibama.getCidadeIbama() + "/" + ibama.getEstadoIbama() + "_" + ibama.getCnpj());
+            jIbamas.addItem(ibama.getNomeIbama() + "-" + ibama.getCidadeIbama() + "/" + ibama.getEstadoIbama() + "-" + ibama.getEmailIbama());
         }
 
     }
@@ -267,8 +267,8 @@ public class Denunciar extends javax.swing.JFrame {
         if (tfDescricaoSuspeito.getText().isEmpty() || tfDetalhes.getText().isEmpty() || tfEndereco.getText().isEmpty() || tfComplemento.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Preencha todos os Campos !");
         } else {
-            String[] identificacao = jIbamas.getSelectedItem().toString().split("_");
-            ibama = (Ibama) dao.pesquisarIdentificacao(identificacao[2]);
+            String[] identificacao = jIbamas.getSelectedItem().toString().split("-");
+            ibama = (Ibama) dao.pesquisarEmail(identificacao[2]);
 
             if (imagem != null) {
                 denuncia.setEvidencias(getImgBytes(imagem));
@@ -297,8 +297,8 @@ public class Denunciar extends javax.swing.JFrame {
             if (tfDescricaoSuspeito.getText().isEmpty() || tfDetalhes.getText().isEmpty() || tfEndereco.getText().isEmpty() || tfComplemento.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Preencha todos os Campos !");
             } else {
-                String[] identificacao = jIbamas.getSelectedItem().toString().split("_");
-                ibama = (Ibama) dao.pesquisarIdentificacao(identificacao[2]);
+                String[] identificacao = jIbamas.getSelectedItem().toString().split("-");
+                ibama = (Ibama) dao.pesquisarEmail(identificacao[2]);
 
                 if (imagem != null) {
                     denuncia.setEvidencias(getImgBytes(imagem));

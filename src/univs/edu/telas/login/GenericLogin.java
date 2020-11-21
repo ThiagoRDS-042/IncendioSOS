@@ -125,12 +125,12 @@ public class GenericLogin extends javax.swing.JFrame {
         jPanel2.add(jLabel9);
         jLabel9.setBounds(170, 320, 80, 14);
 
-        tfEmailLogin.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        tfEmailLogin.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         tfEmailLogin.setToolTipText("Digite seu E-mail");
         jPanel2.add(tfEmailLogin);
         tfEmailLogin.setBounds(20, 130, 234, 30);
 
-        tfSenhaLogin.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        tfSenhaLogin.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         tfSenhaLogin.setToolTipText("Digite Sua Senha");
         jPanel2.add(tfSenhaLogin);
         tfSenhaLogin.setBounds(20, 190, 234, 30);
