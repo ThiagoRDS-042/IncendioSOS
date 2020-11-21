@@ -247,7 +247,7 @@ public class Relatorio extends javax.swing.JFrame {
             }
         });
 
-        tfPesquisa.setToolTipText("Pesquise Por Cidade");
+        tfPesquisa.setToolTipText("Pesquise Pela Cidade");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

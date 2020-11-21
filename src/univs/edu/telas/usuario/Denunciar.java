@@ -97,6 +97,10 @@ public class Denunciar extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel5.setText("Evidência:");
 
+        tfNomeSuspeito.setToolTipText("Caso não Saiba o Nome do Suspeito, Pode-se Deixar o Campo em Branco");
+
+        tfEndereco.setToolTipText("Nome da Rua");
+
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel6.setText("Descrição do susepeito:");
 
@@ -136,6 +140,7 @@ public class Denunciar extends javax.swing.JFrame {
             }
         });
 
+        tfComplemento.setToolTipText("Exemplo: Centro");
         tfComplemento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfComplementoActionPerformed(evt);

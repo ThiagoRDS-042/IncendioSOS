@@ -110,6 +110,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
             }
         });
 
+        tfEmail.setToolTipText("Exemplo: User@gmail.com");
         tfEmail.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 tfEmailFocusLost(evt);
@@ -163,13 +164,14 @@ public class CadastroUsuario extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        tfTelefone.setToolTipText("");
+        tfTelefone.setToolTipText("Exemplo: (88) 4002-8922");
 
         try {
             tfCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        tfCpf.setToolTipText("Exemplo: 123.456.789-10");
         tfCpf.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 tfCpfFocusLost(evt);

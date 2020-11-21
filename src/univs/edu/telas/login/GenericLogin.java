@@ -64,90 +64,146 @@ public class GenericLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         tfEmailLogin = new javax.swing.JTextField();
         tfSenhaLogin = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
         btnCadastrese = new javax.swing.JButton();
+        btnEntrar = new javax.swing.JButton();
+        btnVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel1.setText("Login");
+        jPanel1.setBackground(new java.awt.Color(0, 153, 255));
+        jPanel1.setLayout(null);
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jLabel2.setText("E-mail:");
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/UsuarioLogin.png"))); // NOI18N
+        jPanel1.add(jLabel7);
+        jLabel7.setBounds(10, 90, 180, 140);
 
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jLabel3.setText("Senha:");
+        jLabel6.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Faça seu Login");
+        jPanel1.add(jLabel6);
+        jLabel6.setBounds(50, 230, 120, 30);
+        jPanel1.add(jLabel10);
+        jLabel10.setBounds(10, 90, 180, 140);
 
-        jButton1.setText("Entrar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jButton1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jButton1KeyPressed(evt);
-            }
-        });
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(null);
 
+        jLabel4.setBackground(new java.awt.Color(0, 153, 255));
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 153, 255));
+        jLabel4.setText("Email");
+        jPanel2.add(jLabel4);
+        jLabel4.setBounds(20, 110, 35, 17);
+
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 153, 255));
+        jLabel5.setText("Senha");
+        jPanel2.add(jLabel5);
+        jLabel5.setBounds(20, 170, 38, 17);
+
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 153, 255));
+        jLabel8.setText("Login");
+        jPanel2.add(jLabel8);
+        jLabel8.setBounds(110, 50, 46, 22);
+
+        jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 153, 255));
+        jLabel9.setText("Novo por aqui?");
+        jPanel2.add(jLabel9);
+        jLabel9.setBounds(170, 320, 80, 14);
+
+        tfEmailLogin.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        tfEmailLogin.setToolTipText("Digite seu E-mail");
+        jPanel2.add(tfEmailLogin);
+        tfEmailLogin.setBounds(20, 130, 234, 30);
+
+        tfSenhaLogin.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        tfSenhaLogin.setToolTipText("Digite Sua Senha");
+        jPanel2.add(tfSenhaLogin);
+        tfSenhaLogin.setBounds(20, 190, 234, 30);
+
+        btnCadastrese.setBackground(new java.awt.Color(0, 153, 255));
+        btnCadastrese.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        btnCadastrese.setForeground(new java.awt.Color(255, 255, 255));
         btnCadastrese.setText("Cadastre-se");
         btnCadastrese.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCadastreseActionPerformed(evt);
             }
         });
+        jPanel2.add(btnCadastrese);
+        btnCadastrese.setBounds(160, 340, 89, 30);
+
+        btnEntrar.setBackground(new java.awt.Color(0, 153, 255));
+        btnEntrar.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        btnEntrar.setForeground(new java.awt.Color(255, 255, 255));
+        btnEntrar.setText("Entrar");
+        btnEntrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEntrarActionPerformed(evt);
+            }
+        });
+        btnEntrar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnEntrarKeyPressed(evt);
+            }
+        });
+        jPanel2.add(btnEntrar);
+        btnEntrar.setBounds(100, 250, 63, 30);
+
+        btnVoltar.setBackground(new java.awt.Color(0, 153, 255));
+        btnVoltar.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        btnVoltar.setForeground(new java.awt.Color(255, 255, 255));
+        btnVoltar.setText("Voltar");
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarActionPerformed(evt);
+            }
+        });
+        btnVoltar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnVoltarKeyPressed(evt);
+            }
+        });
+        jPanel2.add(btnVoltar);
+        btnVoltar.setBounds(20, 340, 80, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(146, 146, 146)
-                .addComponent(jLabel1)
-                .addContainerGap(148, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnCadastrese))
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2)
-                    .addComponent(tfEmailLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
-                    .addComponent(tfSenhaLogin))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tfEmailLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tfSenhaLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCadastrese, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         if (tfEmailLogin.getText().isEmpty() || tfSenhaLogin.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Preencha todos os Campos", "Campos", 2);
         } else {
@@ -219,9 +275,9 @@ public class GenericLogin extends javax.swing.JFrame {
             }
 
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnEntrarActionPerformed
 
-    private void jButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton1KeyPressed
+    private void btnEntrarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnEntrarKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             if (tfEmailLogin.getText().isEmpty() || tfSenhaLogin.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Preencha todos os Campos", "Campos", 2);
@@ -296,7 +352,7 @@ public class GenericLogin extends javax.swing.JFrame {
             }
 
         }
-    }//GEN-LAST:event_jButton1KeyPressed
+    }//GEN-LAST:event_btnEntrarKeyPressed
 
     private void btnCadastreseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastreseActionPerformed
         ConfigsUsuario.editar = false;
@@ -304,6 +360,14 @@ public class GenericLogin extends javax.swing.JFrame {
         new CadastroUsuario().setVisible(true);
         dispose();
     }//GEN-LAST:event_btnCadastreseActionPerformed
+
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVoltarActionPerformed
+
+    private void btnVoltarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnVoltarKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVoltarKeyPressed
 
     /**
      * @param args the command line arguments
@@ -342,10 +406,17 @@ public class GenericLogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrese;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JButton btnEntrar;
+    private javax.swing.JButton btnVoltar;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField tfEmailLogin;
     private javax.swing.JPasswordField tfSenhaLogin;
     // End of variables declaration//GEN-END:variables

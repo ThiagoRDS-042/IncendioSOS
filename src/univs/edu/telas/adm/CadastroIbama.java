@@ -168,6 +168,7 @@ public class CadastroIbama extends javax.swing.JFrame {
             }
         });
 
+        tfEmail.setToolTipText("Exemplo: Ibama@gmail.com");
         tfEmail.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 tfEmailFocusLost(evt);
@@ -198,12 +199,14 @@ public class CadastroIbama extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        tfTelefone.setToolTipText("Exemplo: (88) 4002-8922");
 
         try {
             tfCnpj.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###/####-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        tfCnpj.setToolTipText("Exemplo: 12.3456.789/1011-12");
         tfCnpj.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 tfCnpjFocusLost(evt);

@@ -237,6 +237,9 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="tfEmail">
+      <Properties>
+        <Property name="toolTipText" type="java.lang.String" value="Exemplo: Ibama@gmail.com"/>
+      </Properties>
       <Events>
         <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="tfEmailFocusLost"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfEmailActionPerformed"/>
@@ -261,6 +264,7 @@
         <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
           <Format format="(##) ####-####" subtype="-1" type="5"/>
         </Property>
+        <Property name="toolTipText" type="java.lang.String" value="Exemplo: (88) 4002-8922"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JFormattedTextField" name="tfCnpj">
@@ -268,6 +272,7 @@
         <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
           <Format format="##.###.###/####-##" subtype="-1" type="5"/>
         </Property>
+        <Property name="toolTipText" type="java.lang.String" value="Exemplo: 12.3456.789/1011-12"/>
       </Properties>
       <Events>
         <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="tfCnpjFocusLost"/>

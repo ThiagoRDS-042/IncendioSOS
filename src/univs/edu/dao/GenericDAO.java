@@ -72,7 +72,6 @@ public class GenericDAO<T> {
                 JOptionPane.showMessageDialog(null, "Notificação Enviada Com Sucesso!");
             } else {
                 sessao.update(notificacao);
-                JOptionPane.showMessageDialog(null, "Notificação Marcada como Trote!");
             }
         } else {
             Denuncia denuncia = (Denuncia) generico;
@@ -81,7 +80,6 @@ public class GenericDAO<T> {
                 JOptionPane.showMessageDialog(null, "Denuncia Enviada Com Sucesso!");
             } else {
                 sessao.update(denuncia);
-                JOptionPane.showMessageDialog(null, "Denúncia Marcada como Trote!");
             }
         }
         transacao.commit();

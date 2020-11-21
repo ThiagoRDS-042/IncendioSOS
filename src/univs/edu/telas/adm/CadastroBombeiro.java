@@ -158,6 +158,7 @@ public class CadastroBombeiro extends javax.swing.JFrame {
             }
         });
 
+        tfEmail.setToolTipText("Exemplo: Bombeiro@gmail.com");
         tfEmail.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 tfEmailFocusLost(evt);
@@ -186,6 +187,7 @@ public class CadastroBombeiro extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        tfTelefone.setToolTipText("Exemplo: (88) 4002-8922");
 
         btnVoltar.setText("Voltar");
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {

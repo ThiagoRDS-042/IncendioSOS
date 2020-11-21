@@ -127,7 +127,6 @@ public class ConfigsBombeiro extends javax.swing.JFrame {
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         if (JOptionPane.showConfirmDialog(null, "Deseja realmente excluir sua conta?", "Excluir", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
             dao.excluir(CorpoDeBombeiros.bombeiro);
-            JOptionPane.showMessageDialog(null, "Exclusão Concluída!");
             new GenericLogin().setVisible(true);
             dispose();
         }
