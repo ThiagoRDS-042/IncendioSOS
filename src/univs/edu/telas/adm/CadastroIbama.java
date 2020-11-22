@@ -364,13 +364,15 @@ public class CadastroIbama extends javax.swing.JFrame {
     }//GEN-LAST:event_tfRuaFocusLost
 
     private void tfEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfEmailFocusLost
-        
-        if(!tfEmail.getText().matches("(.*)@gmail.com(.*)")){
-            JOptionPane.showMessageDialog(null, "Necessaria a inclusão do dominio '@gmail.com'!");
-            tfEmail.setText("");
-            tfEmail.grabFocus();
+
+        if (!tfEmail.getText().isEmpty()) {
+            if (!tfEmail.getText().matches("(.*)@gmail.com(.*)")) {
+                JOptionPane.showMessageDialog(null, "Necessaria a inclusão do dominio '@gmail.com'!");
+                tfEmail.setText("");
+                tfEmail.grabFocus();
+            }
         }
-        
+
         if (dao.pesquisarEmail(tfEmail.getText()) instanceof Ibama) {
             ibama = (Ibama) dao.pesquisarEmail(tfEmail.getText());
             if (ConfigsIbama.editar == true && (Ibama.ibama.getIdIbama() == ibama.getIdIbama())) {

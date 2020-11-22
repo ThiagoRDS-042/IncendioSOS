@@ -319,13 +319,15 @@ public class CadastroUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void tfEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfEmailFocusLost
-        
-        if(!tfEmail.getText().matches("(.*)@gmail.com(.*)")){
-            JOptionPane.showMessageDialog(null, "Necessaria a inclusão do dominio '@gmail.com'!");
-            tfEmail.setText("");
-            tfEmail.grabFocus();
+
+        if (!tfEmail.getText().isEmpty()) {
+            if (!tfEmail.getText().matches("(.*)@gmail.com(.*)")) {
+                JOptionPane.showMessageDialog(null, "Necessaria a inclusão do dominio '@gmail.com'!");
+                tfEmail.setText("");
+                tfEmail.grabFocus();
+            }
         }
-        
+
         if (dao.pesquisarEmail(tfEmail.getText()) instanceof Usuario) {
             usuario = (Usuario) dao.pesquisarEmail(tfEmail.getText());
             if (ConfigsUsuario.editar == true && (Usuario.usuario.getIdUsuario() == usuario.getIdUsuario())) {
@@ -340,6 +342,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
             tfEmail.setText("");
             tfEmail.grabFocus();
         }
+
     }//GEN-LAST:event_tfEmailFocusLost
 
     private void btnCadastrarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnCadastrarKeyPressed

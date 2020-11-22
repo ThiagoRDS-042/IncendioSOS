@@ -345,13 +345,15 @@ public class CadastroBombeiro extends javax.swing.JFrame {
     }//GEN-LAST:event_tfNomeDeComandanteFocusLost
 
     private void tfEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfEmailFocusLost
-        
-        if(!tfEmail.getText().matches("(.*)@gmail.com(.*)")){
-            JOptionPane.showMessageDialog(null, "Necessaria a inclusão do dominio '@gmail.com'!");
-            tfEmail.setText("");
-            tfEmail.grabFocus();
+
+        if (!tfEmail.getText().isEmpty()) {
+            if (!tfEmail.getText().matches("(.*)@gmail.com(.*)")) {
+                JOptionPane.showMessageDialog(null, "Necessaria a inclusão do dominio '@gmail.com'!");
+                tfEmail.setText("");
+                tfEmail.grabFocus();
+            }
         }
-        
+
         if (dao.pesquisarEmail(tfEmail.getText()) instanceof CorpoDeBombeiros) {
             bombeiro = (CorpoDeBombeiros) dao.pesquisarEmail(tfEmail.getText());
             if (ConfigsBombeiro.editar == true && (CorpoDeBombeiros.bombeiro.getIdBombeiro() == bombeiro.getIdBombeiro())) {
