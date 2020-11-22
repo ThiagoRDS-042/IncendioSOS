@@ -65,6 +65,9 @@ public class Informacoes extends javax.swing.JFrame {
                 lbRua.setText(bombeiro.getRuaBombeiro());
                 lbTelefone.setText(bombeiro.getTelefoneBombeiro());
                 
+                lbCnpjTitulo.setText("");
+                lbCnpj.setText("");
+                
             } else if(identificacao.length > 1 && identificacao[2].matches("(.*)@gmail.com(.*)")){
                 Ibama ibama = (Ibama) dao.pesquisarEmail(identificacao[2]);
                 
