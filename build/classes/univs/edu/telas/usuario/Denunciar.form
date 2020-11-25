@@ -185,7 +185,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="12" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Descri&#xe7;&#xe3;o do susepeito:"/>
+        <Property name="text" type="java.lang.String" value="Descri&#xe7;&#xe3;o do suspeito:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnSelecionar">

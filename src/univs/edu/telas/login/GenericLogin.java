@@ -64,38 +64,17 @@ public class GenericLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         tfEmailLogin = new javax.swing.JTextField();
         tfSenhaLogin = new javax.swing.JPasswordField();
         btnCadastrese = new javax.swing.JButton();
         btnEntrar = new javax.swing.JButton();
         btnVoltar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jPanel1.setBackground(new java.awt.Color(0, 153, 255));
-        jPanel1.setLayout(null);
-
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/UsuarioLogin.png"))); // NOI18N
-        jPanel1.add(jLabel7);
-        jLabel7.setBounds(10, 90, 180, 140);
-
-        jLabel6.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Faça seu Login");
-        jPanel1.add(jLabel6);
-        jLabel6.setBounds(50, 230, 120, 30);
-        jPanel1.add(jLabel10);
-        jLabel10.setBounds(10, 90, 180, 140);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(null);
@@ -103,104 +82,97 @@ public class GenericLogin extends javax.swing.JFrame {
         jLabel4.setBackground(new java.awt.Color(0, 153, 255));
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 153, 255));
-        jLabel4.setText("Email");
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/iconUsuario.png"))); // NOI18N
+        jLabel4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.lightGray, java.awt.Color.lightGray, java.awt.Color.lightGray, java.awt.Color.lightGray));
         jPanel2.add(jLabel4);
-        jLabel4.setBounds(20, 110, 35, 17);
+        jLabel4.setBounds(120, 180, 40, 35);
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 153, 255));
-        jLabel5.setText("Senha");
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/iconSenha.png"))); // NOI18N
+        jLabel5.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.lightGray, java.awt.Color.lightGray, java.awt.Color.lightGray, java.awt.Color.lightGray));
         jPanel2.add(jLabel5);
-        jLabel5.setBounds(20, 170, 38, 17);
-
-        jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 153, 255));
-        jLabel8.setText("Login");
-        jPanel2.add(jLabel8);
-        jLabel8.setBounds(110, 50, 46, 22);
-
-        jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 153, 255));
-        jLabel9.setText("Novo por aqui?");
-        jPanel2.add(jLabel9);
-        jLabel9.setBounds(170, 320, 80, 14);
+        jLabel5.setBounds(120, 240, 40, 35);
 
         tfEmailLogin.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         tfEmailLogin.setToolTipText("Digite seu E-mail");
-        jPanel2.add(tfEmailLogin);
-        tfEmailLogin.setBounds(20, 130, 234, 30);
+        tfEmailLogin.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null
+            , java.awt.Color.lightGray, java.awt.Color.lightGray, java.awt.Color.lightGray));
+    tfEmailLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+    jPanel2.add(tfEmailLogin);
+    tfEmailLogin.setBounds(160, 180, 190, 35);
+    tfEmailLogin.getAccessibleContext().setAccessibleName("");
 
-        tfSenhaLogin.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        tfSenhaLogin.setToolTipText("Digite Sua Senha");
-        jPanel2.add(tfSenhaLogin);
-        tfSenhaLogin.setBounds(20, 190, 234, 30);
+    tfSenhaLogin.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+    tfSenhaLogin.setToolTipText("Digite Sua Senha");
+    tfSenhaLogin.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, java.awt.Color.lightGray, java.awt.Color.lightGray, java.awt.Color.lightGray));
+    jPanel2.add(tfSenhaLogin);
+    tfSenhaLogin.setBounds(160, 240, 190, 35);
 
-        btnCadastrese.setBackground(new java.awt.Color(0, 153, 255));
-        btnCadastrese.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        btnCadastrese.setForeground(new java.awt.Color(255, 255, 255));
-        btnCadastrese.setText("Cadastre-se");
-        btnCadastrese.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadastreseActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnCadastrese);
-        btnCadastrese.setBounds(160, 340, 89, 30);
+    btnCadastrese.setBackground(new java.awt.Color(255, 51, 153));
+    btnCadastrese.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+    btnCadastrese.setForeground(new java.awt.Color(255, 255, 255));
+    btnCadastrese.setText("Cadastre-se");
+    btnCadastrese.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            btnCadastreseActionPerformed(evt);
+        }
+    });
+    jPanel2.add(btnCadastrese);
+    btnCadastrese.setBounds(290, 400, 100, 35);
 
-        btnEntrar.setBackground(new java.awt.Color(0, 153, 255));
-        btnEntrar.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        btnEntrar.setForeground(new java.awt.Color(255, 255, 255));
-        btnEntrar.setText("Entrar");
-        btnEntrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEntrarActionPerformed(evt);
-            }
-        });
-        btnEntrar.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                btnEntrarKeyPressed(evt);
-            }
-        });
-        jPanel2.add(btnEntrar);
-        btnEntrar.setBounds(100, 250, 63, 30);
+    btnEntrar.setBackground(new java.awt.Color(255, 51, 153));
+    btnEntrar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+    btnEntrar.setForeground(new java.awt.Color(255, 255, 255));
+    btnEntrar.setText("Login");
+    btnEntrar.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            btnEntrarActionPerformed(evt);
+        }
+    });
+    btnEntrar.addKeyListener(new java.awt.event.KeyAdapter() {
+        public void keyPressed(java.awt.event.KeyEvent evt) {
+            btnEntrarKeyPressed(evt);
+        }
+    });
+    jPanel2.add(btnEntrar);
+    btnEntrar.setBounds(120, 310, 230, 35);
 
-        btnVoltar.setBackground(new java.awt.Color(0, 153, 255));
-        btnVoltar.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        btnVoltar.setForeground(new java.awt.Color(255, 255, 255));
-        btnVoltar.setText("Voltar");
-        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVoltarActionPerformed(evt);
-            }
-        });
-        btnVoltar.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                btnVoltarKeyPressed(evt);
-            }
-        });
-        jPanel2.add(btnVoltar);
-        btnVoltar.setBounds(20, 340, 80, 30);
+    btnVoltar.setBackground(new java.awt.Color(255, 51, 153));
+    btnVoltar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+    btnVoltar.setForeground(new java.awt.Color(255, 255, 255));
+    btnVoltar.setText("Voltar");
+    btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            btnVoltarActionPerformed(evt);
+        }
+    });
+    btnVoltar.addKeyListener(new java.awt.event.KeyAdapter() {
+        public void keyPressed(java.awt.event.KeyEvent evt) {
+            btnVoltarKeyPressed(evt);
+        }
+    });
+    jPanel2.add(btnVoltar);
+    btnVoltar.setBounds(70, 400, 100, 35);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+    jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/backgroundLogin.jpg"))); // NOI18N
+    jLabel2.setText("Cast");
+    jPanel2.add(jLabel2);
+    jLabel2.setBounds(0, 0, 470, 470);
 
-        pack();
-        setLocationRelativeTo(null);
+    javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+    getContentPane().setLayout(layout);
+    layout.setHorizontalGroup(
+        layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
+    );
+    layout.setVerticalGroup(
+        layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE)
+    );
+
+    pack();
+    setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
@@ -408,14 +380,9 @@ public class GenericLogin extends javax.swing.JFrame {
     private javax.swing.JButton btnCadastrese;
     private javax.swing.JButton btnEntrar;
     private javax.swing.JButton btnVoltar;
-    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField tfEmailLogin;
     private javax.swing.JPasswordField tfSenhaLogin;

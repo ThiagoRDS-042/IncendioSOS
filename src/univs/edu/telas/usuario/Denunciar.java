@@ -102,7 +102,7 @@ public class Denunciar extends javax.swing.JFrame {
         tfEndereco.setToolTipText("Nome da Rua");
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jLabel6.setText("Descrição do susepeito:");
+        jLabel6.setText("Descrição do suspeito:");
 
         btnSelecionar.setText("Selecionar Foto");
         btnSelecionar.addActionListener(new java.awt.event.ActionListener() {
