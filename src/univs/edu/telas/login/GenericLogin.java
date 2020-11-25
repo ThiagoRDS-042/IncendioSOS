@@ -19,7 +19,6 @@ import univs.edu.telas.adm.CadastroIbama;
 import univs.edu.telas.adm.HomePageAdm;
 import univs.edu.telas.bombeiro.DetalhesNotificacao;
 import univs.edu.telas.bombeiro.HomePageBombeiro;
-import univs.edu.telas.ibama.ConfigsIbama;
 import univs.edu.telas.ibama.HomePageIbama;
 import univs.edu.telas.usuario.CadastroUsuario;
 import univs.edu.telas.usuario.HomePageUsuario;
@@ -224,7 +223,7 @@ public class GenericLogin extends javax.swing.JFrame {
                 Ibama.ibama = ibama;
 
                 if (!Ibama.ibama.isVerificaConta() && JOptionPane.showConfirmDialog(null, "Edite sua conta agora, caso não queira voçê pode ter acesso a edição pelo painel configurações", "Excluir", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
-                    ConfigsIbama.editar = true;
+                    HomePageIbama.editar = true;
 
                     new CadastroIbama().setVisible(true);
                     dispose();
@@ -299,7 +298,7 @@ public class GenericLogin extends javax.swing.JFrame {
                     Ibama.ibama = ibama;
 
                     if (!Ibama.ibama.isVerificaConta() && JOptionPane.showConfirmDialog(null, "Edite sua conta agora, caso não queira voçê pode ter acesso a edição pelo painel configurações", "Excluir", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
-                        ConfigsIbama.editar = true;
+                        HomePageIbama.editar = true;
 
                         new CadastroIbama().setVisible(true);
                         dispose();

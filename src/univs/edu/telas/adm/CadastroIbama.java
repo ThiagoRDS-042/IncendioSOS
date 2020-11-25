@@ -10,7 +10,6 @@ import javax.swing.JOptionPane;
 import univs.edu.util.Criptografia;
 import univs.edu.dao.GenericDAO;
 import univs.edu.ibama.Ibama;
-import univs.edu.telas.ibama.ConfigsIbama;
 import univs.edu.telas.ibama.HomePageIbama;
 
 /**
@@ -31,8 +30,8 @@ public class CadastroIbama extends javax.swing.JFrame {
     }
 
     public void verificar() {
-        if (ConfigsIbama.editar == true) {
-            jLabel1.setText("Editar Corpo de Bombeiros");
+        if (HomePageIbama.editar == true) {
+            jLabel1.setText("Editar IBAMA");
             btnCadastrar.setText("Editar");
 
             ibama = Ibama.ibama;
@@ -334,7 +333,7 @@ public class CadastroIbama extends javax.swing.JFrame {
             ibama.setEmailIbama(tfEmail.getText());
             ibama.setSenhaIbama(Criptografia.criptografar(tfSenha.getText()));
 
-            if (ConfigsIbama.editar == true) {
+            if (HomePageIbama.editar == true) {
                 ibama.setVerificaConta(true);
                 dao.salvar(ibama);
                 new HomePageIbama().setVisible(true);
@@ -375,7 +374,7 @@ public class CadastroIbama extends javax.swing.JFrame {
 
         if (dao.pesquisarEmail(tfEmail.getText()) instanceof Ibama) {
             ibama = (Ibama) dao.pesquisarEmail(tfEmail.getText());
-            if (ConfigsIbama.editar == true && (Ibama.ibama.getIdIbama() == ibama.getIdIbama())) {
+            if (HomePageIbama.editar == true && (Ibama.ibama.getIdIbama() == ibama.getIdIbama())) {
 
             } else {
                 JOptionPane.showMessageDialog(null, "Email já cadastrado!");
@@ -412,7 +411,7 @@ public class CadastroIbama extends javax.swing.JFrame {
                 ibama.setEmailIbama(tfEmail.getText());
                 ibama.setSenhaIbama(Criptografia.criptografar(tfSenha.getText()));
 
-                if (ConfigsIbama.editar == true) {
+                if (HomePageIbama.editar == true) {
                     ibama.setVerificaConta(true);
                     dao.salvar(ibama);
                     new HomePageIbama().setVisible(true);
@@ -438,7 +437,7 @@ public class CadastroIbama extends javax.swing.JFrame {
     private void tfCnpjFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfCnpjFocusLost
         if (dao.pesquisarIdentificacao(tfCnpj.getText()) instanceof Ibama) {
             ibama = (Ibama) dao.pesquisarIdentificacao(tfCnpj.getText());
-            if (ConfigsIbama.editar == true && (Ibama.ibama.getIdIbama() == ibama.getIdIbama())) {
+            if (HomePageIbama.editar == true && (Ibama.ibama.getIdIbama() == ibama.getIdIbama())) {
 
             } else {
                 JOptionPane.showMessageDialog(null, "CNPJ já cadastrado!");
@@ -453,7 +452,7 @@ public class CadastroIbama extends javax.swing.JFrame {
     }//GEN-LAST:event_tfCnpjFocusLost
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        if (ConfigsIbama.editar == true) {
+        if (HomePageIbama.editar == true) {
             new HomePageIbama().setVisible(true);
             dispose();
         } else {
