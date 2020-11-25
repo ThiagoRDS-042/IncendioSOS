@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 import univs.edu.bombeiro.CorpoDeBombeiros;
 import univs.edu.bombeiro.CorpoDeBombeirosTableModel;
 import univs.edu.dao.GenericDAO;
-import univs.edu.telas.bombeiro.ConfigsBombeiro;
+import univs.edu.telas.bombeiro.HomePageBombeiro;
 
 /**
  *
@@ -135,7 +135,7 @@ public class ListaCorpoDeBombeiros extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
-        ConfigsBombeiro.editar = false;
+        HomePageBombeiro.editar = false;
         
         new CadastroBombeiro().setVisible(true);
         dispose();

@@ -63,6 +63,7 @@ public class HomePageUsuario extends javax.swing.JFrame {
 
         jlTeste.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
 
+        bntNotificar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         bntNotificar.setText("Notificar");
         bntNotificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,6 +71,7 @@ public class HomePageUsuario extends javax.swing.JFrame {
             }
         });
 
+        btnDenunciar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         btnDenunciar.setText("Denunciar");
         btnDenunciar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,6 +94,7 @@ public class HomePageUsuario extends javax.swing.JFrame {
             }
         });
 
+        mnInfoIbama.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         mnInfoIbama.setText("IBAMA");
         mnInfoIbama.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,6 +103,7 @@ public class HomePageUsuario extends javax.swing.JFrame {
         });
         mnInfo.add(mnInfoIbama);
 
+        mnBombeiro.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         mnBombeiro.setText("Corpo de Bombeiros");
         mnBombeiro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,6 +119,7 @@ public class HomePageUsuario extends javax.swing.JFrame {
         configs.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         configs.setMargin(new java.awt.Insets(0, 0, 0, 10));
 
+        mnEditar.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         mnEditar.setText("Editar");
         mnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,6 +128,7 @@ public class HomePageUsuario extends javax.swing.JFrame {
         });
         configs.add(mnEditar);
 
+        mnExcluir.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         mnExcluir.setText("Excluir");
         mnExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -142,6 +148,7 @@ public class HomePageUsuario extends javax.swing.JFrame {
             }
         });
 
+        mnsair.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         mnsair.setText("Sair");
         mnsair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -10,6 +10,8 @@ import univs.edu.bombeiro.CorpoDeBombeiros;
 import univs.edu.dao.GenericDAO;
 import univs.edu.notificacao.Notificacao;
 import univs.edu.notificacao.NotificacaoTableModel;
+import univs.edu.telas.adm.CadastroBombeiro;
+import univs.edu.telas.login.GenericLogin;
 
 /**
  *
@@ -18,6 +20,8 @@ import univs.edu.notificacao.NotificacaoTableModel;
 public class HomePageBombeiro extends javax.swing.JFrame {
 
     GenericDAO dao = new GenericDAO();
+    
+    public static boolean editar;
 
     /**
      * Creates new form HomePageBombeiro
@@ -47,8 +51,14 @@ public class HomePageBombeiro extends javax.swing.JFrame {
         TabelaNotificacao = new javax.swing.JTable();
         jErro = new javax.swing.JLabel();
         btnAbrir = new javax.swing.JButton();
-        btnConfigs = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu5 = new javax.swing.JMenu();
+        configs = new javax.swing.JMenu();
+        mnEditar = new javax.swing.JMenuItem();
+        mnExcluir = new javax.swing.JMenuItem();
+        mnSair = new javax.swing.JMenu();
+        mnsair = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,22 +75,67 @@ public class HomePageBombeiro extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(TabelaNotificacao);
 
-        btnAbrir.setText("Abrir");
+        btnAbrir.setText("Abrir Notificação");
         btnAbrir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAbrirActionPerformed(evt);
             }
         });
 
-        btnConfigs.setText("Configurações");
-        btnConfigs.addActionListener(new java.awt.event.ActionListener() {
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel1.setText("Notificações");
+
+        jMenuBar1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+
+        jMenu5.setMargin(new java.awt.Insets(0, 400, 0, 0));
+        jMenuBar1.add(jMenu5);
+
+        configs.setText("Configurações");
+        configs.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        configs.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        configs.setMargin(new java.awt.Insets(0, 0, 0, 10));
+
+        mnEditar.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        mnEditar.setText("Editar");
+        mnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConfigsActionPerformed(evt);
+                mnEditarActionPerformed(evt);
+            }
+        });
+        configs.add(mnEditar);
+
+        mnExcluir.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        mnExcluir.setText("Excluir");
+        mnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnExcluirActionPerformed(evt);
+            }
+        });
+        configs.add(mnExcluir);
+
+        jMenuBar1.add(configs);
+
+        mnSair.setText("Sair");
+        mnSair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mnSair.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        mnSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnSairActionPerformed(evt);
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel1.setText("Notificações");
+        mnsair.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        mnsair.setText("Sair");
+        mnsair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnsairActionPerformed(evt);
+            }
+        });
+        mnSair.add(mnsair);
+
+        jMenuBar1.add(mnSair);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -96,16 +151,15 @@ public class HomePageBombeiro extends javax.swing.JFrame {
                         .addComponent(jErro))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnConfigs)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnAbrir))))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(197, 197, 197)
                         .addComponent(jLabel1)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnAbrir)
+                .addGap(210, 210, 210))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -118,21 +172,14 @@ public class HomePageBombeiro extends javax.swing.JFrame {
                 .addComponent(jErro)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnConfigs, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAbrir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22))
+                .addGap(18, 18, 18)
+                .addComponent(btnAbrir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnConfigsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfigsActionPerformed
-        new ConfigsBombeiro().setVisible(true);
-        dispose();
-    }//GEN-LAST:event_btnConfigsActionPerformed
 
     private void btnAbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirActionPerformed
         int linha = TabelaNotificacao.getSelectedRow();
@@ -145,6 +192,30 @@ public class HomePageBombeiro extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_btnAbrirActionPerformed
+
+    private void mnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnEditarActionPerformed
+        editar = true;
+        
+        new CadastroBombeiro().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_mnEditarActionPerformed
+
+    private void mnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnExcluirActionPerformed
+        if (JOptionPane.showConfirmDialog(null, "Deseja realmente excluir sua conta?", "Excluir", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+            dao.excluir(CorpoDeBombeiros.bombeiro);
+            new GenericLogin().setVisible(true);
+            dispose();
+        }
+    }//GEN-LAST:event_mnExcluirActionPerformed
+
+    private void mnsairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnsairActionPerformed
+        new GenericLogin().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_mnsairActionPerformed
+
+    private void mnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnSairActionPerformed
+
+    }//GEN-LAST:event_mnSairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -184,10 +255,16 @@ public class HomePageBombeiro extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TabelaNotificacao;
     private javax.swing.JButton btnAbrir;
-    private javax.swing.JButton btnConfigs;
+    private javax.swing.JMenu configs;
     private javax.swing.JLabel jErro;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel jTeste;
+    private javax.swing.JMenuItem mnEditar;
+    private javax.swing.JMenuItem mnExcluir;
+    private javax.swing.JMenu mnSair;
+    private javax.swing.JMenuItem mnsair;
     // End of variables declaration//GEN-END:variables
 }

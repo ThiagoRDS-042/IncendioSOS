@@ -35,6 +35,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="mnInfoIbama">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Times New Roman" size="12" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="IBAMA"/>
               </Properties>
               <Events>
@@ -43,6 +46,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mnBombeiro">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Times New Roman" size="12" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Corpo de Bombeiros"/>
               </Properties>
               <Events>
@@ -67,6 +73,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="mnEditar">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Times New Roman" size="12" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Editar"/>
               </Properties>
               <Events>
@@ -75,6 +84,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mnExcluir">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Times New Roman" size="12" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Excluir"/>
               </Properties>
               <Events>
@@ -99,6 +111,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="mnsair">
               <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Times New Roman" size="12" style="0"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Sair"/>
               </Properties>
               <Events>
@@ -175,6 +190,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="bntNotificar">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Times New Roman" size="14" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Notificar"/>
       </Properties>
       <Events>
@@ -183,6 +201,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnDenunciar">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Times New Roman" size="14" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Denunciar"/>
       </Properties>
       <Events>

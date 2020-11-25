@@ -10,7 +10,6 @@ import javax.swing.JOptionPane;
 import univs.edu.bombeiro.CorpoDeBombeiros;
 import univs.edu.util.Criptografia;
 import univs.edu.dao.GenericDAO;
-import univs.edu.telas.bombeiro.ConfigsBombeiro;
 import univs.edu.telas.bombeiro.HomePageBombeiro;
 
 /**
@@ -31,7 +30,7 @@ public class CadastroBombeiro extends javax.swing.JFrame {
     }
 
     public void verificar() {
-        if (ConfigsBombeiro.editar == true) {
+        if (HomePageBombeiro.editar == true) {
             jLabel1.setText("Editar Corpo de Bombeiros");
             btnCadastrar.setText("Editar");
 
@@ -315,7 +314,7 @@ public class CadastroBombeiro extends javax.swing.JFrame {
             bombeiro.setEmailBombeiro(tfEmail.getText());
             bombeiro.setSenhaBombeiro(Criptografia.criptografar(tfSenha.getText()));
 
-            if (ConfigsBombeiro.editar == true) {
+            if (HomePageBombeiro.editar == true) {
                 bombeiro.setVerificaConta(true);
                 dao.salvar(bombeiro);
                 new HomePageBombeiro().setVisible(true);
@@ -356,7 +355,7 @@ public class CadastroBombeiro extends javax.swing.JFrame {
 
         if (dao.pesquisarEmail(tfEmail.getText()) instanceof CorpoDeBombeiros) {
             bombeiro = (CorpoDeBombeiros) dao.pesquisarEmail(tfEmail.getText());
-            if (ConfigsBombeiro.editar == true && (CorpoDeBombeiros.bombeiro.getIdBombeiro() == bombeiro.getIdBombeiro())) {
+            if (HomePageBombeiro.editar == true && (CorpoDeBombeiros.bombeiro.getIdBombeiro() == bombeiro.getIdBombeiro())) {
 
             } else {
                 JOptionPane.showMessageDialog(null, "Email já cadastrado!");
@@ -389,7 +388,7 @@ public class CadastroBombeiro extends javax.swing.JFrame {
                 bombeiro.setEmailBombeiro(tfEmail.getText());
                 bombeiro.setSenhaBombeiro(Criptografia.criptografar(tfSenha.getText()));
 
-                if (ConfigsBombeiro.editar == true) {
+                if (HomePageBombeiro.editar == true) {
                     dao.salvar(bombeiro);
                     new HomePageBombeiro().setVisible(true);
                     dispose();
@@ -405,7 +404,7 @@ public class CadastroBombeiro extends javax.swing.JFrame {
     private void tfIdentificacaoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfIdentificacaoFocusLost
         if (dao.pesquisarIdentificacao(tfIdentificacao.getText()) instanceof CorpoDeBombeiros) {
             bombeiro = (CorpoDeBombeiros) dao.pesquisarIdentificacao(tfIdentificacao.getText());
-            if (ConfigsBombeiro.editar == true && (CorpoDeBombeiros.bombeiro.getIdBombeiro() == bombeiro.getIdBombeiro())) {
+            if (HomePageBombeiro.editar == true && (CorpoDeBombeiros.bombeiro.getIdBombeiro() == bombeiro.getIdBombeiro())) {
 
             } else {
                 JOptionPane.showMessageDialog(null, "Identificação já cadastrada!");
@@ -420,7 +419,7 @@ public class CadastroBombeiro extends javax.swing.JFrame {
     }//GEN-LAST:event_tfIdentificacaoFocusLost
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        if (ConfigsBombeiro.editar == true) {
+        if (HomePageBombeiro.editar == true) {
             new HomePageBombeiro().setVisible(true);
             dispose();
         } else {

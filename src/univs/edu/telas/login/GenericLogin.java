@@ -17,7 +17,6 @@ import univs.edu.ibama.Ibama;
 import univs.edu.telas.adm.CadastroBombeiro;
 import univs.edu.telas.adm.CadastroIbama;
 import univs.edu.telas.adm.HomePageAdm;
-import univs.edu.telas.bombeiro.ConfigsBombeiro;
 import univs.edu.telas.bombeiro.DetalhesNotificacao;
 import univs.edu.telas.bombeiro.HomePageBombeiro;
 import univs.edu.telas.ibama.ConfigsIbama;
@@ -211,7 +210,7 @@ public class GenericLogin extends javax.swing.JFrame {
                 CorpoDeBombeiros.bombeiro = bombeiro;
 
                 if (!CorpoDeBombeiros.bombeiro.isVerificaConta() && JOptionPane.showConfirmDialog(null, "Edite sua conta agora, caso não queira voçê pode ter acesso a edição pelo painel configurações", "Excluir", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
-                    ConfigsBombeiro.editar = true;
+                    HomePageBombeiro.editar = true;
 
                     new CadastroBombeiro().setVisible(true);
                     dispose();
@@ -286,7 +285,7 @@ public class GenericLogin extends javax.swing.JFrame {
                     CorpoDeBombeiros.bombeiro = bombeiro;
 
                     if (!CorpoDeBombeiros.bombeiro.isVerificaConta() && JOptionPane.showConfirmDialog(null, "Edite sua conta agora, caso não queira voçê pode ter acesso a edição pelo painel configurações", "Excluir", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
-                        ConfigsBombeiro.editar = true;
+                        HomePageBombeiro.editar = true;
 
                         new CadastroBombeiro().setVisible(true);
                         dispose();
