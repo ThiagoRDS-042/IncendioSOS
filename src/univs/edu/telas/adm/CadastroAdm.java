@@ -29,7 +29,7 @@ public class CadastroAdm extends javax.swing.JFrame {
     }
 
     public void verificar() {
-        if (ConfigsAdm.editar == true) {
+        if (HomePageAdm.editar == true) {
             lTitulo1.setText("Editar Administrador");
             btnCadastrar.setText("Editar");
 
@@ -162,7 +162,7 @@ public class CadastroAdm extends javax.swing.JFrame {
             adm.setEmailAdm(tfEmail.getText());
             adm.setSenhaAdm(Criptografia.criptografar(tfSenha.getText()));
 
-            if (ConfigsAdm.editar == true) {
+            if (HomePageAdm.editar == true) {
                 dao.salvar(adm);
                 new HomePageAdm().setVisible(true);
                 dispose();
@@ -176,7 +176,7 @@ public class CadastroAdm extends javax.swing.JFrame {
     private void tfEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfEmailFocusLost
         if (dao.pesquisarEmail(tfEmail.getText()) instanceof Adm) {
             adm = (Adm) dao.pesquisarEmail(tfEmail.getText());
-            if (ConfigsAdm.editar == true && (Adm.adm.getIdAdm() == adm.getIdAdm())) {
+            if (HomePageAdm.editar == true && (Adm.adm.getIdAdm() == adm.getIdAdm())) {
 
             } else {
                 JOptionPane.showMessageDialog(null, "Email ja cadastrado!");

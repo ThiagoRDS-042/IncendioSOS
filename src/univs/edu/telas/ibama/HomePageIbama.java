@@ -91,7 +91,7 @@ public class HomePageIbama extends javax.swing.JFrame {
         configs.setText("Configurações");
         configs.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         configs.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        configs.setMargin(new java.awt.Insets(0, 0, 0, 10));
+        configs.setMargin(new java.awt.Insets(5, 0, 5, 10));
 
         mnEditar.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         mnEditar.setText("Editar");
@@ -165,7 +165,7 @@ public class HomePageIbama extends javax.swing.JFrame {
                 .addComponent(jErro)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addComponent(btnAbrir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21))
         );

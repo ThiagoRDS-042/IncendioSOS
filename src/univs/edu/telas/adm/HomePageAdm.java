@@ -5,9 +5,10 @@
  */
 package univs.edu.telas.adm;
 
+import javax.swing.JOptionPane;
 import univs.edu.adm.Adm;
-import static univs.edu.telas.adm.ConfigsAdm.editar;
-
+import univs.edu.dao.GenericDAO;
+import univs.edu.telas.login.GenericLogin;
 
 /**
  *
@@ -15,12 +16,16 @@ import static univs.edu.telas.adm.ConfigsAdm.editar;
  */
 public class HomePageAdm extends javax.swing.JFrame {
 
+    GenericDAO dao = new GenericDAO();
+
+    public static boolean editar;
+
     /**
      * Creates new form HomePageAdm
      */
     public HomePageAdm() {
         initComponents();
-        
+
         lbTitulo.setText("Bem vindo " + Adm.adm.getEmailAdm());
     }
 
@@ -33,48 +38,27 @@ public class HomePageAdm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnUsuarios = new javax.swing.JButton();
-        btnCorposDeBombeiros = new javax.swing.JButton();
-        btnIbamas = new javax.swing.JButton();
         btnCadastroAdm = new javax.swing.JButton();
-        btnCadastroAdm1 = new javax.swing.JButton();
         btnCadastroAdm2 = new javax.swing.JButton();
         lbTitulo = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu2 = new javax.swing.JMenu();
+        jMenu1 = new javax.swing.JMenu();
+        mnUsuario = new javax.swing.JMenuItem();
+        mnIbama = new javax.swing.JMenuItem();
+        mnBombeiro = new javax.swing.JMenuItem();
+        configs = new javax.swing.JMenu();
+        mnEditar = new javax.swing.JMenuItem();
+        mnExcluir = new javax.swing.JMenuItem();
+        mnSair = new javax.swing.JMenu();
+        mnsair = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        btnUsuarios.setText("Usuarios");
-        btnUsuarios.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUsuariosActionPerformed(evt);
-            }
-        });
-
-        btnCorposDeBombeiros.setText("Corpos de Bombeiros");
-        btnCorposDeBombeiros.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCorposDeBombeirosActionPerformed(evt);
-            }
-        });
-
-        btnIbamas.setText("Ibamas");
-        btnIbamas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnIbamasActionPerformed(evt);
-            }
-        });
 
         btnCadastroAdm.setText("Cadastro de ADM");
         btnCadastroAdm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCadastroAdmActionPerformed(evt);
-            }
-        });
-
-        btnCadastroAdm1.setText("Configurações");
-        btnCadastroAdm1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadastroAdm1ActionPerformed(evt);
             }
         });
 
@@ -87,79 +71,172 @@ public class HomePageAdm extends javax.swing.JFrame {
 
         lbTitulo.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
 
+        jMenuBar1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+
+        jMenu2.setMargin(new java.awt.Insets(0, 100, 0, 0));
+        jMenuBar1.add(jMenu2);
+
+        jMenu1.setText("Informações");
+        jMenu1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+
+        mnUsuario.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        mnUsuario.setText("Usuários");
+        mnUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnUsuarioActionPerformed(evt);
+            }
+        });
+        jMenu1.add(mnUsuario);
+
+        mnIbama.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        mnIbama.setText("IBAMA");
+        mnIbama.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnIbamaActionPerformed(evt);
+            }
+        });
+        jMenu1.add(mnIbama);
+
+        mnBombeiro.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        mnBombeiro.setText("Corpo de Bombeiros");
+        mnBombeiro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnBombeiroActionPerformed(evt);
+            }
+        });
+        jMenu1.add(mnBombeiro);
+
+        jMenuBar1.add(jMenu1);
+
+        configs.setText("Configurações");
+        configs.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        configs.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        configs.setMargin(new java.awt.Insets(5, 0, 5, 10));
+
+        mnEditar.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        mnEditar.setText("Editar");
+        mnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnEditarActionPerformed(evt);
+            }
+        });
+        configs.add(mnEditar);
+
+        mnExcluir.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        mnExcluir.setText("Excluir");
+        mnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnExcluirActionPerformed(evt);
+            }
+        });
+        configs.add(mnExcluir);
+
+        jMenuBar1.add(configs);
+
+        mnSair.setText("Sair");
+        mnSair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mnSair.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        mnSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnSairActionPerformed(evt);
+            }
+        });
+
+        mnsair.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        mnsair.setText("Sair");
+        mnsair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnsairActionPerformed(evt);
+            }
+        });
+        mnSair.add(mnsair);
+
+        jMenuBar1.add(mnSair);
+
+        setJMenuBar(jMenuBar1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnCadastroAdm2, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                    .addComponent(btnCadastroAdm1, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                    .addComponent(btnCorposDeBombeiros, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                    .addComponent(btnUsuarios, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                    .addComponent(btnIbamas, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                    .addComponent(btnCadastroAdm, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lbTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(17, 17, 17)))
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnCadastroAdm2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnCadastroAdm, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(83, 83, 83)
+                        .addComponent(lbTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
+                .addGap(25, 25, 25)
                 .addComponent(lbTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnCorposDeBombeiros, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnIbamas, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(26, 26, 26)
                 .addComponent(btnCadastroAdm, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(43, 43, 43)
                 .addComponent(btnCadastroAdm2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnCadastroAdm1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCadastroAdm1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroAdm1ActionPerformed
-        new ConfigsAdm().setVisible(true);
-        dispose();
-    }//GEN-LAST:event_btnCadastroAdm1ActionPerformed
-
     private void btnCadastroAdmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroAdmActionPerformed
         editar = false;
-        
+
         new CadastroAdm().setVisible(true);
         dispose();
     }//GEN-LAST:event_btnCadastroAdmActionPerformed
-
-    private void btnCorposDeBombeirosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCorposDeBombeirosActionPerformed
-        new ListaCorpoDeBombeiros().setVisible(true);
-        dispose();
-    }//GEN-LAST:event_btnCorposDeBombeirosActionPerformed
-
-    private void btnIbamasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIbamasActionPerformed
-        new ListaIbamas().setVisible(true);
-        dispose();
-    }//GEN-LAST:event_btnIbamasActionPerformed
-
-    private void btnUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuariosActionPerformed
-        new ListaUsuarios().setVisible(true);
-        dispose();
-    }//GEN-LAST:event_btnUsuariosActionPerformed
 
     private void btnCadastroAdm2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroAdm2ActionPerformed
         new Relatorio().setVisible(true);
         dispose();
     }//GEN-LAST:event_btnCadastroAdm2ActionPerformed
+
+    private void mnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnEditarActionPerformed
+        editar = true;
+
+        new CadastroAdm().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_mnEditarActionPerformed
+
+    private void mnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnExcluirActionPerformed
+        if (JOptionPane.showConfirmDialog(null, "Deseja realmente excluir sua conta?", "Excluir", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+            dao.excluir(Adm.adm);
+            new GenericLogin().setVisible(true);
+            dispose();
+        }
+    }//GEN-LAST:event_mnExcluirActionPerformed
+
+    private void mnsairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnsairActionPerformed
+        new GenericLogin().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_mnsairActionPerformed
+
+    private void mnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnSairActionPerformed
+
+    }//GEN-LAST:event_mnSairActionPerformed
+
+    private void mnIbamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnIbamaActionPerformed
+        new ListaIbamas().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_mnIbamaActionPerformed
+
+    private void mnUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnUsuarioActionPerformed
+        new ListaUsuarios().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_mnUsuarioActionPerformed
+
+    private void mnBombeiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnBombeiroActionPerformed
+        new ListaCorpoDeBombeiros().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_mnBombeiroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -198,11 +275,18 @@ public class HomePageAdm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastroAdm;
-    private javax.swing.JButton btnCadastroAdm1;
     private javax.swing.JButton btnCadastroAdm2;
-    private javax.swing.JButton btnCorposDeBombeiros;
-    private javax.swing.JButton btnIbamas;
-    private javax.swing.JButton btnUsuarios;
+    private javax.swing.JMenu configs;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JLabel lbTitulo;
+    private javax.swing.JMenuItem mnBombeiro;
+    private javax.swing.JMenuItem mnEditar;
+    private javax.swing.JMenuItem mnExcluir;
+    private javax.swing.JMenuItem mnIbama;
+    private javax.swing.JMenu mnSair;
+    private javax.swing.JMenuItem mnUsuario;
+    private javax.swing.JMenuItem mnsair;
     // End of variables declaration//GEN-END:variables
 }
