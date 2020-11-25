@@ -23,7 +23,6 @@ import univs.edu.telas.bombeiro.HomePageBombeiro;
 import univs.edu.telas.ibama.ConfigsIbama;
 import univs.edu.telas.ibama.HomePageIbama;
 import univs.edu.telas.usuario.CadastroUsuario;
-import univs.edu.telas.usuario.ConfigsUsuario;
 import univs.edu.telas.usuario.HomePageUsuario;
 import univs.edu.usuario.Usuario;
 
@@ -327,7 +326,7 @@ public class GenericLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEntrarKeyPressed
 
     private void btnCadastreseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastreseActionPerformed
-        ConfigsUsuario.editar = false;
+        HomePageUsuario.editar = false;
 
         new CadastroUsuario().setVisible(true);
         dispose();

@@ -35,7 +35,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
     }
 
     public void verificar() {
-        if (ConfigsUsuario.editar == true) {
+        if (HomePageUsuario.editar == true) {
             lTitulo.setText("Editar Usuário");
             btnCadastrar.setText("Editar");
 
@@ -288,7 +288,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
             usuario.setTelefoneUsuario(tfTelefone.getText());
             usuario.setVerificaCondutaTrote(false);
 
-            if (ConfigsUsuario.editar == true) {
+            if (HomePageUsuario.editar == true) {
                 dao.salvar(usuario);
                 new HomePageUsuario().setVisible(true);
                 dispose();
@@ -311,7 +311,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
 
         if (dao.pesquisarEmail(tfEmail.getText()) instanceof Usuario) {
             usuario = (Usuario) dao.pesquisarEmail(tfEmail.getText());
-            if (ConfigsUsuario.editar == true && (Usuario.usuario.getIdUsuario() == usuario.getIdUsuario())) {
+            if (HomePageUsuario.editar == true && (Usuario.usuario.getIdUsuario() == usuario.getIdUsuario())) {
 
             } else {
                 JOptionPane.showMessageDialog(null, "Email já cadastrado!");
@@ -344,7 +344,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
                 usuario.setTelefoneUsuario(tfTelefone.getText());
                 usuario.setVerificaCondutaTrote(false);
 
-                if (ConfigsUsuario.editar == true) {
+                if (HomePageUsuario.editar == true) {
                     dao.salvar(usuario);
                     new HomePageUsuario().setVisible(true);
                     dispose();
@@ -358,8 +358,8 @@ public class CadastroUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCadastrarKeyPressed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        if (ConfigsUsuario.editar == true) {
-            new ConfigsUsuario().setVisible(true);
+        if (HomePageUsuario.editar == true) {
+            new HomePageUsuario().setVisible(true);
             dispose();
         } else {
             new GenericLogin().setVisible(true);
@@ -369,8 +369,8 @@ public class CadastroUsuario extends javax.swing.JFrame {
 
     private void btnVoltarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnVoltarKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            if (ConfigsUsuario.editar == true) {
-                new ConfigsUsuario().setVisible(true);
+            if (HomePageUsuario.editar == true) {
+                new HomePageUsuario().setVisible(true);
                 dispose();
             } else {
                 new GenericLogin().setVisible(true);
@@ -382,7 +382,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
     private void tfCpfFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfCpfFocusLost
         if (dao.pesquisarIdentificacao(tfCpf.getText()) instanceof Usuario) {
             usuario = (Usuario) dao.pesquisarIdentificacao(tfCpf.getText());
-            if (ConfigsUsuario.editar == true && (Usuario.usuario.getIdUsuario() == usuario.getIdUsuario())) {
+            if (HomePageUsuario.editar == true && (Usuario.usuario.getIdUsuario() == usuario.getIdUsuario())) {
 
             } else {
                 JOptionPane.showMessageDialog(null, "CPF já cadastrado!");

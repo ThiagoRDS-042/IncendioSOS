@@ -407,7 +407,7 @@ public class Informacoes extends javax.swing.JFrame {
     }//GEN-LAST:event_cbOrgaosActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        new ConfigsUsuario().setVisible(true);
+        new HomePageUsuario().setVisible(true);
         dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
 
