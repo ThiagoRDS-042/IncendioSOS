@@ -92,7 +92,7 @@ public class Notificar extends javax.swing.JFrame {
         jLabel1.setText("Notifique ao Corpo de Bombeiros");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, -1, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/cabecalhoNotificacaoDenuncia.jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/cabecalho.jpg"))); // NOI18N
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 438, 89));
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
