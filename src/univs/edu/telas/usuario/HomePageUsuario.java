@@ -65,6 +65,7 @@ public class HomePageUsuario extends javax.swing.JFrame {
 
         bntNotificar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         bntNotificar.setText("Notificar");
+        bntNotificar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bntNotificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bntNotificarActionPerformed(evt);
@@ -73,6 +74,7 @@ public class HomePageUsuario extends javax.swing.JFrame {
 
         btnDenunciar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         btnDenunciar.setText("Denunciar");
+        btnDenunciar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnDenunciar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDenunciarActionPerformed(evt);

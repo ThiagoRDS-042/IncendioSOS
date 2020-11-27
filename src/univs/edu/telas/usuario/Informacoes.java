@@ -138,6 +138,7 @@ public class Informacoes extends javax.swing.JFrame {
 
         rbBombeiro.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         rbBombeiro.setText("Corpo de Bombeiros");
+        rbBombeiro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         rbBombeiro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbBombeiroActionPerformed(evt);
@@ -146,6 +147,7 @@ public class Informacoes extends javax.swing.JFrame {
 
         rbIbama.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         rbIbama.setText("Ibama");
+        rbIbama.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         rbIbama.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbIbamaActionPerformed(evt);
@@ -175,7 +177,9 @@ public class Informacoes extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        cbOrgaos.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         cbOrgaos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbOrgaos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cbOrgaos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbOrgaosActionPerformed(evt);
@@ -331,6 +335,7 @@ public class Informacoes extends javax.swing.JFrame {
 
         btnVoltar.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         btnVoltar.setText("Voltar");
+        btnVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVoltarActionPerformed(evt);
@@ -350,7 +355,7 @@ public class Informacoes extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel9)
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 7, Short.MAX_VALUE))
+                .addGap(0, 21, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()

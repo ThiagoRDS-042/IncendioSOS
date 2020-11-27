@@ -110,6 +110,7 @@ public class GenericLogin extends javax.swing.JFrame {
     btnCadastrese.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
     btnCadastrese.setForeground(new java.awt.Color(255, 255, 255));
     btnCadastrese.setText("Cadastre-se");
+    btnCadastrese.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     btnCadastrese.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             btnCadastreseActionPerformed(evt);
@@ -122,6 +123,7 @@ public class GenericLogin extends javax.swing.JFrame {
     btnEntrar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
     btnEntrar.setForeground(new java.awt.Color(255, 255, 255));
     btnEntrar.setText("Login");
+    btnEntrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     btnEntrar.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             btnEntrarActionPerformed(evt);
@@ -139,6 +141,7 @@ public class GenericLogin extends javax.swing.JFrame {
     btnVoltar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
     btnVoltar.setForeground(new java.awt.Color(255, 255, 255));
     btnVoltar.setText("Voltar");
+    btnVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
     btnVoltar.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             btnVoltarActionPerformed(evt);
