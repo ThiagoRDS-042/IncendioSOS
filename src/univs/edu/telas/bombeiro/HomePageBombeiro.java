@@ -5,6 +5,7 @@
  */
 package univs.edu.telas.bombeiro;
 
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import univs.edu.bombeiro.CorpoDeBombeiros;
 import univs.edu.dao.GenericDAO;
@@ -20,8 +21,10 @@ import univs.edu.telas.login.GenericLogin;
 public class HomePageBombeiro extends javax.swing.JFrame {
 
     GenericDAO dao = new GenericDAO();
-    
+
     public static boolean editar;
+
+    public static boolean pesquisar;
 
     /**
      * Creates new form HomePageBombeiro
@@ -33,8 +36,21 @@ public class HomePageBombeiro extends javax.swing.JFrame {
     }
 
     public void atualizarTabela() {
-        NotificacaoTableModel tabela = new NotificacaoTableModel(dao.listarNotDen(CorpoDeBombeiros.bombeiro, "Notificação"));
-        TabelaNotificacao.setModel(tabela);
+
+        if (pesquisar == true) {
+
+            if (!dao.listarNotDen(CorpoDeBombeiros.bombeiro, "Notificação", tfPesquisar.getText()).isEmpty()) {
+                NotificacaoTableModel tabela = new NotificacaoTableModel(dao.listarNotDen(CorpoDeBombeiros.bombeiro, "Notificação", tfPesquisar.getText()));
+                TabelaNotificacao.setModel(tabela);
+            } else {
+                JOptionPane.showMessageDialog(null, "Nenhu resultado encontrado para a data: " + tfPesquisar.getText());
+            }
+
+        } else {
+            NotificacaoTableModel tabela = new NotificacaoTableModel(dao.listarNotDen(CorpoDeBombeiros.bombeiro, "Notificação", "Undefined"));
+            TabelaNotificacao.setModel(tabela);
+        }
+
     }
 
     /**
@@ -52,6 +68,8 @@ public class HomePageBombeiro extends javax.swing.JFrame {
         jErro = new javax.swing.JLabel();
         btnAbrir = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        tfPesquisar = new javax.swing.JTextField();
+        btnPesquisar = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu5 = new javax.swing.JMenu();
         configs = new javax.swing.JMenu();
@@ -84,6 +102,27 @@ public class HomePageBombeiro extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel1.setText("Notificações");
+
+        tfPesquisar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        tfPesquisar.setToolTipText("Pesquise por data");
+        tfPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfPesquisarActionPerformed(evt);
+            }
+        });
+
+        btnPesquisar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        btnPesquisar.setText("Pesquisar");
+        btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarActionPerformed(evt);
+            }
+        });
+        btnPesquisar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnPesquisarKeyPressed(evt);
+            }
+        });
 
         jMenuBar1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
@@ -144,22 +183,27 @@ public class HomePageBombeiro extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(58, 58, 58)
-                        .addComponent(jTeste))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(184, 184, 184)
-                        .addComponent(jErro))
-                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(197, 197, 197)
-                        .addComponent(jLabel1)))
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(194, 194, 194)
+                        .addComponent(btnAbrir))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(285, 285, 285)
+                                .addComponent(jErro))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(41, 41, 41)
+                                .addComponent(tfPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTeste))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnAbrir)
-                .addGap(211, 211, 211))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -170,11 +214,19 @@ public class HomePageBombeiro extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(17, 17, 17)
                 .addComponent(jErro)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23)
-                .addComponent(btnAbrir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnAbrir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tfPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
 
         pack();
@@ -195,7 +247,7 @@ public class HomePageBombeiro extends javax.swing.JFrame {
 
     private void mnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnEditarActionPerformed
         editar = true;
-        
+
         new CadastroBombeiro().setVisible(true);
         dispose();
     }//GEN-LAST:event_mnEditarActionPerformed
@@ -216,6 +268,25 @@ public class HomePageBombeiro extends javax.swing.JFrame {
     private void mnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnSairActionPerformed
 
     }//GEN-LAST:event_mnSairActionPerformed
+
+    private void tfPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPesquisarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfPesquisarActionPerformed
+
+    private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
+        pesquisar = true;
+        atualizarTabela();
+        tfPesquisar.setText("");
+    }//GEN-LAST:event_btnPesquisarActionPerformed
+
+    private void btnPesquisarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnPesquisarKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            pesquisar = true;
+            atualizarTabela();
+            tfPesquisar.setText("");
+
+        }
+    }//GEN-LAST:event_btnPesquisarKeyPressed
 
     /**
      * @param args the command line arguments
@@ -255,6 +326,7 @@ public class HomePageBombeiro extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TabelaNotificacao;
     private javax.swing.JButton btnAbrir;
+    private javax.swing.JButton btnPesquisar;
     private javax.swing.JMenu configs;
     private javax.swing.JLabel jErro;
     private javax.swing.JLabel jLabel1;
@@ -266,5 +338,6 @@ public class HomePageBombeiro extends javax.swing.JFrame {
     private javax.swing.JMenuItem mnExcluir;
     private javax.swing.JMenu mnSair;
     private javax.swing.JMenuItem mnsair;
+    private javax.swing.JTextField tfPesquisar;
     // End of variables declaration//GEN-END:variables
 }

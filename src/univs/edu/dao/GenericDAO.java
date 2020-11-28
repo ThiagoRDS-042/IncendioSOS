@@ -191,7 +191,7 @@ public class GenericDAO<T> {
         sessao.close();
         return generica;
     }
-    
+
     public List<T> relatorio(String mes, String tipo, boolean porCidade, String cidade) {
         criarSessao();
 
@@ -199,13 +199,13 @@ public class GenericDAO<T> {
         if (tipo.equalsIgnoreCase("Notificação") && porCidade == true) {
             List<Notificacao> notificacoes = (List<Notificacao>) sessao.createCriteria(Notificacao.class).add(Restrictions.like("dataEnvio", ("%" + mes + "%"))).add(Restrictions.eq("cidadeOcorrencia", cidade)).list();
             generica = (List<T>) notificacoes;
-        } else  if (tipo.equalsIgnoreCase("Denuncia") && porCidade == true) {
+        } else if (tipo.equalsIgnoreCase("Denuncia") && porCidade == true) {
             List<Denuncia> denuncias = (List<Denuncia>) sessao.createCriteria(Denuncia.class).add(Restrictions.like("dataEnvio", ("%" + mes + "%"))).add(Restrictions.eq("cidade", cidade)).list();
             generica = (List<T>) denuncias;
-        } else if(tipo.equalsIgnoreCase("Notificação")){
+        } else if (tipo.equalsIgnoreCase("Notificação")) {
             List<Notificacao> notificacoes = (List<Notificacao>) sessao.createCriteria(Notificacao.class).add(Restrictions.like("dataEnvio", ("%" + mes + "%"))).list();
             generica = (List<T>) notificacoes;
-        } else{
+        } else {
             List<Denuncia> denuncias = (List<Denuncia>) sessao.createCriteria(Denuncia.class).add(Restrictions.like("dataEnvio", ("%" + mes + "%"))).list();
             generica = (List<T>) denuncias;
         }
@@ -213,16 +213,27 @@ public class GenericDAO<T> {
         return generica;
     }
 
-    public List<T> listarNotDen(T generico, String tipo) {
+    public List<T> listarNotDen(T generico, String tipo, String data) {
         criarSessao();
 
         List<T> generica;
         if (generico instanceof CorpoDeBombeiros) {
-            List<Notificacao> notificacoes = (List<Notificacao>) sessao.createCriteria(Notificacao.class).add(Restrictions.eq("corpoDeBombeiros", generico)).add(Restrictions.eq("trote", false)).list();
-            generica = (List<T>) notificacoes;
+            if (data.equalsIgnoreCase("Undefined")) {
+                List<Notificacao> notificacoes = (List<Notificacao>) sessao.createCriteria(Notificacao.class).add(Restrictions.eq("corpoDeBombeiros", generico)).add(Restrictions.eq("trote", false)).list();
+                generica = (List<T>) notificacoes;
+            } else {
+                List<Notificacao> notificacoes = (List<Notificacao>) sessao.createCriteria(Notificacao.class).add(Restrictions.eq("corpoDeBombeiros", generico)).add(Restrictions.eq("trote", false)).add(Restrictions.like("dataEnvio", (data + "%"))).list();
+                generica = (List<T>) notificacoes;
+            }
         } else if (generico instanceof Ibama) {
-            List<Denuncia> denuncias = (List<Denuncia>) sessao.createCriteria(Denuncia.class).add(Restrictions.eq("ibama", generico)).add(Restrictions.eq("trote", false)).list();
-            generica = (List<T>) denuncias;
+            if (data.equalsIgnoreCase("Undefined")) {
+                List<Denuncia> denuncias = (List<Denuncia>) sessao.createCriteria(Denuncia.class).add(Restrictions.eq("ibama", generico)).add(Restrictions.eq("trote", false)).list();
+                generica = (List<T>) denuncias;
+            }else{
+                List<Denuncia> denuncias = (List<Denuncia>) sessao.createCriteria(Denuncia.class).add(Restrictions.eq("ibama", generico)).add(Restrictions.eq("trote", false)).add(Restrictions.like("dataEnvio", (data + "%"))).list();
+                generica = (List<T>) denuncias;
+            }
+
         } else if (generico instanceof Usuario && tipo.equalsIgnoreCase("Notificação")) {
             List<Notificacao> notsUsuario = (List<Notificacao>) sessao.createCriteria(Notificacao.class).add(Restrictions.eq("usuario", generico)).add(Restrictions.eq("trote", true)).list();
             generica = (List<T>) notsUsuario;

@@ -186,10 +186,10 @@ public class GenericLogin extends javax.swing.JFrame {
                 dao.salvar(usuario);
                 Usuario.usuario = usuario;
 
-                if (dao.listarNotDen(usuario, "Notificação").size() > 1 || dao.listarNotDen(usuario, "Denuncia").size() > 1 || (dao.listarNotDen(usuario, "Notificação").size() == 1 && dao.listarNotDen(usuario, "Denuncia").size() == 1)) {
+                if (dao.listarNotDen(usuario, "Notificação", "Undefined").size() > 1 || dao.listarNotDen(usuario, "Denuncia", "Undefined").size() > 1 || (dao.listarNotDen(usuario, "Notificação", "Undefined").size() == 1 && dao.listarNotDen(usuario, "Denuncia", "Undefined").size() == 1)) {
                     JOptionPane.showMessageDialog(null, "Trotes excessivos detectados, sua conta será excluída!");
                     limparCampos();
-                } else if (dao.listarNotDen(usuario, "Notificação").size() == 1 && usuario.isVerificaCondutaTrote() || (dao.listarNotDen(usuario, "Denuncia").size() == 1 && usuario.isVerificaCondutaTrote())) {
+                } else if (dao.listarNotDen(usuario, "Notificação", "Undefined").size() == 1 && usuario.isVerificaCondutaTrote() || (dao.listarNotDen(usuario, "Denuncia", "Undefined").size() == 1 && usuario.isVerificaCondutaTrote())) {
                     if (JOptionPane.showConfirmDialog(null, "Trote detectado, caso isto ocorra novamente sua conta será excluída, você se compromete a não passar trotes navamente?", "Aviso", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                         DetalhesNotificacao.trote = true;
                         usuario.setVerificaCondutaTrote(false);
@@ -199,10 +199,10 @@ public class GenericLogin extends javax.swing.JFrame {
                     } else {
                         limparCampos();
                     }
-                } else if (dao.listarNotDen(usuario, "Notificação").isEmpty() && dao.listarNotDen(usuario, "Denuncia").isEmpty()) {
+                } else if (dao.listarNotDen(usuario, "Notificação", "Undefined").isEmpty() && dao.listarNotDen(usuario, "Denuncia", "Undefined").isEmpty()) {
                     new HomePageUsuario().setVisible(true);
                     dispose();
-                } else if ((dao.listarNotDen(usuario, "Notificação").size() == 1 || dao.listarNotDen(usuario, "Denuncia").size() == 1) && !usuario.isVerificaCondutaTrote()) {
+                } else if ((dao.listarNotDen(usuario, "Notificação", "Undefined").size() == 1 || dao.listarNotDen(usuario, "Denuncia", "Undefined").size() == 1) && !usuario.isVerificaCondutaTrote()) {
                     new HomePageUsuario().setVisible(true);
                     dispose();
                 }
@@ -261,10 +261,10 @@ public class GenericLogin extends javax.swing.JFrame {
                     dao.salvar(usuario);
                     Usuario.usuario = usuario;
 
-                    if (dao.listarNotDen(usuario, "Notificação").size() > 1 || dao.listarNotDen(usuario, "Denuncia").size() > 1 || (dao.listarNotDen(usuario, "Notificação").size() == 1 && dao.listarNotDen(usuario, "Denuncia").size() == 1)) {
+                    if (dao.listarNotDen(usuario, "Notificação", "Undefined").size() > 1 || dao.listarNotDen(usuario, "Denuncia", "Undefined").size() > 1 || (dao.listarNotDen(usuario, "Notificação", "Undefined").size() == 1 && dao.listarNotDen(usuario, "Denuncia", "Undefined").size() == 1)) {
                         JOptionPane.showMessageDialog(null, "Trotes excessivos detectados, sua conta será excluída!");
                         limparCampos();
-                    } else if (dao.listarNotDen(usuario, "Notificação").size() == 1 && usuario.isVerificaCondutaTrote() || (dao.listarNotDen(usuario, "Denuncia").size() == 1 && usuario.isVerificaCondutaTrote())) {
+                    } else if (dao.listarNotDen(usuario, "Notificação", "Undefined").size() == 1 && usuario.isVerificaCondutaTrote() || (dao.listarNotDen(usuario, "Denuncia", "Undefined").size() == 1 && usuario.isVerificaCondutaTrote())) {
                         if (JOptionPane.showConfirmDialog(null, "Trote detectado, caso isto ocorra novamente sua conta será excluída, você se compromete a não passar trotes navamente?", "Aviso", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                             DetalhesNotificacao.trote = true;
                             usuario.setVerificaCondutaTrote(false);
@@ -274,10 +274,10 @@ public class GenericLogin extends javax.swing.JFrame {
                         } else {
                             limparCampos();
                         }
-                    } else if (dao.listarNotDen(usuario, "Notificação").isEmpty() && dao.listarNotDen(usuario, "Denuncia").isEmpty()) {
+                    } else if (dao.listarNotDen(usuario, "Notificação", "Undefined").isEmpty() && dao.listarNotDen(usuario, "Denuncia", "Undefined").isEmpty()) {
                         new HomePageUsuario().setVisible(true);
                         dispose();
-                    } else if ((dao.listarNotDen(usuario, "Notificação").size() == 1 || dao.listarNotDen(usuario, "Denuncia").size() == 1) && !usuario.isVerificaCondutaTrote()) {
+                    } else if ((dao.listarNotDen(usuario, "Notificação", "Undefined").size() == 1 || dao.listarNotDen(usuario, "Denuncia", "Undefined").size() == 1) && !usuario.isVerificaCondutaTrote()) {
                         new HomePageUsuario().setVisible(true);
                         dispose();
                     }

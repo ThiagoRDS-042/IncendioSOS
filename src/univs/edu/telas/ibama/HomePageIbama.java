@@ -5,6 +5,7 @@
  */
 package univs.edu.telas.ibama;
 
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import univs.edu.dao.GenericDAO;
 import univs.edu.denuncia.Denuncia;
@@ -18,10 +19,11 @@ import univs.edu.telas.login.GenericLogin;
  * @author GGrio
  */
 public class HomePageIbama extends javax.swing.JFrame {
-    
+
     GenericDAO dao = new GenericDAO();
-    
+
     public static boolean editar;
+    public static boolean pesquisar;
 
     /**
      * Creates new form HomePageIbama
@@ -32,8 +34,20 @@ public class HomePageIbama extends javax.swing.JFrame {
     }
 
     public void atualizarTabela() {
-        DenunciaTableModel tabela = new DenunciaTableModel(dao.listarNotDen(Ibama.ibama, "Denuncia"));
-        TabelaDenuncia.setModel(tabela);
+
+        if (pesquisar == true) {
+
+            if (!dao.listarNotDen(Ibama.ibama, "Denuncia", tfPesquisar.getText()).isEmpty()) {
+                DenunciaTableModel tabela = new DenunciaTableModel(dao.listarNotDen(Ibama.ibama, "Denuncia", tfPesquisar.getText()));
+                TabelaDenuncia.setModel(tabela);
+            } else {
+                JOptionPane.showMessageDialog(null, "Nenhum resultado encontrado para a data: " + tfPesquisar.getText());
+            }
+
+        } else {
+            DenunciaTableModel tabela = new DenunciaTableModel(dao.listarNotDen(Ibama.ibama, "Denuncia", tfPesquisar.getText()));
+            TabelaDenuncia.setModel(tabela);
+        }
     }
 
     /**
@@ -50,6 +64,8 @@ public class HomePageIbama extends javax.swing.JFrame {
         TabelaDenuncia = new javax.swing.JTable();
         btnAbrir = new javax.swing.JButton();
         jErro = new javax.swing.JLabel();
+        tfPesquisar = new javax.swing.JTextField();
+        btnPesquisar = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu5 = new javax.swing.JMenu();
         configs = new javax.swing.JMenu();
@@ -80,6 +96,27 @@ public class HomePageIbama extends javax.swing.JFrame {
         btnAbrir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAbrirActionPerformed(evt);
+            }
+        });
+
+        tfPesquisar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        tfPesquisar.setToolTipText("Pesuise por data");
+
+        btnPesquisar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        btnPesquisar.setText("Pesquisar");
+        btnPesquisar.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                btnPesquisarFocusLost(evt);
+            }
+        });
+        btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarActionPerformed(evt);
+            }
+        });
+        btnPesquisar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnPesquisarKeyPressed(evt);
             }
         });
 
@@ -146,14 +183,19 @@ public class HomePageIbama extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(227, 227, 227)
-                        .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(215, 215, 215)
-                        .addComponent(btnAbrir)))
+                        .addComponent(btnAbrir))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(227, 227, 227)
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(96, 96, 96)
+                        .addComponent(tfPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -163,11 +205,18 @@ public class HomePageIbama extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jErro)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addComponent(btnAbrir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
+                .addGap(35, 35, 35)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(tfPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(btnAbrir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(21, 21, 21))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         pack();
@@ -209,6 +258,25 @@ public class HomePageIbama extends javax.swing.JFrame {
 
     }//GEN-LAST:event_mnSairActionPerformed
 
+    private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
+        pesquisar = true;
+        atualizarTabela();
+        tfPesquisar.setText("");
+    }//GEN-LAST:event_btnPesquisarActionPerformed
+
+    private void btnPesquisarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_btnPesquisarFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPesquisarFocusLost
+
+    private void btnPesquisarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnPesquisarKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            pesquisar = true;
+            atualizarTabela();
+            tfPesquisar.setText("");
+
+        }
+    }//GEN-LAST:event_btnPesquisarKeyPressed
+
     /**
      * @param args the command line arguments
      */
@@ -247,6 +315,7 @@ public class HomePageIbama extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TabelaDenuncia;
     private javax.swing.JButton btnAbrir;
+    private javax.swing.JButton btnPesquisar;
     private javax.swing.JMenu configs;
     private javax.swing.JLabel jErro;
     private javax.swing.JLabel jLabel2;
@@ -257,5 +326,6 @@ public class HomePageIbama extends javax.swing.JFrame {
     private javax.swing.JMenuItem mnExcluir;
     private javax.swing.JMenu mnSair;
     private javax.swing.JMenuItem mnsair;
+    private javax.swing.JTextField tfPesquisar;
     // End of variables declaration//GEN-END:variables
 }
