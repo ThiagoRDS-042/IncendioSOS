@@ -4,6 +4,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import univs.edu.adm.Adm;
 import univs.edu.bombeiro.CorpoDeBombeiros;
@@ -219,21 +220,20 @@ public class GenericDAO<T> {
         List<T> generica;
         if (generico instanceof CorpoDeBombeiros) {
             if (data.equalsIgnoreCase("Undefined")) {
-                List<Notificacao> notificacoes = (List<Notificacao>) sessao.createCriteria(Notificacao.class).add(Restrictions.eq("corpoDeBombeiros", generico)).add(Restrictions.eq("trote", false)).list();
+                List<Notificacao> notificacoes = (List<Notificacao>) sessao.createCriteria(Notificacao.class).add(Restrictions.eq("corpoDeBombeiros", generico)).add(Restrictions.eq("trote", false)).addOrder( Order.desc("idNotificacao")).list();
                 generica = (List<T>) notificacoes;
             } else {
-                List<Notificacao> notificacoes = (List<Notificacao>) sessao.createCriteria(Notificacao.class).add(Restrictions.eq("corpoDeBombeiros", generico)).add(Restrictions.eq("trote", false)).add(Restrictions.like("dataEnvio", (data + "%"))).list();
+                List<Notificacao> notificacoes = (List<Notificacao>) sessao.createCriteria(Notificacao.class).add(Restrictions.eq("corpoDeBombeiros", generico)).add(Restrictions.eq("trote", false)).add(Restrictions.like("dataEnvio", (data + "%"))).addOrder( Order.desc("idNotificacao")).list();
                 generica = (List<T>) notificacoes;
             }
         } else if (generico instanceof Ibama) {
             if (data.equalsIgnoreCase("Undefined")) {
-                List<Denuncia> denuncias = (List<Denuncia>) sessao.createCriteria(Denuncia.class).add(Restrictions.eq("ibama", generico)).add(Restrictions.eq("trote", false)).list();
+                List<Denuncia> denuncias = (List<Denuncia>) sessao.createCriteria(Denuncia.class).add(Restrictions.eq("ibama", generico)).add(Restrictions.eq("trote", false)).addOrder( Order.desc("idDenuncia")).list();
                 generica = (List<T>) denuncias;
             }else{
-                List<Denuncia> denuncias = (List<Denuncia>) sessao.createCriteria(Denuncia.class).add(Restrictions.eq("ibama", generico)).add(Restrictions.eq("trote", false)).add(Restrictions.like("dataEnvio", (data + "%"))).list();
+                List<Denuncia> denuncias = (List<Denuncia>) sessao.createCriteria(Denuncia.class).add(Restrictions.eq("ibama", generico)).add(Restrictions.eq("trote", false)).add(Restrictions.like("dataEnvio", (data + "%"))).addOrder( Order.desc("idDenuncia")).list();
                 generica = (List<T>) denuncias;
             }
-
         } else if (generico instanceof Usuario && tipo.equalsIgnoreCase("Notificação")) {
             List<Notificacao> notsUsuario = (List<Notificacao>) sessao.createCriteria(Notificacao.class).add(Restrictions.eq("usuario", generico)).add(Restrictions.eq("trote", true)).list();
             generica = (List<T>) notsUsuario;
