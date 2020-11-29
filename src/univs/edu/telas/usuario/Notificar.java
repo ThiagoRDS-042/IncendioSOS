@@ -42,7 +42,7 @@ public class Notificar extends javax.swing.JFrame {
         jTipos.addItem("Automoveis");
         jTipos.addItem("Usinas");
         jCorposDeBombeiros.removeAllItems();
-        List<CorpoDeBombeiros> bombeiros = dao.listarObjetos("Bombeiro");
+        List<CorpoDeBombeiros> bombeiros = dao.listarObjetos("Bombeiro", "Undefined");
         for (CorpoDeBombeiros bombeiro : bombeiros) {
             jCorposDeBombeiros.addItem(bombeiro.getCompanhiaBatalhao() + "-" + bombeiro.getCidadeBombeiro() + "/" + bombeiro.getEstadoBombeiro());
         }

@@ -23,6 +23,7 @@ public class HomePageIbama extends javax.swing.JFrame {
     GenericDAO dao = new GenericDAO();
 
     public static boolean editar;
+
     public static boolean pesquisar;
 
     /**
@@ -36,7 +37,6 @@ public class HomePageIbama extends javax.swing.JFrame {
     public void atualizarTabela() {
 
         if (pesquisar == true) {
-
             if (!dao.listarNotDen(Ibama.ibama, "Denuncia", tfPesquisar.getText()).isEmpty()) {
                 DenunciaTableModel tabela = new DenunciaTableModel(dao.listarNotDen(Ibama.ibama, "Denuncia", tfPesquisar.getText()));
                 TabelaDenuncia.setModel(tabela);
@@ -45,11 +45,11 @@ public class HomePageIbama extends javax.swing.JFrame {
                 DenunciaTableModel tabela = new DenunciaTableModel(dao.listarNotDen(Ibama.ibama, "Denuncia", tfPesquisar.getText()));
                 TabelaDenuncia.setModel(tabela);
             }
-
         } else {
-            DenunciaTableModel tabela = new DenunciaTableModel(dao.listarNotDen(Ibama.ibama, "Denuncia", tfPesquisar.getText()));
+            DenunciaTableModel tabela = new DenunciaTableModel(dao.listarNotDen(Ibama.ibama, "Denuncia", "Undefined"));
             TabelaDenuncia.setModel(tabela);
         }
+
     }
 
     /**
@@ -92,7 +92,12 @@ public class HomePageIbama extends javax.swing.JFrame {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 537, 90));
 
         tfPesquisar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        tfPesquisar.setToolTipText("Pesuise por data");
+        tfPesquisar.setToolTipText("Pesuise pela data");
+        tfPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfPesquisarActionPerformed(evt);
+            }
+        });
         jPanel1.add(tfPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 280, 35));
 
         btnPesquisar.setBackground(new java.awt.Color(255, 51, 153));
@@ -306,6 +311,10 @@ public class HomePageIbama extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_btnAbrirKeyPressed
+
+    private void tfPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPesquisarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfPesquisarActionPerformed
 
     /**
      * @param args the command line arguments

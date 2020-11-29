@@ -34,7 +34,7 @@ public class Informacoes extends javax.swing.JFrame {
         } else if (rbBombeiro.isSelected()) {
 
             cbOrgaos.removeAllItems();
-            List<CorpoDeBombeiros> bombeiros = dao.listarObjetos("Bombeiro");
+            List<CorpoDeBombeiros> bombeiros = dao.listarObjetos("Bombeiro", "Undefined");
             for (CorpoDeBombeiros bombeiro : bombeiros) {
                 cbOrgaos.addItem(bombeiro.getCompanhiaBatalhao() + "-" + bombeiro.getCidadeBombeiro() + "/" + bombeiro.getEstadoBombeiro());
             }
@@ -42,7 +42,7 @@ public class Informacoes extends javax.swing.JFrame {
         } else if (rbIbama.isSelected()) {
 
             cbOrgaos.removeAllItems();
-            List<Ibama> ibamas = dao.listarObjetos("Ibama");
+            List<Ibama> ibamas = dao.listarObjetos("Ibama", "Undefined");
             for (Ibama ibama : ibamas) {
                 cbOrgaos.addItem(ibama.getNomeIbama() + "-" + ibama.getCidadeIbama() + "/" + ibama.getEstadoIbama() + "-" + ibama.getEmailIbama());
             }

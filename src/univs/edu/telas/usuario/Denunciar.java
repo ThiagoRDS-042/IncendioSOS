@@ -44,7 +44,7 @@ public class Denunciar extends javax.swing.JFrame {
 
     public void addItem() {
         jIbamas.removeAllItems();
-        List<Ibama> ibamas = dao.listarObjetos("Ibama");
+        List<Ibama> ibamas = dao.listarObjetos("Ibama", "Undefined");
         for (Ibama ibama : ibamas) {
             jIbamas.addItem(ibama.getNomeIbama() + "-" + ibama.getCidadeIbama() + "/" + ibama.getEstadoIbama() + "-" + ibama.getEmailIbama());
         }

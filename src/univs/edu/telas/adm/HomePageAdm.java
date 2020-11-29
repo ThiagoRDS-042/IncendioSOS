@@ -20,6 +20,8 @@ public class HomePageAdm extends javax.swing.JFrame {
     GenericDAO dao = new GenericDAO();
 
     public static boolean editar;
+    public static boolean listaBombeiros;
+    public static boolean listaIbamas;
 
     /**
      * Creates new form HomePageAdm
@@ -240,7 +242,10 @@ public class HomePageAdm extends javax.swing.JFrame {
     }//GEN-LAST:event_mnSairActionPerformed
 
     private void mnIbamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnIbamaActionPerformed
-        new ListaIbamas().setVisible(true);
+        listaIbamas = true;
+        listaBombeiros = false;
+        
+        new ListaIbamasEBombeiros().setVisible(true);
         dispose();
     }//GEN-LAST:event_mnIbamaActionPerformed
 
@@ -250,8 +255,14 @@ public class HomePageAdm extends javax.swing.JFrame {
     }//GEN-LAST:event_mnUsuarioActionPerformed
 
     private void mnBombeiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnBombeiroActionPerformed
-        new ListaCorpoDeBombeiros().setVisible(true);
+        listaIbamas = false;
+        listaBombeiros = true;
+        
+        new ListaIbamasEBombeiros().setVisible(true);
         dispose();
+        
+//        new ListaCorpoDeBombeiros().setVisible(true);
+//        dispose();
     }//GEN-LAST:event_mnBombeiroActionPerformed
 
     private void btnCadastroAdmKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnCadastroAdmKeyPressed

@@ -11,6 +11,7 @@ import univs.edu.bombeiro.CorpoDeBombeiros;
 import univs.edu.denuncia.Denuncia;
 import univs.edu.ibama.Ibama;
 import univs.edu.notificacao.Notificacao;
+import univs.edu.telas.adm.HomePageAdm;
 import univs.edu.telas.bombeiro.DetalhesNotificacao;
 import univs.edu.telas.login.GenericLogin;
 import univs.edu.usuario.Usuario;
@@ -220,18 +221,18 @@ public class GenericDAO<T> {
         List<T> generica;
         if (generico instanceof CorpoDeBombeiros) {
             if (data.equalsIgnoreCase("Undefined")) {
-                List<Notificacao> notificacoes = (List<Notificacao>) sessao.createCriteria(Notificacao.class).add(Restrictions.eq("corpoDeBombeiros", generico)).add(Restrictions.eq("trote", false)).addOrder( Order.desc("idNotificacao")).list();
+                List<Notificacao> notificacoes = (List<Notificacao>) sessao.createCriteria(Notificacao.class).add(Restrictions.eq("corpoDeBombeiros", generico)).add(Restrictions.eq("trote", false)).addOrder(Order.desc("idNotificacao")).list();
                 generica = (List<T>) notificacoes;
             } else {
-                List<Notificacao> notificacoes = (List<Notificacao>) sessao.createCriteria(Notificacao.class).add(Restrictions.eq("corpoDeBombeiros", generico)).add(Restrictions.eq("trote", false)).add(Restrictions.like("dataEnvio", (data + "%"))).addOrder( Order.desc("idNotificacao")).list();
+                List<Notificacao> notificacoes = (List<Notificacao>) sessao.createCriteria(Notificacao.class).add(Restrictions.eq("corpoDeBombeiros", generico)).add(Restrictions.eq("trote", false)).add(Restrictions.like("dataEnvio", (data + "%"))).addOrder(Order.desc("idNotificacao")).list();
                 generica = (List<T>) notificacoes;
             }
         } else if (generico instanceof Ibama) {
             if (data.equalsIgnoreCase("Undefined")) {
-                List<Denuncia> denuncias = (List<Denuncia>) sessao.createCriteria(Denuncia.class).add(Restrictions.eq("ibama", generico)).add(Restrictions.eq("trote", false)).addOrder( Order.desc("idDenuncia")).list();
+                List<Denuncia> denuncias = (List<Denuncia>) sessao.createCriteria(Denuncia.class).add(Restrictions.eq("ibama", generico)).add(Restrictions.eq("trote", false)).addOrder(Order.desc("idDenuncia")).list();
                 generica = (List<T>) denuncias;
-            }else{
-                List<Denuncia> denuncias = (List<Denuncia>) sessao.createCriteria(Denuncia.class).add(Restrictions.eq("ibama", generico)).add(Restrictions.eq("trote", false)).add(Restrictions.like("dataEnvio", (data + "%"))).addOrder( Order.desc("idDenuncia")).list();
+            } else {
+                List<Denuncia> denuncias = (List<Denuncia>) sessao.createCriteria(Denuncia.class).add(Restrictions.eq("ibama", generico)).add(Restrictions.eq("trote", false)).add(Restrictions.like("dataEnvio", (data + "%"))).addOrder(Order.desc("idDenuncia")).list();
                 generica = (List<T>) denuncias;
             }
         } else if (generico instanceof Usuario && tipo.equalsIgnoreCase("Notificação")) {
@@ -245,25 +246,28 @@ public class GenericDAO<T> {
         return generica;
     }
 
-    public List<T> listarObjetos(String tipo) {
+    public List<T> listarObjetos(String tipo, String cidade) {
         criarSessao();
 
         List<T> generica;
-        if (tipo.equalsIgnoreCase("Usuario")) {
+        if (tipo.equalsIgnoreCase("Usuario") && cidade.equals("Undefined")) {
             List<Usuario> usuarios = sessao.createCriteria(Usuario.class).list();
             generica = (List<T>) usuarios;
-        } else if (tipo.equalsIgnoreCase("Bombeiro")) {
+        } else if (tipo.equalsIgnoreCase("Usuario")) {
+            List<Usuario> usuarios = sessao.createCriteria(Usuario.class).add(Restrictions.eq("cidadeUsuario", cidade)).list();
+            generica = (List<T>) usuarios;
+        } else if (tipo.equalsIgnoreCase("Bombeiro") && cidade.equals("Undefined")) {
             List<CorpoDeBombeiros> bombeiros = sessao.createCriteria(CorpoDeBombeiros.class).list();
             generica = (List<T>) bombeiros;
-        } else if (tipo.equalsIgnoreCase("Ibama")) {
+        } else if (tipo.equalsIgnoreCase("Bombeiro")) {
+            List<CorpoDeBombeiros> bombeiros = sessao.createCriteria(CorpoDeBombeiros.class).add(Restrictions.eq("cidadeBombeiro", cidade)).list();
+            generica = (List<T>) bombeiros;
+        } else if (tipo.equalsIgnoreCase("IBAMA") && cidade.equals("Undefined")) {
             List<Ibama> ibama = sessao.createCriteria(Ibama.class).list();
             generica = (List<T>) ibama;
-        } else if (tipo.equalsIgnoreCase("Notificação")) {
-            List<Notificacao> notificacao = sessao.createCriteria(Notificacao.class).list();
-            generica = (List<T>) notificacao;
         } else {
-            List<Denuncia> denuncia = sessao.createCriteria(Denuncia.class).list();
-            generica = (List<T>) denuncia;
+            List<Ibama> ibama = sessao.createCriteria(Ibama.class).add(Restrictions.eq("cidadeIbama", cidade)).list();
+            generica = (List<T>) ibama;
         }
         sessao.close();
         return generica;

@@ -439,7 +439,7 @@ public class CadastroIbama extends javax.swing.JFrame {
             new HomePageIbama().setVisible(true);
             dispose();
         } else {
-            new ListaIbamas().setVisible(true);
+            new ListaIbamasEBombeiros().setVisible(true);
             dispose();
         }
     }//GEN-LAST:event_btnVoltarActionPerformed
@@ -450,7 +450,7 @@ public class CadastroIbama extends javax.swing.JFrame {
                 new HomePageIbama().setVisible(true);
                 dispose();
             } else {
-                new ListaIbamas().setVisible(true);
+                new ListaIbamasEBombeiros().setVisible(true);
                 dispose();
             }
         }

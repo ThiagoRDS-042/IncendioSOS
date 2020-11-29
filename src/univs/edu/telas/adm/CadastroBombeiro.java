@@ -396,7 +396,7 @@ public class CadastroBombeiro extends javax.swing.JFrame {
             new HomePageBombeiro().setVisible(true);
             dispose();
         } else {
-            new ListaCorpoDeBombeiros().setVisible(true);
+            new ListaIbamasEBombeiros().setVisible(true);
             dispose();
         }
     }//GEN-LAST:event_btnVoltarActionPerformed
@@ -407,7 +407,7 @@ public class CadastroBombeiro extends javax.swing.JFrame {
                 new HomePageBombeiro().setVisible(true);
                 dispose();
             } else {
-                new ListaCorpoDeBombeiros().setVisible(true);
+                new ListaIbamasEBombeiros().setVisible(true);
                 dispose();
             }
         }

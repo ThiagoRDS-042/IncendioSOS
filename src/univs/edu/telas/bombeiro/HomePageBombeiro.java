@@ -38,7 +38,6 @@ public class HomePageBombeiro extends javax.swing.JFrame {
     public void atualizarTabela() {
 
         if (pesquisar == true) {
-
             if (!dao.listarNotDen(CorpoDeBombeiros.bombeiro, "Notificação", tfPesquisar.getText()).isEmpty()) {
                 NotificacaoTableModel tabela = new NotificacaoTableModel(dao.listarNotDen(CorpoDeBombeiros.bombeiro, "Notificação", tfPesquisar.getText()));
                 TabelaNotificacao.setModel(tabela);
@@ -47,10 +46,10 @@ public class HomePageBombeiro extends javax.swing.JFrame {
                 NotificacaoTableModel tabela = new NotificacaoTableModel(dao.listarNotDen(CorpoDeBombeiros.bombeiro, "Notificação", tfPesquisar.getText()));
                 TabelaNotificacao.setModel(tabela);
             }
-
         } else {
             NotificacaoTableModel tabela = new NotificacaoTableModel(dao.listarNotDen(CorpoDeBombeiros.bombeiro, "Notificação", "Undefined"));
             TabelaNotificacao.setModel(tabela);
+
         }
 
     }
@@ -95,7 +94,7 @@ public class HomePageBombeiro extends javax.swing.JFrame {
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 536, 90));
 
         tfPesquisar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        tfPesquisar.setToolTipText("Pesquise por data");
+        tfPesquisar.setToolTipText("Pesquise pela data");
         tfPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfPesquisarActionPerformed(evt);
@@ -265,14 +264,12 @@ public class HomePageBombeiro extends javax.swing.JFrame {
     }//GEN-LAST:event_tfPesquisarActionPerformed
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
-        pesquisar = true;
         atualizarTabela();
         tfPesquisar.setText("");
     }//GEN-LAST:event_btnPesquisarActionPerformed
 
     private void btnPesquisarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnPesquisarKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            pesquisar = true;
             atualizarTabela();
             tfPesquisar.setText("");
 

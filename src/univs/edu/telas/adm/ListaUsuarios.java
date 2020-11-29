@@ -29,7 +29,7 @@ public class ListaUsuarios extends javax.swing.JFrame {
     }
 
     public void atualizarTabela() {
-        UsuarioTableModel tabela = new UsuarioTableModel(dao.listarObjetos("Usuario"));
+        UsuarioTableModel tabela = new UsuarioTableModel(dao.listarObjetos("Usuario", "Undefined"));
         Tabela.setModel(tabela);
     }
 
@@ -115,8 +115,8 @@ public class ListaUsuarios extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addComponent(lTitulo1)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -134,7 +134,6 @@ public class ListaUsuarios extends javax.swing.JFrame {
         } else if (JOptionPane.showConfirmDialog(null, "Deseja realmente excluir este Usuário?", "Excluir", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
             usuario = (Usuario) dao.pesquisarEmail((String) Tabela.getValueAt(linha, 1));
             dao.excluir(usuario);
-            JOptionPane.showMessageDialog(null, "Usuário excluído com sucesso!");
             atualizarTabela();
         }
     }//GEN-LAST:event_btnExcluirActionPerformed
@@ -159,7 +158,6 @@ public class ListaUsuarios extends javax.swing.JFrame {
             } else if (JOptionPane.showConfirmDialog(null, "Deseja realmente excluir este Usuário?", "Excluir", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                 usuario = (Usuario) dao.pesquisarEmail((String) Tabela.getValueAt(linha, 1));
                 dao.excluir(usuario);
-                JOptionPane.showMessageDialog(null, "Usuário excluído com sucesso!");
                 atualizarTabela();
             }
         }
