@@ -117,7 +117,7 @@ public class HomePageIbama extends javax.swing.JFrame {
         });
         jPanel1.add(btnPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 120, 90, 35));
 
-        TabelaDenuncia.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        TabelaDenuncia.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         TabelaDenuncia.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
