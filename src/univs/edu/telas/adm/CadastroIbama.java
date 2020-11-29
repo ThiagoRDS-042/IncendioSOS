@@ -31,7 +31,7 @@ public class CadastroIbama extends javax.swing.JFrame {
 
     public void verificar() {
         if (HomePageIbama.editar == true) {
-            jLabel1.setText("Editar IBAMA");
+            jLabel1.setText("       Editar IBAMA");
             btnCadastrar.setText("Editar");
 
             ibama = Ibama.ibama;
@@ -68,6 +68,7 @@ public class CadastroIbama extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -75,9 +76,13 @@ public class CadastroIbama extends javax.swing.JFrame {
         tfResponsavel = new javax.swing.JTextField();
         tfSenha = new javax.swing.JPasswordField();
         jLabel4 = new javax.swing.JLabel();
+        tfNome = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
+        tfTelefone = new javax.swing.JFormattedTextField();
         jLabel6 = new javax.swing.JLabel();
+        tfCnpj = new javax.swing.JFormattedTextField();
         jLabel7 = new javax.swing.JLabel();
+        btnVoltar = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         tfEstado = new javax.swing.JTextField();
@@ -85,23 +90,32 @@ public class CadastroIbama extends javax.swing.JFrame {
         tfRua = new javax.swing.JTextField();
         tfEmail = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        tfNome = new javax.swing.JTextField();
-        tfTelefone = new javax.swing.JFormattedTextField();
-        tfCnpj = new javax.swing.JFormattedTextField();
-        btnVoltar = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(25, 100));
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Cadastro de IBAMA");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jLabel2.setText("E-mail:");
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("E-mail*:");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jLabel3.setText("Senha:");
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Senha*:");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 310, -1, -1));
 
+        btnCadastrar.setBackground(new java.awt.Color(255, 51, 153));
+        btnCadastrar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        btnCadastrar.setForeground(new java.awt.Color(255, 255, 255));
         btnCadastrar.setText("Cadastrar");
         btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,7 +127,9 @@ public class CadastroIbama extends javax.swing.JFrame {
                 btnCadastrarKeyPressed(evt);
             }
         });
+        jPanel1.add(btnCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 470, 90, 35));
 
+        tfResponsavel.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         tfResponsavel.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 tfResponsavelFocusLost(evt);
@@ -124,64 +140,22 @@ public class CadastroIbama extends javax.swing.JFrame {
                 tfResponsavelActionPerformed(evt);
             }
         });
+        jPanel1.add(tfResponsavel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, 320, 35));
 
+        tfSenha.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         tfSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfSenhaActionPerformed(evt);
             }
         });
+        jPanel1.add(tfSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 330, 320, 35));
 
-        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jLabel4.setText("Responsável:");
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Responsável*:");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jLabel5.setText("CNPJ:");
-
-        jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jLabel6.setText("Estado:");
-
-        jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jLabel7.setText("Cidade:");
-
-        jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jLabel8.setText("Rua:");
-
-        jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jLabel9.setText("Telefone:");
-
-        tfEstado.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                tfEstadoFocusLost(evt);
-            }
-        });
-
-        tfCidade.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                tfCidadeFocusLost(evt);
-            }
-        });
-
-        tfRua.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                tfRuaFocusLost(evt);
-            }
-        });
-
-        tfEmail.setToolTipText("Exemplo: Ibama@gmail.com");
-        tfEmail.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                tfEmailFocusLost(evt);
-            }
-        });
-        tfEmail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfEmailActionPerformed(evt);
-            }
-        });
-
-        jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jLabel10.setText("Nome:");
-
+        tfNome.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         tfNome.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 tfNomeFocusLost(evt);
@@ -192,6 +166,12 @@ public class CadastroIbama extends javax.swing.JFrame {
                 tfNomeActionPerformed(evt);
             }
         });
+        jPanel1.add(tfNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 320, 35));
+
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("CNPJ*:");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 90, -1, -1));
 
         try {
             tfTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) ####-####")));
@@ -199,6 +179,13 @@ public class CadastroIbama extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         tfTelefone.setToolTipText("Exemplo: (88) 4002-8922");
+        tfTelefone.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jPanel1.add(tfTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 260, 320, 35));
+
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Estado*:");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
 
         try {
             tfCnpj.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###/####-##")));
@@ -206,12 +193,22 @@ public class CadastroIbama extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         tfCnpj.setToolTipText("Exemplo: 12.3456.789/1011-12");
+        tfCnpj.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         tfCnpj.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 tfCnpjFocusLost(evt);
             }
         });
+        jPanel1.add(tfCnpj, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 110, 320, 35));
 
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Cidade*:");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 170, -1, -1));
+
+        btnVoltar.setBackground(new java.awt.Color(255, 51, 153));
+        btnVoltar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        btnVoltar.setForeground(new java.awt.Color(255, 255, 255));
         btnVoltar.setText("Voltar");
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -223,92 +220,78 @@ public class CadastroIbama extends javax.swing.JFrame {
                 btnVoltarKeyPressed(evt);
             }
         });
+        jPanel1.add(btnVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 470, 90, 35));
+
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Rua*:");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
+
+        jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Telefone*:");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 240, -1, -1));
+
+        tfEstado.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        tfEstado.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                tfEstadoFocusLost(evt);
+            }
+        });
+        jPanel1.add(tfEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 320, 35));
+
+        tfCidade.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        tfCidade.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                tfCidadeFocusLost(evt);
+            }
+        });
+        jPanel1.add(tfCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 190, 320, 35));
+
+        tfRua.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        tfRua.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                tfRuaFocusLost(evt);
+            }
+        });
+        jPanel1.add(tfRua, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 320, 35));
+
+        tfEmail.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        tfEmail.setToolTipText("Exemplo: Ibama@gmail.com");
+        tfEmail.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                tfEmailFocusLost(evt);
+            }
+        });
+        tfEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfEmailActionPerformed(evt);
+            }
+        });
+        jPanel1.add(tfEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 320, 35));
+
+        jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Nome*:");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
+
+        jLabel12.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("Preencha todos os campos obrigatorios(*)");
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 200, 30));
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/cadastroUsuario.jpg"))); // NOI18N
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 726, 530));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(287, 287, 287)
-                .addComponent(jLabel1)
-                .addContainerGap(297, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnVoltar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnCadastrar))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tfResponsavel, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel6)
-                            .addComponent(tfEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8)
-                            .addComponent(tfRua, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)
-                            .addComponent(tfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10)
-                            .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(28, 28, 28)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel9)
-                            .addComponent(tfCidade, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel5)
-                            .addComponent(tfSenha)
-                            .addComponent(tfTelefone)
-                            .addComponent(tfCnpj))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 726, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel10))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tfNome, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel9))
-                .addGap(5, 5, 5)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfRua, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tfResponsavel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(19, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 531, Short.MAX_VALUE)
         );
 
         pack();
@@ -513,6 +496,8 @@ public class CadastroIbama extends javax.swing.JFrame {
     private javax.swing.JButton btnVoltar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -521,6 +506,7 @@ public class CadastroIbama extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField tfCidade;
     private javax.swing.JFormattedTextField tfCnpj;
     private javax.swing.JTextField tfEmail;
