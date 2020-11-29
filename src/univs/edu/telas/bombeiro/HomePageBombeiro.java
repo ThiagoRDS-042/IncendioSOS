@@ -89,10 +89,10 @@ public class HomePageBombeiro extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Tabela de Notificações");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/cabecalhoDetalhes.jpg"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 536, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 536, 90));
 
         tfPesquisar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         tfPesquisar.setToolTipText("Pesquise por data");
@@ -101,7 +101,7 @@ public class HomePageBombeiro extends javax.swing.JFrame {
                 tfPesquisarActionPerformed(evt);
             }
         });
-        jPanel1.add(tfPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 270, 35));
+        jPanel1.add(tfPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 120, 270, 35));
 
         btnPesquisar.setBackground(new java.awt.Color(255, 51, 153));
         btnPesquisar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -118,7 +118,7 @@ public class HomePageBombeiro extends javax.swing.JFrame {
                 btnPesquisarKeyPressed(evt);
             }
         });
-        jPanel1.add(btnPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 150, 90, 35));
+        jPanel1.add(btnPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 120, 90, 35));
 
         TabelaNotificacao.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         TabelaNotificacao.setModel(new javax.swing.table.DefaultTableModel(
@@ -135,7 +135,7 @@ public class HomePageBombeiro extends javax.swing.JFrame {
         TabelaNotificacao.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jScrollPane1.setViewportView(TabelaNotificacao);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 516, 91));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 516, 91));
 
         btnAbrir.setBackground(new java.awt.Color(255, 51, 153));
         btnAbrir.setForeground(new java.awt.Color(255, 255, 255));
@@ -151,10 +151,10 @@ public class HomePageBombeiro extends javax.swing.JFrame {
                 btnAbrirKeyPressed(evt);
             }
         });
-        jPanel1.add(btnAbrir, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 340, -1, 35));
+        jPanel1.add(btnAbrir, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, -1, 35));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/backgroundDetalhes.jpg"))); // NOI18N
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 536, 290));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 536, 260));
 
         jMenuBar1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
@@ -217,7 +217,7 @@ public class HomePageBombeiro extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();

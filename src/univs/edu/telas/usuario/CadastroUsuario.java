@@ -36,7 +36,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
 
     public void verificar() {
         if (HomePageUsuario.editar == true) {
-            lTitulo.setText("Editar Usuário");
+            lTitulo.setText("    Editar Usuário");
             btnCadastrar.setText("Editar");
 
             usuario = Usuario.usuario;
@@ -178,7 +178,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
                 btnVoltarKeyPressed(evt);
             }
         });
-        jPanel1.add(btnVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 450, 100, 35));
+        jPanel1.add(btnVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 430, 100, 35));
 
         btnCadastrar.setBackground(new java.awt.Color(255, 51, 153));
         btnCadastrar.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -195,7 +195,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
                 btnCadastrarKeyPressed(evt);
             }
         });
-        jPanel1.add(btnCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 450, 100, 35));
+        jPanel1.add(btnCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 430, 100, 35));
 
         lTitulo.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         lTitulo.setForeground(new java.awt.Color(255, 255, 255));
@@ -239,13 +239,13 @@ public class CadastroUsuario extends javax.swing.JFrame {
         jLabel8.setText("Rua*:");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, -1, -1));
 
-        jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 10)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Preencha todos os campos obrigatorios(*)");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 200, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/cadastroUsuario.jpg"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 530));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 490));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

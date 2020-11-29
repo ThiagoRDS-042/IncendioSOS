@@ -31,7 +31,7 @@ public class CadastroAdm extends javax.swing.JFrame {
 
     public void verificar() {
         if (HomePageAdm.editar == true) {
-            lTitulo1.setText("Editar Administrador");
+            lTitulo1.setText("      Editar Administrador");
             btnCadastrar.setText("Editar");
 
             adm = Adm.adm;
@@ -55,13 +55,15 @@ public class CadastroAdm extends javax.swing.JFrame {
 
         lTitulo = new javax.swing.JLabel();
         lTitulo2 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         lTitulo1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         tfEmail = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
         tfSenha = new javax.swing.JPasswordField();
-        btnCadastrar = new javax.swing.JButton();
         btnVoltar = new javax.swing.JButton();
+        btnCadastrar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         lTitulo.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         lTitulo.setText("Cadastro de Usuário");
@@ -71,15 +73,19 @@ public class CadastroAdm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        lTitulo1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lTitulo1.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        lTitulo1.setForeground(new java.awt.Color(255, 255, 255));
         lTitulo1.setText("Cadastro de Administrador");
+        jPanel1.add(lTitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("E-mail:");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jLabel5.setText("Senha:");
-
+        tfEmail.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         tfEmail.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 tfEmailFocusLost(evt);
@@ -90,19 +96,19 @@ public class CadastroAdm extends javax.swing.JFrame {
                 tfEmailActionPerformed(evt);
             }
         });
+        jPanel1.add(tfEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 220, 35));
 
-        btnCadastrar.setText("Cadastrar");
-        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadastrarActionPerformed(evt);
-            }
-        });
-        btnCadastrar.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                btnCadastrarKeyPressed(evt);
-            }
-        });
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Senha:");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, -1));
 
+        tfSenha.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jPanel1.add(tfSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 218, 35));
+
+        btnVoltar.setBackground(new java.awt.Color(255, 51, 153));
+        btnVoltar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        btnVoltar.setForeground(new java.awt.Color(255, 255, 255));
         btnVoltar.setText("Voltar");
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,49 +120,36 @@ public class CadastroAdm extends javax.swing.JFrame {
                 btnVoltarKeyPressed(evt);
             }
         });
+        jPanel1.add(btnVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 90, 35));
+
+        btnCadastrar.setBackground(new java.awt.Color(255, 51, 153));
+        btnCadastrar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        btnCadastrar.setForeground(new java.awt.Color(255, 255, 255));
+        btnCadastrar.setText("Cadastrar");
+        btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastrarActionPerformed(evt);
+            }
+        });
+        btnCadastrar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnCadastrarKeyPressed(evt);
+            }
+        });
+        jPanel1.add(btnCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, 90, 35));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/backgroundAdm.jpg"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(tfSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(tfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addComponent(lTitulo1)))
-                .addContainerGap(40, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(lTitulo1)
-                .addGap(29, 29, 29)
-                .addComponent(jLabel4)
-                .addGap(11, 11, 11)
-                .addComponent(tfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tfSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -273,8 +266,10 @@ public class CadastroAdm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrar;
     private javax.swing.JButton btnVoltar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lTitulo;
     private javax.swing.JLabel lTitulo1;
     private javax.swing.JLabel lTitulo2;
