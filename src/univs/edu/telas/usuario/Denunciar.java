@@ -163,6 +163,11 @@ public class Denunciar extends javax.swing.JFrame {
                 btnSelecionarActionPerformed(evt);
             }
         });
+        btnSelecionar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnSelecionarKeyPressed(evt);
+            }
+        });
         jPanel1.add(btnSelecionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 320, 142, 30));
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
@@ -172,6 +177,16 @@ public class Denunciar extends javax.swing.JFrame {
 
         jIbamas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jIbamas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jIbamas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jIbamasActionPerformed(evt);
+            }
+        });
+        jIbamas.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jIbamasKeyPressed(evt);
+            }
+        });
         jPanel1.add(jIbamas, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 320, 153, 30));
 
         lbEvidencia.setBackground(new java.awt.Color(153, 153, 153));
@@ -315,7 +330,10 @@ public class Denunciar extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnVoltarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnVoltarKeyPressed
-        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            new HomePageUsuario().setVisible(true);
+            dispose();
+        }
     }//GEN-LAST:event_btnVoltarKeyPressed
 
     private void tfComplementoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfComplementoActionPerformed
@@ -325,6 +343,37 @@ public class Denunciar extends javax.swing.JFrame {
     private void tfNomeSuspeitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNomeSuspeitoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfNomeSuspeitoActionPerformed
+
+    private void btnSelecionarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnSelecionarKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            JFileChooser fc = new JFileChooser();
+            int res = fc.showOpenDialog(null);
+
+            if (res == JFileChooser.APPROVE_OPTION) {
+                File arquivo = fc.getSelectedFile();
+
+                try {
+                    imagem = ManipularImagem.setImagemDimensao(arquivo.getAbsolutePath(), 400, 300);
+
+                    lbEvidencia.setIcon(new ImageIcon(imagem));
+
+                } catch (Exception ex) {
+                    // System.out.println(ex.printStackTrace().toString());
+                }
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Voce nao selecionou nenhum arquivo.");
+            }
+        }
+    }//GEN-LAST:event_btnSelecionarKeyPressed
+
+    private void jIbamasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jIbamasKeyPressed
+
+    }//GEN-LAST:event_jIbamasKeyPressed
+
+    private void jIbamasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jIbamasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jIbamasActionPerformed
 
     /**
      * @param args the command line arguments

@@ -276,7 +276,10 @@ public class Notificar extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEvnviarActionPerformed
 
     private void btnVoltarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnVoltarKeyPressed
-        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            new HomePageUsuario().setVisible(true);
+            dispose();
+        }
     }//GEN-LAST:event_btnVoltarKeyPressed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed

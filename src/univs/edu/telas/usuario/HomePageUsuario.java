@@ -5,6 +5,7 @@
  */
 package univs.edu.telas.usuario;
 
+import java.awt.event.KeyEvent;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
@@ -24,7 +25,7 @@ public class HomePageUsuario extends javax.swing.JFrame {
     CorpoDeBombeiros bombeiro = new CorpoDeBombeiros();
     DateTimeFormatter formatoData = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     LocalDateTime data = LocalDateTime.now();
-    
+
     public static boolean editar;
 
     /**
@@ -77,6 +78,11 @@ public class HomePageUsuario extends javax.swing.JFrame {
                 bntNotificarActionPerformed(evt);
             }
         });
+        bntNotificar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                bntNotificarKeyPressed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel1.setText("Notificar");
@@ -88,6 +94,11 @@ public class HomePageUsuario extends javax.swing.JFrame {
         btnDenunciar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDenunciarActionPerformed(evt);
+            }
+        });
+        btnDenunciar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnDenunciarKeyPressed(evt);
             }
         });
 
@@ -280,7 +291,7 @@ public class HomePageUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_mnInfoActionPerformed
 
     private void mnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnSairActionPerformed
-        
+
     }//GEN-LAST:event_mnSairActionPerformed
 
     private void mnBombeiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnBombeiroActionPerformed
@@ -297,6 +308,28 @@ public class HomePageUsuario extends javax.swing.JFrame {
         new GenericLogin().setVisible(true);
         dispose();
     }//GEN-LAST:event_mnsairActionPerformed
+
+    private void bntNotificarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_bntNotificarKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            if (dao.pesquisarNotDen(Usuario.usuario, formatoData.format(data), "Notificação").size() == 3) {
+                JOptionPane.showMessageDialog(null, "Limite de Notificações Diarias Atingido!");
+            } else {
+                new Notificar().setVisible(true);
+                dispose();
+            }
+        }
+    }//GEN-LAST:event_bntNotificarKeyPressed
+
+    private void btnDenunciarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnDenunciarKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            if (dao.pesquisarNotDen(Usuario.usuario, formatoData.format(data), "Denuncia").size() == 3) {
+                JOptionPane.showMessageDialog(null, "Limite de Denuncias Diarias Atingido!");
+            } else {
+                new Denunciar().setVisible(true);
+                dispose();
+            }
+        }
+    }//GEN-LAST:event_btnDenunciarKeyPressed
 
     /**
      * @param args the command line arguments

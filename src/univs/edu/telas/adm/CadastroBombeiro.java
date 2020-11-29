@@ -429,7 +429,15 @@ public class CadastroBombeiro extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnVoltarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnVoltarKeyPressed
-        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            if (HomePageBombeiro.editar == true) {
+                new HomePageBombeiro().setVisible(true);
+                dispose();
+            } else {
+                new ListaCorpoDeBombeiros().setVisible(true);
+                dispose();
+            }
+        }
     }//GEN-LAST:event_btnVoltarKeyPressed
 
     /**

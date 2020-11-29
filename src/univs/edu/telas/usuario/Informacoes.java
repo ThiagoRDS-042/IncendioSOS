@@ -5,6 +5,7 @@
  */
 package univs.edu.telas.usuario;
 
+import java.awt.event.KeyEvent;
 import java.util.List;
 import univs.edu.bombeiro.CorpoDeBombeiros;
 import univs.edu.dao.GenericDAO;
@@ -50,13 +51,13 @@ public class Informacoes extends javax.swing.JFrame {
     }
 
     public void exibirInfo() {
-        
+
         if (cbOrgaos.getSelectedItem() != null) {
             String[] identificacao = cbOrgaos.getSelectedItem().toString().split("-");
 
             if (identificacao[0].matches("(.*)Cia/(.*)")) {
                 CorpoDeBombeiros bombeiro = (CorpoDeBombeiros) dao.pesquisarIdentificacao(identificacao[0]);
-                
+
                 lbCidade.setText(bombeiro.getCidadeBombeiro());
                 lbCompanhiaNome.setText(bombeiro.getCompanhiaBatalhao());
                 lbEmail.setText(bombeiro.getEmailBombeiro());
@@ -64,19 +65,19 @@ public class Informacoes extends javax.swing.JFrame {
                 lbNomeResponsavel.setText(bombeiro.getNomeDoComandante());
                 lbRua.setText(bombeiro.getRuaBombeiro());
                 lbTelefone.setText(bombeiro.getTelefoneBombeiro());
-                
+
                 lbCnpjTitulo.setText("");
                 lbCnpj.setText("");
                 lbCompanhia.setText("Companhia/Batalhão:");
                 lbComandante.setText("Nome do Comandante:");
-                
-            } else if(identificacao.length > 1 && identificacao[2].matches("(.*)@gmail.com(.*)")){
+
+            } else if (identificacao.length > 1 && identificacao[2].matches("(.*)@gmail.com(.*)")) {
                 Ibama ibama = (Ibama) dao.pesquisarEmail(identificacao[2]);
-                
+
                 lbCompanhia.setText("Nome:");
                 lbComandante.setText("Responsável:");
                 lbCnpjTitulo.setText("CNPJ:");
-                
+
                 lbCidade.setText(ibama.getCidadeIbama());
                 lbCompanhiaNome.setText(ibama.getNomeIbama());
                 lbEmail.setText(ibama.getEmailIbama());
@@ -85,10 +86,10 @@ public class Informacoes extends javax.swing.JFrame {
                 lbRua.setText(ibama.getRuaIbama());
                 lbTelefone.setText(ibama.getTelefoneIbama());
                 lbCnpj.setText(ibama.getCnpj());
-                
+
             }
         }
-        
+
     }
 
     /**
@@ -354,11 +355,12 @@ public class Informacoes extends javax.swing.JFrame {
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addGap(0, 0, Short.MAX_VALUE))
                                     .addComponent(lbEmail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lbRua, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel5)
+                                            .addComponent(lbRua, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(0, 0, Short.MAX_VALUE)))
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel3Layout.createSequentialGroup()
                                         .addGap(10, 10, 10)
@@ -393,7 +395,7 @@ public class Informacoes extends javax.swing.JFrame {
                     .addComponent(lbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -442,6 +444,11 @@ public class Informacoes extends javax.swing.JFrame {
                 btnVoltarActionPerformed(evt);
             }
         });
+        btnVoltar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnVoltarKeyPressed(evt);
+            }
+        });
         jPanel4.add(btnVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 620, 80, 35));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/backgroundInfo.jpg"))); // NOI18N
@@ -480,6 +487,13 @@ public class Informacoes extends javax.swing.JFrame {
         new HomePageUsuario().setVisible(true);
         dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
+
+    private void btnVoltarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnVoltarKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            new HomePageUsuario().setVisible(true);
+            dispose();
+        }
+    }//GEN-LAST:event_btnVoltarKeyPressed
 
     /**
      * @param args the command line arguments

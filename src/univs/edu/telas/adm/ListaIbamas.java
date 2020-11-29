@@ -5,6 +5,7 @@
  */
 package univs.edu.telas.adm;
 
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import univs.edu.dao.GenericDAO;
 import univs.edu.ibama.Ibama;
@@ -16,7 +17,7 @@ import univs.edu.telas.ibama.HomePageIbama;
  * @author GGrio
  */
 public class ListaIbamas extends javax.swing.JFrame {
-    
+
     Ibama ibama = new Ibama();
     GenericDAO dao = new GenericDAO();
 
@@ -27,11 +28,11 @@ public class ListaIbamas extends javax.swing.JFrame {
         initComponents();
         atualizarTabela();
     }
-    
-    public void atualizarTabela(){
+
+    public void atualizarTabela() {
         IbamaTableModel tabela = new IbamaTableModel(dao.listarObjetos("Ibama"));
         Tabela.setModel(tabela);
-    
+
     }
 
     /**
@@ -58,11 +59,21 @@ public class ListaIbamas extends javax.swing.JFrame {
                 btnExcluirActionPerformed(evt);
             }
         });
+        btnExcluir.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnExcluirKeyPressed(evt);
+            }
+        });
 
         btnNovo.setText("Novo");
         btnNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNovoActionPerformed(evt);
+            }
+        });
+        btnNovo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnNovoKeyPressed(evt);
             }
         });
 
@@ -86,6 +97,11 @@ public class ListaIbamas extends javax.swing.JFrame {
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVoltarActionPerformed(evt);
+            }
+        });
+        btnVoltar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnVoltarKeyPressed(evt);
             }
         });
 
@@ -144,7 +160,7 @@ public class ListaIbamas extends javax.swing.JFrame {
 
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
         HomePageIbama.editar = false;
-        
+
         new CadastroIbama().setVisible(true);
         dispose();
     }//GEN-LAST:event_btnNovoActionPerformed
@@ -153,6 +169,36 @@ public class ListaIbamas extends javax.swing.JFrame {
         new HomePageAdm().setVisible(true);
         dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
+
+    private void btnVoltarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnVoltarKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            new HomePageAdm().setVisible(true);
+            dispose();
+        }
+    }//GEN-LAST:event_btnVoltarKeyPressed
+
+    private void btnNovoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnNovoKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            HomePageIbama.editar = false;
+
+            new CadastroIbama().setVisible(true);
+            dispose();
+        }
+    }//GEN-LAST:event_btnNovoKeyPressed
+
+    private void btnExcluirKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnExcluirKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            int linha = Tabela.getSelectedRow();
+            if (linha == -1) {
+                JOptionPane.showMessageDialog(null, "Selecione um IBAMA!");
+            } else if (JOptionPane.showConfirmDialog(null, "Deseja realmente excluir este IBAMA?", "Excluir", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                ibama = (Ibama) dao.pesquisarEmail((String) Tabela.getValueAt(linha, 1));
+                dao.excluir(ibama);
+                JOptionPane.showMessageDialog(null, "IBAMA excluído com sucesso!");
+                atualizarTabela();
+            }
+        }
+    }//GEN-LAST:event_btnExcluirKeyPressed
 
     /**
      * @param args the command line arguments

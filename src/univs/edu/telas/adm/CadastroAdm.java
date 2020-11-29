@@ -5,6 +5,7 @@
  */
 package univs.edu.telas.adm;
 
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import univs.edu.adm.Adm;
 import univs.edu.dao.GenericDAO;
@@ -96,11 +97,21 @@ public class CadastroAdm extends javax.swing.JFrame {
                 btnCadastrarActionPerformed(evt);
             }
         });
+        btnCadastrar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnCadastrarKeyPressed(evt);
+            }
+        });
 
         btnVoltar.setText("Voltar");
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVoltarActionPerformed(evt);
+            }
+        });
+        btnVoltar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnVoltarKeyPressed(evt);
             }
         });
 
@@ -116,9 +127,9 @@ public class CadastroAdm extends javax.swing.JFrame {
                             .addComponent(jLabel5)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(btnCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addComponent(tfSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel4)
@@ -195,6 +206,34 @@ public class CadastroAdm extends javax.swing.JFrame {
     private void tfEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfEmailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfEmailActionPerformed
+
+    private void btnVoltarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnVoltarKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            new HomePageAdm().setVisible(true);
+            dispose();
+        }
+    }//GEN-LAST:event_btnVoltarKeyPressed
+
+    private void btnCadastrarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnCadastrarKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            if (tfEmail.getText().isEmpty() || tfSenha.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Preencha todos os Campos !");
+            } else {
+                adm.setEmailAdm(tfEmail.getText());
+                adm.setSenhaAdm(Criptografia.criptografar(tfSenha.getText()));
+
+                if (HomePageAdm.editar == true) {
+                    dao.salvar(adm);
+                    new HomePageAdm().setVisible(true);
+                    dispose();
+                } else {
+                    dao.salvar(adm);
+                }
+                limparCampos();
+            }
+
+        }
+    }//GEN-LAST:event_btnCadastrarKeyPressed
 
     /**
      * @param args the command line arguments

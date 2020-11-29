@@ -44,6 +44,8 @@ public class HomePageBombeiro extends javax.swing.JFrame {
                 TabelaNotificacao.setModel(tabela);
             } else {
                 JOptionPane.showMessageDialog(null, "Nenhu resultado encontrado para a data: " + tfPesquisar.getText());
+                NotificacaoTableModel tabela = new NotificacaoTableModel(dao.listarNotDen(CorpoDeBombeiros.bombeiro, "Notificação", tfPesquisar.getText()));
+                TabelaNotificacao.setModel(tabela);
             }
 
         } else {
@@ -91,12 +93,19 @@ public class HomePageBombeiro extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        TabelaNotificacao.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jScrollPane1.setViewportView(TabelaNotificacao);
 
         btnAbrir.setText("Abrir Notificação");
+        btnAbrir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAbrir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAbrirActionPerformed(evt);
+            }
+        });
+        btnAbrir.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnAbrirKeyPressed(evt);
             }
         });
 
@@ -113,6 +122,7 @@ public class HomePageBombeiro extends javax.swing.JFrame {
 
         btnPesquisar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         btnPesquisar.setText("Pesquisar");
+        btnPesquisar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPesquisarActionPerformed(evt);
@@ -287,6 +297,19 @@ public class HomePageBombeiro extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_btnPesquisarKeyPressed
+
+    private void btnAbrirKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnAbrirKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            int linha = TabelaNotificacao.getSelectedRow();
+            if (linha == -1) {
+                JOptionPane.showMessageDialog(null, "Selecione uma Notificação!");
+            } else {
+                Notificacao.notificacao = (Notificacao) dao.pesquisarId((int) TabelaNotificacao.getValueAt(linha, 0), "Notificação");
+                new DetalhesNotificacao().setVisible(true);
+                dispose();
+            }
+        }
+    }//GEN-LAST:event_btnAbrirKeyPressed
 
     /**
      * @param args the command line arguments

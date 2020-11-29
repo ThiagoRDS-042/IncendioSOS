@@ -462,7 +462,15 @@ public class CadastroIbama extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnVoltarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnVoltarKeyPressed
-        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            if (HomePageIbama.editar == true) {
+                new HomePageIbama().setVisible(true);
+                dispose();
+            } else {
+                new ListaIbamas().setVisible(true);
+                dispose();
+            }
+        }
     }//GEN-LAST:event_btnVoltarKeyPressed
 
     /**

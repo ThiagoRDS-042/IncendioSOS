@@ -5,6 +5,7 @@
  */
 package univs.edu.telas.adm;
 
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import univs.edu.bombeiro.CorpoDeBombeiros;
 import univs.edu.bombeiro.CorpoDeBombeirosTableModel;
@@ -73,6 +74,11 @@ public class ListaCorpoDeBombeiros extends javax.swing.JFrame {
                 btnVoltarActionPerformed(evt);
             }
         });
+        btnVoltar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnVoltarKeyPressed(evt);
+            }
+        });
 
         btnExcluir.setText("Excluir");
         btnExcluir.addActionListener(new java.awt.event.ActionListener() {
@@ -80,11 +86,21 @@ public class ListaCorpoDeBombeiros extends javax.swing.JFrame {
                 btnExcluirActionPerformed(evt);
             }
         });
+        btnExcluir.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnExcluirKeyPressed(evt);
+            }
+        });
 
         btnNovo.setText("Novo");
         btnNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNovoActionPerformed(evt);
+            }
+        });
+        btnNovo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnNovoKeyPressed(evt);
             }
         });
 
@@ -136,7 +152,7 @@ public class ListaCorpoDeBombeiros extends javax.swing.JFrame {
 
     private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
         HomePageBombeiro.editar = false;
-        
+
         new CadastroBombeiro().setVisible(true);
         dispose();
     }//GEN-LAST:event_btnNovoActionPerformed
@@ -152,6 +168,36 @@ public class ListaCorpoDeBombeiros extends javax.swing.JFrame {
             atualizarTabela();
         }
     }//GEN-LAST:event_btnExcluirActionPerformed
+
+    private void btnVoltarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnVoltarKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            new HomePageAdm().setVisible(true);
+            dispose();
+        }
+    }//GEN-LAST:event_btnVoltarKeyPressed
+
+    private void btnNovoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnNovoKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            HomePageBombeiro.editar = false;
+
+            new CadastroBombeiro().setVisible(true);
+            dispose();
+        }
+    }//GEN-LAST:event_btnNovoKeyPressed
+
+    private void btnExcluirKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnExcluirKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            int linha = Tabela.getSelectedRow();
+            if (linha == -1) {
+                JOptionPane.showMessageDialog(null, "Selecione um Corpo de Bombeiro!");
+            } else if (JOptionPane.showConfirmDialog(null, "Deseja realmente excluir este Corpo de Bombeiro?", "Excluir", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                bombeiro = (CorpoDeBombeiros) dao.pesquisarIdentificacao((String) Tabela.getValueAt(linha, 0));
+                dao.excluir(bombeiro);
+                JOptionPane.showMessageDialog(null, "Corpo de Bombeiro excluído com sucesso!");
+                atualizarTabela();
+            }
+        }
+    }//GEN-LAST:event_btnExcluirKeyPressed
 
     /**
      * @param args the command line arguments

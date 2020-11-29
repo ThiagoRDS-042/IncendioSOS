@@ -5,6 +5,7 @@
  */
 package univs.edu.telas.adm;
 
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import univs.edu.adm.Adm;
 import univs.edu.dao.GenericDAO;
@@ -61,11 +62,21 @@ public class HomePageAdm extends javax.swing.JFrame {
                 btnCadastroAdmActionPerformed(evt);
             }
         });
+        btnCadastroAdm.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnCadastroAdmKeyPressed(evt);
+            }
+        });
 
         btnCadastroAdm2.setText("Relatório");
         btnCadastroAdm2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCadastroAdm2ActionPerformed(evt);
+            }
+        });
+        btnCadastroAdm2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnCadastroAdm2KeyPressed(evt);
             }
         });
 
@@ -237,6 +248,22 @@ public class HomePageAdm extends javax.swing.JFrame {
         new ListaCorpoDeBombeiros().setVisible(true);
         dispose();
     }//GEN-LAST:event_mnBombeiroActionPerformed
+
+    private void btnCadastroAdmKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnCadastroAdmKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            editar = false;
+
+            new CadastroAdm().setVisible(true);
+            dispose();
+        }
+    }//GEN-LAST:event_btnCadastroAdmKeyPressed
+
+    private void btnCadastroAdm2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnCadastroAdm2KeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            new Relatorio().setVisible(true);
+            dispose();
+        }
+    }//GEN-LAST:event_btnCadastroAdm2KeyPressed
 
     /**
      * @param args the command line arguments

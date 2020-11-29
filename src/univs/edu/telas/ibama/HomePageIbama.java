@@ -42,6 +42,8 @@ public class HomePageIbama extends javax.swing.JFrame {
                 TabelaDenuncia.setModel(tabela);
             } else {
                 JOptionPane.showMessageDialog(null, "Nenhum resultado encontrado para a data: " + tfPesquisar.getText());
+                DenunciaTableModel tabela = new DenunciaTableModel(dao.listarNotDen(Ibama.ibama, "Denuncia", tfPesquisar.getText()));
+                TabelaDenuncia.setModel(tabela);
             }
 
         } else {
@@ -90,12 +92,19 @@ public class HomePageIbama extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        TabelaDenuncia.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jScrollPane1.setViewportView(TabelaDenuncia);
 
         btnAbrir.setText("Abrir Denúncia");
+        btnAbrir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAbrir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAbrirActionPerformed(evt);
+            }
+        });
+        btnAbrir.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnAbrirKeyPressed(evt);
             }
         });
 
@@ -104,6 +113,7 @@ public class HomePageIbama extends javax.swing.JFrame {
 
         btnPesquisar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         btnPesquisar.setText("Pesquisar");
+        btnPesquisar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnPesquisar.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 btnPesquisarFocusLost(evt);
@@ -123,6 +133,14 @@ public class HomePageIbama extends javax.swing.JFrame {
         jMenuBar1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
         jMenu5.setMargin(new java.awt.Insets(0, 400, 0, 0));
+        jMenu5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu5MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jMenu5MouseEntered(evt);
+            }
+        });
         jMenuBar1.add(jMenu5);
 
         configs.setText("Configurações");
@@ -276,6 +294,27 @@ public class HomePageIbama extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_btnPesquisarKeyPressed
+
+    private void jMenu5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseEntered
+
+    }//GEN-LAST:event_jMenu5MouseEntered
+
+    private void jMenu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseClicked
+
+    }//GEN-LAST:event_jMenu5MouseClicked
+
+    private void btnAbrirKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnAbrirKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            int linha = TabelaDenuncia.getSelectedRow();
+            if (linha == -1) {
+                JOptionPane.showMessageDialog(null, "Selecione uma Denuncia!");
+            } else {
+                Denuncia.denuncia = (Denuncia) dao.pesquisarId((int) TabelaDenuncia.getValueAt(linha, 0), "Denuncia");
+                new DetalhesDenuncia().setVisible(true);
+                dispose();
+            }
+        }
+    }//GEN-LAST:event_btnAbrirKeyPressed
 
     /**
      * @param args the command line arguments

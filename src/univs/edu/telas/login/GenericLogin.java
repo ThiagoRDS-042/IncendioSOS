@@ -116,6 +116,11 @@ public class GenericLogin extends javax.swing.JFrame {
             btnCadastreseActionPerformed(evt);
         }
     });
+    btnCadastrese.addKeyListener(new java.awt.event.KeyAdapter() {
+        public void keyPressed(java.awt.event.KeyEvent evt) {
+            btnCadastreseKeyPressed(evt);
+        }
+    });
     jPanel2.add(btnCadastrese);
     btnCadastrese.setBounds(290, 400, 100, 35);
 
@@ -340,6 +345,15 @@ public class GenericLogin extends javax.swing.JFrame {
     private void btnVoltarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnVoltarKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnVoltarKeyPressed
+
+    private void btnCadastreseKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnCadastreseKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            HomePageUsuario.editar = false;
+
+            new CadastroUsuario().setVisible(true);
+            dispose();
+        }
+    }//GEN-LAST:event_btnCadastreseKeyPressed
 
     /**
      * @param args the command line arguments
