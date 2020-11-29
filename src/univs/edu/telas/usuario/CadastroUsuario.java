@@ -197,10 +197,10 @@ public class CadastroUsuario extends javax.swing.JFrame {
         });
         jPanel1.add(btnCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 450, 100, 35));
 
-        lTitulo.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        lTitulo.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         lTitulo.setForeground(new java.awt.Color(255, 255, 255));
         lTitulo.setText("Cadastro de Usuário");
-        jPanel1.add(lTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, -1, -1));
+        jPanel1.add(lTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, -1, -1));
 
         tfEstado.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jPanel1.add(tfEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 320, 35));
