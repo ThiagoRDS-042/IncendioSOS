@@ -26,8 +26,6 @@ public class HomePageAdm extends javax.swing.JFrame {
      */
     public HomePageAdm() {
         initComponents();
-
-        lbTitulo.setText("Bem vindo " + Adm.adm.getEmailAdm());
     }
 
     /**
@@ -39,9 +37,12 @@ public class HomePageAdm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         btnCadastroAdm = new javax.swing.JButton();
         btnCadastroAdm2 = new javax.swing.JButton();
-        lbTitulo = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
@@ -56,6 +57,20 @@ public class HomePageAdm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Bem vindo Administrador!");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/cabecalho.jpg"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 260, 60));
+
+        btnCadastroAdm.setBackground(new java.awt.Color(255, 51, 153));
+        btnCadastroAdm.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        btnCadastroAdm.setForeground(new java.awt.Color(255, 255, 255));
         btnCadastroAdm.setText("Cadastro de ADM");
         btnCadastroAdm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,7 +82,11 @@ public class HomePageAdm extends javax.swing.JFrame {
                 btnCadastroAdmKeyPressed(evt);
             }
         });
+        jPanel1.add(btnCadastroAdm, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 140, 40));
 
+        btnCadastroAdm2.setBackground(new java.awt.Color(255, 51, 153));
+        btnCadastroAdm2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        btnCadastroAdm2.setForeground(new java.awt.Color(255, 255, 255));
         btnCadastroAdm2.setText("Relatório");
         btnCadastroAdm2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,12 +98,15 @@ public class HomePageAdm extends javax.swing.JFrame {
                 btnCadastroAdm2KeyPressed(evt);
             }
         });
+        jPanel1.add(btnCadastroAdm2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, 140, 40));
 
-        lbTitulo.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/backgroundInfo.jpg"))); // NOI18N
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 260, 160));
 
         jMenuBar1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
-        jMenu2.setMargin(new java.awt.Insets(0, 100, 0, 0));
+        jMenu2.setBackground( new java.awt.Color(0, 0 ,0 ,0));
+        jMenu2.setMargin(new java.awt.Insets(0, 80, 0, 0));
         jMenuBar1.add(jMenu2);
 
         jMenu1.setText("Informações");
@@ -170,28 +192,11 @@ public class HomePageAdm extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(68, 68, 68)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnCadastroAdm2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnCadastroAdm, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(83, 83, 83)
-                        .addComponent(lbTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(78, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(lbTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(btnCadastroAdm, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
-                .addComponent(btnCadastroAdm2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(40, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -304,10 +309,13 @@ public class HomePageAdm extends javax.swing.JFrame {
     private javax.swing.JButton btnCadastroAdm;
     private javax.swing.JButton btnCadastroAdm2;
     private javax.swing.JMenu configs;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JLabel lbTitulo;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JMenuItem mnBombeiro;
     private javax.swing.JMenuItem mnEditar;
     private javax.swing.JMenuItem mnExcluir;
