@@ -255,7 +255,7 @@ public class HomePageUsuario extends javax.swing.JFrame {
 
     private void bntNotificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntNotificarActionPerformed
         if (dao.pesquisarNotDen(Usuario.usuario, formatoData.format(data), "Notificação").size() == 3) {
-            JOptionPane.showMessageDialog(null, "Limite de Notificações Diarias Atingido!");
+            JOptionPane.showMessageDialog(null, "Limite de Notificações Diarias Atingido!", "Aviso", 2);
         } else {
             new Notificar().setVisible(true);
             dispose();
@@ -264,7 +264,7 @@ public class HomePageUsuario extends javax.swing.JFrame {
 
     private void btnDenunciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDenunciarActionPerformed
         if (dao.pesquisarNotDen(Usuario.usuario, formatoData.format(data), "Denuncia").size() == 3) {
-            JOptionPane.showMessageDialog(null, "Limite de Denuncias Diarias Atingido!");
+            JOptionPane.showMessageDialog(null, "Limite de Denuncias Diarias Atingido!", "Aviso", 2);
         } else {
             new Denunciar().setVisible(true);
             dispose();
@@ -279,7 +279,7 @@ public class HomePageUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_mnEditarActionPerformed
 
     private void mnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnExcluirActionPerformed
-        if (JOptionPane.showConfirmDialog(null, "Deseja realmente excluir sua conta?", "Excluir", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+        if (JOptionPane.showConfirmDialog(null, "Deseja realmente excluir sua conta?", "Excluir", 0, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
             dao.excluir(Usuario.usuario);
             new GenericLogin().setVisible(true);
             dispose();
@@ -312,7 +312,7 @@ public class HomePageUsuario extends javax.swing.JFrame {
     private void bntNotificarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_bntNotificarKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             if (dao.pesquisarNotDen(Usuario.usuario, formatoData.format(data), "Notificação").size() == 3) {
-                JOptionPane.showMessageDialog(null, "Limite de Notificações Diarias Atingido!");
+                JOptionPane.showMessageDialog(null, "Limite de Notificações Diarias Atingido!", "Aviso", 2);
             } else {
                 new Notificar().setVisible(true);
                 dispose();
@@ -323,7 +323,7 @@ public class HomePageUsuario extends javax.swing.JFrame {
     private void btnDenunciarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnDenunciarKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             if (dao.pesquisarNotDen(Usuario.usuario, formatoData.format(data), "Denuncia").size() == 3) {
-                JOptionPane.showMessageDialog(null, "Limite de Denuncias Diarias Atingido!");
+                JOptionPane.showMessageDialog(null, "Limite de Denuncias Diarias Atingido!", "Aviso", 2);
             } else {
                 new Denunciar().setVisible(true);
                 dispose();

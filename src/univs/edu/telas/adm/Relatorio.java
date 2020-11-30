@@ -60,7 +60,7 @@ public class Relatorio extends javax.swing.JFrame {
         }
 
         if (nots.isEmpty() && dens.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Sem registros de ocorrêcia para a cidade : " + tfPesquisa.getText());
+            JOptionPane.showMessageDialog(null, "Sem registros de ocorrêcia para a cidade : " + tfPesquisa.getText(), "Erro", 2);
             limparTexto();
         } else {
 

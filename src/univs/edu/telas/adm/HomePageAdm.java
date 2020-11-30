@@ -225,7 +225,7 @@ public class HomePageAdm extends javax.swing.JFrame {
     }//GEN-LAST:event_mnEditarActionPerformed
 
     private void mnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnExcluirActionPerformed
-        if (JOptionPane.showConfirmDialog(null, "Deseja realmente excluir sua conta?", "Excluir", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+        if (JOptionPane.showConfirmDialog(null, "Deseja realmente excluir sua conta?", "Excluir", 0, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
             dao.excluir(Adm.adm);
             new GenericLogin().setVisible(true);
             dispose();

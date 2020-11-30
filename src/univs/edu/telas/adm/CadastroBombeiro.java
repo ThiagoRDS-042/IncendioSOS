@@ -276,7 +276,7 @@ public class CadastroBombeiro extends javax.swing.JFrame {
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         if (tfIdentificacao.getText().isEmpty() || tfNomeDeComandante.getText().isEmpty() || tfEstado.getText().isEmpty() || tfCidade.getText().isEmpty() || tfRua.getText().isEmpty() || tfTelefone.getText().isEmpty() || tfEmail.getText().isEmpty() || tfSenha.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Preencha todos os Campos !");
+            JOptionPane.showMessageDialog(null, "Preencha todos os Campos obrigatórios!", "Erro", 2);
         } else {
             bombeiro.setCompanhiaBatalhao(tfIdentificacao.getText());
             bombeiro.setNomeDoComandante(tfNomeDeComandante.getText());
@@ -320,7 +320,7 @@ public class CadastroBombeiro extends javax.swing.JFrame {
 
         if (!tfEmail.getText().isEmpty()) {
             if (!tfEmail.getText().matches("(.*)@gmail.com(.*)")) {
-                JOptionPane.showMessageDialog(null, "Necessaria a inclusão do dominio '@gmail.com'!");
+                JOptionPane.showMessageDialog(null, "Necessaria a inclusão do dominio '@gmail.com'!", "Erro", 2);
                 tfEmail.setText("");
                 tfEmail.grabFocus();
             }
@@ -331,12 +331,12 @@ public class CadastroBombeiro extends javax.swing.JFrame {
             if (HomePageBombeiro.editar == true && (CorpoDeBombeiros.bombeiro.getIdBombeiro() == bombeiro.getIdBombeiro())) {
 
             } else {
-                JOptionPane.showMessageDialog(null, "Email já cadastrado!");
+                JOptionPane.showMessageDialog(null, "Email já cadastrado!", "Erro", 2);
                 tfEmail.setText("");
                 tfEmail.grabFocus();
             }
         } else if (dao.pesquisarEmail(tfEmail.getText()) != null) {
-            JOptionPane.showMessageDialog(null, "Email já cadastrado!");
+            JOptionPane.showMessageDialog(null, "Email já cadastrado!", "Erro", 2);
             tfEmail.setText("");
             tfEmail.grabFocus();
         }
@@ -350,7 +350,7 @@ public class CadastroBombeiro extends javax.swing.JFrame {
     private void btnCadastrarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnCadastrarKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             if (tfIdentificacao.getText().isEmpty() || tfNomeDeComandante.getText().isEmpty() || tfEstado.getText().isEmpty() || tfCidade.getText().isEmpty() || tfRua.getText().isEmpty() || tfTelefone.getText().isEmpty() || tfEmail.getText().isEmpty() || tfSenha.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Preencha todos os Campos !");
+                JOptionPane.showMessageDialog(null, "Preencha todos os campos obrigatórios!", "Erro", 2);
             } else {
                 bombeiro.setCompanhiaBatalhao(tfIdentificacao.getText());
                 bombeiro.setNomeDoComandante(tfNomeDeComandante.getText());
@@ -380,12 +380,12 @@ public class CadastroBombeiro extends javax.swing.JFrame {
             if (HomePageBombeiro.editar == true && (CorpoDeBombeiros.bombeiro.getIdBombeiro() == bombeiro.getIdBombeiro())) {
 
             } else {
-                JOptionPane.showMessageDialog(null, "Identificação já cadastrada!");
+                JOptionPane.showMessageDialog(null, "Identificação já cadastrada!", "Erro", 2);
                 tfIdentificacao.setText("");
                 tfIdentificacao.grabFocus();
             }
         } else if (dao.pesquisarIdentificacao(tfIdentificacao.getText()) != null) {
-            JOptionPane.showMessageDialog(null, "Identificação já cadastrada!");
+            JOptionPane.showMessageDialog(null, "Identificação já cadastrada!", "Erro", 2);
             tfIdentificacao.setText("");
             tfIdentificacao.grabFocus();
         }

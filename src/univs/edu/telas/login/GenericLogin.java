@@ -182,7 +182,7 @@ public class GenericLogin extends javax.swing.JFrame {
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         if (tfEmailLogin.getText().isEmpty() || tfSenhaLogin.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Preencha todos os Campos", "Campos", 2);
+            JOptionPane.showMessageDialog(null, "Preencha todos os Campos!", "Erro", 2);
         } else {
             login = true;
             if (dao.login(tfEmailLogin.getText(), Criptografia.criptografar(tfSenhaLogin.getText())) instanceof Usuario) {
@@ -192,10 +192,10 @@ public class GenericLogin extends javax.swing.JFrame {
                 Usuario.usuario = usuario;
 
                 if (dao.listarNotDen(usuario, "Notificação", "Undefined").size() > 1 || dao.listarNotDen(usuario, "Denuncia", "Undefined").size() > 1 || (dao.listarNotDen(usuario, "Notificação", "Undefined").size() == 1 && dao.listarNotDen(usuario, "Denuncia", "Undefined").size() == 1)) {
-                    JOptionPane.showMessageDialog(null, "Trotes excessivos detectados, sua conta será excluída!");
+                    JOptionPane.showMessageDialog(null, "Trotes excessivos detectados, sua conta será excluída!", "Aviso", 0);
                     limparCampos();
                 } else if (dao.listarNotDen(usuario, "Notificação", "Undefined").size() == 1 && usuario.isVerificaCondutaTrote() || (dao.listarNotDen(usuario, "Denuncia", "Undefined").size() == 1 && usuario.isVerificaCondutaTrote())) {
-                    if (JOptionPane.showConfirmDialog(null, "Trote detectado, caso isto ocorra novamente sua conta será excluída, você se compromete a não passar trotes navamente?", "Aviso", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                    if (JOptionPane.showConfirmDialog(null, "Trote detectado, caso isto ocorra novamente sua conta será excluída, você se compromete a não passar trotes navamente?", "Aviso", 2, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                         DetalhesNotificacao.trote = true;
                         usuario.setVerificaCondutaTrote(false);
                         dao.salvar(usuario);
@@ -216,7 +216,7 @@ public class GenericLogin extends javax.swing.JFrame {
                 bombeiro = (CorpoDeBombeiros) dao.login(tfEmailLogin.getText(), Criptografia.criptografar(tfSenhaLogin.getText()));
                 CorpoDeBombeiros.bombeiro = bombeiro;
 
-                if (!CorpoDeBombeiros.bombeiro.isVerificaConta() && JOptionPane.showConfirmDialog(null, "Edite sua conta agora, caso não queira voçê pode ter acesso a edição pelo painel configurações", "Excluir", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                if (!CorpoDeBombeiros.bombeiro.isVerificaConta() && JOptionPane.showConfirmDialog(null, "Edite sua conta agora, caso não queira voçê pode ter acesso a edição pelo painel configurações", "Aviso", 2, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                     HomePageBombeiro.editar = true;
 
                     new CadastroBombeiro().setVisible(true);
@@ -230,7 +230,7 @@ public class GenericLogin extends javax.swing.JFrame {
                 ibama = (Ibama) dao.login(tfEmailLogin.getText(), Criptografia.criptografar(tfSenhaLogin.getText()));
                 Ibama.ibama = ibama;
 
-                if (!Ibama.ibama.isVerificaConta() && JOptionPane.showConfirmDialog(null, "Edite sua conta agora, caso não queira voçê pode ter acesso a edição pelo painel configurações", "Excluir", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                if (!Ibama.ibama.isVerificaConta() && JOptionPane.showConfirmDialog(null, "Edite sua conta agora, caso não queira voçê pode ter acesso a edição pelo painel configurações", "Aviso", 2, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                     HomePageIbama.editar = true;
 
                     new CadastroIbama().setVisible(true);
@@ -247,7 +247,7 @@ public class GenericLogin extends javax.swing.JFrame {
                 dispose();
 
             } else {
-                JOptionPane.showMessageDialog(null, "Dados Invalidos!", "Dados", 2);
+                JOptionPane.showMessageDialog(null, "Dados Invalidos!", "Erro", 2);
                 limparCampos();
             }
 
@@ -257,7 +257,7 @@ public class GenericLogin extends javax.swing.JFrame {
     private void btnEntrarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnEntrarKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             if (tfEmailLogin.getText().isEmpty() || tfSenhaLogin.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Preencha todos os Campos", "Campos", 2);
+                JOptionPane.showMessageDialog(null, "Preencha todos os Campos!", "Erro", 2);
             } else {
                 login = true;
                 if (dao.login(tfEmailLogin.getText(), Criptografia.criptografar(tfSenhaLogin.getText())) instanceof Usuario) {
@@ -267,10 +267,10 @@ public class GenericLogin extends javax.swing.JFrame {
                     Usuario.usuario = usuario;
 
                     if (dao.listarNotDen(usuario, "Notificação", "Undefined").size() > 1 || dao.listarNotDen(usuario, "Denuncia", "Undefined").size() > 1 || (dao.listarNotDen(usuario, "Notificação", "Undefined").size() == 1 && dao.listarNotDen(usuario, "Denuncia", "Undefined").size() == 1)) {
-                        JOptionPane.showMessageDialog(null, "Trotes excessivos detectados, sua conta será excluída!");
+                        JOptionPane.showMessageDialog(null, "Trotes excessivos detectados, sua conta será excluída!", "Aviso", 0);
                         limparCampos();
                     } else if (dao.listarNotDen(usuario, "Notificação", "Undefined").size() == 1 && usuario.isVerificaCondutaTrote() || (dao.listarNotDen(usuario, "Denuncia", "Undefined").size() == 1 && usuario.isVerificaCondutaTrote())) {
-                        if (JOptionPane.showConfirmDialog(null, "Trote detectado, caso isto ocorra novamente sua conta será excluída, você se compromete a não passar trotes navamente?", "Aviso", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                        if (JOptionPane.showConfirmDialog(null, "Trote detectado, caso isto ocorra novamente sua conta será excluída, você se compromete a não passar trotes navamente?", "Aviso", 2, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                             DetalhesNotificacao.trote = true;
                             usuario.setVerificaCondutaTrote(false);
                             dao.salvar(usuario);
@@ -291,7 +291,7 @@ public class GenericLogin extends javax.swing.JFrame {
                     bombeiro = (CorpoDeBombeiros) dao.login(tfEmailLogin.getText(), Criptografia.criptografar(tfSenhaLogin.getText()));
                     CorpoDeBombeiros.bombeiro = bombeiro;
 
-                    if (!CorpoDeBombeiros.bombeiro.isVerificaConta() && JOptionPane.showConfirmDialog(null, "Edite sua conta agora, caso não queira voçê pode ter acesso a edição pelo painel configurações", "Excluir", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                    if (!CorpoDeBombeiros.bombeiro.isVerificaConta() && JOptionPane.showConfirmDialog(null, "Edite sua conta agora, caso não queira voçê pode ter acesso a edição pelo painel configurações", "Aviso", 2, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                         HomePageBombeiro.editar = true;
 
                         new CadastroBombeiro().setVisible(true);
@@ -305,7 +305,7 @@ public class GenericLogin extends javax.swing.JFrame {
                     ibama = (Ibama) dao.login(tfEmailLogin.getText(), Criptografia.criptografar(tfSenhaLogin.getText()));
                     Ibama.ibama = ibama;
 
-                    if (!Ibama.ibama.isVerificaConta() && JOptionPane.showConfirmDialog(null, "Edite sua conta agora, caso não queira voçê pode ter acesso a edição pelo painel configurações", "Excluir", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                    if (!Ibama.ibama.isVerificaConta() && JOptionPane.showConfirmDialog(null, "Edite sua conta agora, caso não queira voçê pode ter acesso a edição pelo painel configurações", "Aviso", 2, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                         HomePageIbama.editar = true;
 
                         new CadastroIbama().setVisible(true);
@@ -322,7 +322,7 @@ public class GenericLogin extends javax.swing.JFrame {
                     dispose();
 
                 } else {
-                    JOptionPane.showMessageDialog(null, "Dados Invalidos!", "Dados", 2);
+                    JOptionPane.showMessageDialog(null, "Dados Invalidos!", "Erro", 2);
                     limparCampos();
                 }
 

@@ -42,7 +42,7 @@ public class HomePageBombeiro extends javax.swing.JFrame {
                 NotificacaoTableModel tabela = new NotificacaoTableModel(dao.listarNotDen(CorpoDeBombeiros.bombeiro, "Notificação", tfPesquisar.getText()));
                 TabelaNotificacao.setModel(tabela);
             } else {
-                JOptionPane.showMessageDialog(null, "Nenhu resultado encontrado para a data: " + tfPesquisar.getText());
+                JOptionPane.showMessageDialog(null, "Nenhum resultado encontrado para a data: " + tfPesquisar.getText(), "Erro", 2);
                 NotificacaoTableModel tabela = new NotificacaoTableModel(dao.listarNotDen(CorpoDeBombeiros.bombeiro, "Notificação", tfPesquisar.getText()));
                 TabelaNotificacao.setModel(tabela);
             }
@@ -227,7 +227,7 @@ public class HomePageBombeiro extends javax.swing.JFrame {
     private void btnAbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirActionPerformed
         int linha = TabelaNotificacao.getSelectedRow();
         if (linha == -1) {
-            JOptionPane.showMessageDialog(null, "Selecione uma Notificação!");
+            JOptionPane.showMessageDialog(null, "Selecione uma Notificação!", "Erro", 2);
         } else {
             Notificacao.notificacao = (Notificacao) dao.pesquisarId((int) TabelaNotificacao.getValueAt(linha, 0), "Notificação");
             new DetalhesNotificacao().setVisible(true);
@@ -244,7 +244,7 @@ public class HomePageBombeiro extends javax.swing.JFrame {
     }//GEN-LAST:event_mnEditarActionPerformed
 
     private void mnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnExcluirActionPerformed
-        if (JOptionPane.showConfirmDialog(null, "Deseja realmente excluir sua conta?", "Excluir", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+        if (JOptionPane.showConfirmDialog(null, "Deseja realmente excluir sua conta?", "Excluir", 0, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
             dao.excluir(CorpoDeBombeiros.bombeiro);
             new GenericLogin().setVisible(true);
             dispose();
@@ -283,7 +283,7 @@ public class HomePageBombeiro extends javax.swing.JFrame {
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             int linha = TabelaNotificacao.getSelectedRow();
             if (linha == -1) {
-                JOptionPane.showMessageDialog(null, "Selecione uma Notificação!");
+                JOptionPane.showMessageDialog(null, "Selecione uma Notificação!", "Erro", 2);
             } else {
                 Notificacao.notificacao = (Notificacao) dao.pesquisarId((int) TabelaNotificacao.getValueAt(linha, 0), "Notificação");
                 new DetalhesNotificacao().setVisible(true);

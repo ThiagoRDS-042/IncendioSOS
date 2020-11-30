@@ -260,13 +260,13 @@ public class Denunciar extends javax.swing.JFrame {
             }
 
         } else {
-            JOptionPane.showMessageDialog(null, "Voce nao selecionou nenhum arquivo.");
+            JOptionPane.showMessageDialog(null, "Você não selecionou nenhum arquivo!", "Aviso", 2);
         }
     }//GEN-LAST:event_btnSelecionarActionPerformed
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
         if (tfDescricaoSuspeito.getText().isEmpty() || tfDetalhes.getText().isEmpty() || tfEndereco.getText().isEmpty() || tfComplemento.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Preencha todos os Campos !");
+            JOptionPane.showMessageDialog(null, "Preencha todos os Campos!", "Erro", 2);
         } else {
             String[] identificacao = jIbamas.getSelectedItem().toString().split("-");
             ibama = (Ibama) dao.pesquisarEmail(identificacao[2]);
@@ -296,7 +296,7 @@ public class Denunciar extends javax.swing.JFrame {
     private void btnEnviarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnEnviarKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             if (tfDescricaoSuspeito.getText().isEmpty() || tfDetalhes.getText().isEmpty() || tfEndereco.getText().isEmpty() || tfComplemento.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Preencha todos os Campos !");
+                JOptionPane.showMessageDialog(null, "Preencha todos os Campos!", "Erro", 2);
             } else {
                 String[] identificacao = jIbamas.getSelectedItem().toString().split("-");
                 ibama = (Ibama) dao.pesquisarEmail(identificacao[2]);
@@ -362,7 +362,7 @@ public class Denunciar extends javax.swing.JFrame {
                 }
 
             } else {
-                JOptionPane.showMessageDialog(null, "Voce nao selecionou nenhum arquivo.");
+                JOptionPane.showMessageDialog(null, "Você não selecionou nenhum arquivo!", "Aviso", 2);
             }
         }
     }//GEN-LAST:event_btnSelecionarKeyPressed

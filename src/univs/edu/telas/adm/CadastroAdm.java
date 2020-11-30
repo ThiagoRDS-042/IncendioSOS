@@ -163,7 +163,7 @@ public class CadastroAdm extends javax.swing.JFrame {
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         if (tfEmail.getText().isEmpty() || tfSenha.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Preencha todos os Campos !");
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos!", "Erro", 2);
         } else {
             adm.setEmailAdm(tfEmail.getText());
             adm.setSenhaAdm(Criptografia.criptografar(tfSenha.getText()));
@@ -185,12 +185,12 @@ public class CadastroAdm extends javax.swing.JFrame {
             if (HomePageAdm.editar == true && (Adm.adm.getIdAdm() == adm.getIdAdm())) {
 
             } else {
-                JOptionPane.showMessageDialog(null, "Email ja cadastrado!");
+                JOptionPane.showMessageDialog(null, "Email ja cadastrado!", "Erro", 2);
                 tfEmail.setText("");
                 tfEmail.grabFocus();
             }
         } else if (dao.pesquisarEmail(tfEmail.getText()) != null) {
-            JOptionPane.showMessageDialog(null, "Email ja cadastrado!");
+            JOptionPane.showMessageDialog(null, "Email ja cadastrado!", "Erro", 2);
             tfEmail.setText("");
             tfEmail.grabFocus();
         }
@@ -210,7 +210,7 @@ public class CadastroAdm extends javax.swing.JFrame {
     private void btnCadastrarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnCadastrarKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             if (tfEmail.getText().isEmpty() || tfSenha.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Preencha todos os Campos !");
+                JOptionPane.showMessageDialog(null, "Preencha todos os campos!", "Erro", 2);
             } else {
                 adm.setEmailAdm(tfEmail.getText());
                 adm.setSenhaAdm(Criptografia.criptografar(tfSenha.getText()));

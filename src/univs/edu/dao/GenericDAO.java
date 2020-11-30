@@ -33,45 +33,45 @@ public class GenericDAO<T> {
             Usuario usuario = (Usuario) generico;
             if (usuario.getIdUsuario() == 0) {
                 sessao.save(usuario);
-                JOptionPane.showMessageDialog(null, "Cadastrado Concluído!");
+                JOptionPane.showMessageDialog(null, "Cadastrado Concluído!", "Sucesso", 1);
             } else {
                 sessao.update(usuario);
                 if (GenericLogin.login == false && DetalhesNotificacao.trote == false) {
-                    JOptionPane.showMessageDialog(null, "Editado com Sucesso!");
+                    JOptionPane.showMessageDialog(null, "Editado com Sucesso!", "Sucesso", 1);
                 }
             }
         } else if (generico instanceof CorpoDeBombeiros) {
             CorpoDeBombeiros bombeiro = (CorpoDeBombeiros) generico;
             if (bombeiro.getIdBombeiro() == 0) {
                 sessao.save(bombeiro);
-                JOptionPane.showMessageDialog(null, "Cadastrado Concluído!");
+                JOptionPane.showMessageDialog(null, "Cadastrado Concluído!", "Sucesso", 1);
             } else {
                 sessao.update(bombeiro);
-                JOptionPane.showMessageDialog(null, "Editado com Sucesso!");
+                JOptionPane.showMessageDialog(null, "Editado com Sucesso!", "Sucesso", 1);
             }
         } else if (generico instanceof Ibama) {
             Ibama ibama = (Ibama) generico;
             if (ibama.getIdIbama() == 0) {
                 sessao.save(ibama);
-                JOptionPane.showMessageDialog(null, "Cadastrado Concluído!");
+                JOptionPane.showMessageDialog(null, "Cadastrado Concluído!", "Sucesso", 1);
             } else {
                 sessao.update(ibama);
-                JOptionPane.showMessageDialog(null, "Editado com Sucesso!");
+                JOptionPane.showMessageDialog(null, "Editado com Sucesso!", "Sucesso", 1);
             }
         } else if (generico instanceof Adm) {
             Adm adm = (Adm) generico;
             if (adm.getIdAdm() == 0) {
                 sessao.save(adm);
-                JOptionPane.showMessageDialog(null, "Cadastrado Concluído!");
+                JOptionPane.showMessageDialog(null, "Cadastrado Concluído!", "Sucesso", 1);
             } else {
                 sessao.update(adm);
-                JOptionPane.showMessageDialog(null, "Editado com Sucesso!");
+                JOptionPane.showMessageDialog(null, "Editado com Sucesso!", "Sucesso", 1);
             }
         } else if (generico instanceof Notificacao) {
             Notificacao notificacao = (Notificacao) generico;
             if (notificacao.getIdNotificacao() == 0) {
                 sessao.save(notificacao);
-                JOptionPane.showMessageDialog(null, "Notificação Enviada Com Sucesso!");
+                JOptionPane.showMessageDialog(null, "Notificação Enviada Com Sucesso!", "Sucesso", 1);
             } else {
                 sessao.update(notificacao);
             }
@@ -79,7 +79,7 @@ public class GenericDAO<T> {
             Denuncia denuncia = (Denuncia) generico;
             if (denuncia.getIdDenuncia() == 0) {
                 sessao.save(denuncia);
-                JOptionPane.showMessageDialog(null, "Denuncia Enviada Com Sucesso!");
+                JOptionPane.showMessageDialog(null, "Denuncia Enviada Com Sucesso!", "Sucesso", 1);
             } else {
                 sessao.update(denuncia);
             }

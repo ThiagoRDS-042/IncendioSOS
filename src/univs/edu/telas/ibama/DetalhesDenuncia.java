@@ -495,7 +495,7 @@ public class DetalhesDenuncia extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVoltar1ActionPerformed
 
     private void btnTroteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTroteActionPerformed
-        if (JOptionPane.showConfirmDialog(null, "Deseja Marcar esta Notificação como Trote?", "Marca como Trote", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+        if (JOptionPane.showConfirmDialog(null, "Deseja Marcar esta Notificação como Trote?", "Marca como Trote", 0, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
             Denuncia.denuncia.setTrote(true);
             dao.salvar(Denuncia.denuncia);
             Usuario usuario2 = Denuncia.denuncia.getUsuario();
@@ -511,7 +511,7 @@ public class DetalhesDenuncia extends javax.swing.JFrame {
             new Evidencia().setVisible(true);
             dispose();
         } else {
-            JOptionPane.showMessageDialog(null, "Sem evidências disponíveis!");
+            JOptionPane.showMessageDialog(null, "Sem evidências disponíveis!", "Aviso", 2);
         }
     }//GEN-LAST:event_lbEvidenciaMouseClicked
 
@@ -532,7 +532,7 @@ public class DetalhesDenuncia extends javax.swing.JFrame {
 
     private void btnTroteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnTroteKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            if (JOptionPane.showConfirmDialog(null, "Deseja Marcar esta Notificação como Trote?", "Marca como Trote", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+            if (JOptionPane.showConfirmDialog(null, "Deseja Marcar esta Notificação como Trote?", "Marca como Trote", 0, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                 Denuncia.denuncia.setTrote(true);
                 dao.salvar(Denuncia.denuncia);
                 Usuario usuario2 = Denuncia.denuncia.getUsuario();

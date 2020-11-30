@@ -304,7 +304,7 @@ public class CadastroIbama extends javax.swing.JFrame {
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         if (tfNome.getText().isEmpty() || tfResponsavel.getText().isEmpty() || tfCnpj.getText().isEmpty() || tfEstado.getText().isEmpty() || tfCidade.getText().isEmpty() || tfRua.getText().isEmpty() || tfTelefone.getText().isEmpty() || tfEmail.getText().isEmpty() || tfSenha.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Preencha todos os Campos !");
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos obrigatórios!", "Erro", 2);
         } else {
             ibama.setNomeIbama(tfNome.getText());
             ibama.setResponsavelIbama(tfResponsavel.getText());
@@ -349,7 +349,7 @@ public class CadastroIbama extends javax.swing.JFrame {
 
         if (!tfEmail.getText().isEmpty()) {
             if (!tfEmail.getText().matches("(.*)@gmail.com(.*)")) {
-                JOptionPane.showMessageDialog(null, "Necessaria a inclusão do dominio '@gmail.com'!");
+                JOptionPane.showMessageDialog(null, "Necessaria a inclusão do dominio '@gmail.com'!", "Erro", 2);
                 tfEmail.setText("");
                 tfEmail.grabFocus();
             }
@@ -360,12 +360,12 @@ public class CadastroIbama extends javax.swing.JFrame {
             if (HomePageIbama.editar == true && (Ibama.ibama.getIdIbama() == ibama.getIdIbama())) {
 
             } else {
-                JOptionPane.showMessageDialog(null, "Email já cadastrado!");
+                JOptionPane.showMessageDialog(null, "Email já cadastrado!", "Erro", 2);
                 tfEmail.setText("");
                 tfEmail.grabFocus();
             }
         } else if (dao.pesquisarEmail(tfEmail.getText()) != null) {
-            JOptionPane.showMessageDialog(null, "Email já cadastrado!");
+            JOptionPane.showMessageDialog(null, "Email já cadastrado!", "Erro", 2);
             tfEmail.setText("");
             tfEmail.grabFocus();
         }
@@ -382,7 +382,7 @@ public class CadastroIbama extends javax.swing.JFrame {
     private void btnCadastrarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnCadastrarKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             if (tfNome.getText().isEmpty() || tfResponsavel.getText().isEmpty() || tfCnpj.getText().isEmpty() || tfEstado.getText().isEmpty() || tfCidade.getText().isEmpty() || tfRua.getText().isEmpty() || tfTelefone.getText().isEmpty() || tfEmail.getText().isEmpty() || tfSenha.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Preencha todos os Campos !");
+                JOptionPane.showMessageDialog(null, "Preencha todos os campos obrigatórios!", "Erro", 2);
             } else {
                 ibama.setNomeIbama(tfNome.getText());
                 ibama.setResponsavelIbama(tfResponsavel.getText());
@@ -423,12 +423,12 @@ public class CadastroIbama extends javax.swing.JFrame {
             if (HomePageIbama.editar == true && (Ibama.ibama.getIdIbama() == ibama.getIdIbama())) {
 
             } else {
-                JOptionPane.showMessageDialog(null, "CNPJ já cadastrado!");
+                JOptionPane.showMessageDialog(null, "CNPJ já cadastrado!", "Erro", 2);
                 tfCnpj.setText("");
                 tfCnpj.grabFocus();
             }
         } else if (dao.pesquisarEmail(tfCnpj.getText()) != null) {
-            JOptionPane.showMessageDialog(null, "CNPJ já cadastrado!");
+            JOptionPane.showMessageDialog(null, "CNPJ já cadastrado!", "Erro", 2);
             tfCnpj.setText("");
             tfCnpj.grabFocus();
         }

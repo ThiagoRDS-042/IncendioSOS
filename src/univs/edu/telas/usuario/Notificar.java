@@ -225,7 +225,7 @@ public class Notificar extends javax.swing.JFrame {
     private void btnEvnviarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnEvnviarKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             if (tfRua.getText().isEmpty() || tfComplemento.getText().isEmpty() || tfDuracao.getText().isEmpty() || tfAbrangencia.getText().isEmpty() || tfDescricao.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Preencha todos os Campos !");
+                JOptionPane.showMessageDialog(null, "Preencha todos os campos obrigatórios!", "Erro", 2);
             } else {
                 String[] identificacao = jCorposDeBombeiros.getSelectedItem().toString().split("-");
                 bombeiro = (CorpoDeBombeiros) dao.pesquisarIdentificacao(identificacao[0]);
@@ -252,7 +252,7 @@ public class Notificar extends javax.swing.JFrame {
 
     private void btnEvnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEvnviarActionPerformed
         if (tfRua.getText().isEmpty() || tfComplemento.getText().isEmpty() || tfDuracao.getText().isEmpty() || tfAbrangencia.getText().isEmpty() || tfDescricao.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Preencha todos os Campos !");
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos obrigatórios!", "Erro", 2);
         } else {
             String[] identificacao = jCorposDeBombeiros.getSelectedItem().toString().split("-");
             bombeiro = (CorpoDeBombeiros) dao.pesquisarIdentificacao(identificacao[0]);

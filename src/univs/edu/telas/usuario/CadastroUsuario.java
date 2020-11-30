@@ -275,7 +275,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         if (tfNome.getText().isEmpty() || tfCpf.getText().isEmpty() || tfEmail.getText().isEmpty() || tfSenha.getText().isEmpty() || tfEstado.getText().isEmpty() || tfCidade.getText().isEmpty() || tfRua.getText().isEmpty() || tfTelefone.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Preencha todos os Campos !");
+            JOptionPane.showMessageDialog(null, "Preencha todos os campos obrigatórios!", "Erro", 2);
         } else {
             GenericLogin.login = false;
             DetalhesNotificacao.trote = false;
@@ -305,7 +305,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
 
         if (!tfEmail.getText().isEmpty()) {
             if (!tfEmail.getText().matches("(.*)@gmail.com(.*)")) {
-                JOptionPane.showMessageDialog(null, "Necessaria a inclusão do dominio '@gmail.com'!");
+                JOptionPane.showMessageDialog(null, "Necessaria a inclusão do dominio '@gmail.com'!", "Erro", 2);
                 tfEmail.setText("");
                 tfEmail.grabFocus();
             }
@@ -316,12 +316,12 @@ public class CadastroUsuario extends javax.swing.JFrame {
             if (HomePageUsuario.editar == true && (Usuario.usuario.getIdUsuario() == usuario.getIdUsuario())) {
 
             } else {
-                JOptionPane.showMessageDialog(null, "Email já cadastrado!");
+                JOptionPane.showMessageDialog(null, "Email já cadastrado!", "Erro", 2);
                 tfEmail.setText("");
                 tfEmail.grabFocus();
             }
         } else if (dao.pesquisarEmail(tfEmail.getText()) != null) {
-            JOptionPane.showMessageDialog(null, "Email já cadastrado!");
+            JOptionPane.showMessageDialog(null, "Email já cadastrado!", "Erro", 2);
             tfEmail.setText("");
             tfEmail.grabFocus();
         }
@@ -331,7 +331,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
     private void btnCadastrarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnCadastrarKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             if (tfNome.getText().isEmpty() || tfCpf.getText().isEmpty() || tfEmail.getText().isEmpty() || tfSenha.getText().isEmpty() || tfEstado.getText().isEmpty() || tfCidade.getText().isEmpty() || tfRua.getText().isEmpty() || tfTelefone.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Preencha todos os Campos !");
+                JOptionPane.showMessageDialog(null, "Preencha todos os campos obrigatórios!", "Erro", 2);
             } else {
                 GenericLogin.login = false;
                 DetalhesNotificacao.trote = false;
@@ -387,12 +387,12 @@ public class CadastroUsuario extends javax.swing.JFrame {
             if (HomePageUsuario.editar == true && (Usuario.usuario.getIdUsuario() == usuario.getIdUsuario())) {
 
             } else {
-                JOptionPane.showMessageDialog(null, "CPF já cadastrado!");
+                JOptionPane.showMessageDialog(null, "CPF já cadastrado!", "Erro", 2);
                 tfCpf.setText("");
                 tfCpf.grabFocus();
             }
         } else if (dao.pesquisarEmail(tfCpf.getText()) != null) {
-            JOptionPane.showMessageDialog(null, "CPF já cadastrado!");
+            JOptionPane.showMessageDialog(null, "CPF já cadastrado!", "Erro", 2);
             tfCpf.setText("");
             tfCpf.grabFocus();
         }

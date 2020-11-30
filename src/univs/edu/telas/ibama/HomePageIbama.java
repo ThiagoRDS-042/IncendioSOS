@@ -41,7 +41,7 @@ public class HomePageIbama extends javax.swing.JFrame {
                 DenunciaTableModel tabela = new DenunciaTableModel(dao.listarNotDen(Ibama.ibama, "Denuncia", tfPesquisar.getText()));
                 TabelaDenuncia.setModel(tabela);
             } else {
-                JOptionPane.showMessageDialog(null, "Nenhum resultado encontrado para a data: " + tfPesquisar.getText());
+                JOptionPane.showMessageDialog(null, "Nenhum resultado encontrado para a data: " + tfPesquisar.getText(), "Erro", 2);
                 DenunciaTableModel tabela = new DenunciaTableModel(dao.listarNotDen(Ibama.ibama, "Denuncia", tfPesquisar.getText()));
                 TabelaDenuncia.setModel(tabela);
             }
@@ -241,7 +241,7 @@ public class HomePageIbama extends javax.swing.JFrame {
     private void btnAbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirActionPerformed
         int linha = TabelaDenuncia.getSelectedRow();
         if (linha == -1) {
-            JOptionPane.showMessageDialog(null, "Selecione uma Denuncia!");
+            JOptionPane.showMessageDialog(null, "Selecione uma Denuncia!", "Erro", 2);
         } else {
             Denuncia.denuncia = (Denuncia) dao.pesquisarId((int) TabelaDenuncia.getValueAt(linha, 0), "Denuncia");
             new DetalhesDenuncia().setVisible(true);
@@ -257,7 +257,7 @@ public class HomePageIbama extends javax.swing.JFrame {
     }//GEN-LAST:event_mnEditarActionPerformed
 
     private void mnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnExcluirActionPerformed
-        if (JOptionPane.showConfirmDialog(null, "Deseja realmente excluir sua conta?", "Excluir", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+        if (JOptionPane.showConfirmDialog(null, "Deseja realmente excluir sua conta?", "Excluir", 0, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
             dao.excluir(Ibama.ibama);
             new GenericLogin().setVisible(true);
             dispose();
@@ -304,7 +304,7 @@ public class HomePageIbama extends javax.swing.JFrame {
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             int linha = TabelaDenuncia.getSelectedRow();
             if (linha == -1) {
-                JOptionPane.showMessageDialog(null, "Selecione uma Denuncia!");
+                JOptionPane.showMessageDialog(null, "Selecione uma Denuncia!", "Erro", 2);
             } else {
                 Denuncia.denuncia = (Denuncia) dao.pesquisarId((int) TabelaDenuncia.getValueAt(linha, 0), "Denuncia");
                 new DetalhesDenuncia().setVisible(true);

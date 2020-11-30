@@ -43,7 +43,7 @@ public class ListaUsuarios extends javax.swing.JFrame {
                     UsuarioTableModel tabela = new UsuarioTableModel(dao.listarObjetos("Usuario", "Undefined"));
                     Tabela.setModel(tabela);
                 } else {
-                    JOptionPane.showMessageDialog(null, "Nenhum resultado encontrado para a cidade: " + tfPesquisar.getText());
+                    JOptionPane.showMessageDialog(null, "Nenhum resultado encontrado para a cidade: " + tfPesquisar.getText(), "Erro", 2);
                     UsuarioTableModel tabela = new UsuarioTableModel(dao.listarObjetos("Usuario", tfPesquisar.getText()));
                     Tabela.setModel(tabela);
                 }
@@ -54,7 +54,7 @@ public class ListaUsuarios extends javax.swing.JFrame {
                     UsuarioTableModel tabela = new UsuarioTableModel(usuarios);
                     Tabela.setModel(tabela);
                 } else {
-                    JOptionPane.showMessageDialog(null, "Nenhum resultado encontrado para o e-mail: " + tfPesquisar.getText());
+                    JOptionPane.showMessageDialog(null, "Nenhum resultado encontrado para o e-mail: " + tfPesquisar.getText(), "Erro", 2);
                     List<Usuario> usuarios = new ArrayList<>();
                     UsuarioTableModel tabela = new UsuarioTableModel(usuarios);
                     Tabela.setModel(tabela);
@@ -194,8 +194,8 @@ public class ListaUsuarios extends javax.swing.JFrame {
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         int linha = Tabela.getSelectedRow();
         if (linha == -1) {
-            JOptionPane.showMessageDialog(null, "Selecione um Usuário!");
-        } else if (JOptionPane.showConfirmDialog(null, "Deseja realmente excluir este Usuário?", "Excluir", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+            JOptionPane.showMessageDialog(null, "Selecione um Usuário!", "Erro", 2);
+        } else if (JOptionPane.showConfirmDialog(null, "Deseja realmente excluir este Usuário?", "Excluir", 0, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
             usuario = (Usuario) dao.pesquisarEmail((String) Tabela.getValueAt(linha, 1));
             dao.excluir(usuario);
             atualizarTabela();
@@ -218,8 +218,8 @@ public class ListaUsuarios extends javax.swing.JFrame {
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             int linha = Tabela.getSelectedRow();
             if (linha == -1) {
-                JOptionPane.showMessageDialog(null, "Selecione um Usuário!");
-            } else if (JOptionPane.showConfirmDialog(null, "Deseja realmente excluir este Usuário?", "Excluir", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                JOptionPane.showMessageDialog(null, "Selecione um Usuário!", "Erro", 2);
+            } else if (JOptionPane.showConfirmDialog(null, "Deseja realmente excluir este Usuário?", "Excluir", 0, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                 usuario = (Usuario) dao.pesquisarEmail((String) Tabela.getValueAt(linha, 1));
                 dao.excluir(usuario);
                 atualizarTabela();

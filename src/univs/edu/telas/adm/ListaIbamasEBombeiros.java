@@ -52,7 +52,7 @@ public class ListaIbamasEBombeiros <T> extends javax.swing.JFrame {
                         IbamaTableModel tabela = new IbamaTableModel(dao.listarObjetos("Ibama", "Undefined"));
                         Tabela.setModel(tabela);
                     } else {
-                        JOptionPane.showMessageDialog(null, "Nenhum resultado encontrado para a cidade: " + tfPesquisar.getText());
+                        JOptionPane.showMessageDialog(null, "Nenhum resultado encontrado para a cidade: " + tfPesquisar.getText(), "Erro", 2);
                         IbamaTableModel tabela = new IbamaTableModel(dao.listarObjetos("Ibama", tfPesquisar.getText()));
                         Tabela.setModel(tabela);
                     }
@@ -63,7 +63,7 @@ public class ListaIbamasEBombeiros <T> extends javax.swing.JFrame {
                         IbamaTableModel tabela = new IbamaTableModel(ibamas);
                         Tabela.setModel(tabela);
                     } else {
-                        JOptionPane.showMessageDialog(null, "Nenhum resultado encontrado para o e-mail: " + tfPesquisar.getText());
+                        JOptionPane.showMessageDialog(null, "Nenhum resultado encontrado para o e-mail: " + tfPesquisar.getText(), "Erro", 2);
                         List<Ibama> ibamas = new ArrayList<>();
                         IbamaTableModel tabela = new IbamaTableModel(ibamas);
                         Tabela.setModel(tabela);
@@ -85,7 +85,7 @@ public class ListaIbamasEBombeiros <T> extends javax.swing.JFrame {
                         CorpoDeBombeirosTableModel tabela = new CorpoDeBombeirosTableModel(dao.listarObjetos("Bombeiro", "Undefined"));
                         Tabela.setModel(tabela);
                     } else {
-                        JOptionPane.showMessageDialog(null, "Nenhum resultado encontrado para a cidade: " + tfPesquisar.getText());
+                        JOptionPane.showMessageDialog(null, "Nenhum resultado encontrado para a cidade: " + tfPesquisar.getText(), "Erro", 2);
                         CorpoDeBombeirosTableModel tabela = new CorpoDeBombeirosTableModel(dao.listarObjetos("Bombeiro", tfPesquisar.getText()));
                         Tabela.setModel(tabela);
                     }
@@ -96,7 +96,7 @@ public class ListaIbamasEBombeiros <T> extends javax.swing.JFrame {
                         CorpoDeBombeirosTableModel tabela = new CorpoDeBombeirosTableModel(bombeiros);
                         Tabela.setModel(tabela);
                     } else {
-                        JOptionPane.showMessageDialog(null, "Nenhum resultado encontrado para o e-mail: " + tfPesquisar.getText());
+                        JOptionPane.showMessageDialog(null, "Nenhum resultado encontrado para o e-mail: " + tfPesquisar.getText(), "Erro", 2);
                         List<CorpoDeBombeiros> bombeiros = new ArrayList<>();
                         CorpoDeBombeirosTableModel tabela = new CorpoDeBombeirosTableModel(bombeiros);
                         Tabela.setModel(tabela);
@@ -258,8 +258,8 @@ public class ListaIbamasEBombeiros <T> extends javax.swing.JFrame {
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         int linha = Tabela.getSelectedRow();
         if (linha == -1) {
-            JOptionPane.showMessageDialog(null, "Selecione um Orgão!");
-        } else if (JOptionPane.showConfirmDialog(null, "Deseja realmente excluir este Orgão?", "Excluir", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+            JOptionPane.showMessageDialog(null, "Selecione um Orgão!", "Erro", 2);
+        } else if (JOptionPane.showConfirmDialog(null, "Deseja realmente excluir este Orgão?", "Excluir", 0, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
             T generico = (T) dao.pesquisarEmail((String) Tabela.getValueAt(linha, 1));
             dao.excluir(generico);
             atualizarTabela();
@@ -306,8 +306,8 @@ public class ListaIbamasEBombeiros <T> extends javax.swing.JFrame {
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             int linha = Tabela.getSelectedRow();
             if (linha == -1) {
-                JOptionPane.showMessageDialog(null, "Selecione um Orgão!");
-            } else if (JOptionPane.showConfirmDialog(null, "Deseja realmente excluir este Orgão?", "Excluir", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                JOptionPane.showMessageDialog(null, "Selecione um Orgão!", "Erro", 2);
+            } else if (JOptionPane.showConfirmDialog(null, "Deseja realmente excluir este Orgão?", "Excluir", 0, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                 ibama = (Ibama) dao.pesquisarEmail((String) Tabela.getValueAt(linha, 1));
                 dao.excluir(ibama);
                 atualizarTabela();

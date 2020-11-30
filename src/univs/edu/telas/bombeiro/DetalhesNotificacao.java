@@ -477,7 +477,7 @@ public class DetalhesNotificacao extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnTroteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTroteActionPerformed
-        if (JOptionPane.showConfirmDialog(null, "Deseja Marcar esta Notificação como Trote?", "Marca como Trote", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+        if (JOptionPane.showConfirmDialog(null, "Deseja Marcar esta Notificação como Trote?", "Marca como Trote", 0, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
             trote = true;
             Notificacao.notificacao.setTrote(true);
             dao.salvar(Notificacao.notificacao);
@@ -498,7 +498,7 @@ public class DetalhesNotificacao extends javax.swing.JFrame {
 
     private void btnTroteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnTroteKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            if (JOptionPane.showConfirmDialog(null, "Deseja Marcar esta Notificação como Trote?", "Marca como Trote", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+            if (JOptionPane.showConfirmDialog(null, "Deseja Marcar esta Notificação como Trote?", "Marca como Trote", 0, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                 trote = true;
                 Notificacao.notificacao.setTrote(true);
                 dao.salvar(Notificacao.notificacao);
