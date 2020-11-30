@@ -370,12 +370,12 @@
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/univs/edu/imagens/backgroundDenuncia.jpg"/>
+              <Image iconType="3" name="/univs/edu/imagens/backgroundInfoDenunciaNotificacao.jpg"/>
             </Property>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="10" y="116" width="-1" height="530"/>
+              <AbsoluteConstraints x="10" y="116" width="438" height="530"/>
             </Constraint>
           </Constraints>
         </Component>

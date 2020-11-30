@@ -98,7 +98,7 @@ public class Evidencia extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 400, 210));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/backgroundNotificacao.jpg"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/backgroundInfoDenunciaNotificacao.jpg"))); // NOI18N
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 440, 320));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

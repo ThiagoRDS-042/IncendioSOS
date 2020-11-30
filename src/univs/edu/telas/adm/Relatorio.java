@@ -304,7 +304,7 @@ public class Relatorio extends javax.swing.JFrame {
         });
         jPanel2.add(btnVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 340, 80, 35));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/backgroundInfo.jpg"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/backgroundInfoDenunciaNotificacao.jpg"))); // NOI18N
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 430, 310));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

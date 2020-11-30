@@ -225,8 +225,8 @@ public class Denunciar extends javax.swing.JFrame {
         jPanel1.add(btnEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 590, 80, 35));
 
         jLabel10.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/backgroundDenuncia.jpg"))); // NOI18N
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 116, -1, 530));
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/backgroundInfoDenunciaNotificacao.jpg"))); // NOI18N
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 116, 438, 530));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

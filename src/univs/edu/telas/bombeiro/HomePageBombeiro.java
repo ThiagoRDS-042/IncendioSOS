@@ -132,9 +132,10 @@ public class HomePageBombeiro extends javax.swing.JFrame {
             }
         ));
         TabelaNotificacao.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        TabelaNotificacao.setRowHeight(20);
         jScrollPane1.setViewportView(TabelaNotificacao);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 516, 91));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 516, 110));
 
         btnAbrir.setBackground(new java.awt.Color(255, 51, 153));
         btnAbrir.setForeground(new java.awt.Color(255, 255, 255));
@@ -264,12 +265,14 @@ public class HomePageBombeiro extends javax.swing.JFrame {
     }//GEN-LAST:event_tfPesquisarActionPerformed
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
+        pesquisar = true;
         atualizarTabela();
         tfPesquisar.setText("");
     }//GEN-LAST:event_btnPesquisarActionPerformed
 
     private void btnPesquisarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnPesquisarKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            pesquisar = true;
             atualizarTabela();
             tfPesquisar.setText("");
 

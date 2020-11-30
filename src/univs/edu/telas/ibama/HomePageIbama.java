@@ -135,9 +135,10 @@ public class HomePageIbama extends javax.swing.JFrame {
             }
         ));
         TabelaDenuncia.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        TabelaDenuncia.setRowHeight(20);
         jScrollPane1.setViewportView(TabelaDenuncia);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 516, 91));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 516, 110));
 
         btnAbrir.setBackground(new java.awt.Color(255, 51, 153));
         btnAbrir.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N

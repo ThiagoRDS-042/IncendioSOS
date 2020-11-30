@@ -200,7 +200,7 @@ public class Notificar extends javax.swing.JFrame {
         });
         jPanel3.add(btnEvnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, 80, 35));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/backgroundNotificacao.jpg"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/backgroundInfoDenunciaNotificacao.jpg"))); // NOI18N
         jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 437, 360));
 
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));

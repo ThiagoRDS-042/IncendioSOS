@@ -15,13 +15,13 @@
               <Connection code=" new java.awt.Color(0, 0 ,0 ,0)" type="code"/>
             </Property>
             <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
-              <Insets value="[0, 80, 0, 0]"/>
+              <Insets value="[0, 90, 0, 0]"/>
             </Property>
           </Properties>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Informa&#xe7;&#xf5;es"/>
+            <Property name="text" type="java.lang.String" value="Usu&#xe1;rios"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Times New Roman" size="12" style="0"/>
             </Property>
@@ -32,7 +32,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Times New Roman" size="12" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Usu&#xe1;rios"/>
+                <Property name="text" type="java.lang.String" value="Delatores"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnUsuarioActionPerformed"/>
@@ -43,7 +43,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Times New Roman" size="12" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="IBAMA"/>
+                <Property name="text" type="java.lang.String" value="IBAMAs"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnIbamaActionPerformed"/>
@@ -54,7 +54,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Times New Roman" size="12" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Corpo de Bombeiros"/>
+                <Property name="text" type="java.lang.String" value="Corpos de Bombeiros"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnBombeiroActionPerformed"/>
@@ -251,7 +251,7 @@
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/univs/edu/imagens/backgroundInfo.jpg"/>
+              <Image iconType="3" name="/univs/edu/imagens/backgroundInfoDenunciaNotificacao.jpg"/>
             </Property>
           </Properties>
           <Constraints>

@@ -451,7 +451,7 @@ public class Informacoes extends javax.swing.JFrame {
         });
         jPanel4.add(btnVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 620, 80, 35));
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/backgroundInfo.jpg"))); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/backgroundInfoDenunciaNotificacao.jpg"))); // NOI18N
         jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 440, 560));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

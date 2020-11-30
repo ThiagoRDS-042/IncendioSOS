@@ -250,19 +250,19 @@ public class GenericDAO<T> {
         criarSessao();
 
         List<T> generica;
-        if (tipo.equalsIgnoreCase("Usuario") && cidade.equals("Undefined")) {
+        if (tipo.equalsIgnoreCase("Usuario") && cidade.equalsIgnoreCase("Undefined")) {
             List<Usuario> usuarios = sessao.createCriteria(Usuario.class).list();
             generica = (List<T>) usuarios;
         } else if (tipo.equalsIgnoreCase("Usuario")) {
             List<Usuario> usuarios = sessao.createCriteria(Usuario.class).add(Restrictions.eq("cidadeUsuario", cidade)).list();
             generica = (List<T>) usuarios;
-        } else if (tipo.equalsIgnoreCase("Bombeiro") && cidade.equals("Undefined")) {
+        } else if (tipo.equalsIgnoreCase("Bombeiro") && cidade.equalsIgnoreCase("Undefined")) {
             List<CorpoDeBombeiros> bombeiros = sessao.createCriteria(CorpoDeBombeiros.class).list();
             generica = (List<T>) bombeiros;
         } else if (tipo.equalsIgnoreCase("Bombeiro")) {
             List<CorpoDeBombeiros> bombeiros = sessao.createCriteria(CorpoDeBombeiros.class).add(Restrictions.eq("cidadeBombeiro", cidade)).list();
             generica = (List<T>) bombeiros;
-        } else if (tipo.equalsIgnoreCase("IBAMA") && cidade.equals("Undefined")) {
+        } else if (tipo.equalsIgnoreCase("IBAMA") && cidade.equalsIgnoreCase("Undefined")) {
             List<Ibama> ibama = sessao.createCriteria(Ibama.class).list();
             generica = (List<T>) ibama;
         } else {

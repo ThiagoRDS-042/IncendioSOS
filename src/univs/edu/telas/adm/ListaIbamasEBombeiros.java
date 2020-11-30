@@ -145,6 +145,7 @@ public class ListaIbamasEBombeiros <T> extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/cabecalhoDetalhes.jpg"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 550, 100));
 
+        Tabela.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         Tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -156,11 +157,13 @@ public class ListaIbamasEBombeiros <T> extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        Tabela.setRowHeight(20);
         jScrollPane1.setViewportView(Tabela);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 512, 91));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 512, 110));
 
         tfPesquisar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        tfPesquisar.setToolTipText("Pesquise pela cidade ou e-mail do orgão");
         tfPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfPesquisarActionPerformed(evt);

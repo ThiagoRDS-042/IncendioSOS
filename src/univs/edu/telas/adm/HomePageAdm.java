@@ -102,20 +102,20 @@ public class HomePageAdm extends javax.swing.JFrame {
         });
         jPanel1.add(btnCadastroAdm2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, 140, 40));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/backgroundInfo.jpg"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/backgroundInfoDenunciaNotificacao.jpg"))); // NOI18N
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 260, 160));
 
         jMenuBar1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
         jMenu2.setBackground( new java.awt.Color(0, 0 ,0 ,0));
-        jMenu2.setMargin(new java.awt.Insets(0, 80, 0, 0));
+        jMenu2.setMargin(new java.awt.Insets(0, 90, 0, 0));
         jMenuBar1.add(jMenu2);
 
-        jMenu1.setText("Informações");
+        jMenu1.setText("Usuários");
         jMenu1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
 
         mnUsuario.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        mnUsuario.setText("Usuários");
+        mnUsuario.setText("Delatores");
         mnUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mnUsuarioActionPerformed(evt);
@@ -124,7 +124,7 @@ public class HomePageAdm extends javax.swing.JFrame {
         jMenu1.add(mnUsuario);
 
         mnIbama.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        mnIbama.setText("IBAMA");
+        mnIbama.setText("IBAMAs");
         mnIbama.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mnIbamaActionPerformed(evt);
@@ -133,7 +133,7 @@ public class HomePageAdm extends javax.swing.JFrame {
         jMenu1.add(mnIbama);
 
         mnBombeiro.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        mnBombeiro.setText("Corpo de Bombeiros");
+        mnBombeiro.setText("Corpos de Bombeiros");
         mnBombeiro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mnBombeiroActionPerformed(evt);

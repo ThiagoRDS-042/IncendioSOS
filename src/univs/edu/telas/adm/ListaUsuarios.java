@@ -6,6 +6,8 @@
 package univs.edu.telas.adm;
 
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 import univs.edu.dao.GenericDAO;
 import univs.edu.usuario.Usuario;
@@ -20,6 +22,8 @@ public class ListaUsuarios extends javax.swing.JFrame {
     Usuario usuario = new Usuario();
     GenericDAO dao = new GenericDAO();
 
+    public static boolean pesquisar;
+
     /**
      * Creates new form ListaUsuarios
      */
@@ -29,8 +33,37 @@ public class ListaUsuarios extends javax.swing.JFrame {
     }
 
     public void atualizarTabela() {
-        UsuarioTableModel tabela = new UsuarioTableModel(dao.listarObjetos("Usuario", "Undefined"));
-        Tabela.setModel(tabela);
+
+        if (pesquisar == true) {
+            if (!tfPesquisar.getText().contains("@gmail.com")) {
+                if (!dao.listarObjetos("Usuario", tfPesquisar.getText()).isEmpty()) {
+                    UsuarioTableModel tabela = new UsuarioTableModel(dao.listarObjetos("Usuario", tfPesquisar.getText()));
+                    Tabela.setModel(tabela);
+                } else if (tfPesquisar.getText().isEmpty()) {
+                    UsuarioTableModel tabela = new UsuarioTableModel(dao.listarObjetos("Usuario", "Undefined"));
+                    Tabela.setModel(tabela);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Nenhum resultado encontrado para a cidade: " + tfPesquisar.getText());
+                    UsuarioTableModel tabela = new UsuarioTableModel(dao.listarObjetos("Usuario", tfPesquisar.getText()));
+                    Tabela.setModel(tabela);
+                }
+            } else {
+                if (dao.pesquisarEmail(tfPesquisar.getText()) != null) {
+                    List<Usuario> usuarios = new ArrayList<>();
+                    usuarios.add((Usuario) dao.pesquisarEmail(tfPesquisar.getText()));
+                    UsuarioTableModel tabela = new UsuarioTableModel(usuarios);
+                    Tabela.setModel(tabela);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Nenhum resultado encontrado para o e-mail: " + tfPesquisar.getText());
+                    List<Usuario> usuarios = new ArrayList<>();
+                    UsuarioTableModel tabela = new UsuarioTableModel(usuarios);
+                    Tabela.setModel(tabela);
+                }
+            }
+        } else {
+            UsuarioTableModel tabela = new UsuarioTableModel(dao.listarObjetos("Usuario", "Undefined"));
+            Tabela.setModel(tabela);
+        }
     }
 
     /**
@@ -42,29 +75,56 @@ public class ListaUsuarios extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnExcluir = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
         lTitulo1 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        tfPesquisar = new javax.swing.JTextField();
+        btnPesquisar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         Tabela = new javax.swing.JTable();
         btnVoltar = new javax.swing.JButton();
+        btnExcluir = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btnExcluir.setText("Excluir");
-        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lTitulo1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        lTitulo1.setForeground(new java.awt.Color(255, 255, 255));
+        lTitulo1.setText("Delatores Cadastrados no Sistema");
+        jPanel1.add(lTitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/cabecalhoDetalhes.jpg"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 820, -1));
+
+        tfPesquisar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        tfPesquisar.setToolTipText("Pesquise pela cidade ou e-mail do usuário");
+        tfPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExcluirActionPerformed(evt);
+                tfPesquisarActionPerformed(evt);
             }
         });
-        btnExcluir.addKeyListener(new java.awt.event.KeyAdapter() {
+        jPanel1.add(tfPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 160, 350, 35));
+
+        btnPesquisar.setBackground(new java.awt.Color(255, 51, 153));
+        btnPesquisar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        btnPesquisar.setForeground(new java.awt.Color(255, 255, 255));
+        btnPesquisar.setText("Pesquisar");
+        btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarActionPerformed(evt);
+            }
+        });
+        btnPesquisar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                btnExcluirKeyPressed(evt);
+                btnPesquisarKeyPressed(evt);
             }
         });
+        jPanel1.add(btnPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 160, 90, 35));
 
-        lTitulo1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        lTitulo1.setText("Usuários Disponíveis no Sistema");
-
+        Tabela.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         Tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -76,8 +136,14 @@ public class ListaUsuarios extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        Tabela.setRowHeight(20);
         jScrollPane1.setViewportView(Tabela);
 
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 800, 110));
+
+        btnVoltar.setBackground(new java.awt.Color(255, 51, 153));
+        btnVoltar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        btnVoltar.setForeground(new java.awt.Color(255, 255, 255));
         btnVoltar.setText("Voltar");
         btnVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,38 +155,36 @@ public class ListaUsuarios extends javax.swing.JFrame {
                 btnVoltarKeyPressed(evt);
             }
         });
+        jPanel1.add(btnVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, 90, 35));
+
+        btnExcluir.setBackground(new java.awt.Color(255, 51, 153));
+        btnExcluir.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        btnExcluir.setForeground(new java.awt.Color(255, 255, 255));
+        btnExcluir.setText("Excluir");
+        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirActionPerformed(evt);
+            }
+        });
+        btnExcluir.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnExcluirKeyPressed(evt);
+            }
+        });
+        jPanel1.add(btnExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 360, 90, 35));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/backgroundDetalhes.jpg"))); // NOI18N
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 820, 310));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(162, 162, 162)
-                .addComponent(lTitulo1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(btnVoltar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnExcluir)
-                .addGap(33, 33, 33))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 840, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(lTitulo1)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -163,6 +227,24 @@ public class ListaUsuarios extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnExcluirKeyPressed
 
+    private void tfPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPesquisarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfPesquisarActionPerformed
+
+    private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
+        pesquisar = true;
+        atualizarTabela();
+        tfPesquisar.setText("");
+    }//GEN-LAST:event_btnPesquisarActionPerformed
+
+    private void btnPesquisarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnPesquisarKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            pesquisar = true;
+            atualizarTabela();
+            tfPesquisar.setText("");
+        }
+    }//GEN-LAST:event_btnPesquisarKeyPressed
+
     /**
      * @param args the command line arguments
      */
@@ -201,8 +283,13 @@ public class ListaUsuarios extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable Tabela;
     private javax.swing.JButton btnExcluir;
+    private javax.swing.JButton btnPesquisar;
     private javax.swing.JButton btnVoltar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lTitulo1;
+    private javax.swing.JTextField tfPesquisar;
     // End of variables declaration//GEN-END:variables
 }
