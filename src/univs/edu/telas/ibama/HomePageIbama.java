@@ -37,16 +37,31 @@ public class HomePageIbama extends javax.swing.JFrame {
     public void atualizarTabela() {
 
         if (pesquisar == true) {
-            if (!dao.listarNotDen(Ibama.ibama, "Denuncia", tfPesquisar.getText()).isEmpty()) {
-                DenunciaTableModel tabela = new DenunciaTableModel(dao.listarNotDen(Ibama.ibama, "Denuncia", tfPesquisar.getText()));
-                TabelaDenuncia.setModel(tabela);
+            if (tfPesquisar.getText().contains("/")) {
+                if (!dao.listarNotDen(Ibama.ibama, "Denuncia", tfPesquisar.getText(), "Undefined").isEmpty()) {
+                    DenunciaTableModel tabela = new DenunciaTableModel(dao.listarNotDen(Ibama.ibama, "Denuncia", tfPesquisar.getText(), "Undefined"));
+                    TabelaDenuncia.setModel(tabela);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Nenhum resultado encontrado para a data: " + tfPesquisar.getText(), "Erro", 2);
+                    DenunciaTableModel tabela = new DenunciaTableModel(dao.listarNotDen(Ibama.ibama, "Denuncia", tfPesquisar.getText(), "Undefined"));
+                    TabelaDenuncia.setModel(tabela);
+                }
             } else {
-                JOptionPane.showMessageDialog(null, "Nenhum resultado encontrado para a data: " + tfPesquisar.getText(), "Erro", 2);
-                DenunciaTableModel tabela = new DenunciaTableModel(dao.listarNotDen(Ibama.ibama, "Denuncia", tfPesquisar.getText()));
-                TabelaDenuncia.setModel(tabela);
+                if (!dao.listarNotDen(Ibama.ibama, "Denuncia", "Undefined", tfPesquisar.getText()).isEmpty()) {
+                    DenunciaTableModel tabela = new DenunciaTableModel(dao.listarNotDen(Ibama.ibama, "Denuncia", "Undefined", tfPesquisar.getText()));
+                    TabelaDenuncia.setModel(tabela);
+                } else if (tfPesquisar.getText().isEmpty()) {
+                    DenunciaTableModel tabela = new DenunciaTableModel(dao.listarNotDen(Ibama.ibama, "Denuncia", "Undefined", "Undefined"));
+                    TabelaDenuncia.setModel(tabela);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Nenhum resultado encontrado para a cidade: " + tfPesquisar.getText(), "Erro", 2);
+                    DenunciaTableModel tabela = new DenunciaTableModel(dao.listarNotDen(Ibama.ibama, "Denuncia", "Undefined", tfPesquisar.getText()));
+                    TabelaDenuncia.setModel(tabela);
+                }
+
             }
         } else {
-            DenunciaTableModel tabela = new DenunciaTableModel(dao.listarNotDen(Ibama.ibama, "Denuncia", "Undefined"));
+            DenunciaTableModel tabela = new DenunciaTableModel(dao.listarNotDen(Ibama.ibama, "Denuncia", "Undefined", "Undefined"));
             TabelaDenuncia.setModel(tabela);
         }
 

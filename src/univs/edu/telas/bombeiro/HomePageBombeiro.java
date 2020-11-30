@@ -38,18 +38,32 @@ public class HomePageBombeiro extends javax.swing.JFrame {
     public void atualizarTabela() {
 
         if (pesquisar == true) {
-            if (!dao.listarNotDen(CorpoDeBombeiros.bombeiro, "Notificação", tfPesquisar.getText()).isEmpty()) {
-                NotificacaoTableModel tabela = new NotificacaoTableModel(dao.listarNotDen(CorpoDeBombeiros.bombeiro, "Notificação", tfPesquisar.getText()));
-                TabelaNotificacao.setModel(tabela);
+            if (tfPesquisar.getText().contains("/")) {
+                if (!dao.listarNotDen(CorpoDeBombeiros.bombeiro, "Notificação", tfPesquisar.getText(), "Undefined").isEmpty()) {
+                    NotificacaoTableModel tabela = new NotificacaoTableModel(dao.listarNotDen(CorpoDeBombeiros.bombeiro, "Notificação", tfPesquisar.getText(), "Undefined"));
+                    TabelaNotificacao.setModel(tabela);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Nenhum resultado encontrado para a data: " + tfPesquisar.getText(), "Erro", 2);
+                    NotificacaoTableModel tabela = new NotificacaoTableModel(dao.listarNotDen(CorpoDeBombeiros.bombeiro, "Notificação", tfPesquisar.getText(), "Undefined"));
+                    TabelaNotificacao.setModel(tabela);
+                }
             } else {
-                JOptionPane.showMessageDialog(null, "Nenhum resultado encontrado para a data: " + tfPesquisar.getText(), "Erro", 2);
-                NotificacaoTableModel tabela = new NotificacaoTableModel(dao.listarNotDen(CorpoDeBombeiros.bombeiro, "Notificação", tfPesquisar.getText()));
-                TabelaNotificacao.setModel(tabela);
+                if (!dao.listarNotDen(CorpoDeBombeiros.bombeiro, "Notificação", "Undefined", tfPesquisar.getText()).isEmpty()) {
+                    NotificacaoTableModel tabela = new NotificacaoTableModel(dao.listarNotDen(CorpoDeBombeiros.bombeiro, "Notificação", "Undefined", tfPesquisar.getText()));
+                    TabelaNotificacao.setModel(tabela);
+                } else if (tfPesquisar.getText().isEmpty()) {
+                    NotificacaoTableModel tabela = new NotificacaoTableModel(dao.listarNotDen(CorpoDeBombeiros.bombeiro, "Notificação", "Undefined", "Undefined"));
+                    TabelaNotificacao.setModel(tabela);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Nenhum resultado encontrado para a cidade: " + tfPesquisar.getText(), "Erro", 2);
+                    NotificacaoTableModel tabela = new NotificacaoTableModel(dao.listarNotDen(CorpoDeBombeiros.bombeiro, "Notificação", "Undefined", tfPesquisar.getText()));
+                    TabelaNotificacao.setModel(tabela);
+                }
+
             }
         } else {
-            NotificacaoTableModel tabela = new NotificacaoTableModel(dao.listarNotDen(CorpoDeBombeiros.bombeiro, "Notificação", "Undefined"));
+            NotificacaoTableModel tabela = new NotificacaoTableModel(dao.listarNotDen(CorpoDeBombeiros.bombeiro, "Notificação", "Undefined", "Undefined"));
             TabelaNotificacao.setModel(tabela);
-
         }
 
     }
