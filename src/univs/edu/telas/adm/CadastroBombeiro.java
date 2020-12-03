@@ -250,7 +250,7 @@ public class CadastroBombeiro extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Preencha todos os campos obrigatorios(*)");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 200, 30));
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 200, 30));
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/cadastroUsuario.jpg"))); // NOI18N
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 470));

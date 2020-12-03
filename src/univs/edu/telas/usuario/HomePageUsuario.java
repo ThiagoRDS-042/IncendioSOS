@@ -48,9 +48,7 @@ public class HomePageUsuario extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         btnDenunciar = new javax.swing.JButton();
         bntNotificar = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu5 = new javax.swing.JMenu();
@@ -103,23 +101,13 @@ public class HomePageUsuario extends javax.swing.JFrame {
         });
         jPanel1.add(bntNotificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 90, 35));
 
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("do IBAMA selecionado.");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 230, -1));
-
         jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Nota: As notificações são enviadas ao Corpo de");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 230, -1));
-
-        jLabel11.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("bombeiros selecionado e as denuncias ao orgão");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 230, -1));
+        jLabel10.setText("<html>Nota: As notificações são enviadas ao Corpo de  </br>bombeiros  selecionado e as denuncias ao orgão </br>do Ibama selecionado.");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 240, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/backgroundAdm.jpg"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 280, 290));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 280, 270));
 
         jMenuBar1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
@@ -213,7 +201,7 @@ public class HomePageUsuario extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -339,8 +327,6 @@ public class HomePageUsuario extends javax.swing.JFrame {
     private javax.swing.JMenu configs;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;

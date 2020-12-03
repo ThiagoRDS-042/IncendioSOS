@@ -5,6 +5,9 @@
  */
 package univs.edu.telas.usuario;
 
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.color.ColorSpace;
 import java.awt.event.KeyEvent;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -38,6 +41,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
         if (HomePageUsuario.editar == true) {
             lTitulo.setText("    Editar Usuário");
             btnCadastrar.setText("Editar");
+            lbInfo.setText("");
 
             usuario = Usuario.usuario;
             tfNome.setText(usuario.getNomeUsuario());
@@ -94,6 +98,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        lbInfo = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -242,7 +247,24 @@ public class CadastroUsuario extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Preencha todos os campos obrigatorios(*)");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 200, 30));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 200, 30));
+
+        lbInfo.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
+        lbInfo.setForeground(new java.awt.Color(255, 255, 255));
+        lbInfo.setText("<html><u>Para o cadastro de corpo de bombeiros ou Orgãos do Ibama, clique aqui!</b> ");
+        lbInfo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lbInfo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbInfoMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lbInfoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lbInfoMouseExited(evt);
+            }
+        });
+        jPanel1.add(lbInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 0, -1, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/cadastroUsuario.jpg"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 490));
@@ -251,11 +273,10 @@ public class CadastroUsuario extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(10, 10, 10)
-                .addComponent(tfTeste, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(tfTeste, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -406,6 +427,19 @@ public class CadastroUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tfNomeActionPerformed
 
+    private void lbInfoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbInfoMouseClicked
+        JOptionPane.showMessageDialog(null, "Entrar em contato pelo e-mail: ADM@gmail.com ou pelo telefone: (88) 4002-8922", "Aviso", 1);
+    }//GEN-LAST:event_lbInfoMouseClicked
+
+    private void lbInfoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbInfoMouseEntered
+        lbInfo.setForeground(Color.decode("#f5f5f5"));
+    }//GEN-LAST:event_lbInfoMouseEntered
+
+    private void lbInfoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbInfoMouseExited
+        lbInfo.setForeground(Color.WHITE);
+        
+    }//GEN-LAST:event_lbInfoMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -456,6 +490,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lTitulo;
+    private javax.swing.JLabel lbInfo;
     private javax.swing.JTextField tfCidade;
     private javax.swing.JFormattedTextField tfCpf;
     private javax.swing.JTextField tfEmail;

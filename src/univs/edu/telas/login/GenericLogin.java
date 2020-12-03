@@ -20,6 +20,7 @@ import univs.edu.telas.adm.HomePageAdm;
 import univs.edu.telas.bombeiro.DetalhesNotificacao;
 import univs.edu.telas.bombeiro.HomePageBombeiro;
 import univs.edu.telas.ibama.HomePageIbama;
+import univs.edu.telas.menuPrincipal.MenuPrincipal;
 import univs.edu.telas.usuario.CadastroUsuario;
 import univs.edu.telas.usuario.HomePageUsuario;
 import univs.edu.usuario.Usuario;
@@ -339,7 +340,8 @@ public class GenericLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCadastreseActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
-        // TODO add your handling code here:
+        new MenuPrincipal().setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnVoltarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnVoltarKeyPressed
