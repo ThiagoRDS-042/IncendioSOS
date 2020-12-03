@@ -53,13 +53,10 @@ public class HomePageUsuario extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu5 = new javax.swing.JMenu();
         mnInfo = new javax.swing.JMenu();
-        mnInfoIbama = new javax.swing.JMenuItem();
-        mnBombeiro = new javax.swing.JMenuItem();
         configs = new javax.swing.JMenu();
         mnEditar = new javax.swing.JMenuItem();
         mnExcluir = new javax.swing.JMenuItem();
         mnSair = new javax.swing.JMenu();
-        mnsair = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(450, 450));
@@ -118,30 +115,16 @@ public class HomePageUsuario extends javax.swing.JFrame {
         mnInfo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         mnInfo.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         mnInfo.setMargin(new java.awt.Insets(5, 10, 5, 10));
+        mnInfo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mnInfoMouseClicked(evt);
+            }
+        });
         mnInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mnInfoActionPerformed(evt);
             }
         });
-
-        mnInfoIbama.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        mnInfoIbama.setText("IBAMA");
-        mnInfoIbama.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnInfoIbamaActionPerformed(evt);
-            }
-        });
-        mnInfo.add(mnInfoIbama);
-
-        mnBombeiro.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        mnBombeiro.setText("Corpo de Bombeiros");
-        mnBombeiro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnBombeiroActionPerformed(evt);
-            }
-        });
-        mnInfo.add(mnBombeiro);
-
         jMenuBar1.add(mnInfo);
 
         configs.setText("Configurações");
@@ -172,21 +155,16 @@ public class HomePageUsuario extends javax.swing.JFrame {
         mnSair.setText("Sair");
         mnSair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         mnSair.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        mnSair.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mnSairMouseClicked(evt);
+            }
+        });
         mnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mnSairActionPerformed(evt);
             }
         });
-
-        mnsair.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        mnsair.setText("Sair");
-        mnsair.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnsairActionPerformed(evt);
-            }
-        });
-        mnSair.add(mnsair);
-
         jMenuBar1.add(mnSair);
 
         setJMenuBar(jMenuBar1);
@@ -249,21 +227,6 @@ public class HomePageUsuario extends javax.swing.JFrame {
 
     }//GEN-LAST:event_mnSairActionPerformed
 
-    private void mnBombeiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnBombeiroActionPerformed
-        new Informacoes().setVisible(true);
-        dispose();
-    }//GEN-LAST:event_mnBombeiroActionPerformed
-
-    private void mnInfoIbamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnInfoIbamaActionPerformed
-        new Informacoes().setVisible(true);
-        dispose();
-    }//GEN-LAST:event_mnInfoIbamaActionPerformed
-
-    private void mnsairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnsairActionPerformed
-        new GenericLogin().setVisible(true);
-        dispose();
-    }//GEN-LAST:event_mnsairActionPerformed
-
     private void bntNotificarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_bntNotificarKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             if (dao.pesquisarNotDen(Usuario.usuario, formatoData.format(data), "Notificação").size() == 3) {
@@ -285,6 +248,16 @@ public class HomePageUsuario extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_btnDenunciarKeyPressed
+
+    private void mnInfoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnInfoMouseClicked
+        dispose();new Informacoes().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_mnInfoMouseClicked
+
+    private void mnSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnSairMouseClicked
+        new GenericLogin().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_mnSairMouseClicked
 
     /**
      * @param args the command line arguments
@@ -330,12 +303,9 @@ public class HomePageUsuario extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JMenuItem mnBombeiro;
     private javax.swing.JMenuItem mnEditar;
     private javax.swing.JMenuItem mnExcluir;
     private javax.swing.JMenu mnInfo;
-    private javax.swing.JMenuItem mnInfoIbama;
     private javax.swing.JMenu mnSair;
-    private javax.swing.JMenuItem mnsair;
     // End of variables declaration//GEN-END:variables
 }

@@ -92,7 +92,6 @@ public class HomePageBombeiro extends javax.swing.JFrame {
         mnEditar = new javax.swing.JMenuItem();
         mnExcluir = new javax.swing.JMenuItem();
         mnSair = new javax.swing.JMenu();
-        mnsair = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -204,21 +203,16 @@ public class HomePageBombeiro extends javax.swing.JFrame {
         mnSair.setText("Sair");
         mnSair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         mnSair.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        mnSair.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mnSairMouseClicked(evt);
+            }
+        });
         mnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mnSairActionPerformed(evt);
             }
         });
-
-        mnsair.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        mnsair.setText("Sair");
-        mnsair.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnsairActionPerformed(evt);
-            }
-        });
-        mnSair.add(mnsair);
-
         jMenuBar1.add(mnSair);
 
         setJMenuBar(jMenuBar1);
@@ -265,11 +259,6 @@ public class HomePageBombeiro extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_mnExcluirActionPerformed
 
-    private void mnsairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnsairActionPerformed
-        new GenericLogin().setVisible(true);
-        dispose();
-    }//GEN-LAST:event_mnsairActionPerformed
-
     private void mnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnSairActionPerformed
 
     }//GEN-LAST:event_mnSairActionPerformed
@@ -305,6 +294,11 @@ public class HomePageBombeiro extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_btnAbrirKeyPressed
+
+    private void mnSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnSairMouseClicked
+        new GenericLogin().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_mnSairMouseClicked
 
     /**
      * @param args the command line arguments
@@ -356,7 +350,6 @@ public class HomePageBombeiro extends javax.swing.JFrame {
     private javax.swing.JMenuItem mnEditar;
     private javax.swing.JMenuItem mnExcluir;
     private javax.swing.JMenu mnSair;
-    private javax.swing.JMenuItem mnsair;
     private javax.swing.JTextField tfPesquisar;
     // End of variables declaration//GEN-END:variables
 }

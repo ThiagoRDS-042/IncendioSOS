@@ -2,6 +2,23 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/IncendioSOS/src/univs/edu/telas/menuPrincipal/MenuPrincipal.java</file>
+            <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/IncendioSOS/src/univs/edu/telas/bombeiro/HomePageBombeiro.java</file>
+            <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/IncendioSOS/src/univs/edu/telas/usuario/Denunciar.java</file>
+            <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/IncendioSOS/src/univs/edu/telas/usuario/HomePageUsuario.java</file>
+            <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/IncendioSOS/src/univs/edu/telas/usuario/CadastroUsuario.java</file>
+            <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/IncendioSOS/src/univs/edu/telas/ibama/DetalhesDenuncia.java</file>
+            <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/IncendioSOS/src/univs/edu/telas/ibama/HomePageIbama.java</file>
+            <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/IncendioSOS/src/univs/edu/telas/adm/CadastroBombeiro.java</file>
+            <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/IncendioSOS/src/univs/edu/telas/adm/ListaIbamasEBombeiros.java</file>
+            <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/IncendioSOS/src/univs/edu/telas/usuario/Informacoes.java</file>
+            <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/IncendioSOS/src/univs/edu/telas/adm/CadastroIbama.java</file>
+            <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/IncendioSOS/src/univs/edu/telas/adm/HomePageAdm.java</file>
+            <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/IncendioSOS/src/univs/edu/telas/login/GenericLogin.java</file>
+            <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/IncendioSOS/src/univs/edu/telas/adm/CadastroAdm.java</file>
+            <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/IncendioSOS/src/univs/edu/telas/adm/ListaUsuarios.java</file>
+            <file>file:/C:/Users/GGrio/OneDrive/Área%20de%20Trabalho/IncendioSOS/src/univs/edu/telas/adm/Relatorio.java</file>
+        </group>
     </open-files>
 </project-private>

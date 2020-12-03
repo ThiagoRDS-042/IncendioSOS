@@ -5,17 +5,68 @@
  */
 package univs.edu.telas.menuPrincipal;
 
+import univs.edu.telas.login.GenericLogin;
+
 /**
  *
  * @author GGrio
  */
 public class MenuPrincipal extends javax.swing.JFrame {
 
+    public static boolean prevencao;
+    public static boolean ajuda;
+
     /**
      * Creates new form MenuPrincipal
      */
     public MenuPrincipal() {
         initComponents();
+
+        carregarInfo();
+    }
+
+    public void carregarInfo() {
+        if (prevencao == true) {
+
+            lbTitulo.setText("Prenvenção!");
+            lbVoltar.setText("Voltar");
+            lbVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/iconSetaVoltar.png")));
+            lbVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+            lbVoltar.addMouseListener(new java.awt.event.MouseAdapter() {
+                @Override
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    if (prevencao == true) {
+                        prevencao = false;
+                        ajuda = false;
+                    } else if (ajuda == true) {
+                        prevencao = true;
+                        ajuda = false;
+                    }
+                    new MenuPrincipal().setVisible(true);
+                    dispose();
+                }
+            });
+
+        } else if (ajuda == true) {
+            lbTitulo.setText("Ajuda!");
+            lbVoltar.setText("Voltar");
+            lbVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/iconSetaVoltar.png")));
+            lbVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+            lbVoltar.addMouseListener(new java.awt.event.MouseAdapter() {
+                @Override
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    if (prevencao == true) {
+                        prevencao = false;
+                        ajuda = false;
+                    } else if (ajuda == true) {
+                        prevencao = true;
+                        ajuda = false;
+                    }
+                    new MenuPrincipal().setVisible(true);
+                    dispose();
+                }
+            });
+        }
     }
 
     /**
@@ -27,22 +78,140 @@ public class MenuPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        lbAvancar = new javax.swing.JLabel();
+        lbTitulo = new javax.swing.JLabel();
+        lbVoltar = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu3 = new javax.swing.JMenu();
+        jMenu = new javax.swing.JMenu();
+        mnAjuda = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lbAvancar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        lbAvancar.setForeground(new java.awt.Color(255, 255, 255));
+        lbAvancar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbAvancar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/iconSetaAvancar.png"))); // NOI18N
+        lbAvancar.setText("Avançar");
+        lbAvancar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lbAvancar.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        lbAvancar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbAvancarMouseClicked(evt);
+            }
+        });
+        jPanel1.add(lbAvancar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 290, 100, 30));
+
+        lbTitulo.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        lbTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        lbTitulo.setText("Seja Bem Vindo!");
+        jPanel1.add(lbTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 120, 30));
+
+        lbVoltar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        lbVoltar.setForeground(new java.awt.Color(255, 255, 255));
+        lbVoltar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        jPanel1.add(lbVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 100, 30));
+
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/backgroundMenu.jpg"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 370, 370));
+
+        jMenu3.setBackground(new java.awt.Color(0, 0, 0, 0));
+        jMenu3.setMargin(new java.awt.Insets(0, 170, 0, 0));
+        jMenuBar1.add(jMenu3);
+
+        jMenu.setText("Dicas de prevenção");
+        jMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jMenu.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jMenu);
+
+        mnAjuda.setText("Ajuda");
+        mnAjuda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mnAjuda.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        mnAjuda.setMargin(new java.awt.Insets(5, 10, 5, 0));
+        mnAjuda.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mnAjudaMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(mnAjuda);
+
+        jMenu4.setText("Login");
+        jMenu4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jMenu4.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jMenu4.setMargin(new java.awt.Insets(0, 10, 0, 0));
+        jMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu4MouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jMenu4);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 389, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void lbAvancarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbAvancarMouseClicked
+        if (prevencao == false && ajuda == false) {
+            prevencao = true;
+            ajuda = false;
+            new MenuPrincipal().setVisible(true);
+            dispose();
+        } else if (prevencao == true) {
+            prevencao = false;
+            ajuda = true;
+            new MenuPrincipal().setVisible(true);
+            dispose();
+        } else if (ajuda == true) {
+            new GenericLogin().setVisible(true);
+            dispose();
+        }
+
+    }//GEN-LAST:event_lbAvancarMouseClicked
+
+    private void jMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuMouseClicked
+        prevencao = true;
+        ajuda = false;
+        new MenuPrincipal().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jMenuMouseClicked
+
+    private void mnAjudaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnAjudaMouseClicked
+        ajuda = true;
+        prevencao = false;
+        new MenuPrincipal().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_mnAjudaMouseClicked
+
+    private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
+        new GenericLogin().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jMenu4MouseClicked
 
     /**
      * @param args the command line arguments
@@ -58,16 +227,24 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuPrincipal.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuPrincipal.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuPrincipal.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuPrincipal.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -80,5 +257,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenu jMenu;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lbAvancar;
+    private javax.swing.JLabel lbTitulo;
+    private javax.swing.JLabel lbVoltar;
+    private javax.swing.JMenu mnAjuda;
     // End of variables declaration//GEN-END:variables
 }

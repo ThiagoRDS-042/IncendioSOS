@@ -340,6 +340,9 @@ public class GenericLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCadastreseActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        MenuPrincipal.ajuda = false;
+        MenuPrincipal.prevencao = false;
+        
         new MenuPrincipal().setVisible(true);
         dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
