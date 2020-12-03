@@ -38,9 +38,7 @@ public class Notificar extends javax.swing.JFrame {
     public void addItem() {
         jTipos.removeAllItems();
         jTipos.addItem("Florestal");
-        jTipos.addItem("Residencial");
-        jTipos.addItem("Automoveis");
-        jTipos.addItem("Usinas");
+        jTipos.addItem("Urbano");
         jCorposDeBombeiros.removeAllItems();
         List<CorpoDeBombeiros> bombeiros = dao.listarObjetos("Bombeiro", "Undefined");
         for (CorpoDeBombeiros bombeiro : bombeiros) {

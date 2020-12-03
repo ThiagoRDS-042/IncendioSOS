@@ -251,7 +251,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
 
         lbInfo.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
         lbInfo.setForeground(new java.awt.Color(255, 255, 255));
-        lbInfo.setText("<html><u>Para o cadastro de corpo de bombeiros ou Orgãos do Ibama, clique aqui!</b> ");
+        lbInfo.setText("<html><u>Para o cadastro de corpo de bombeiros ou Orgãos do Ibama, clique aqui! ");
         lbInfo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lbInfo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

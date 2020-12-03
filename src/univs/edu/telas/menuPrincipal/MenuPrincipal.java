@@ -5,6 +5,11 @@
  */
 package univs.edu.telas.menuPrincipal;
 
+import java.awt.Color;
+import java.awt.Desktop;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import univs.edu.telas.login.GenericLogin;
 
 /**
@@ -28,7 +33,25 @@ public class MenuPrincipal extends javax.swing.JFrame {
     public void carregarInfo() {
         if (prevencao == true) {
 
-            lbTitulo.setText("Prenvenção!");
+            lbTitulo.setText("Dicas de Prenvenção");
+
+            lbTexto.setText("<html><ul><li>Não sobrecarregue as tomadas com diversos adaptadores acoplados a ela;<li>Em hipóteses alguma, armazene líquidos inflamáveis próximos a fontes de calor;<li>Antes de utilizar um equipamento, verifique se a sua voltagem é compatível com a da tomada;<li>Manter fósforos e isqueiros fora do alcance das crianças;<li>O Ibama alerta: provocar incêndios sem autorização é crime ambiental! A pena prevista é de reclusão, de dois a quatro anos, e multa (Lei nº 9.605/98 e Decreto nº 6.514/08).</ul>");
+            lbTexto.setIcon(null);
+
+            lbLink.setText("<html><u>Para mais informações clique aqui!");
+            lbLink.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+            lbLink.addMouseListener(new java.awt.event.MouseAdapter() {
+                @Override
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+                    try {
+                        URI link = new URI("https://www.gov.br/ibama/pt-br");
+                        Desktop.getDesktop().browse(link);
+                    } catch (IOException | URISyntaxException erro) {
+                        System.out.println(erro);
+                    }
+                }
+            });
+
             lbVoltar.setText("Voltar");
             lbVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/iconSetaVoltar.png")));
             lbVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -48,7 +71,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
             });
 
         } else if (ajuda == true) {
-            lbTitulo.setText("Ajuda!");
+            lbTitulo.setText("  Sobre o Sistema");
+
+            lbTexto.setText("<html><ul>O Incêndio S.O.S é um aplicativo de denúncia sobre incêndios para Desktop");
+            lbTexto.setIcon(null);
+            
             lbVoltar.setText("Voltar");
             lbVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/iconSetaVoltar.png")));
             lbVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -82,11 +109,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
         lbAvancar = new javax.swing.JLabel();
         lbTitulo = new javax.swing.JLabel();
         lbVoltar = new javax.swing.JLabel();
+        lbTexto = new javax.swing.JLabel();
+        lbLink = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         jMenu = new javax.swing.JMenu();
-        mnAjuda = new javax.swing.JMenu();
+        mnSobre = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -106,17 +135,37 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 lbAvancarMouseClicked(evt);
             }
         });
-        jPanel1.add(lbAvancar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 290, 100, 30));
+        jPanel1.add(lbAvancar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 310, 100, 30));
 
         lbTitulo.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         lbTitulo.setForeground(new java.awt.Color(255, 255, 255));
-        lbTitulo.setText("Seja Bem Vindo!");
-        jPanel1.add(lbTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 120, 30));
+        lbTitulo.setText("  Seja Bem Vindo!");
+        jPanel1.add(lbTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 180, 30));
 
         lbVoltar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         lbVoltar.setForeground(new java.awt.Color(255, 255, 255));
         lbVoltar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        jPanel1.add(lbVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 100, 30));
+        jPanel1.add(lbVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 100, 30));
+
+        lbTexto.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        lbTexto.setForeground(new java.awt.Color(255, 255, 255));
+        lbTexto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(lbTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 330, 220));
+
+        lbLink.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        lbLink.setForeground(new java.awt.Color(255, 255, 255));
+        lbLink.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbLinkMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lbLinkMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lbLinkMouseExited(evt);
+            }
+        });
+        jPanel1.add(lbLink, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 180, 30));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -137,16 +186,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         jMenuBar1.add(jMenu);
 
-        mnAjuda.setText("Ajuda");
-        mnAjuda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        mnAjuda.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        mnAjuda.setMargin(new java.awt.Insets(5, 10, 5, 0));
-        mnAjuda.addMouseListener(new java.awt.event.MouseAdapter() {
+        mnSobre.setText("Sobre");
+        mnSobre.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mnSobre.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        mnSobre.setMargin(new java.awt.Insets(5, 10, 5, 0));
+        mnSobre.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                mnAjudaMouseClicked(evt);
+                mnSobreMouseClicked(evt);
             }
         });
-        jMenuBar1.add(mnAjuda);
+        jMenuBar1.add(mnSobre);
 
         jMenu4.setText("Login");
         jMenu4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -201,17 +250,29 @@ public class MenuPrincipal extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jMenuMouseClicked
 
-    private void mnAjudaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnAjudaMouseClicked
+    private void mnSobreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnSobreMouseClicked
         ajuda = true;
         prevencao = false;
         new MenuPrincipal().setVisible(true);
         dispose();
-    }//GEN-LAST:event_mnAjudaMouseClicked
+    }//GEN-LAST:event_mnSobreMouseClicked
 
     private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
         new GenericLogin().setVisible(true);
         dispose();
     }//GEN-LAST:event_jMenu4MouseClicked
+
+    private void lbLinkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbLinkMouseClicked
+
+    }//GEN-LAST:event_lbLinkMouseClicked
+
+    private void lbLinkMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbLinkMouseEntered
+        lbLink.setForeground(Color.decode("#CCCCCC"));
+    }//GEN-LAST:event_lbLinkMouseEntered
+
+    private void lbLinkMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbLinkMouseExited
+        lbLink.setForeground(Color.WHITE);
+    }//GEN-LAST:event_lbLinkMouseExited
 
     /**
      * @param args the command line arguments
@@ -264,8 +325,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbAvancar;
+    private javax.swing.JLabel lbLink;
+    private javax.swing.JLabel lbTexto;
     private javax.swing.JLabel lbTitulo;
     private javax.swing.JLabel lbVoltar;
-    private javax.swing.JMenu mnAjuda;
+    private javax.swing.JMenu mnSobre;
     // End of variables declaration//GEN-END:variables
 }

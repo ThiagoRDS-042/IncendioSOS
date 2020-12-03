@@ -381,7 +381,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;u&gt;Para o cadastro de corpo de bombeiros ou Org&#xe3;os do Ibama, clique aqui!&lt;/b&gt; "/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;u&gt;Para o cadastro de corpo de bombeiros ou Org&#xe3;os do Ibama, clique aqui! "/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Cursor em Forma de M&#xe3;o"/>
             </Property>
