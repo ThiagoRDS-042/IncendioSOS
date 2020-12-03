@@ -46,12 +46,12 @@ public class HomePageUsuario extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        bntNotificar = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         btnDenunciar = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jlTeste = new javax.swing.JLabel();
+        bntNotificar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu5 = new javax.swing.JMenu();
         mnInfo = new javax.swing.JMenu();
@@ -67,29 +67,12 @@ public class HomePageUsuario extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(450, 450));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        bntNotificar.setBackground(new java.awt.Color(0, 0, 0, 0
-        ));
-        bntNotificar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        bntNotificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/iconNotificarBombeiro.png"))); // NOI18N
-        bntNotificar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        bntNotificar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bntNotificarActionPerformed(evt);
-            }
-        });
-        bntNotificar.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                bntNotificarKeyPressed(evt);
-            }
-        });
-
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel1.setText("Notificar");
-
-        btnDenunciar.setBackground(new java.awt.Color(0, 0, 0, 0));
+        btnDenunciar.setBackground(new java.awt.Color(255, 51, 153));
         btnDenunciar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        btnDenunciar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/iconDenuncia.png"))); // NOI18N
+        btnDenunciar.setForeground(new java.awt.Color(255, 255, 255));
+        btnDenunciar.setText("Denunciar");
         btnDenunciar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnDenunciar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,64 +84,46 @@ public class HomePageUsuario extends javax.swing.JFrame {
                 btnDenunciarKeyPressed(evt);
             }
         });
+        jPanel1.add(btnDenunciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 90, 35));
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel2.setText("Denunciar");
+        bntNotificar.setBackground(new java.awt.Color(255, 51, 153));
+        bntNotificar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        bntNotificar.setForeground(new java.awt.Color(255, 255, 255));
+        bntNotificar.setText("Notificar");
+        bntNotificar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bntNotificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntNotificarActionPerformed(evt);
+            }
+        });
+        bntNotificar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                bntNotificarKeyPressed(evt);
+            }
+        });
+        jPanel1.add(bntNotificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 90, 35));
 
-        jlTeste.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("do IBAMA selecionado.");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 230, -1));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/dicasDePrevencao.jpg"))); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Nota: As notificações são enviadas ao Corpo de");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 230, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(bntNotificar, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnDenunciar, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(jLabel1))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(jLabel2)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(jlTeste, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(16, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(74, 74, 74)
-                        .addComponent(bntNotificar, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel1)
-                        .addGap(124, 124, 124)
-                        .addComponent(btnDenunciar, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
-                        .addComponent(jlTeste, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(60, 60, 60))
-        );
+        jLabel11.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("bombeiros selecionado e as denuncias ao orgão");
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 230, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/backgroundAdm.jpg"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 280, 290));
 
         jMenuBar1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
-        jMenu5.setMargin(new java.awt.Insets(0, 210, 0, 0));
+        jMenu5.setMargin(new java.awt.Insets(0, 80, 0, 0));
         jMenuBar1.add(jMenu5);
 
         mnInfo.setText("Informações");
@@ -242,11 +207,13 @@ public class HomePageUsuario extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -371,12 +338,12 @@ public class HomePageUsuario extends javax.swing.JFrame {
     private javax.swing.JButton btnDenunciar;
     private javax.swing.JMenu configs;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel jlTeste;
     private javax.swing.JMenuItem mnBombeiro;
     private javax.swing.JMenuItem mnEditar;
     private javax.swing.JMenuItem mnExcluir;
