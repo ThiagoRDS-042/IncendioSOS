@@ -86,6 +86,7 @@ public class HomePageIbama extends javax.swing.JFrame {
         btnAbrir = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
         configs = new javax.swing.JMenu();
         mnEditar = new javax.swing.JMenuItem();
@@ -176,8 +177,13 @@ public class HomePageIbama extends javax.swing.JFrame {
 
         jMenuBar1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
+        jMenu1.setBackground(new java.awt.Color(0, 0, 0, 0));
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/iconLogo.png"))); // NOI18N
+        jMenu1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jMenuBar1.add(jMenu1);
+
         jMenu5.setBackground(new java.awt.Color(0, 0, 0, 0));
-        jMenu5.setMargin(new java.awt.Insets(0, 420, 0, 0));
+        jMenu5.setMargin(new java.awt.Insets(0, 390, 0, 0));
         jMenu5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenu5MouseClicked(evt);
@@ -370,6 +376,7 @@ public class HomePageIbama extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;

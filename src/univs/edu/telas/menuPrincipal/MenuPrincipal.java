@@ -5,11 +5,6 @@
  */
 package univs.edu.telas.menuPrincipal;
 
-import java.awt.Color;
-import java.awt.Desktop;
-import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
 import univs.edu.telas.login.GenericLogin;
 
 /**
@@ -26,31 +21,21 @@ public class MenuPrincipal extends javax.swing.JFrame {
      */
     public MenuPrincipal() {
         initComponents();
-
         carregarInfo();
     }
 
     public void carregarInfo() {
         if (prevencao == true) {
+            jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-            lbTitulo.setText("Dicas de Prenvenção");
+            lbTitulo1.setLocation(110, 10);
+            lbTitulo1.setFont(new java.awt.Font("Times New Roman", 0, 20));
+            lbTitulo1.setText("Dicas de Prenvenção");
+            
+            lbLogo.setIcon(null);
 
-            lbTexto.setText("<html><ul><li>Não sobrecarregue as tomadas com diversos adaptadores acoplados a ela;<li>Em hipóteses alguma, armazene líquidos inflamáveis próximos a fontes de calor;<li>Antes de utilizar um equipamento, verifique se a sua voltagem é compatível com a da tomada;<li>Manter fósforos e isqueiros fora do alcance das crianças;<li>O Ibama alerta: provocar incêndios sem autorização é crime ambiental! A pena prevista é de reclusão, de dois a quatro anos, e multa (Lei nº 9.605/98 e Decreto nº 6.514/08).</ul>");
-            lbTexto.setIcon(null);
-
-            lbLink.setText("<html><u>Para mais informações clique aqui!");
-            lbLink.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-            lbLink.addMouseListener(new java.awt.event.MouseAdapter() {
-                @Override
-                public void mouseClicked(java.awt.event.MouseEvent evt) {
-                    try {
-                        URI link = new URI("https://www.gov.br/ibama/pt-br");
-                        Desktop.getDesktop().browse(link);
-                    } catch (IOException | URISyntaxException erro) {
-                        System.out.println(erro);
-                    }
-                }
-            });
+            lbTexto.setText("<html><ul><li>Em hipóteses alguma, armazene líquidos inflamáveis próximos a fontes de calor;<li>Manter fósforos e isqueiros fora do alcance das crianças;<li>Ao abandonar uma fogueira, apagar com água ou terra;<li>Sempre capinar em volta e tirar o mato do local onde for fazer uma fogueira ou colocar velas;<li>O Ibama alerta: provocar incêndios sem autorização é crime ambiental! A pena prevista é de reclusão, de dois a quatro anos, e multa (Lei nº 9.605/98 e Decreto nº 6.514/08);<li>Em caso de incêndios dolosos, em áreas urbanas, ligue para a polícia: 190.</ul>");
+            jLabel2.setIcon(null);
 
             lbVoltar.setText("Voltar");
             lbVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/iconSetaVoltar.png")));
@@ -71,11 +56,17 @@ public class MenuPrincipal extends javax.swing.JFrame {
             });
 
         } else if (ajuda == true) {
-            lbTitulo.setText("  Sobre o Sistema");
+            jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-            lbTexto.setText("<html><ul>O Incêndio S.O.S é um aplicativo de denúncia sobre incêndios para Desktop");
-            lbTexto.setIcon(null);
+            lbTitulo1.setLocation(110, 30);
+            lbTitulo1.setFont(new java.awt.Font("Times New Roman", 0, 20));
+            lbTitulo1.setText("  Sobre o Sistema");
             
+            lbLogo.setIcon(null);
+
+            lbTexto.setText("<html><ul>O Incêndio S.O.S é um sistema de dicas de prevenção e denuncia, utilizado por órgãos do governo para combater e prevenir incêndios. O aplicativo permitir que o usuário (Delator), cadastrado, denuncie incêndios e queimadas para as entidades responsáveis (Corpo de Bombeiros ou IBAMA). Além disso, as entidades cadastradas, obtêm as informações das queixas para tomar as devidas providencias.");
+            jLabel2.setIcon(null);
+
             lbVoltar.setText("Voltar");
             lbVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/iconSetaVoltar.png")));
             lbVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -107,12 +98,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         lbAvancar = new javax.swing.JLabel();
-        lbTitulo = new javax.swing.JLabel();
+        lbTitulo1 = new javax.swing.JLabel();
         lbVoltar = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        lbLogo = new javax.swing.JLabel();
         lbTexto = new javax.swing.JLabel();
-        lbLink = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
         jMenu = new javax.swing.JMenu();
         mnSobre = new javax.swing.JMenu();
@@ -137,43 +130,44 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         jPanel1.add(lbAvancar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 310, 100, 30));
 
-        lbTitulo.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
-        lbTitulo.setForeground(new java.awt.Color(255, 255, 255));
-        lbTitulo.setText("  Seja Bem Vindo!");
-        jPanel1.add(lbTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 180, 30));
+        lbTitulo1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        lbTitulo1.setForeground(new java.awt.Color(255, 255, 255));
+        lbTitulo1.setText("  Bem Vindo!");
+        jPanel1.add(lbTitulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, 180, 30));
 
         lbVoltar.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         lbVoltar.setForeground(new java.awt.Color(255, 255, 255));
         lbVoltar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jPanel1.add(lbVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 100, 30));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 200, 60));
+
+        lbLogo.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        lbLogo.setForeground(new java.awt.Color(255, 255, 255));
+        lbLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/logo.png"))); // NOI18N
+        jPanel1.add(lbLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 200, 162));
 
         lbTexto.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         lbTexto.setForeground(new java.awt.Color(255, 255, 255));
         lbTexto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jPanel1.add(lbTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 330, 220));
-
-        lbLink.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        lbLink.setForeground(new java.awt.Color(255, 255, 255));
-        lbLink.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lbLinkMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lbLinkMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                lbLinkMouseExited(evt);
-            }
-        });
-        jPanel1.add(lbLink, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 180, 30));
+        jPanel1.add(lbTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 330, 260));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/backgroundMenu.jpg"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 370, 370));
 
+        jMenu1.setBackground(new java.awt.Color(0, 0, 0, 0));
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/iconLogo.png"))); // NOI18N
+        jMenu1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu1MouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jMenu1);
+
         jMenu3.setBackground(new java.awt.Color(0, 0, 0, 0));
-        jMenu3.setMargin(new java.awt.Insets(0, 170, 0, 0));
+        jMenu3.setMargin(new java.awt.Insets(0, 140, 0, 0));
         jMenuBar1.add(jMenu3);
 
         jMenu.setText("Dicas de prevenção");
@@ -214,11 +208,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 389, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 379, Short.MAX_VALUE)
         );
 
         pack();
@@ -262,17 +256,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jMenu4MouseClicked
 
-    private void lbLinkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbLinkMouseClicked
-
-    }//GEN-LAST:event_lbLinkMouseClicked
-
-    private void lbLinkMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbLinkMouseEntered
-        lbLink.setForeground(Color.decode("#CCCCCC"));
-    }//GEN-LAST:event_lbLinkMouseEntered
-
-    private void lbLinkMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbLinkMouseExited
-        lbLink.setForeground(Color.WHITE);
-    }//GEN-LAST:event_lbLinkMouseExited
+    private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
+        ajuda = false;
+        prevencao = false;
+        new MenuPrincipal().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jMenu1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -319,15 +308,17 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbAvancar;
-    private javax.swing.JLabel lbLink;
+    private javax.swing.JLabel lbLogo;
     private javax.swing.JLabel lbTexto;
-    private javax.swing.JLabel lbTitulo;
+    private javax.swing.JLabel lbTitulo1;
     private javax.swing.JLabel lbVoltar;
     private javax.swing.JMenu mnSobre;
     // End of variables declaration//GEN-END:variables

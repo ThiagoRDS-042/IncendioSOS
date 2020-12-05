@@ -51,6 +51,7 @@ public class HomePageUsuario extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
         mnInfo = new javax.swing.JMenu();
         configs = new javax.swing.JMenu();
@@ -100,7 +101,7 @@ public class HomePageUsuario extends javax.swing.JFrame {
 
         jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("<html>Nota: As notificações são enviadas ao Corpo de  </br>bombeiros  selecionado e as denuncias ao orgão </br>do Ibama selecionado.");
+        jLabel10.setText("<html>Nota: As notificações são enviadas ao Corpo de  </br>bombeiros  selecionado e as denuncias ao orgão </br>do IBAMA selecionado.");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 240, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/backgroundAdm.jpg"))); // NOI18N
@@ -108,7 +109,12 @@ public class HomePageUsuario extends javax.swing.JFrame {
 
         jMenuBar1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
-        jMenu5.setMargin(new java.awt.Insets(0, 80, 0, 0));
+        jMenu1.setBackground(new java.awt.Color(0, 0, 0, 0));
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/iconLogo.png"))); // NOI18N
+        jMenu1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jMenuBar1.add(jMenu1);
+
+        jMenu5.setMargin(new java.awt.Insets(0, 50, 0, 0));
         jMenuBar1.add(jMenu5);
 
         mnInfo.setText("Informações");
@@ -300,6 +306,7 @@ public class HomePageUsuario extends javax.swing.JFrame {
     private javax.swing.JMenu configs;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;

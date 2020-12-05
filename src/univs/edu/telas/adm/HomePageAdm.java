@@ -46,6 +46,7 @@ public class HomePageAdm extends javax.swing.JFrame {
         btnCadastroAdm2 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu3 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
         mnUsuario = new javax.swing.JMenuItem();
@@ -106,8 +107,14 @@ public class HomePageAdm extends javax.swing.JFrame {
 
         jMenuBar1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
+        jMenu3.setBackground(new java.awt.Color(0, 0, 0, 0));
+        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/iconLogo.png"))); // NOI18N
+        jMenu3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jMenuBar1.add(jMenu3);
+
         jMenu2.setBackground( new java.awt.Color(0, 0 ,0 ,0));
-        jMenu2.setMargin(new java.awt.Insets(0, 90, 0, 0));
+        jMenu2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jMenu2.setMargin(new java.awt.Insets(0, 60, 0, 0));
         jMenuBar1.add(jMenu2);
 
         jMenu1.setText("Usuários");
@@ -319,6 +326,7 @@ public class HomePageAdm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JMenuItem mnBombeiro;
