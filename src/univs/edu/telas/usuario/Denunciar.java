@@ -70,7 +70,6 @@ public class Denunciar extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         tfComplemento = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        tfDescricaoSuspeito = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tfDetalhes = new javax.swing.JTextPane();
         jLabel4 = new javax.swing.JLabel();
@@ -78,9 +77,11 @@ public class Denunciar extends javax.swing.JFrame {
         btnSelecionar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jIbamas = new javax.swing.JComboBox<>();
-        lbEvidencia = new javax.swing.JLabel();
         btnVoltar = new javax.swing.JButton();
         btnEnviar = new javax.swing.JButton();
+        lbEvidencia = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tfDescricaoSuspeito = new javax.swing.JTextPane();
         jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -138,18 +139,15 @@ public class Denunciar extends javax.swing.JFrame {
         jLabel6.setText("Descrição do suspeito:");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, -1, -1));
 
-        tfDescricaoSuspeito.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jPanel1.add(tfDescricaoSuspeito, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 200, 35));
-
         tfDetalhes.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jScrollPane1.setViewportView(tfDetalhes);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, 200, 90));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 250, 200, 60));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Detalhes do Incêndio:");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -189,9 +187,6 @@ public class Denunciar extends javax.swing.JFrame {
         });
         jPanel1.add(jIbamas, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 320, 153, 30));
 
-        lbEvidencia.setBackground(new java.awt.Color(153, 153, 153));
-        jPanel1.add(lbEvidencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, 400, 210));
-
         btnVoltar.setBackground(new java.awt.Color(255, 51, 153));
         btnVoltar.setForeground(new java.awt.Color(255, 255, 255));
         btnVoltar.setText("Voltar");
@@ -223,6 +218,14 @@ public class Denunciar extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnEnviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 590, 80, 35));
+
+        lbEvidencia.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel1.add(lbEvidencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, 400, 210));
+
+        tfDescricaoSuspeito.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jScrollPane2.setViewportView(tfDescricaoSuspeito);
+
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 200, 60));
 
         jLabel10.setBackground(new java.awt.Color(204, 204, 204));
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/univs/edu/imagens/backgroundInfoDenunciaNotificacao.jpg"))); // NOI18N
@@ -427,9 +430,10 @@ public class Denunciar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lbEvidencia;
     private javax.swing.JTextField tfComplemento;
-    private javax.swing.JTextField tfDescricaoSuspeito;
+    private javax.swing.JTextPane tfDescricaoSuspeito;
     private javax.swing.JTextPane tfDetalhes;
     private javax.swing.JTextField tfEndereco;
     private javax.swing.JTextField tfNomeSuspeito;

@@ -184,6 +184,7 @@ public class GenericLogin extends javax.swing.JFrame {
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         if (tfEmailLogin.getText().isEmpty() || tfSenhaLogin.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Preencha todos os Campos!", "Erro", 2);
+            limparCampos();
         } else {
             login = true;
             if (dao.login(tfEmailLogin.getText(), Criptografia.criptografar(tfSenhaLogin.getText())) instanceof Usuario) {
@@ -193,10 +194,10 @@ public class GenericLogin extends javax.swing.JFrame {
                 Usuario.usuario = usuario;
 
                 if (dao.listarNotDen(usuario, "Notificação", "Undefined", "Undefined").size() > 1 || dao.listarNotDen(usuario, "Denuncia", "Undefined", "Undefined").size() > 1 || (dao.listarNotDen(usuario, "Notificação", "Undefined", "Undefined").size() == 1 && dao.listarNotDen(usuario, "Denuncia", "Undefined", "Undefined").size() == 1)) {
-                    JOptionPane.showMessageDialog(null, "Trotes excessivos detectados, sua conta será excluída!", "Aviso", 0);
+                    JOptionPane.showMessageDialog(null, "Trotes excessivos detectados,  você perdeu o acesso a sua conta!", "Aviso", 0);
                     limparCampos();
                 } else if (dao.listarNotDen(usuario, "Notificação", "Undefined", "Undefined").size() == 1 && usuario.isVerificaCondutaTrote() || (dao.listarNotDen(usuario, "Denuncia", "Undefined", "Undefined").size() == 1 && usuario.isVerificaCondutaTrote())) {
-                    if (JOptionPane.showConfirmDialog(null, "Trote detectado, caso isto ocorra novamente sua conta será excluída, você se compromete a não passar trotes navamente?", "Aviso", 2, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                    if (JOptionPane.showConfirmDialog(null, "Trote detectado, caso isto ocorra novamente você perderá o acesso a sua conta, você se compromete a não passar trotes navamente?", "Aviso", 2, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                         DetalhesNotificacao.trote = true;
                         usuario.setVerificaCondutaTrote(false);
                         dao.salvar(usuario);
@@ -259,6 +260,7 @@ public class GenericLogin extends javax.swing.JFrame {
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             if (tfEmailLogin.getText().isEmpty() || tfSenhaLogin.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Preencha todos os Campos!", "Erro", 2);
+                limparCampos();
             } else {
                 login = true;
                 if (dao.login(tfEmailLogin.getText(), Criptografia.criptografar(tfSenhaLogin.getText())) instanceof Usuario) {
@@ -268,10 +270,10 @@ public class GenericLogin extends javax.swing.JFrame {
                     Usuario.usuario = usuario;
 
                     if (dao.listarNotDen(usuario, "Notificação", "Undefined", "Undefined").size() > 1 || dao.listarNotDen(usuario, "Denuncia", "Undefined", "Undefined").size() > 1 || (dao.listarNotDen(usuario, "Notificação", "Undefined", "Undefined").size() == 1 && dao.listarNotDen(usuario, "Denuncia", "Undefined", "Undefined").size() == 1)) {
-                        JOptionPane.showMessageDialog(null, "Trotes excessivos detectados, sua conta será excluída!", "Aviso", 0);
+                        JOptionPane.showMessageDialog(null, "Trotes excessivos detectados,  você perdeu o acesso a sua conta!", "Aviso", 0);
                         limparCampos();
                     } else if (dao.listarNotDen(usuario, "Notificação", "Undefined", "Undefined").size() == 1 && usuario.isVerificaCondutaTrote() || (dao.listarNotDen(usuario, "Denuncia", "Undefined", "Undefined").size() == 1 && usuario.isVerificaCondutaTrote())) {
-                        if (JOptionPane.showConfirmDialog(null, "Trote detectado, caso isto ocorra novamente sua conta será excluída, você se compromete a não passar trotes navamente?", "Aviso", 2, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                        if (JOptionPane.showConfirmDialog(null, "Trote detectado, caso isto ocorra novamente você perderá o acesso a sua conta, você se compromete a não passar trotes navamente?", "Aviso", 2, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                             DetalhesNotificacao.trote = true;
                             usuario.setVerificaCondutaTrote(false);
                             dao.salvar(usuario);
