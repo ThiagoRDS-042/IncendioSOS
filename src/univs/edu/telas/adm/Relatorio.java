@@ -61,8 +61,15 @@ public class Relatorio extends javax.swing.JFrame {
 
         if (nots.isEmpty() && dens.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Sem registros de ocorrêcia para a cidade : " + tfPesquisa.getText(), "Erro", 2);
+            jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "Relatório de Ocerrências", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Times New Roman", 1, 14), new java.awt.Color(255, 255, 255)));
             limparTexto();
         } else {
+
+            if (tfPesquisa.getText().isEmpty()) {
+                jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "Relatório de Ocerrências", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Times New Roman", 1, 14), new java.awt.Color(255, 255, 255)));
+            } else {
+                jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), tfPesquisa.getText(), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Times New Roman", 1, 14), new java.awt.Color(255, 255, 255)));
+            }
 
             int qtdNotsDens = nots.size();
             qtdNotsDens += dens.size();
@@ -199,7 +206,6 @@ public class Relatorio extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel1.setBackground(new java.awt.Color(51, 0, 153));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)), "Relatório de Ocorências", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Times New Roman", 1, 14), new java.awt.Color(255, 255, 255))); // NOI18N
 
         lbOcorrencia.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         lbOcorrencia.setForeground(new java.awt.Color(204, 204, 204));
