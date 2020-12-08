@@ -218,7 +218,7 @@ public class GenericLogin extends javax.swing.JFrame {
                 bombeiro = (CorpoDeBombeiros) dao.login(tfEmailLogin.getText(), Criptografia.criptografar(tfSenhaLogin.getText()));
                 CorpoDeBombeiros.bombeiro = bombeiro;
 
-                if (!CorpoDeBombeiros.bombeiro.isVerificaConta() && JOptionPane.showConfirmDialog(null, "Edite sua conta agora, caso não queira voçê pode ter acesso a edição pelo painel configurações", "Aviso", 2, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                if (!CorpoDeBombeiros.bombeiro.isVerificaConta() && JOptionPane.showConfirmDialog(null, "Edite sua conta agora, caso não queira você pode ter acesso a edição pelo painel configurações", "Aviso", 2, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                     HomePageBombeiro.editar = true;
 
                     new CadastroBombeiro().setVisible(true);
@@ -232,7 +232,7 @@ public class GenericLogin extends javax.swing.JFrame {
                 ibama = (Ibama) dao.login(tfEmailLogin.getText(), Criptografia.criptografar(tfSenhaLogin.getText()));
                 Ibama.ibama = ibama;
 
-                if (!Ibama.ibama.isVerificaConta() && JOptionPane.showConfirmDialog(null, "Edite sua conta agora, caso não queira voçê pode ter acesso a edição pelo painel configurações", "Aviso", 2, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                if (!Ibama.ibama.isVerificaConta() && JOptionPane.showConfirmDialog(null, "Edite sua conta agora, caso não queira você pode ter acesso a edição pelo painel configurações", "Aviso", 2, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                     HomePageIbama.editar = true;
 
                     new CadastroIbama().setVisible(true);
